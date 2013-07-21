@@ -3,6 +3,6 @@ layout: default
 title: Top page
 ---
 
-こんにちはこんにちは
+とりあえず作りました。
 
-こんにちは
+こんにちはこんにちは

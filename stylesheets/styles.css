@@ -46,7 +46,7 @@ a small {
 }
 
 .wrapper {
-  width:860px;
+  width:980px;
   margin:0 auto;
 }
 
@@ -95,10 +95,22 @@ img {
   max-width:100%;
 }
 
+body > .navbar .container {
+    width: 980px;
+}
+
+.navbar .brand {
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
 header {
-  width:270px;
-  float:left;
-  position:fixed;
+  width:980px;
+  position:relative;
+}
+
+header .view {
+    text-align:right;
 }
 
 header ul {
@@ -160,9 +172,9 @@ header ul a strong {
 }
 
 section {
-  width:500px;
-  float:right;
-  padding-bottom:50px;
+    margin:0 auto;
+    width:500px;
+    padding-bottom:50px;
 }
 
 small {
@@ -177,10 +189,11 @@ hr {
 }
 
 footer {
-  width:270px;
-  float:left;
+  width:980px;
   position:fixed;
-  bottom:50px;
+  bottom:0px;
+  background:white;
+  opacity: 0.8;
 }
 
 @media print, screen and (max-width: 960px) {

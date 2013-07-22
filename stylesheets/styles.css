@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 
 body {
-  padding:50px;
+  padding: 0px 50px 50px 50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
@@ -114,26 +114,6 @@ header {
   background-color:white;
 }
 
-header:before {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  right: 10px;
-  left:auto;
-  width: 25%;
-  top: 80%;
-  max-width:300px;
-  background: #777;
-  -webkit-box-shadow: 0 15px 10px #777;
-  -moz-box-shadow: 0 15px 10px #777;
-  box-shadow: 0 15px 10px #777;
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  -o-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-}
 
 header .view {
     font-size:70%;
@@ -176,6 +156,11 @@ header ul a {
   text-align:center;
   padding-top:6px;
   height:40px;
+}
+
+header h1 {
+    padding-top: 20px;
+    margin: 0px;
 }
 
 strong {
@@ -239,8 +224,8 @@ footer {
   
   header {
     padding-right:320px;
+    background:url(../images/ratsinthegrid.png) no-repeat top right;
   }
-  
   section {
     border:1px solid #e5e5e5;
     border-width:1px 0;
@@ -266,8 +251,8 @@ footer {
   
   header {
     padding:0;
+    background:url(../images/ratsinthegrid.png) no-repeat top right;
   }
-  
   header ul, header p.view {
     position:static;
   }
@@ -277,11 +262,13 @@ footer {
   }
 }
 
-@media print, screen and (max-width: 480px) {
+@media print, screen and (max-width: 600px) {
   body {
     padding:15px;
   }
-  
+  header {
+    background:url(../images/ratsinthegridsmall.png) no-repeat top right;
+  }
   header ul {
     display:none;
   }

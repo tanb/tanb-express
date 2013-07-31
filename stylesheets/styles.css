@@ -114,6 +114,7 @@ header {
   position:relative;
   height:130px;
   background:url(../images/ratsinthegrid.png) no-repeat bottom right;
+  background-size: 290px 130px;
   margin-top:20px;
   margin-bottom:20px;
   background-color:white;
@@ -229,6 +230,7 @@ footer {
   
   header {
     background:url(../images/ratsinthegrid.png) no-repeat bottom right;
+    background-size: 290px 130px;
   }
   section {
     border:1px solid #e5e5e5;
@@ -256,6 +258,7 @@ footer {
   header {
     padding:0;
     background:url(../images/ratsinthegrid.png) no-repeat bottom right;
+    background-size: 290px 130px;
   }
   header ul, header p.view {
     position:static;
@@ -272,6 +275,7 @@ footer {
   }
   header {
     background:url(../images/ratsinthegridsmall.png) no-repeat bottom right;
+    background-size: 160px 120px;
   }
   header ul {
     display:none;
@@ -284,15 +288,18 @@ footer {
   }
   header {
     background:url(../images/ratsinthegridexsmall.png) no-repeat bottom right;
+    background-size: 80px 60px;
   }
   header ul {
     display:none;
   }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+@media screen and (-webkit-min-device-pixel-ratio:2),
+                  (min-resolution: 2dppx) {
     header {
         background: url(../images/ratsinthegridsmall.png) no-repeat bottom right;
+        background-size: 80px 60px;
     }    
 }
 

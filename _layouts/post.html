@@ -2,18 +2,20 @@
 layout: base
 ---
 <div class="wrapper">
-    <header>
-        <p class="view"><a href="https://github.com/tanB">View My GitHub Profile</a></p>
-        <h1>Rats In The Grid</h1>
-        <p>%$%##* !%^^!* ~%$ $%&amp;&amp; **^^#</p>
-    </header>
-
-    <section>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner" style="background-color:rgba(0, 0, 0, 0);background-image:none;border:none;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;">
+            <div class="container">
+                <a class="brand" href="/index.html">Rats In The Grid</a>
+            </div>
+        </div>
+    </div>
+    
+    <section style="margin-top:50px;">
         {{ content }}
     </section>
-
+    
     <footer>
         <p><small>Hosted on GitHub Pages &mdash; Powered by <a href="http://twitter.github.io/bootstrap/">Bootstrap</a></small></p>
     </footer>
 </div>
-<script src="javascripts/scale.fix.js"></script>
+<script src="/javascripts/scale.fix.js"></script>

@@ -290,6 +290,12 @@ footer {
   }
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+    header {
+        background: url(../images/ratsinthegridsmall.png) no-repeat bottom right;
+    }    
+}
+
 @media print {
   body {
     padding:0.4in;

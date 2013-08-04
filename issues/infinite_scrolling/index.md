@@ -39,14 +39,14 @@ Private APIをperformSelectorで呼び出すと, *"PerformSelector may cause a l
 _UIDatePickerViewのsuperclassはUIPickerViewです. __[ivarやmethodをダンプする](/issues/more_description/)方法については別の章で触れています__. UIPickerViewに実装されているメソッドを呼び出して_UIDatePickerViewの動作を検証します.
 
 ### ex.1 無限では無いrowの数
- NSInvocationを使用して__numberOfRowsInColumn:__を呼びこのviewのrowの数を調べましょう. サンプルコードのexperimentNumberOfRowsInColumでは次のように呼び出しています. 
+ NSInvocationを使用して __numberOfRowsInColumn:__ を呼びこのviewのrowの数を調べましょう. サンプルコードのexperimentNumberOfRowsInColumでは次のように呼び出しています. 
 {% gist 6139305 %}
-numberOfRowsInColumはNSIntegerを引数に受け取ります. performSelector呼び出しではメソッド引数にNSObjectしか渡せないため, NSInvocationを使います.
+__numberOfRowsInColum:__ はNSIntegerを引数に受け取ります. performSelector呼び出しではメソッド引数にNSObjectしか渡せないため, NSInvocationを使います.
 
 無限に回るように見える選択列の行の数は100000であり, 実際は終端が存在することがわかります.
 
 ### ex.2 選択した時のrowのindex
-UIControlEventValueChangedをハンドルして, ex.1と同様に今度は__selectedRowForColumn:__を呼んで調べます. サンプルコードのexperimentSelectedRowForColumnを参照して下さい.
+UIControlEventValueChangedをハンドルして, ex.1と同様に今度は __selectedRowForColumn:__ を呼んでみます. サンプルコードのexperimentSelectedRowForColumnを参照して下さい.
 
 ### ex.3 終端のindex 0と99999
-__selectRow:inColumn:animated:__を呼んでスクロールさせます. サンプルコードのexperimentSelectRowInColumnAnimatedを参照して下さい. _toggleFlagで選択index 0と99999を入れ替えています.
+ __selectRow:inColumn:animated:__ を呼んで終端までスクロールさせます. サンプルコードのexperimentSelectRowInColumnAnimatedを参照して下さい. _toggleFlagで選択index 0と99999を入れ替えています.

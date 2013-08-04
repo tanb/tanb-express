@@ -20,6 +20,14 @@ p, ul, ol, table, pre, dl {
   margin:0 0 20px;
 }
 
+section ul {
+    margin-left: 30px;
+}
+
+.gist table {
+    margin:0;
+}
+
 h1, h2, h3 {
   line-height:1.1;
 }
@@ -30,10 +38,24 @@ h1 {
 
 h2 {
   color:#393939;
+  font-size:24px;
 }
 
-h3, h4, h5, h6 {
+h3 {
+  color:#393939;
+  font-size:18px;    
+}
+
+h4, h5, h6 {
   color:#494949;
+}
+
+section h2 {
+    margin-top: 70px;
+}
+
+section h3 {
+    margin-top: 30px;
 }
 
 a {

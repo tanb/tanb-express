@@ -2,7 +2,7 @@
 
 body {
   padding: 0px 50px 50px 50px;
-  font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:13px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#343434;
   font-weight:300;
 }
@@ -314,6 +314,9 @@ footer {
   }
   header ul {
     display:none;
+  }
+  section ul {
+      margin-left: 30px;
   }
 }
 

@@ -6,9 +6,9 @@ title: #00 - クラスのインスタンス変数やmethodを調べる
 #クラスのインスタンス変数やmethodを調べる
 
 ###はじめに
- - Objective-C Runtime APIを用いてクラスのivarやmethodを調べます.
- - NSObjectにカテゴリを実装します.
  - サンプルコードに[TBObjeCRuntime](https://github.com/tanB/TBObjCRuntime)を使います.
+ - Objective-C Runtime APIを用いてクラスのivarやmethodを調べます.
+
 
 ##runtime API
 [Objective-C Runtime Reference](https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html)

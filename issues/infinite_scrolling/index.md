@@ -14,8 +14,6 @@ title: #01 - 無限スクロール
  - 似たような動作をUITableViewで試します.
 
 
-
-
 ##コンポーネントの実装を調べる
 UIKitの各コンポーネントの実装を調べるには, いくつかのアプローチがあります.
 
@@ -38,7 +36,7 @@ Private APIをperformSelectorで呼び出すと, *"PerformSelector may cause a l
 
 
 ##Private APIの呼び出し
-_UIDatePickerViewのsuperclassはUIPickerViewです. __ivarやmethodをダンプする方法については別の章で触れることにし, この章では触れません__. UIPickerViewに実装されているメソッドを呼び出して_UIDatePickerViewの動作を検証します.
+_UIDatePickerViewのsuperclassはUIPickerViewです. __[ivarやmethodをダンプする](/issues/more_description/)方法については別の章で触れています__. UIPickerViewに実装されているメソッドを呼び出して_UIDatePickerViewの動作を検証します.
 
 ### ex.1 無限では無いrowの数
  NSInvocationを使用して__numberOfRowsInColumn:__を呼びこのviewのrowの数を調べましょう. サンプルコードのexperimentNumberOfRowsInColumでは次のように呼び出しています. 

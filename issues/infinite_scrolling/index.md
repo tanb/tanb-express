@@ -8,7 +8,7 @@ title: #01 - 無限スクロール
 
 ##はじめに
  - UIDatePickerの日付選択は無限に回転するように見えます. この実装について調べます.
- - サンプルコードInfiniteScrollingを参照して下さい.
+ - サンプルコード[InfiniteScrolling](https://github.com/tanB/InfiniteScrolling)を参照して下さい.
  - UIDatePickerコンポーネントの実装を調べます.
  - Undocumented(Private) APIを呼び出してコンポーネントの動作について触れます.
  - 似たような動作をUITableViewで試します.
@@ -43,10 +43,10 @@ _UIDatePickerViewのsuperclassはUIPickerViewです. __[ivarやmethodをダン�
 {% gist 6139305 %}
 numberOfRowsInColumはNSIntegerを引数に受け取ります. performSelector呼び出しではメソッド引数にNSObjectしか渡せないため, NSInvocationを使います.
 
-無限に回るように見える選択列の行の数は100000であり, 実際は限界点が存在することがわかります.
+無限に回るように見える選択列の行の数は100000であり, 実際は終端が存在することがわかります.
 
 ### ex.2 選択した時のrowのindex
 UIControlEventValueChangedをハンドルして, ex.1と同様に今度は__selectedRowForColumn:__を呼んで調べます. サンプルコードのexperimentSelectedRowForColumnを参照して下さい.
 
-### ex.3 限界点 index 0と99999
+### ex.3 終端のindex 0と99999
 __selectRow:inColumn:animated:__を呼んでスクロールさせます. サンプルコードのexperimentSelectRowInColumnAnimatedを参照して下さい. _toggleFlagで選択index 0と99999を入れ替えています.

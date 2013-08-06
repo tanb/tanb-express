@@ -24,8 +24,30 @@ section ul {
     margin-left: 30px;
 }
 
+/* gist */
 .gist table {
-    margin:0;
+    margin:0 !important;
+}
+
+.gist .line-numbers {
+    display: none !important;
+}
+
+.gist .gist-file {
+    border-color: #000 !important;
+    border-style: dotted !important;
+    border-right-width: 0px !important;
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important; 
+}
+
+.gist .gist-meta {
+    margin-top: 10px !important;
+    background-color: #fff !important;
+}
+
+.gist .line-data {
+    border-bottom-width: 0px !important;
 }
 
 h1, h2, h3 {

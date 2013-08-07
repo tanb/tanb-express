@@ -44,8 +44,17 @@ section ul {
 .gist .gist-meta {
     margin-top: 10px !important;
     background-color: #fff !important;
+    background-image:none !important;    
+    border-style: dotted !important;
+    border-color:#000 !important;
+    border-top-width: 1px !important;    
+    border-bottom-width:0px !important;
+    border-right-width: 0px !important;
+    border-left-width: 0px !important;
 }
-
+.gist .gist-data {
+    border-bottom-width: 0px !important; 
+}
 .gist .line-data {
     border-bottom-width: 0px !important;
 }

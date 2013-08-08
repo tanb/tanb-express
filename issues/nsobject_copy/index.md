@@ -67,6 +67,6 @@ copy, mutableCopyの動作はNSStringの時と同様です. immutableなオブ�
 
 [Copying Collections](https://developer.apple.com/library/ios/#documentation/Cocoa/Conceptual/Collections/Articles/Copying.html#//apple_ref/doc/uid/TP40010162-SW1)を参照して下さい.
 
-__deep copy__ と __true deep copy__ という言葉が出てきます. 前者はinitWithArry:copyItems:のcopyオプションをYESにして複製を得るものです. このcopyオプションはcopyWithZone:を内部で呼ぶため, mutabilityが失われてしまいます. __mutableなオブジェクトに対してcopyメソッドを呼んだ場合immutableなオブジェクトが生成されたのを覚えていますか？__ それぞれの要素のcopyメソッドを呼ぶのと同じことなのです. 後者は一度オブジェクトをNSDataにArchiveした後, それをUnarchiveして異なるアドレス空間に複製します. 完全なdeep copyと言ったのはこのことです. 
+__deep copy__ と __true deep copy__ という言葉が出てきます. 前者はinitWithArray:copyItems:のcopyオプションをYESにして複製を得るものです. このcopyオプションはcopyWithZone:を内部で呼ぶため, mutabilityが失われてしまいます. __mutableなオブジェクトに対してcopyメソッドを呼んだ場合immutableなオブジェクトが生成されたのを覚えていますか？__ それぞれの要素のcopyメソッドを呼ぶのと同じことなのです. 後者は一度オブジェクトをNSDataにArchiveした後, それをUnarchiveして異なるアドレス空間に複製します. 完全なdeep copyと言ったのはこのことです. 
 
 ただし, このArchivingを用いた完全なdeep copyを行うためには, 配列のすべての要素が[NSCoding Protocol](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Protocols/NSCoding_Protocol/Reference/Reference.html)に準拠している必要があります. [NSCoding Protocol](http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Protocols/NSCoding_Protocol/Reference/Reference.html)を参照して下さい.

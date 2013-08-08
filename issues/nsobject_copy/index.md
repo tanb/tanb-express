@@ -17,7 +17,7 @@ Referenceによれば, copyメソッドはcopyWithZoneメソッドの返却値�
 
 単純にNSObjectのcopyを呼んでみましょう.
 
-{% gist 6172986 %}
+{% gist 6180563 gistfile1.m %}
 
 copyWithZone:メソッドが実装されていないため __NSInvalidArgumentException__ をraiseします. NSObjectのサブクラスはNSCoping Protocolをサポートし, copyWithZone:メソッドを実装する必要があります.
 
@@ -34,7 +34,7 @@ copyWithZone:を実装する方法がReferenceに書いてあります
 
 __immutableであるクラスでcopyメソッドを使用した場合はオリジナルの値への参照を返します__. NSStringで動作を確かめてみましょう.
 
-{% gist 6173257 %}
+{% gist 6180563 gistfile2.m %}
 
 immutableなNSStringのインスタンスstrとそれをcopyしたcopyStrは同じ実体を指していることがわかります.
 
@@ -42,7 +42,7 @@ immutableなNSStringのインスタンスstrとそれをcopyしたcopyStrは同�
 
 mutableなオブジェクトのcopyがimmutableになることに注意しなければいけません. 以下のようにappendString:といった変更を加えるメソッドを実行しようとすると, 実行時に __NSInvalidArgumentException__ をraiseします.
 
-{% gist 6179794 %}
+{% gist 6180563 gistfile3.m %}
 
 
 ##NSMutableCopying Protocolについて
@@ -55,7 +55,7 @@ NSMutableCopying Protocolに定義されているmutableCopyWithZone:メソッ�
 ##NSArrayの複製
 NSArrayのcopy, mutableCopyを呼んでみましょう. 
 
-{% gist 6179936 %}
+{% gist 6180563 gistfile4.m %}
 
 copy, mutableCopyの動作はNSStringの時と同様です. immutableなオブジェクトに対してcopyメソッドを呼ぶとオリジナルへの参照が返されます. mutableCopyメソッドを呼ぶとmutableなオブジェクトが新たに複製されて返されます.
 
@@ -63,7 +63,7 @@ copy, mutableCopyの動作はNSStringの時と同様です. immutableなオブ�
 
 もし完全なdeep copyを行いたいのであればはNSKeyedArchiver, NSKeyedUnarchiverを使います.
 
-{% gist 6180122 %}
+{% gist 6180563 gistfile5.m %}
 
 [Copying Collections](https://developer.apple.com/library/ios/#documentation/Cocoa/Conceptual/Collections/Articles/Copying.html#//apple_ref/doc/uid/TP40010162-SW1)を参照して下さい.
 

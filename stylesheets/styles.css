@@ -166,7 +166,7 @@ header {
   width:980px;
   position:relative;
   height:130px;
-  background:url(../images/ratsinthegrid.png) no-repeat bottom right;
+  background:url(../img/ratsinthegrid.png) no-repeat bottom right;
   background-size: 290px 130px;
   margin-top:20px;
   margin-bottom:20px;
@@ -282,7 +282,7 @@ footer {
   }
   
   header {
-    background:url(../images/ratsinthegrid.png) no-repeat bottom right;
+    background:url(../img/ratsinthegrid.png) no-repeat bottom right;
     background-size: 290px 130px;
   }
   section {
@@ -310,7 +310,7 @@ footer {
   
   header {
     padding:0;
-    background:url(../images/ratsinthegrid.png) no-repeat bottom right;
+    background:url(../img/ratsinthegrid.png) no-repeat bottom right;
     background-size: 290px 130px;
   }
   header ul, header p.view {
@@ -327,7 +327,7 @@ footer {
     padding:15px;
   }
   header {
-    background:url(../images/ratsinthegridsmall.png) no-repeat bottom right;
+    background:url(../img/ratsinthegridsmall.png) no-repeat bottom right;
     background-size: 160px 120px;
   }
   header ul {
@@ -340,7 +340,7 @@ footer {
     padding:15px;
   }
   header {
-    background:url(../images/ratsinthegridexsmall.png) no-repeat bottom right;
+    background:url(../img/ratsinthegridexsmall.png) no-repeat bottom right;
     background-size: 80px 60px;
   }
   header ul {
@@ -354,7 +354,7 @@ footer {
 @media screen and (-webkit-min-device-pixel-ratio:2),
                   (min-resolution: 2dppx) {
     header {
-        background: url(../images/ratsinthegridsmall.png) no-repeat bottom right;
+        background: url(../img/ratsinthegridsmall.png) no-repeat bottom right;
         background-size: 80px 60px;
     }    
 }

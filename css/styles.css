@@ -270,12 +270,19 @@ footer {
     margin:0;
   }
   
-  header, section, footer {
+  header, section {
     float:none;
     position:static;
     width:auto;
   }
-  
+
+  footer {
+    float:none;
+    position:fixed;
+    bottom:0px;
+    width:auto; 
+  }
+ 
   section {
     /* border:1px solid #e5e5e5; */
     border-width:1px 0;

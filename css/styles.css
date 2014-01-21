@@ -167,7 +167,9 @@ body > .navbar .container {
 
 header {
   width:980px;
-  position:relative;
+  position:fixed;
+  top:0px;
+  padding-top:15px;
   background-size: 290px 130px;
   background-color:white;
 }
@@ -279,6 +281,13 @@ footer {
     float:none;
     position:static;
     width:auto;
+  }
+
+  header {
+      position:fixed;
+      top: 0px;
+      right: 15px;
+      width: 100%;
   }
 
   footer {

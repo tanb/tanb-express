@@ -6,25 +6,44 @@
 
   TB = window;
 
-  TB.View = (function() {
+  Function.prototype.property = function(prop, desc) {
+    return Object.defineProperty(this.prototype, prop, desc);
+  };
+
+  UI.View = (function() {
     function View() {
-      console.log('TBView');
+      this._$elm = $('<div />');
+      this._$elm.addClass(this.constructor.name);
     }
+
+    View.property('frame', {
+      get: function() {
+        var frame;
+        frame = {
+          width: this._$elm.width(),
+          height: this._$elm.height()
+        };
+        return frame;
+      },
+      set: function(frame) {
+        this._$elm.width(frame.width);
+        return this._$elm.height(frame.height);
+      }
+    });
 
     return View;
 
   })();
 
-  TB.CustomView = (function(_super) {
+  UI.CustomView = (function(_super) {
     __extends(CustomView, _super);
 
     function CustomView() {
       CustomView.__super__.constructor.apply(this, arguments);
-      console.log('TBCustomView');
     }
 
     return CustomView;
 
-  })(TB.View);
+  })(UI.View);
 
 }).call(this);

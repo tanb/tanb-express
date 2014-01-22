@@ -5,7 +5,7 @@
 
 NODEDIR = $(CURDIR)/node
 NPM = `which npm`
-JEKYLL = `whitch jekyll`
+JEKYLL = `which jekyll`
 COFFEE = $(NODEDIR)/node_modules/coffee-script/bin/coffee
 JSDIR = $(CURDIR)/js
 CSDIR = $(CURDIR)/cs

@@ -18,4 +18,4 @@ run:
 	$(JEKYLL) serve;
 
 watch:
-	$(COFFEE) --join packed.js -cw $(CSDIR)/*.coffee
+	$(COFFEE) --join $(JSDIR)/packed.js -cw $(CSDIR)/*.coffee

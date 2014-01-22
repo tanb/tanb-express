@@ -14,8 +14,10 @@ install_requisite:
 	cd $(NODEDIR);\
 	$(NPM) install coffee-script;
 
-run:
+run: js_compile
 	$(JEKYLL) serve;
 
+js_compile:
+	$(COFFEE) --join $(JSDIR)/packed.js -c $(CSDIR)/*.coffee
 watch:
 	$(COFFEE) --join $(JSDIR)/packed.js -cw $(CSDIR)/*.coffee

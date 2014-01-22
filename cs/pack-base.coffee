@@ -1,6 +1,10 @@
-$ ->
-  TB = window
+TB = window
   
-Class TB.Object
+class TB.View
   constructor: () ->
-    this.tag = 0
+    console.log('TBView')
+
+class TB.CustomView extends TB.View
+  constructor: () ->
+    super
+    console.log('TBCustomView')

@@ -43,8 +43,7 @@
   })(BNViewController);
 
   $(document).ready(function() {
-    window.viewController = new MainViewController();
-    return window.addSubView(viewController.view);
+    return window.viewController = new MainViewController();
   });
 
 }).call(this);

@@ -74,47 +74,44 @@
       this._$img = $('<img />');
       this._$elm.append(this._$img);
       this._circularize = false;
-    }
+      this.property('src', {
+        get: function() {
+          return this._$img.attr('src');
+        },
+        set: function(src) {
+          return this._$img.attr('src', src);
+        }
+      });
+      this.property('frame', {
+        get: function() {
+          return BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments);
+        },
+        set: function(frame) {
+          return BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
+        }
+      }, this._$img.css({
+        'width': frame.width,
+        'height': frame.height
+      }));
+      this.property('circularize', {
+        get: function() {
+          return this._circularize;
+        },
+        set: function(bool) {
+          this._circularize = bool;
+          if (bool) {
+            this._$img.css({
+              'border-radius': '100%'
+            });
+          } else {
 
-    BNImageView.property('src', {
-      get: function() {
-        return this._$img.attr('src');
-      },
-      set: function(src) {
-        return this._$img.attr('src', src);
-      }
-    });
-
-    BNImageView.property('frame', {
-      get: function() {
-        return BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments);
-      },
-      set: function(frame) {
-        BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
-        return this._$img.css({
-          'width': frame.width,
-          'height': frame.height
-        });
-      }
-    });
-
-    BNImageView.property('circularize', {
-      get: function() {
-        return this._circularize;
-      },
-      set: function(bool) {
-        this._circularize = bool;
-        if (bool) {
-          return this._$img.css({
-            'border-radius': '100%'
-          });
-        } else {
+          }
           return this._$img.css({
             'border-radius': '0%'
           });
         }
-      }
-    });
+      });
+    }
 
     return BNImageView;
 
@@ -147,7 +144,6 @@
     });
 
     BNViewController.prototype.loadView = function() {
-      console.log("loadView");
       this._view = new BNView();
       return this._view._$elm.css({
         'position': 'absolute',
@@ -158,9 +154,7 @@
       });
     };
 
-    BNViewController.prototype.viewDidLoad = function() {
-      return console.log("viewDidLoad");
-    };
+    BNViewController.prototype.viewDidLoad = function() {};
 
     return BNViewController;
 

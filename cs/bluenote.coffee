@@ -1,4 +1,5 @@
-UI = window
+# namespace for bluenote
+window.BN = {'__domain__': 'bluenote'}
 
 Function::property = (prop, desc) ->
   Object.defineProperty @prototype, prop, desc
@@ -14,8 +15,7 @@ Object.defineProperty window, 'subviews',
   set: () ->
     return
 
-
-class UI.View
+class BN.View
   constructor: () ->
     this._$elm = $('<div />')
     this._$elm.addClass(this.constructor.name)
@@ -42,13 +42,7 @@ class UI.View
     set: () ->
       return
 
-    
-class UI.CustomView extends UI.View
-  constructor: () ->
-    super
-
-
-class UI.ViewController
+class BN.ViewController
   constructor: () ->
     this._view = null
   
@@ -65,7 +59,7 @@ class UI.ViewController
 
   loadView: () ->
     console.log "loadView"
-    this._view = new UI.View();
+    this._view = new BN.View();
 
   viewDidLoad: () ->
     console.log "viewDidLoad"

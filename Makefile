@@ -9,6 +9,7 @@ JEKYLL = `which jekyll`
 COFFEE = $(NODEDIR)/node_modules/coffee-script/bin/coffee
 JSDIR = $(CURDIR)/js
 CSDIR = $(CURDIR)/cs
+DISTJS = $(JSDIR)/bluenote.js
 
 install_requisite:
 	cd $(NODEDIR);\
@@ -18,6 +19,7 @@ run: js_compile
 	$(JEKYLL) serve;
 
 js_compile:
-	$(COFFEE) --join $(JSDIR)/packed.js -c $(CSDIR)/*.coffee
+	$(COFFEE) --join $(DISTJS) -c $(CSDIR)/*.coffee
+
 watch:
-	$(COFFEE) --join $(JSDIR)/packed.js -cw $(CSDIR)/*.coffee
+	$(COFFEE) --join $(DISTJS) -cw $(CSDIR)/*.coffee

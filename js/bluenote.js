@@ -3,10 +3,6 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  window.BN = {
-    '__domain__': 'bluenote'
-  };
-
   $('document').ready(function() {
     return $('html, body').css({
       'width': '100%',
@@ -32,14 +28,14 @@
     return window._subviews.push(view);
   };
 
-  BN.View = (function() {
-    function View() {
+  this.BNView = (function() {
+    function BNView() {
       this._$elm = $('<div />');
       this._$elm.addClass(this.constructor.name);
       this._subviews = [];
     }
 
-    View.property('frame', {
+    BNView.property('frame', {
       get: function() {
         var frame;
         frame = {
@@ -54,33 +50,33 @@
       }
     });
 
-    View.prototype.addSubView = function(view) {
+    BNView.prototype.addSubView = function(view) {
       this._$elm.append(view._$elm);
       return this._subviews.push(view);
     };
 
-    View.property('subviews', {
+    BNView.property('subviews', {
       get: function() {
         return this._subviews;
       },
       set: function() {}
     });
 
-    return View;
+    return BNView;
 
   })();
 
-  BN.ImageView = (function(_super) {
-    __extends(ImageView, _super);
+  this.BNImageView = (function(_super) {
+    __extends(BNImageView, _super);
 
-    function ImageView() {
-      ImageView.__super__.constructor.apply(this, arguments);
+    function BNImageView() {
+      BNImageView.__super__.constructor.apply(this, arguments);
       this._$img = $('<img />');
       this._$elm.append(this._$img);
       this._circularize = false;
     }
 
-    ImageView.property('src', {
+    BNImageView.property('src', {
       get: function() {
         return this._$img.attr('src');
       },
@@ -89,12 +85,12 @@
       }
     });
 
-    ImageView.property('frame', {
+    BNImageView.property('frame', {
       get: function() {
-        return ImageView.__super__.__lookupGetter__('frame').apply(this, arguments);
+        return BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments);
       },
       set: function(frame) {
-        ImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
+        BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
         return this._$img.css({
           'width': frame.width,
           'height': frame.height
@@ -102,7 +98,7 @@
       }
     });
 
-    ImageView.property('circularize', {
+    BNImageView.property('circularize', {
       get: function() {
         return this._circularize;
       },
@@ -120,16 +116,16 @@
       }
     });
 
-    return ImageView;
+    return BNImageView;
 
-  })(BN.View);
+  })(BNView);
 
-  BN.ViewController = (function() {
-    function ViewController() {
+  this.BNViewController = (function() {
+    function BNViewController() {
       this._view = null;
     }
 
-    ViewController.property('view', {
+    BNViewController.property('view', {
       get: function() {
         if (this._view) {
           return this._view;
@@ -143,9 +139,9 @@
       }
     });
 
-    ViewController.prototype.loadView = function() {
+    BNViewController.prototype.loadView = function() {
       console.log("loadView");
-      this._view = new BN.View();
+      this._view = new BNView();
       return this._view._$elm.css({
         'position': 'absolute',
         'top': '0px',
@@ -155,11 +151,11 @@
       });
     };
 
-    ViewController.prototype.viewDidLoad = function() {
+    BNViewController.prototype.viewDidLoad = function() {
       return console.log("viewDidLoad");
     };
 
-    return ViewController;
+    return BNViewController;
 
   })();
 

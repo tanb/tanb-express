@@ -1,5 +1,4 @@
-# namespace for bluenote
-window.BN = {'__domain__': 'bluenote'}
+# init
 
 $('document').ready ->
   $('html, body').css({

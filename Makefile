@@ -2,7 +2,6 @@
 # Makefile for tanb.github.io
 #
 
-
 NODEDIR = $(CURDIR)/node
 NPM = `which npm`
 JEKYLL = `which jekyll`
@@ -11,6 +10,7 @@ JSDIR = $(CURDIR)/js
 CSDIR = $(CURDIR)/cs
 BNJS = $(JSDIR)/bluenote.js
 DISTJS = $(JSDIR)/app.js
+CAKE = $(NODEDIR)/node_modules/coffee-script/bin/cake
 
 install_requisite:
 	cd $(NODEDIR);\
@@ -20,7 +20,7 @@ run: bn_compile js_compile
 	$(JEKYLL) serve;
 
 bn_compile:
-	$(COFFEE) --join $(BNJS) -c $(CSDIR)/bluenote/*.coffee
+	$(CAKE) -s $(CSDIR)/bluenote -o $(BNJS) -m core.coffee -p $(COFFEE) build
 
 js_compile:
-	$(COFFEE) --join $(DISTJS) -c $(CSDIR)/app/*.coffee
+	$(CAKE) -s $(CSDIR)/app -o $(DISTJS) -m main.coffee -p $(COFFEE) build

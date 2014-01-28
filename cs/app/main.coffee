@@ -1,3 +1,6 @@
+#import __init__.coffee
+#import controllers.coffee
+
 $(document).ready ->
-  #window.viewController = new TB.MainViewController()
-  #window.addSubView(viewController.view)
+    window.viewController = new MainViewController()
+    window.addSubView(viewController.view)

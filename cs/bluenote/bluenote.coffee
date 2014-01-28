@@ -1,4 +1,4 @@
-class BN.View
+class @BNView
   constructor: () ->
     this._$elm = $('<div />')
     this._$elm.addClass(this.constructor.name)
@@ -26,7 +26,7 @@ class BN.View
       return
 
 
-class BN.ImageView extends BN.View
+class @BNImageView extends BNView
   constructor: () ->
     super
     this._$img = $('<img />')
@@ -41,9 +41,9 @@ class BN.ImageView extends BN.View
 
   @property 'frame',
     get: () ->
-      ImageView.__super__.__lookupGetter__('frame').apply(this, arguments)
+      BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments)
     set: (frame) ->
-      ImageView.__super__.__lookupSetter__('frame').apply(this, arguments)
+      BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments)
       this._$img.css({
         'width': frame.width,
         'height': frame.height,
@@ -60,7 +60,7 @@ class BN.ImageView extends BN.View
         this._$img.css({'border-radius': '0%'});
 
 
-class BN.ViewController
+class @BNViewController
   constructor: () ->
     this._view = null
   
@@ -77,7 +77,7 @@ class BN.ViewController
 
   loadView: () ->
     console.log "loadView"
-    this._view = new BN.View();
+    this._view = new BNView();
     this._view._$elm.css({
       'position': 'absolute',
       'top': '0px',

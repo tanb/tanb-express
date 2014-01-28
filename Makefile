@@ -9,17 +9,18 @@ JEKYLL = `which jekyll`
 COFFEE = $(NODEDIR)/node_modules/coffee-script/bin/coffee
 JSDIR = $(CURDIR)/js
 CSDIR = $(CURDIR)/cs
-DISTJS = $(JSDIR)/bluenote.js
+BNJS = $(JSDIR)/bluenote.js
+DISTJS = $(JSDIR)/app.js
 
 install_requisite:
 	cd $(NODEDIR);\
 	$(NPM) install coffee-script;
 
-run: js_compile
+run: bn_compile js_compile
 	$(JEKYLL) serve;
 
-js_compile:
-	$(COFFEE) --join $(DISTJS) -c $(CSDIR)/*.coffee
+bn_compile:
+	$(COFFEE) --join $(BNJS) -c $(CSDIR)/bluenote/*.coffee
 
-watch:
-	$(COFFEE) --join $(DISTJS) -cw $(CSDIR)/*.coffee
+js_compile:
+	$(COFFEE) --join $(DISTJS) -c $(CSDIR)/app/*.coffee

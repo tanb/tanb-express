@@ -40,22 +40,22 @@ section ul {
     border-style: dotted !important;
     border-right-width: 0px !important;
     border-top-width: 0px !important;
-    border-bottom-width: 0px !important; 
+    border-bottom-width: 0px !important;
 }
 
 .gist .gist-meta {
     margin-top: 10px !important;
     background-color: #fff !important;
-    background-image:none !important;    
+    background-image:none !important;
     border-style: dotted !important;
     border-color:#000 !important;
-    border-top-width: 1px !important;    
+    border-top-width: 1px !important;
     border-bottom-width:0px !important;
     border-right-width: 0px !important;
     border-left-width: 0px !important;
 }
 .gist .gist-data {
-    border-bottom-width: 0px !important; 
+    border-bottom-width: 0px !important;
 }
 .gist .line-data {
     border-bottom-width: 0px !important;
@@ -76,7 +76,7 @@ h2 {
 
 h3 {
   color:#393939;
-  font-size:18px;    
+  font-size:18px;
 }
 
 h4, h5, h6 {
@@ -126,7 +126,7 @@ code, pre {
 
 pre {
   padding:8px 15px;
-  background: #f8f8f8;  
+  background: #f8f8f8;
   border-radius:5px;
   /* border:1px solid #e5e5e5; */
   overflow-x: auto;
@@ -294,7 +294,7 @@ footer {
     float:none;
     position:fixed;
     bottom:0px;
-    width:auto; 
+    width:auto;
   }
  
   section {

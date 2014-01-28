@@ -1,3 +1,3 @@
 $(document).ready ->
-  window.viewController = new BN.ViewController()
-  window.addSubView(viewController.view)
+  #window.viewController = new TB.MainViewController()
+  #window.addSubView(viewController.view)

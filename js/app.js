@@ -3,14 +3,38 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  $(document).ready(function() {
-    window.viewController = new BN.ViewController();
-    return window.addSubView(viewController.view);
-  });
-
   window.TB = {
     '__domain__': 'tanb.github.io'
   };
+
+  TB.MainViewController = (function(_super) {
+    __extends(MainViewController, _super);
+
+    function MainViewController() {
+      MainViewController.__super__.constructor.apply(this, arguments);
+    }
+
+    MainViewController.prototype.loadView = function() {
+      var frame, image, myView;
+      MainViewController.__super__.loadView.apply(this, arguments);
+      myView = new TB.CustomView();
+      this.view.addSubView(myView);
+      image = new BN.ImageView();
+      frame = {
+        'width': '100px',
+        'height': '100px'
+      };
+      image.frame = frame;
+      image.src = '/img/logo.png';
+      image.circularize = true;
+      return myView.addSubView(image);
+    };
+
+    return MainViewController;
+
+  })(BN.ViewController);
+
+  $(document).ready(function() {});
 
   TB.CustomView = (function(_super) {
     __extends(CustomView, _super);

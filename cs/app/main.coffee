@@ -3,4 +3,4 @@
 
 $(document).ready ->
     window.viewController = new MainViewController()
-    window.addSubView(viewController.view)
+    #window.addSubView(viewController.view)

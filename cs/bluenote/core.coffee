@@ -1,2 +1,2 @@
-#import __init__.coffee
-#import bluenote.coffee
+#import __init__
+#import bluenote

@@ -1,4 +1,4 @@
-#import views.coffee
+#import views
 
 class MainViewController extends BNViewController
     constructor: () ->

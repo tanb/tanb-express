@@ -1,5 +1,5 @@
-#import __init__.coffee
-#import controllers.coffee
+#import __init__
+#import controllers
 
 $(document).ready ->
     window.viewController = new MainViewController()

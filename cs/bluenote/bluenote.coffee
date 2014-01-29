@@ -33,30 +33,30 @@ class @BNImageView extends BNView
         this._$elm.append(this._$img)
         this._circularize = false
     
-        @property 'src',
-            get: () ->
-                return this._$img.attr('src')
-            set: (src) ->
-                this._$img.attr('src', src)
+    @property 'src',
+        get: () ->
+            return this._$img.attr('src')
+        set: (src) ->
+            this._$img.attr('src', src)
 
-        @property 'frame',
-            get: () ->
-                BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments)
-            set: (frame) ->
-                BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments)
+    @property 'frame',
+        get: () ->
+            BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments)
+        set: (frame) ->
+            BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments)
             this._$img.css({
                 'width': frame.width,
                 'height': frame.height,
             })
 
-        @property 'circularize',
-            get: () ->
-                return this._circularize;
-            set: (bool) ->
-                this._circularize = bool;
-                if bool
-                    this._$img.css({'border-radius': '100%'});
-                else
+    @property 'circularize',
+        get: () ->
+            return this._circularize;
+        set: (bool) ->
+            this._circularize = bool;
+            if bool
+                this._$img.css({'border-radius': '100%'});
+            else
                 this._$img.css({'border-radius': '0%'});
 
 

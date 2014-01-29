@@ -74,14 +74,6 @@
       this._$img = $('<img />');
       this._$elm.append(this._$img);
       this._circularize = false;
-      this.property('src', {
-        get: function() {
-          return this._$img.attr('src');
-        },
-        set: function(src) {
-          return this._$img.attr('src', src);
-        }
-      });
       this.property('frame', {
         get: function() {
           return BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments);

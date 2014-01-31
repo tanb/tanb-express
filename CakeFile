@@ -24,6 +24,9 @@ option "-m", "--main [main]", "Output directory & JS file"
 # Coffee path
 option "-p", "--path [path]", "Output directory & JS file"
 
+# License
+option "-l", "--license", "Write license header"
+
 ###
 --------------------------------------------------
     
@@ -46,6 +49,7 @@ util = require 'util'
 
 REGEX_FILENAME = /\.\w+$/i
 REGEX_IMPORT = /#\s?import\s+?([\w\.\-\/\*]+)/g
+LICENSE_HEADER = "###\n * BlueNote.js\n * \n * Copyright 2014 tanB\n * Licensed under the Apache License v2.0\n * http://www.apache.org/licenses/LICENSE-2.0\n###"
 
 ###
 --------------------------------------------------
@@ -195,7 +199,8 @@ task 'build', 'Build main source and dependancies', ( options ) ->
         
         # Concatenate contents into one file
         content = ( node.content for node in chain ).join '\n\n'
-
+        if options.license
+            content = LICENSE_HEADER + content
         merged = options.output.replace( REGEX_FILENAME, '' ) + '.coffee'
 
         fs.writeFile merged, content, 'utf8', ( error ) ->

@@ -20,7 +20,7 @@ run: bn_compile js_compile
 	$(JEKYLL) serve;
 
 bn_compile:
-	$(CAKE) -s $(CSDIR)/bluenote -o $(BNJS) -m core.coffee -p $(COFFEE) build
+	$(CAKE) -l -s $(CSDIR)/bluenote -o $(BNJS) -m core.coffee -p $(COFFEE) build
 
 js_compile:
 	$(CAKE) -s $(CSDIR)/app -o $(DISTJS) -m main.coffee -p $(COFFEE) build

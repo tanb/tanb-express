@@ -4,10 +4,19 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   $('document').ready(function() {
-    return $('html, body').css({
+    $('html, body').css({
       'width': '100%',
-      'height': '100%'
+      'height': '100%',
+      'position': 'absolute'
     });
+    window._$elm = $('body');
+    window._subviews = [];
+    window.superview = null;
+    return window.addSubview = function(view) {
+      window._$elm.append(view._$elm);
+      window._subviews.push(view);
+      return view.superview = window;
+    };
   });
 
   Function.prototype.property = function(prop, desc) {
@@ -21,38 +30,43 @@
     set: function() {}
   });
 
-  window._subviews = [];
-
-  window.addSubView = function(view) {
-    $('body').append(view._$elm);
-    return window._subviews.push(view);
-  };
-
   this.BNView = (function() {
     function BNView() {
       this._$elm = $('<div />');
       this._$elm.addClass(this.constructor.name);
       this._subviews = [];
+      this._$elm.css({
+        position: 'absolute'
+      });
+      this.superview = null;
     }
 
     BNView.property('frame', {
       get: function() {
-        var frame;
+        var frame, origin;
+        origin = this._$elm.offset();
         frame = {
-          width: this._$elm.width(),
-          height: this._$elm.height()
+          x: origin.left,
+          y: origin.top,
+          width: this._$elm.outerWidth(),
+          height: this._$elm.outerHeight()
         };
         return frame;
       },
       set: function(frame) {
-        this._$elm.width(frame.width);
-        return this._$elm.height(frame.height);
+        this._$elm.css({
+          left: frame.x + "px",
+          top: frame.y + "px"
+        });
+        this._$elm.outerWidth(frame.width);
+        return this._$elm.outerHeight(frame.height);
       }
     });
 
-    BNView.prototype.addSubView = function(view) {
+    BNView.prototype.addSubview = function(view) {
       this._$elm.append(view._$elm);
-      return this._subviews.push(view);
+      this._subviews.push(view);
+      return view.superview = this;
     };
 
     BNView.property('subviews', {
@@ -61,6 +75,12 @@
       },
       set: function() {}
     });
+
+    BNView.prototype.layoutSubviews = function() {
+      return $.each(this._subviews, function(idx, view) {
+        return view.layoutSubviews;
+      });
+    };
 
     return BNView;
 
@@ -137,10 +157,10 @@
       set: function(view) {
         view._$elm.css({
           'position': 'absolute',
-          'top': '0px',
-          'left': '0px',
-          'width': '100%',
-          'height': '100%'
+          'top': 0,
+          'left': 0,
+          'width': $(window).outerWidth(),
+          'height': $(window).outerHeight()
         });
         return this._view = view;
       }
@@ -150,17 +170,57 @@
       this._view = new BNView();
       return this._view._$elm.css({
         'position': 'absolute',
-        'top': '0px',
-        'left': '0px',
-        'width': '100%',
-        'height': '100%'
+        'top': 0,
+        'left': 0,
+        'width': $(window).outerWidth(),
+        'height': $(window).outerHeight()
       });
     };
 
-    BNViewController.prototype.viewDidLoad = function() {};
+    BNViewController.prototype.viewDidLoad = function() {
+      return this.layoutSubviews();
+    };
+
+    BNViewController.prototype.layoutSubviews = function() {
+      var frame;
+      frame = this._view.frame;
+      frame.width = $(window).outerWidth();
+      frame.height = $(window).outerHeight();
+      this._view.frame = frame;
+      return this._view.layoutSubviews();
+    };
 
     return BNViewController;
 
   })();
+
+  this.BNControl = (function(_super) {
+    __extends(BNControl, _super);
+
+    function BNControl() {
+      BNControl.__super__.constructor.apply(this, arguments);
+      this.enabled = true;
+      this.selected = false;
+    }
+
+    return BNControl;
+
+  })(BNView);
+
+  this.BNButton = (function(_super) {
+    __extends(BNButton, _super);
+
+    function BNButton() {
+      BNButton.__super__.constructor.apply(this, arguments);
+      this._$elm.addClass('btn btn-default');
+    }
+
+    BNButton.prototype.setTitle = function(title) {
+      return this._$elm.text(title);
+    };
+
+    return BNButton;
+
+  })(BNControl);
 
 }).call(this);

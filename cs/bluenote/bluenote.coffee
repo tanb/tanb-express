@@ -3,27 +3,45 @@ class @BNView
         this._$elm = $('<div />')
         this._$elm.addClass(this.constructor.name)
         this._subviews = []
-    
+        this._$elm.css({
+            position: 'absolute',
+                })
+        this.superview = null
+        
     @property 'frame',
         get: () ->
+            origin = this._$elm.offset()
             frame = {
-                width: this._$elm.width(),
-                height: this._$elm.height()
+                x: origin.left,
+                y: origin.top,
+                width: this._$elm.outerWidth(),
+                height: this._$elm.outerHeight()
             }
             return frame
         set: (frame) ->
-            this._$elm.width(frame.width)
-            this._$elm.height(frame.height)
+            this._$elm.css({
+                left: frame.x + "px",
+                top: frame.y + "px",
+            });
+            this._$elm.outerWidth(frame.width)
+            this._$elm.outerHeight(frame.height)
 
-    addSubView: (view) ->
+    addSubview: (view) ->
         this._$elm.append(view._$elm)
         this._subviews.push(view)
+        view.superview = this
 
     @property 'subviews',
         get: () ->
             return this._subviews
         set: () ->
+            # do nothing
             return
+
+    layoutSubviews: () ->
+        $.each this._subviews,
+            (idx, view) ->
+                view.layoutSubviews
 
 
 class @BNImageView extends BNView
@@ -75,10 +93,10 @@ class @BNViewController
         set: (view) ->
             view._$elm.css({
                 'position': 'absolute',
-                'top': '0px',
-                'left': '0px',
-                'width': '100%',
-                'height': '100%',
+                'top': 0,
+                'left': 0,
+                'width': $(window).outerWidth(),
+                'height': $(window).outerHeight(),
             });
             this._view = view
 
@@ -86,10 +104,35 @@ class @BNViewController
         this._view = new BNView();
         this._view._$elm.css({
             'position': 'absolute',
-            'top': '0px',
-            'left': '0px',
-            'width': '100%',
-            'height': '100%',
+            'top': 0,
+            'left': 0,
+            'width': $(window).outerWidth(),
+            'height': $(window).outerHeight(),
         });    
+
     viewDidLoad: () ->
-        return
+        this.layoutSubviews()
+
+    layoutSubviews: () ->
+        frame = this._view.frame
+        frame.width = $(window).outerWidth()
+        frame.height = $(window).outerHeight()
+        this._view.frame = frame
+        this._view.layoutSubviews()
+
+
+
+class @BNControl extends BNView
+    constructor: () ->
+        super
+        this.enabled = true
+        this.selected = false
+
+
+class @BNButton extends BNControl
+    constructor: () ->
+        super
+        this._$elm.addClass('btn btn-default')
+
+    setTitle: (title) ->
+        this._$elm.text(title)

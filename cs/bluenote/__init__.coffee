@@ -1,11 +1,18 @@
 # init
-
 $('document').ready ->
     $('html, body').css({
         'width': '100%',
         'height': '100%',
+        'position': 'absolute',
     });
-  
+    window._$elm = $('body')
+    window._subviews = []
+    window.superview = null;
+    window.addSubview = (view) ->
+        window._$elm.append(view._$elm)
+        window._subviews.push(view)
+        view.superview = window
+
 Function::property = (prop, desc) ->
     Object.defineProperty @prototype, prop, desc
 
@@ -14,8 +21,3 @@ Object.defineProperty window, 'subviews',
         return window._subviews
     set: () ->
         return
-
-window._subviews = []
-window.addSubView = (view) ->
-    $('body').append(view._$elm)
-    window._subviews.push(view)

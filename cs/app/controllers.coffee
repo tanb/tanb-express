@@ -12,12 +12,15 @@ class MainViewController extends BNViewController
     viewDidLoad: () ->
         super
         # register for resize event handler.
-        self = this
-        $(window).bind('resize', (event)-> 
-            self.resizeWindow(event)
-        );
         this.view.githubBtn._$elm.bind('click', (event) ->
             location.href = 'http://github.com/tanb'
         );
-    resizeWindow: (event) ->
+
+
+class RootViewController extends BNNavigationController
+    constructor: (firstViewController) ->
+        super(firstViewController)
+
+    didResizeWindow: (event) ->
+        # rootViewController protocol
         this.layoutSubviews()

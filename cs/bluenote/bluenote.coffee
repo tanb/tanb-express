@@ -41,7 +41,7 @@ class @BNView
     layoutSubviews: () ->
         $.each this._subviews,
             (idx, view) ->
-                view.layoutSubviews
+                view.layoutSubviews()
 
 
 class @BNImageView extends BNView
@@ -94,36 +94,83 @@ class @BNViewController
             this.loadView()
             this.viewDidLoad()
             return this._view
+
         set: (view) ->
-            view._$elm.css({
-                'position': 'absolute',
-                'top': 0,
-                'left': 0,
-                'width': $(window).outerWidth(),
-                'height': $(window).outerHeight(),
-            });
             this._view = view
 
     loadView: () ->
         this._view = new BNView();
-        this._view._$elm.css({
-            'position': 'absolute',
-            'top': 0,
-            'left': 0,
-            'width': $(window).outerWidth(),
-            'height': $(window).outerHeight(),
-        });    
 
     viewDidLoad: () ->
         this.layoutSubviews()
 
     layoutSubviews: () ->
-        frame = this._view.frame
-        frame.width = $(window).outerWidth()
-        frame.height = $(window).outerHeight()
-        this._view.frame = frame
         this._view.layoutSubviews()
 
+
+class @BNNavigationController extends BNViewController
+    constructor: (firstViewController) ->
+        super
+        this.viewControllers = [firstViewController]
+        this._containerView = null
+        this._BAR_HEIGHT = 50
+        
+    @property 'view',
+        get: () ->
+            if this._containerView
+                return this._containerView
+    
+            this.loadView()
+            this.viewDidLoad()
+            return this._containerView
+
+        set: (frame) ->
+            # do nothing
+            return
+
+    loadView: () ->
+        this._containerView = new BNView();
+        view = this.topViewController.view
+        view.frame = {
+            x: 0,
+            y: 0,
+            width: this._containerView.frame.width,
+            height: this._containerView.frame.height
+        }
+        this._containerView.addSubview(view)
+
+        this.navigationBar = new BNView();
+        this.navigationBar.frame = {
+            x: 0,
+            y: 0,
+            width: this._containerView.frame.width,
+            height: this._BAR_HEIGHT
+        }
+        this._containerView.addSubview(this.navigationBar)
+        
+    @property 'topViewController',
+        get: () ->
+            return this.viewControllers[0]
+
+        set: () ->
+            # do nothing
+            return
+
+    layoutSubviews: () ->
+        # discussion: should create _NavigationContainerView
+        this.topViewController.view.frame = {
+            x: 0,
+            y: 0,
+            width: this._containerView.frame.width,
+            height: this._containerView.frame.height
+        }
+        this.navigationBar.frame = {
+            x: 0,
+            y: 0,
+            width: this._containerView.frame.width,
+            height: this._BAR_HEIGHT
+        }
+        this._containerView.layoutSubviews()
 
 
 class @BNControl extends BNView

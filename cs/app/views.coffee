@@ -24,12 +24,22 @@ class MainView extends BNView
         this.githubBtn.frame = githubBtnFrame
         this.addSubview(this.githubBtn)
 
+        this.mobileView = new MobileView();
+        this.mobileView.frame = {
+            x: 0,
+            y: 0,
+            width: 320,
+            height: 480
+        }
+        this.addSubview(this.mobileView);
+
     layoutSubviews: () ->
         super
-        imgX = (this.frame.width - this.imageView.frame.width) / 2
-        imgY = (this.frame.height - this.imageView.frame.height) / 2
 
         imgFrame = this.imageView.frame
+        imgX = (this.frame.width - imgFrame.width) / 2
+        imgY = (this.frame.height - imgFrame.height) / 2
+
         imgFrame.x = imgX
         imgFrame.y = imgY
         this.imageView.frame = imgFrame
@@ -41,3 +51,20 @@ class MainView extends BNView
         githubBtnFrame.x = githubBtnX
         githubBtnFrame.y = githubBtnY
         this.githubBtn.frame = githubBtnFrame
+
+        mobileViewFrame = this.mobileView.frame
+        mobileViewX = (this.frame.width - mobileViewFrame.width) / 2
+        mobileViewY = (this.frame.height - mobileViewFrame.height) / 2
+
+        mobileViewFrame.x = mobileViewX
+        mobileViewFrame.y = mobileViewY
+        this.mobileView.frame = mobileViewFrame
+
+
+class MobileView extends BNView
+    constructor: () ->
+        super
+        this._$elm.css({
+            'background-color': 'red'
+        })
+

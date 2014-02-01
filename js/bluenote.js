@@ -23,11 +23,29 @@
     window._$elm = $('body');
     window._subviews = [];
     window.superview = null;
-    return window.addSubview = function(view) {
+    window.addSubview = function(view) {
+      view.frame = {
+        x: 0,
+        y: 0,
+        width: $(window).outerWidth(),
+        height: $(window).outerHeight()
+      };
+      window.rootViewController.layoutSubviews();
       window._$elm.append(view._$elm);
       window._subviews.push(view);
       return view.superview = window;
     };
+    return $(window).bind('resize', function(event) {
+      if (window.rootViewController) {
+        window.rootViewController.view.frame = {
+          x: 0,
+          y: 0,
+          width: $(window).outerWidth(),
+          height: $(window).outerHeight()
+        };
+        return window.rootViewController.didResizeWindow(event);
+      }
+    });
   });
 
   Function.prototype.property = function(prop, desc) {
@@ -89,7 +107,7 @@
 
     BNView.prototype.layoutSubviews = function() {
       return $.each(this._subviews, function(idx, view) {
-        return view.layoutSubviews;
+        return view.layoutSubviews();
       });
     };
 
@@ -170,26 +188,12 @@
         return this._view;
       },
       set: function(view) {
-        view._$elm.css({
-          'position': 'absolute',
-          'top': 0,
-          'left': 0,
-          'width': $(window).outerWidth(),
-          'height': $(window).outerHeight()
-        });
         return this._view = view;
       }
     });
 
     BNViewController.prototype.loadView = function() {
-      this._view = new BNView();
-      return this._view._$elm.css({
-        'position': 'absolute',
-        'top': 0,
-        'left': 0,
-        'width': $(window).outerWidth(),
-        'height': $(window).outerHeight()
-      });
+      return this._view = new BNView();
     };
 
     BNViewController.prototype.viewDidLoad = function() {
@@ -197,17 +201,82 @@
     };
 
     BNViewController.prototype.layoutSubviews = function() {
-      var frame;
-      frame = this._view.frame;
-      frame.width = $(window).outerWidth();
-      frame.height = $(window).outerHeight();
-      this._view.frame = frame;
       return this._view.layoutSubviews();
     };
 
     return BNViewController;
 
   })();
+
+  this.BNNavigationController = (function(_super) {
+    __extends(BNNavigationController, _super);
+
+    function BNNavigationController(firstViewController) {
+      BNNavigationController.__super__.constructor.apply(this, arguments);
+      this.viewControllers = [firstViewController];
+      this._containerView = null;
+      this._BAR_HEIGHT = 50;
+    }
+
+    BNNavigationController.property('view', {
+      get: function() {
+        if (this._containerView) {
+          return this._containerView;
+        }
+        this.loadView();
+        this.viewDidLoad();
+        return this._containerView;
+      },
+      set: function(frame) {}
+    });
+
+    BNNavigationController.prototype.loadView = function() {
+      var view;
+      this._containerView = new BNView();
+      view = this.topViewController.view;
+      view.frame = {
+        x: 0,
+        y: 0,
+        width: this._containerView.frame.width,
+        height: this._containerView.frame.height
+      };
+      this._containerView.addSubview(view);
+      this.navigationBar = new BNView();
+      this.navigationBar.frame = {
+        x: 0,
+        y: 0,
+        width: this._containerView.frame.width,
+        height: this._BAR_HEIGHT
+      };
+      return this._containerView.addSubview(this.navigationBar);
+    };
+
+    BNNavigationController.property('topViewController', {
+      get: function() {
+        return this.viewControllers[0];
+      },
+      set: function() {}
+    });
+
+    BNNavigationController.prototype.layoutSubviews = function() {
+      this.topViewController.view.frame = {
+        x: 0,
+        y: 0,
+        width: this._containerView.frame.width,
+        height: this._containerView.frame.height
+      };
+      this.navigationBar.frame = {
+        x: 0,
+        y: 0,
+        width: this._containerView.frame.width,
+        height: this._BAR_HEIGHT
+      };
+      return this._containerView.layoutSubviews();
+    };
+
+    return BNNavigationController;
+
+  })(BNViewController);
 
   this.BNControl = (function(_super) {
     __extends(BNControl, _super);

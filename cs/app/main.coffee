@@ -2,5 +2,5 @@
 #import controllers
 
 $(document).ready ->
-    window.viewController = new MainViewController()
-    window.addSubview(viewController.view)
+    window.rootViewController = new RootViewController(new MainViewController())
+    window.addSubview(window.rootViewController.view)

@@ -231,7 +231,7 @@
     });
 
     BNNavigationController.prototype.loadView = function() {
-      var view;
+      var navContainer, view;
       this._containerView = new BNView();
       view = this.topViewController.view;
       view.frame = {
@@ -242,6 +242,13 @@
       };
       this._containerView.addSubview(view);
       this.navigationBar = new BNView();
+      this.navigationBar._$elm.addClass('navbar navbar-static-top');
+      this.navigationBar._$elm.css({
+        'background-color': 'rgb(221, 221, 221)'
+      });
+      navContainer = $('<div />');
+      navContainer.addClass('container');
+      this.navigationBar._$elm.append(navContainer);
       this.navigationBar.frame = {
         x: 0,
         y: 0,

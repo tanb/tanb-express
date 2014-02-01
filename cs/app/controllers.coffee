@@ -1,6 +1,6 @@
 #import views
 
-class SubViewController extends BNNavigationController
+class MobileRootViewController extends BNNavigationController
     constructor: (firstViewController) ->
         super(firstViewController)
 
@@ -12,6 +12,10 @@ class SubViewController extends BNNavigationController
             width: 320,
             height: 568,
         }
+
+    didResizeWindow: (event) ->
+        # rootViewController protocol
+        this.layoutSubviews()
 
 
 class MainViewController extends BNViewController
@@ -43,7 +47,7 @@ class RootViewController extends BNViewController
     constructor: () ->
         super
         firstViewController = new MainViewController()
-        this.subViewController = new SubViewController(firstViewController)
+        this.subViewController = new MobileRootViewController(firstViewController)
 
     loadView: () ->
         super

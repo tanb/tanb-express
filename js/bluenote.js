@@ -68,6 +68,7 @@
         position: 'absolute'
       });
       this.superview = null;
+      this._clipsToBounds = false;
     }
 
     BNView.property('frame', {
@@ -106,10 +107,28 @@
     });
 
     BNView.prototype.layoutSubviews = function() {
+      if (this._clipsToBounds) {
+        this._$elm.css({
+          'overflow': 'hidden'
+        });
+      } else {
+        this._$elm.css({
+          'overflow': 'auto'
+        });
+      }
       return $.each(this._subviews, function(idx, view) {
         return view.layoutSubviews();
       });
     };
+
+    BNView.property('clipsToBounds', {
+      get: function() {
+        return this._clipsToBounds;
+      },
+      set: function(clip) {
+        return this._clipsToBounds = clip;
+      }
+    });
 
     return BNView;
 
@@ -176,6 +195,7 @@
   this.BNViewController = (function() {
     function BNViewController() {
       this._view = null;
+      this._rightBarButton = null;
     }
 
     BNViewController.property('view', {
@@ -266,6 +286,7 @@
     });
 
     BNNavigationController.prototype.layoutSubviews = function() {
+      var rBtnFrame, rBtnX, rBtnY, _rightBarButton;
       this.topViewController.view.frame = {
         x: 0,
         y: 0,
@@ -278,6 +299,16 @@
         width: this._containerView.frame.width,
         height: this._BAR_HEIGHT
       };
+      if (this.topViewController._rightBarButton) {
+        _rightBarButton = this.topViewController._rightBarButton;
+        rBtnX = this._containerView.frame.width - _rightBarButton.frame.width - 8;
+        rBtnY = 8;
+        rBtnFrame = _rightBarButton.frame;
+        rBtnFrame.x = rBtnX;
+        rBtnFrame.y = rBtnY;
+        _rightBarButton.frame = rBtnFrame;
+        this.navigationBar.addSubview(_rightBarButton);
+      }
       return this._containerView.layoutSubviews();
     };
 

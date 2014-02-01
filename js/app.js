@@ -8,8 +8,23 @@
     __extends(MainView, _super);
 
     function MainView() {
-      var frame, githubBtnFrame;
       MainView.__super__.constructor.apply(this, arguments);
+    }
+
+    MainView.prototype.layoutSubviews = function() {
+      return MainView.__super__.layoutSubviews.apply(this, arguments);
+    };
+
+    return MainView;
+
+  })(BNView);
+
+  MobileFirstView = (function(_super) {
+    __extends(MobileFirstView, _super);
+
+    function MobileFirstView() {
+      var frame;
+      MobileFirstView.__super__.constructor.apply(this, arguments);
       this.imageView = new BNImageView();
       frame = {
         x: 0,
@@ -21,51 +36,17 @@
       this.imageView.src = '/img/logo.png';
       this.imageView.circularize = true;
       this.addSubview(this.imageView);
-      this.githubBtn = new BNButton();
-      this.githubBtn.setTitle("tanB's Github Profile");
-      githubBtnFrame = {
-        x: 0,
-        y: 0,
-        width: 160,
-        height: 35
-      };
-      this.githubBtn.frame = githubBtnFrame;
-      this.addSubview(this.githubBtn);
     }
 
-    MainView.prototype.layoutSubviews = function() {
-      var githubBtnFrame, githubBtnX, githubBtnY, imgFrame, imgX, imgY;
-      MainView.__super__.layoutSubviews.apply(this, arguments);
+    MobileFirstView.prototype.layoutSubviews = function() {
+      var imgFrame, imgX, imgY;
+      MobileFirstView.__super__.layoutSubviews.apply(this, arguments);
       imgFrame = this.imageView.frame;
       imgX = (this.frame.width - imgFrame.width) / 2;
       imgY = (this.frame.height - imgFrame.height) / 2;
       imgFrame.x = imgX;
       imgFrame.y = imgY;
-      this.imageView.frame = imgFrame;
-      githubBtnX = this.frame.width - this.githubBtn.frame.width - 8;
-      githubBtnY = 8;
-      githubBtnFrame = this.githubBtn.frame;
-      githubBtnFrame.x = githubBtnX;
-      githubBtnFrame.y = githubBtnY;
-      return this.githubBtn.frame = githubBtnFrame;
-    };
-
-    return MainView;
-
-  })(BNView);
-
-  MobileFirstView = (function(_super) {
-    __extends(MobileFirstView, _super);
-
-    function MobileFirstView() {
-      MobileFirstView.__super__.constructor.apply(this, arguments);
-      this._$elm.css({
-        'background-color': 'red'
-      });
-    }
-
-    MobileFirstView.prototype.layoutSubviews = function() {
-      return MobileFirstView.__super__.layoutSubviews.apply(this, arguments);
+      return this.imageView.frame = imgFrame;
     };
 
     return MobileFirstView;
@@ -85,7 +66,7 @@
         x: 0,
         y: 0,
         width: 320,
-        height: 480
+        height: 568
       };
     };
 
@@ -101,8 +82,25 @@
     }
 
     MainViewController.prototype.loadView = function() {
+      var githubBtn;
       MainViewController.__super__.loadView.apply(this, arguments);
-      return this.view = new MobileFirstView();
+      this.view = new MobileFirstView();
+      githubBtn = new BNButton();
+      githubBtn.setTitle("tanB's Github Profile");
+      githubBtn.frame = {
+        x: 0,
+        y: 0,
+        width: 160,
+        height: 35
+      };
+      return this._rightBarButton = githubBtn;
+    };
+
+    MainViewController.prototype.viewDidLoad = function() {
+      MainViewController.__super__.viewDidLoad.apply(this, arguments);
+      return this._rightBarButton._$elm.bind('click', function(event) {
+        return location.href = 'http://github.com/tanb';
+      });
     };
 
     return MainViewController;
@@ -125,14 +123,16 @@
       myView = new MainView();
       this.view = myView;
       this.mobileView = this.subViewController.view;
+      this.mobileView.clipsToBounds = true;
+      this.mobileView._$elm.css({
+        'border-radius': 5,
+        'border': '1px solid #ccc'
+      });
       return this.view.addSubview(this.mobileView);
     };
 
     RootViewController.prototype.viewDidLoad = function() {
-      RootViewController.__super__.viewDidLoad.apply(this, arguments);
-      return this.view.githubBtn._$elm.bind('click', function(event) {
-        return location.href = 'http://github.com/tanb';
-      });
+      return RootViewController.__super__.viewDidLoad.apply(this, arguments);
     };
 
     RootViewController.prototype.didResizeWindow = function(event) {

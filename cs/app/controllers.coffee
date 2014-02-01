@@ -10,7 +10,7 @@ class SubViewController extends BNNavigationController
             x: 0,
             y: 0,
             width: 320,
-            height: 480
+            height: 568,
         }
 
 
@@ -21,6 +21,22 @@ class MainViewController extends BNViewController
     loadView: () ->
         super
         this.view = new MobileFirstView()
+        githubBtn = new BNButton()
+        githubBtn.setTitle("tanB's Github Profile")
+        githubBtn.frame = {
+            x: 0,
+            y: 0,
+            width: 160,
+            height: 35,
+        }
+        this._rightBarButton = githubBtn
+
+    viewDidLoad: () ->
+        super
+        # register for resize event handler.
+        this._rightBarButton._$elm.bind('click', (event) ->
+            location.href = 'http://github.com/tanb'
+        );
 
 
 class RootViewController extends BNViewController
@@ -32,16 +48,18 @@ class RootViewController extends BNViewController
     loadView: () ->
         super
         myView = new MainView()
+        
         this.view = myView
         this.mobileView = this.subViewController.view
+        this.mobileView.clipsToBounds = true
+        this.mobileView._$elm.css({
+            'border-radius': 5,
+            'border': '1px solid #ccc'
+        })
         this.view.addSubview(this.mobileView)
 
     viewDidLoad: () ->
         super
-        # register for resize event handler.
-        this.view.githubBtn._$elm.bind('click', (event) ->
-            location.href = 'http://github.com/tanb'
-        );
 
     didResizeWindow: (event) ->
         # rootViewController protocol

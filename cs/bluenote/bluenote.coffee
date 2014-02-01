@@ -7,6 +7,7 @@ class @BNView
             position: 'absolute',
                 })
         this.superview = null
+        this._clipsToBounds = false
         
     @property 'frame',
         get: () ->
@@ -39,10 +40,24 @@ class @BNView
             return
 
     layoutSubviews: () ->
+        if this._clipsToBounds
+            this._$elm.css({
+                'overflow': 'hidden'
+            })
+        else
+            this._$elm.css({
+                'overflow': 'auto'
+            })
+
         $.each this._subviews,
             (idx, view) ->
                 view.layoutSubviews()
 
+    @property 'clipsToBounds',
+        get: () ->
+            return this._clipsToBounds
+        set: (clip) ->
+            this._clipsToBounds = clip
 
 class @BNImageView extends BNView
     constructor: () ->
@@ -85,7 +100,8 @@ class @BNImageView extends BNView
 class @BNViewController
     constructor: () ->
         this._view = null
-
+        this._rightBarButton = null
+        
     @property 'view',
         get: () ->
             if this._view
@@ -179,6 +195,18 @@ class @BNNavigationController extends BNViewController
             width: this._containerView.frame.width,
             height: this._BAR_HEIGHT
         }
+
+        if this.topViewController._rightBarButton
+            _rightBarButton = this.topViewController._rightBarButton
+            rBtnX = this._containerView.frame.width - _rightBarButton.frame.width - 8
+            rBtnY = 8
+            rBtnFrame = _rightBarButton.frame
+            rBtnFrame.x = rBtnX
+            rBtnFrame.y = rBtnY
+            _rightBarButton.frame = rBtnFrame
+
+            this.navigationBar.addSubview(_rightBarButton)
+            
         this._containerView.layoutSubviews()
 
 

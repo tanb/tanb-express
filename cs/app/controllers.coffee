@@ -15,6 +15,15 @@ class MobileRootViewController extends BNNavigationController
 
     didResizeWindow: (event) ->
         # rootViewController protocol
+        if $(window).outerHeight() <= 320
+            $('html, body').css({
+                'height': 320,
+            });
+        else if $(window).outerHeight() <= 568
+            $('html, body').css({
+                'height': 568,
+            });
+
         this.layoutSubviews()
 
 

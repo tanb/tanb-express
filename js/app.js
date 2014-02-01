@@ -71,6 +71,15 @@
     };
 
     MobileRootViewController.prototype.didResizeWindow = function(event) {
+      if ($(window).outerHeight() <= 320) {
+        $('html, body').css({
+          'height': 320
+        });
+      } else if ($(window).outerHeight() <= 568) {
+        $('html, body').css({
+          'height': 568
+        });
+      }
       return this.layoutSubviews();
     };
 
@@ -164,9 +173,6 @@
     agent = navigator.userAgent;
     if (agent.search(/iPhone/) !== -1) {
       window.rootViewController = new MobileRootViewController(new MainViewController());
-      $('html, body').css({
-        'height': 568
-      });
     } else {
       window.rootViewController = new RootViewController();
     }

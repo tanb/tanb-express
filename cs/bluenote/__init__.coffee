@@ -4,6 +4,8 @@ $('document').ready ->
         'width': '100%',
         'height': '100%',
         'position': 'absolute',
+        '-webkit-user-select': 'none',
+        '-webkit-user-drag': 'none',
     });
     window._$elm = $('body')
     window._subviews = []

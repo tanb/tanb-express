@@ -48,9 +48,13 @@ class @BNImageView extends BNView
     constructor: () ->
         super
         this._$img = $('<img />')
+        this._$img.css({
+            '-webkit-user-select': 'none',
+            '-webkit-user-drag': 'none',
+        })
         this._$elm.append(this._$img)
         this._circularize = false
-    
+        
     @property 'src',
         get: () ->
             return this._$img.attr('src')

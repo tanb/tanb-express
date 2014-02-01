@@ -16,7 +16,9 @@
     $('html, body').css({
       'width': '100%',
       'height': '100%',
-      'position': 'absolute'
+      'position': 'absolute',
+      '-webkit-user-select': 'none',
+      '-webkit-user-drag': 'none'
     });
     window._$elm = $('body');
     window._subviews = [];
@@ -101,6 +103,10 @@
     function BNImageView() {
       BNImageView.__super__.constructor.apply(this, arguments);
       this._$img = $('<img />');
+      this._$img.css({
+        '-webkit-user-select': 'none',
+        '-webkit-user-drag': 'none'
+      });
       this._$elm.append(this._$img);
       this._circularize = false;
     }

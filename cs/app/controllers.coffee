@@ -66,6 +66,7 @@ class RootViewController extends BNViewController
         this.mobileView = this.subViewController.view
         this.mobileView.clipsToBounds = true
         this.mobileView._$elm.css({
+            'box-sizing': 'border-box',
             'border-radius': 5,
             'border': '1px solid #ccc'
         })

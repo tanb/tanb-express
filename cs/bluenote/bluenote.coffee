@@ -63,13 +63,44 @@ class @BNImageView extends BNView
     constructor: () ->
         super
         this._$img = $('<img />')
+        this._$img.bind('load', $.proxy(() ->
+            this.didLoadImage()
+        , this))
         this._$img.css({
+            'display': 'inline-block',
+            'position': 'absolute',
             '-webkit-user-select': 'none',
             '-webkit-user-drag': 'none',
         })
         this._$elm.append(this._$img)
         this._circularize = false
+
+    didLoadImage: () ->
+        this.sizeToFit()
+
+    sizeToFit: () ->
+        orgW = this._$img[0].naturalWidth
+        orgH = this._$img[0].naturalHeight
+        imgW = this.frame.width
+        imgH = this.frame.height
         
+        dF = Math.sqrt(Math.pow(imgW, 2) + Math.pow(imgH, 2))
+        dO = Math.sqrt(Math.pow(orgW, 2) + Math.pow(orgH, 2))
+        scale = dF / dO
+
+        newW = orgW * scale
+        newH = orgH * scale
+
+        cX = ((imgW - newW) / 2)
+        cY = ((imgW - newW) / 2)
+
+        this._$img.css({
+            'left': cX,
+            'top': cY,
+            'width': newW,
+            'height': newH,
+        })
+
     @property 'src',
         get: () ->
             return this._$img.attr('src')
@@ -81,10 +112,6 @@ class @BNImageView extends BNView
             BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments)
         set: (frame) ->
             BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments)
-            this._$img.css({
-                'width': frame.width,
-                'height': frame.height,
-            })
 
     @property 'circularize',
         get: () ->

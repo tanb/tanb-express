@@ -140,13 +140,43 @@
     function BNImageView() {
       BNImageView.__super__.constructor.apply(this, arguments);
       this._$img = $('<img />');
+      this._$img.bind('load', $.proxy(function() {
+        return this.didLoadImage();
+      }, this));
       this._$img.css({
+        'display': 'inline-block',
+        'position': 'absolute',
         '-webkit-user-select': 'none',
         '-webkit-user-drag': 'none'
       });
       this._$elm.append(this._$img);
       this._circularize = false;
     }
+
+    BNImageView.prototype.didLoadImage = function() {
+      return this.sizeToFit();
+    };
+
+    BNImageView.prototype.sizeToFit = function() {
+      var cX, cY, dF, dO, imgH, imgW, newH, newW, orgH, orgW, scale;
+      orgW = this._$img[0].naturalWidth;
+      orgH = this._$img[0].naturalHeight;
+      imgW = this.frame.width;
+      imgH = this.frame.height;
+      dF = Math.sqrt(Math.pow(imgW, 2) + Math.pow(imgH, 2));
+      dO = Math.sqrt(Math.pow(orgW, 2) + Math.pow(orgH, 2));
+      scale = dF / dO;
+      newW = orgW * scale;
+      newH = orgH * scale;
+      cX = (imgW - newW) / 2;
+      cY = (imgW - newW) / 2;
+      return this._$img.css({
+        'left': cX,
+        'top': cY,
+        'width': newW,
+        'height': newH
+      });
+    };
 
     BNImageView.property('src', {
       get: function() {
@@ -162,11 +192,7 @@
         return BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments);
       },
       set: function(frame) {
-        BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
-        return this._$img.css({
-          'width': frame.width,
-          'height': frame.height
-        });
+        return BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
       }
     });
 

@@ -2,31 +2,31 @@ class MainView extends BNView
     constructor: () ->
         super
 
-        # this.addSubview(this.githubBtn)
-
     layoutSubviews: () ->
         super
-
-        # githubBtnX = this.frame.width - this.githubBtn.frame.width - 8
-        # githubBtnY = 8        
-        # githubBtnFrame = this.githubBtn.frame
-        # githubBtnFrame.x = githubBtnX
-        # githubBtnFrame.y = githubBtnY
-        # this.githubBtn.frame = githubBtnFrame
-
 
 class MobileFirstView extends BNView
     constructor: () ->
         super
 
+        this.backgroundView = new BNImageView()
+        this.backgroundView.frame = {
+            x: 0,
+            y: 0,
+            width: this.frame.width,
+            height: this.frame.height,
+        }
+        this.backgroundView.src = 'http://distilleryimage6.ak.instagram.com/1ac7562c8c4d11e3b8b3124b6b221cf2_8.jpg'
+        this.backgroundView.clipsToBounds = true
+        this.addSubview(this.backgroundView)
+        
         this.imageView = new BNImageView()
-        frame = {
+        this.imageView.frame = {
             x: 0,
             y: 0,
             width: 45,
             height: 45,
         }
-        this.imageView.frame = frame
         this.imageView.src = '/img/logo.png'
         this.imageView.circularize = true;
         this.addSubview(this.imageView)
@@ -34,9 +34,16 @@ class MobileFirstView extends BNView
     layoutSubviews: () ->
         super
 
+        this.backgroundView.frame = {
+            x: 0,
+            y: 0,
+            width: this.frame.width,
+            height: this.frame.height,
+        }
+
         imgFrame = this.imageView.frame
-        imgX = (this.frame.width - imgFrame.width) / 2
-        imgY = (this.frame.height - imgFrame.height) / 2
+        imgX = 8
+        imgY = this.frame.height - imgFrame.height - 8
         imgFrame.x = imgX
         imgFrame.y = imgY
         this.imageView.frame = imgFrame

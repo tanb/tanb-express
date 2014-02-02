@@ -23,16 +23,24 @@
     __extends(MobileFirstView, _super);
 
     function MobileFirstView() {
-      var frame;
       MobileFirstView.__super__.constructor.apply(this, arguments);
+      this.backgroundView = new BNImageView();
+      this.backgroundView.frame = {
+        x: 0,
+        y: 0,
+        width: this.frame.width,
+        height: this.frame.height
+      };
+      this.backgroundView.src = 'http://distilleryimage6.ak.instagram.com/1ac7562c8c4d11e3b8b3124b6b221cf2_8.jpg';
+      this.backgroundView.clipsToBounds = true;
+      this.addSubview(this.backgroundView);
       this.imageView = new BNImageView();
-      frame = {
+      this.imageView.frame = {
         x: 0,
         y: 0,
         width: 45,
         height: 45
       };
-      this.imageView.frame = frame;
       this.imageView.src = '/img/logo.png';
       this.imageView.circularize = true;
       this.addSubview(this.imageView);
@@ -41,9 +49,15 @@
     MobileFirstView.prototype.layoutSubviews = function() {
       var imgFrame, imgX, imgY;
       MobileFirstView.__super__.layoutSubviews.apply(this, arguments);
+      this.backgroundView.frame = {
+        x: 0,
+        y: 0,
+        width: this.frame.width,
+        height: this.frame.height
+      };
       imgFrame = this.imageView.frame;
-      imgX = (this.frame.width - imgFrame.width) / 2;
-      imgY = (this.frame.height - imgFrame.height) / 2;
+      imgX = 8;
+      imgY = this.frame.height - imgFrame.height - 8;
       imgFrame.x = imgX;
       imgFrame.y = imgY;
       return this.imageView.frame = imgFrame;

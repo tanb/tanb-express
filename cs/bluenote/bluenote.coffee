@@ -83,16 +83,20 @@ class @BNImageView extends BNView
         orgH = this._$img[0].naturalHeight
         imgW = this.frame.width
         imgH = this.frame.height
-        
-        dF = Math.sqrt(Math.pow(imgW, 2) + Math.pow(imgH, 2))
-        dO = Math.sqrt(Math.pow(orgW, 2) + Math.pow(orgH, 2))
-        scale = dF / dO
 
+        absDW = imgW - orgW
+        absDH = imgH - orgH
+        scale = 1
+        if absDW < absDH
+            scale = imgH / orgH
+        else
+            scale = imgW / orgW
+        
         newW = orgW * scale
         newH = orgH * scale
 
         cX = ((imgW - newW) / 2)
-        cY = ((imgW - newW) / 2)
+        cY = ((imgH - newH) / 2)
 
         this._$img.css({
             'left': cX,
@@ -186,7 +190,7 @@ class @BNNavigationController extends BNViewController
         this.navigationBar = new BNView();
         this.navigationBar._$elm.addClass('navbar navbar-static-top')
         this.navigationBar._$elm.css({
-            'background-color': 'rgb(221, 221, 221)'
+            'background-color': 'rgba(221, 221, 221, 0.5)'
         })
         navContainer = $('<div />')
         navContainer.addClass('container')

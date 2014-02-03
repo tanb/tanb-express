@@ -48,10 +48,8 @@ class @BNView
             this._$elm.css({
                 'overflow': 'auto'
             })
-
-        $.each this._subviews,
-            (idx, view) ->
-                view.layoutSubviews()
+        for view, idx in this._subviews
+            view.layoutSubviews()
 
     @property 'clipsToBounds',
         get: () ->

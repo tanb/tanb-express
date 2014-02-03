@@ -107,6 +107,7 @@
     });
 
     BNView.prototype.layoutSubviews = function() {
+      var idx, view, _i, _len, _ref, _results;
       if (this._clipsToBounds) {
         this._$elm.css({
           'overflow': 'hidden'
@@ -116,9 +117,13 @@
           'overflow': 'auto'
         });
       }
-      return $.each(this._subviews, function(idx, view) {
-        return view.layoutSubviews();
-      });
+      _ref = this._subviews;
+      _results = [];
+      for (idx = _i = 0, _len = _ref.length; _i < _len; idx = ++_i) {
+        view = _ref[idx];
+        _results.push(view.layoutSubviews());
+      }
+      return _results;
     };
 
     BNView.property('clipsToBounds', {

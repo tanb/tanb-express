@@ -197,7 +197,8 @@
         return BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments);
       },
       set: function(frame) {
-        return BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
+        BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments);
+        return this.sizeToFit();
       }
     });
 

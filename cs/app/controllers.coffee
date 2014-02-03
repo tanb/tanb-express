@@ -23,6 +23,8 @@ class MobileRootViewController extends BNNavigationController
             $('html, body').css({
                 'height': 568,
             });
+        this.layoutSubviews()
+
 
 class MainViewController extends BNViewController
     constructor: () ->

@@ -116,7 +116,8 @@ class @BNImageView extends BNView
             BNImageView.__super__.__lookupGetter__('frame').apply(this, arguments)
         set: (frame) ->
             BNImageView.__super__.__lookupSetter__('frame').apply(this, arguments)
-
+            this.sizeToFit()
+            
     @property 'circularize',
         get: () ->
             return this._circularize;

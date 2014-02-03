@@ -237,7 +237,7 @@ class @BNNavigationController extends BNViewController
             _rightBarButton.frame = rBtnFrame
 
             this.navigationBar.addSubview(_rightBarButton)
-            
+
         this._containerView.layoutSubviews()
 
 

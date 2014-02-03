@@ -86,15 +86,14 @@
 
     MobileRootViewController.prototype.didResizeWindow = function(event) {
       if ($(window).outerHeight() <= 320) {
-        $('html, body').css({
+        return $('html, body').css({
           'height': 320
         });
       } else if ($(window).outerHeight() <= 568) {
-        $('html, body').css({
+        return $('html, body').css({
           'height': 568
         });
       }
-      return this.layoutSubviews();
     };
 
     return MobileRootViewController;
@@ -175,8 +174,7 @@
       frame = this.mobileView.frame;
       frame.x = x;
       frame.y = y;
-      this.mobileView.frame = frame;
-      return this.subViewController.layoutSubviews();
+      return this.mobileView.frame = frame;
     };
 
     return RootViewController;

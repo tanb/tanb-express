@@ -24,9 +24,6 @@ class MobileRootViewController extends BNNavigationController
                 'height': 568,
             });
 
-        this.layoutSubviews()
-
-
 class MainViewController extends BNViewController
     constructor: () ->
         super
@@ -87,4 +84,3 @@ class RootViewController extends BNViewController
         frame.x = x
         frame.y = y
         this.mobileView.frame = frame
-        this.subViewController.layoutSubviews()

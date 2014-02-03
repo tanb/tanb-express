@@ -1,3 +1,4 @@
+
 class @BNView
     constructor: () ->
         this._$elm = $('<div />')

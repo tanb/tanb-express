@@ -8,11 +8,35 @@
     __extends(MainView, _super);
 
     function MainView() {
+      var agent;
       MainView.__super__.constructor.apply(this, arguments);
+      agent = navigator.userAgent;
+      this.imageView = null;
+      if (agent.search(/iPhone/) === -1) {
+        this.imageView = new BNImageView();
+        this.imageView.frame = {
+          x: 0,
+          y: 0,
+          width: 45,
+          height: 45
+        };
+        this.imageView.src = '/img/logo.png';
+        this.imageView.circularize = true;
+        this.addSubview(this.imageView);
+      }
     }
 
     MainView.prototype.layoutSubviews = function() {
-      return MainView.__super__.layoutSubviews.apply(this, arguments);
+      var imgFrame, imgX, imgY;
+      MainView.__super__.layoutSubviews.apply(this, arguments);
+      if (this.imageView) {
+        imgFrame = this.imageView.frame;
+        imgX = 8;
+        imgY = this.frame.height - imgFrame.height - 8;
+        imgFrame.x = imgX;
+        imgFrame.y = imgY;
+        return this.imageView.frame = imgFrame;
+      }
     };
 
     return MainView;
@@ -23,6 +47,7 @@
     __extends(MobileFirstView, _super);
 
     function MobileFirstView() {
+      var agent;
       MobileFirstView.__super__.constructor.apply(this, arguments);
       this.backgroundView = new BNImageView();
       this.backgroundView.frame = {
@@ -34,16 +59,20 @@
       this.backgroundView.src = 'http://distilleryimage6.ak.instagram.com/1ac7562c8c4d11e3b8b3124b6b221cf2_8.jpg';
       this.backgroundView.clipsToBounds = true;
       this.addSubview(this.backgroundView);
-      this.imageView = new BNImageView();
-      this.imageView.frame = {
-        x: 0,
-        y: 0,
-        width: 45,
-        height: 45
-      };
-      this.imageView.src = '/img/logo.png';
-      this.imageView.circularize = true;
-      this.addSubview(this.imageView);
+      agent = navigator.userAgent;
+      this.imageView = null;
+      if (agent.search(/iPhone/) !== -1) {
+        this.imageView = new BNImageView();
+        this.imageView.frame = {
+          x: 0,
+          y: 0,
+          width: 45,
+          height: 45
+        };
+        this.imageView.src = '/img/logo.png';
+        this.imageView.circularize = true;
+        this.addSubview(this.imageView);
+      }
     }
 
     MobileFirstView.prototype.layoutSubviews = function() {
@@ -55,12 +84,14 @@
         width: this.frame.width,
         height: this.frame.height
       };
-      imgFrame = this.imageView.frame;
-      imgX = 8;
-      imgY = this.frame.height - imgFrame.height - 8;
-      imgFrame.x = imgX;
-      imgFrame.y = imgY;
-      return this.imageView.frame = imgFrame;
+      if (this.imageView) {
+        imgFrame = this.imageView.frame;
+        imgX = 8;
+        imgY = this.frame.height - imgFrame.height - 8;
+        imgFrame.x = imgX;
+        imgFrame.y = imgY;
+        return this.imageView.frame = imgFrame;
+      }
     };
 
     return MobileFirstView;

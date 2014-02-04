@@ -10,6 +10,7 @@ $('document').ready ->
     window._$elm = $('body')
     window._subviews = []
     window.superview = null;
+    window.__resize_event_timer = false;
     window.addSubview = (view) ->
         view.frame = {
             x: 0,
@@ -23,15 +24,20 @@ $('document').ready ->
         window._subviews.push(view)
         view.superview = window
 
-    $(window).bind('resize', (event)-> 
-        if window.rootViewController
-            window.rootViewController.view.frame = {
-                x: 0,
-                y: 0,
-                width: $(window).outerWidth(),
-                height: $(window).outerHeight(),
-            }
-            window.rootViewController.didResizeWindow(event)
+    $(window).bind('resize', (event)->
+        if window.__resize_event_timer
+            clearTimeout(window.__resize_event_timer);
+        
+        window.__resize_event_timer = setTimeout(() ->
+            if window.rootViewController
+                window.rootViewController.view.frame = {
+                    x: 0,
+                    y: 0,
+                    width: $(window).outerWidth(),
+                    height: $(window).outerHeight(),
+                }
+                window.rootViewController.didResizeWindow(event)
+        , 300); 
     );
 
 Function::property = (prop, desc) ->

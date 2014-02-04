@@ -23,6 +23,7 @@
     window._$elm = $('body');
     window._subviews = [];
     window.superview = null;
+    window.__resize_event_timer = false;
     window.addSubview = function(view) {
       view.frame = {
         x: 0,
@@ -36,15 +37,20 @@
       return view.superview = window;
     };
     return $(window).bind('resize', function(event) {
-      if (window.rootViewController) {
-        window.rootViewController.view.frame = {
-          x: 0,
-          y: 0,
-          width: $(window).outerWidth(),
-          height: $(window).outerHeight()
-        };
-        return window.rootViewController.didResizeWindow(event);
+      if (window.__resize_event_timer) {
+        clearTimeout(window.__resize_event_timer);
       }
+      return window.__resize_event_timer = setTimeout(function() {
+        if (window.rootViewController) {
+          window.rootViewController.view.frame = {
+            x: 0,
+            y: 0,
+            width: $(window).outerWidth(),
+            height: $(window).outerHeight()
+          };
+          return window.rootViewController.didResizeWindow(event);
+        }
+      }, 300);
     });
   });
 

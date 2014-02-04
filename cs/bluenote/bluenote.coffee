@@ -1,4 +1,3 @@
-
 class @BNView
     constructor: () ->
         this._$elm = $('<div />')
@@ -57,6 +56,7 @@ class @BNView
             return this._clipsToBounds
         set: (clip) ->
             this._clipsToBounds = clip
+
 
 class @BNImageView extends BNView
     constructor: () ->

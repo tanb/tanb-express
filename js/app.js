@@ -72,6 +72,20 @@
         height: 0
       };
       this.addSubview(this.topFaceView);
+      this.pageName = new BNView();
+      this.pageName.frame = {
+        x: 0,
+        y: 0,
+        width: 500,
+        height: 85
+      };
+      this.pageName._$elm.text('RATS IN THE GRID');
+      this.pageName._$elm.css({
+        'font-family': "'Oswald', sans-serif",
+        'font-size': 70
+      });
+      this.pageName.clipsToBounds = true;
+      this.addSubview(this.pageName);
       this.imageView = new BNImageView();
       this.imageView.frame = {
         x: 0,
@@ -85,8 +99,13 @@
     }
 
     MainView.prototype.layoutSubviews = function() {
-      var imgFrame, imgX, imgY;
+      var imgFrame, imgX, imgY, pageNameFrame, topFaceViewSize;
       MainView.__super__.layoutSubviews.apply(this, arguments);
+      topFaceViewSize = this.topFaceView.getSize();
+      pageNameFrame = this.pageName.frame;
+      pageNameFrame.x = ($(window).outerWidth() - topFaceViewSize.width) / 2;
+      pageNameFrame.y = ($(window).outerHeight() - topFaceViewSize.height) / 2 - pageNameFrame.height - 5;
+      this.pageName.frame = pageNameFrame;
       imgFrame = this.imageView.frame;
       imgX = 8;
       imgY = this.frame.height - imgFrame.height - 8;
@@ -109,6 +128,7 @@
         width: 320,
         height: 568
       };
+      this.margin = 8;
       this.imagePaths = ['http://distilleryimage6.ak.instagram.com/1ac7562c8c4d11e3b8b3124b6b221cf2_8.jpg', 'http://distilleryimage9.ak.instagram.com/b36dce02f35011e1942b123138190f7f_7.jpg', 'http://distilleryimage0.ak.instagram.com/4b0d27c68d0b11e3a36d0efe2ecb7f88_8.jpg'];
       this.imageViews = [];
       _ref = this.imagePaths;
@@ -131,13 +151,19 @@
       }
     }
 
+    TopFaceView.prototype.getSize = function() {
+      var size;
+      size = {
+        width: (this.imageSize.width + this.margin) * this.imageViews.length - this.margin,
+        height: this.imageSize.height
+      };
+      return size;
+    };
+
     TopFaceView.prototype.layoutSubviews = function() {
       var idx, imageView, mainFrame, size, _i, _len, _ref, _results;
       TopFaceView.__super__.layoutSubviews.apply(this, arguments);
-      size = {
-        width: this.imageSize.width * this.imageViews.length,
-        height: this.imageSize.height
-      };
+      size = this.getSize();
       mainFrame = this.frame;
       mainFrame.width = size.width;
       mainFrame.height = size.height;
@@ -149,7 +175,7 @@
       for (idx = _i = 0, _len = _ref.length; _i < _len; idx = ++_i) {
         imageView = _ref[idx];
         _results.push(imageView.frame = {
-          x: idx * this.imageSize.width,
+          x: idx * (this.imageSize.width + this.margin),
           y: 0,
           width: this.imageSize.width,
           height: this.imageSize.height

@@ -50,7 +50,7 @@
           };
           return window.rootViewController.didResizeWindow(event);
         }
-      }, 300);
+      }, 50);
     });
   });
 
@@ -239,6 +239,7 @@
     function BNViewController() {
       this._view = null;
       this._rightBarButton = null;
+      this._leftBarButton = null;
     }
 
     BNViewController.property('view', {
@@ -329,7 +330,7 @@
     });
 
     BNNavigationController.prototype.layoutSubviews = function() {
-      var rBtnFrame, rBtnX, rBtnY, _rightBarButton;
+      var lBtnFrame, lBtnX, lBtnY, rBtnFrame, rBtnX, rBtnY, _leftBarButton, _rightBarButton;
       this.topViewController.view.frame = {
         x: 0,
         y: 0,
@@ -351,6 +352,16 @@
         rBtnFrame.y = rBtnY;
         _rightBarButton.frame = rBtnFrame;
         this.navigationBar.addSubview(_rightBarButton);
+      }
+      if (this.topViewController._leftBarButton) {
+        _leftBarButton = this.topViewController._leftBarButton;
+        lBtnX = 8;
+        lBtnY = 8;
+        lBtnFrame = _leftBarButton.frame;
+        lBtnFrame.x = lBtnX;
+        lBtnFrame.y = lBtnY;
+        _leftBarButton.frame = lBtnFrame;
+        this.navigationBar.addSubview(_leftBarButton);
       }
       return this._containerView.layoutSubviews();
     };

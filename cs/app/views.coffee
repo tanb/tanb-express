@@ -74,17 +74,6 @@ class MainView extends BNView
         })
         this.pageName.clipsToBounds = true
         this.addSubview(this.pageName)
-                                                
-        this.imageView = new BNImageView()
-        this.imageView.frame = {
-            x: 0,
-            y: 0,
-            width: 45,
-            height: 45,
-        }
-        this.imageView.src = '/img/logo.png'
-        this.imageView.circularize = true;
-        this.addSubview(this.imageView)
 
     layoutSubviews: () ->
         super
@@ -93,17 +82,10 @@ class MainView extends BNView
 
         pageNameFrame = this.pageName.frame
         pageNameFrame.x = ($(window).outerWidth() - topFaceViewSize.width) / 2
-        pageNameFrame.y = ($(window).outerHeight() - topFaceViewSize.height) / 2 - pageNameFrame.height - 5
+        pageNameFrame.y = 50;
 
         this.pageName.frame = pageNameFrame
         
-        imgFrame = this.imageView.frame
-        imgX = 8
-        imgY = this.frame.height - imgFrame.height - 8
-        imgFrame.x = imgX
-        imgFrame.y = imgY
-        this.imageView.frame = imgFrame
-
 
 class TopFaceView extends BNView
     constructor: () ->
@@ -150,7 +132,7 @@ class TopFaceView extends BNView
         mainFrame.width = size.width
         mainFrame.height = size.height
         mainFrame.x = ($(window).outerWidth() - mainFrame.width) / 2
-        mainFrame.y = ($(window).outerHeight() - mainFrame.height) / 2
+        mainFrame.y = 100
         this.frame = mainFrame
 
         for imageView, idx in this.imageViews

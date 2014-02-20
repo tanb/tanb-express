@@ -37,7 +37,7 @@ $('document').ready ->
                     height: $(window).outerHeight(),
                 }
                 window.rootViewController.didResizeWindow(event)
-        , 300); 
+        , 50); 
     );
 
 Function::property = (prop, desc) ->

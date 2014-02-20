@@ -69,6 +69,17 @@ class MainViewController extends BNViewController
         }
         this._rightBarButton = githubBtn
 
+        iconView = new BNImageView()
+        iconView.frame = {
+            x: 0,
+            y: 0,
+            width: 35,
+            height: 35,
+        }
+        iconView.src = '/img/logo.png'
+        iconView.circularize = true;
+        this._leftBarButton = iconView
+
     viewDidLoad: () ->
         super
         # register for resize event handler.

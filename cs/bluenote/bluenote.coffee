@@ -132,6 +132,7 @@ class @BNViewController
     constructor: () ->
         this._view = null
         this._rightBarButton = null
+        this._leftBarButton = null
         
     @property 'view',
         get: () ->
@@ -237,6 +238,17 @@ class @BNNavigationController extends BNViewController
             _rightBarButton.frame = rBtnFrame
 
             this.navigationBar.addSubview(_rightBarButton)
+
+        if this.topViewController._leftBarButton
+            _leftBarButton = this.topViewController._leftBarButton
+            lBtnX = 8
+            lBtnY = 8
+            lBtnFrame = _leftBarButton.frame
+            lBtnFrame.x = lBtnX
+            lBtnFrame.y = lBtnY
+            _leftBarButton.frame = lBtnFrame
+
+            this.navigationBar.addSubview(_leftBarButton)
 
         this._containerView.layoutSubviews()
 

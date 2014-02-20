@@ -86,32 +86,16 @@
       });
       this.pageName.clipsToBounds = true;
       this.addSubview(this.pageName);
-      this.imageView = new BNImageView();
-      this.imageView.frame = {
-        x: 0,
-        y: 0,
-        width: 45,
-        height: 45
-      };
-      this.imageView.src = '/img/logo.png';
-      this.imageView.circularize = true;
-      this.addSubview(this.imageView);
     }
 
     MainView.prototype.layoutSubviews = function() {
-      var imgFrame, imgX, imgY, pageNameFrame, topFaceViewSize;
+      var pageNameFrame, topFaceViewSize;
       MainView.__super__.layoutSubviews.apply(this, arguments);
       topFaceViewSize = this.topFaceView.getSize();
       pageNameFrame = this.pageName.frame;
       pageNameFrame.x = ($(window).outerWidth() - topFaceViewSize.width) / 2;
-      pageNameFrame.y = ($(window).outerHeight() - topFaceViewSize.height) / 2 - pageNameFrame.height - 5;
-      this.pageName.frame = pageNameFrame;
-      imgFrame = this.imageView.frame;
-      imgX = 8;
-      imgY = this.frame.height - imgFrame.height - 8;
-      imgFrame.x = imgX;
-      imgFrame.y = imgY;
-      return this.imageView.frame = imgFrame;
+      pageNameFrame.y = 50;
+      return this.pageName.frame = pageNameFrame;
     };
 
     return MainView;
@@ -168,7 +152,7 @@
       mainFrame.width = size.width;
       mainFrame.height = size.height;
       mainFrame.x = ($(window).outerWidth() - mainFrame.width) / 2;
-      mainFrame.y = ($(window).outerHeight() - mainFrame.height) / 2;
+      mainFrame.y = 100;
       this.frame = mainFrame;
       _ref = this.imageViews;
       _results = [];
@@ -263,7 +247,7 @@
     }
 
     MainViewController.prototype.loadView = function() {
-      var githubBtn;
+      var githubBtn, iconView;
       MainViewController.__super__.loadView.apply(this, arguments);
       this.view = new MainView();
       githubBtn = new BNButton();
@@ -274,7 +258,17 @@
         width: 160,
         height: 35
       };
-      return this._rightBarButton = githubBtn;
+      this._rightBarButton = githubBtn;
+      iconView = new BNImageView();
+      iconView.frame = {
+        x: 0,
+        y: 0,
+        width: 35,
+        height: 35
+      };
+      iconView.src = '/img/logo.png';
+      iconView.circularize = true;
+      return this._leftBarButton = iconView;
     };
 
     MainViewController.prototype.viewDidLoad = function() {

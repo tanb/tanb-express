@@ -24,3 +24,4 @@ bn_compile:
 
 js_compile:
 	$(CAKE) -s $(CSDIR)/app -o $(DISTJS) -m main.coffee -p $(COFFEE) build
+	$(CAKE) -s $(CSDIR)/angularjs_study01 -o $(JSDIR)/angularjs_study01.js -m main.coffee -p $(COFFEE) build

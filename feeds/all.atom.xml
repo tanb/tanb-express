@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>tanB</title><link href="https://s.tanb.me/" rel="alternate"></link><link href="https://s.tanb.me/feeds/all.atom.xml" rel="self"></link><id>https://s.tanb.me/</id><updated>2015-04-01T22:00:00+09:00</updated><entry><title>Hello! I'm tanB!</title><link href="https://s.tanb.me/posts/2015/04/01/hello-im-tanb/" rel="alternate"></link><updated>2015-04-01T22:00:00+09:00</updated><author><name>tanb</name></author><id>tag:s.tanb.me,2015-04-01:posts/2015/04/01/hello-im-tanb/</id><summary type="html">&lt;h1&gt;What is it?&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>tanB</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2015-04-01T22:00:00+09:00</updated><entry><title>Hello! I'm tanB!</title><link href="/posts/2015/04/01/hello-im-tanb/" rel="alternate"></link><updated>2015-04-01T22:00:00+09:00</updated><author><name>tanb</name></author><id>tag:,2015-04-01:posts/2015/04/01/hello-im-tanb/</id><summary type="html">&lt;h1&gt;What is it?&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;tanB's tech blog.&lt;/li&gt;
 &lt;li&gt;Static site with GitHub Pages.&lt;/li&gt;

@@ -24,24 +24,14 @@
       <li class="post-date">
         <a class="text-muted" href="/{{ article.url }}" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</a>
       </li>
-      <li class="muted">&middot;</li>
       <li class="post-category">
         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
       </li>
       {% if article.tags %}
-        <li class="muted">&middot;</li>
-        <li>
+        <li class="post-tag">
           {% for tag in article.tags %}
             <a href="{{ SITEUrL }}/tag/{{ tag }}.html">{{ tag }}</a>{% if not loop.last %}, {% endif %}
           {% endfor %}
-        </li>
-      {% endif %}
-      {% if article.author and SHOW_ARTICLE_AUTHOR %}
-        <li class="muted">&middot;</li>
-        <li>
-          <address class="post-author">
-            By <a href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
-          </address>
         </li>
       {% endif %}
     </ul>
@@ -49,5 +39,4 @@
       {{ article.content }}
     </div>
   </div>
-  <hr class="separator">
 {% endblock %}

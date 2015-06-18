@@ -11,9 +11,20 @@ PATH = 'content'
 TIMEZONE = 'Asia/Tokyo'
 
 DEFAULT_LANG = u'ja'
+SITE_SUBTEXT = u'Tomonori Tanabe'
 
 # Theme
 THEME = './theme'
+PROFILE_IMAGE = '/theme/img/header-image.jpg'
+
+# URL
+ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
+YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/index.html'
+
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -22,15 +33,9 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
-
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('twitter', 'http://twitter.com/tanb'),
+          ('github', 'http://github.com/tanb'),)
 
 DEFAULT_PAGINATION = 10
 

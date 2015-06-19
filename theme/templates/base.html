@@ -5,9 +5,9 @@
     {% if ENABLE_HTTPS %}
     <script>
       var location_protocol = window.location.protocol;
-      var location_site_url = location_protocol + "//" + window.location.host;
-      var host = "{{ SITEURL }}";
-      if ((host == location_site_url) && (location_protocol != "https:"))
+      var location_host = window.location.host;
+      var host = "{{ SITEURL }}".split("://")[1];
+      if ((host == location_host) && (location_protocol != "https:"))
       window.location.protocol = "https";
     </script>
     {% endif %}

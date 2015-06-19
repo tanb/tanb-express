@@ -4,7 +4,7 @@ Category:
 Tags:
 Slug:
 
-# What is it?
+# What is this?
 
 - tanB's tech blog.
 - Static site with GitHub Pages.

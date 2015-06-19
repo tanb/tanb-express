@@ -4,18 +4,15 @@ from __future__ import unicode_literals
 
 AUTHOR = u'tanb'
 SITENAME = u'tanB'
-SITEURL = ''
-
+ENABLE_HTTPS = False
+SITEURL = 'http://localhost:8000'
 PATH = 'content'
-
 TIMEZONE = 'Asia/Tokyo'
-
 DEFAULT_LANG = u'ja'
 SITE_SUBTEXT = u'Tomonori Tanabe'
 
 # Theme
 THEME = './theme'
-PROFILE_IMAGE = '/theme/img/header-image.jpg'
 
 # URL
 ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/'

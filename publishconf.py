@@ -10,6 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
+ENABLE_HTTPS = True
 SITEURL = 'https://tanb.me'
 RELATIVE_URLS = False
 

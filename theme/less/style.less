@@ -3,10 +3,11 @@
 @monospace: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 @font-family: "Apple TP","Helvetica Neue","Helvetica","Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Arial","Verdana","sans-serif";
 
-
 body {
     background-color: #fafafa;
     font-family: @font-family;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -61,7 +62,7 @@ a {
         margin-top: 0;
     }
     .header-text {
-        color: #AAAAAA;
+        font-weight: 200;
         font-size: 13px;
         margin-bottom: 2px;
         margin-top: 0;
@@ -80,6 +81,7 @@ a {
     }
     .header-translate {
         color: #AAAAAA;
+        font-weight: 200;
     }
 }
 

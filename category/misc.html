@@ -4,9 +4,9 @@
   <head>
     <script>
       var location_protocol = window.location.protocol;
-      var location_site_url = location_protocol + "//" + window.location.host;
-      var host = "https://tanb.me";
-      if ((host == location_site_url) && (location_protocol != "https:"))
+      var location_host = window.location.host;
+      var host = "https://tanb.me".split("://")[1];
+      if ((host == location_host) && (location_protocol != "https:"))
       window.location.protocol = "https";
     </script>
       <meta charset="utf-8">

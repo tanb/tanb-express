@@ -1,5 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>tanB</title><link href="https://tanb.me/" rel="alternate"></link><link href="https://tanb.me/feeds/all.atom.xml" rel="self"></link><id>https://tanb.me/</id><updated>2015-04-01T22:00:00+09:00</updated><entry><title>Hello! I'm tanB!</title><link href="https://tanb.me/posts/2015/04/01/hello-im-tanb/" rel="alternate"></link><updated>2015-04-01T22:00:00+09:00</updated><author><name>tanb</name></author><id>tag:tanb.me,2015-04-01:posts/2015/04/01/hello-im-tanb/</id><summary type="html">&lt;h1&gt;What is this?&lt;/h1&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>tanB</title><link href="https://tanb.me/" rel="alternate"></link><link href="https://tanb.me/feeds/all.atom.xml" rel="self"></link><id>https://tanb.me/</id><updated>2015-09-26T12:47:00+09:00</updated><entry><title>Create FreeBSD VM and boot on xhyve.</title><link href="https://tanb.me/posts/2015/09/26/create-freebsd-vm-and-boot-on-xhyve/" rel="alternate"></link><updated>2015-09-26T12:47:00+09:00</updated><author><name>tanb</name></author><id>tag:tanb.me,2015-09-26:posts/2015/09/26/create-freebsd-vm-and-boot-on-xhyve/</id><summary type="html">&lt;h1&gt;TL;DR&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Create 10GB FreeBSD image using QEMU.&lt;/li&gt;
+&lt;li&gt;Run the VM using xhyve.&lt;/li&gt;
+&lt;li&gt;Mount host directory.&lt;/li&gt;
+&lt;li&gt;Resize the image.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Requisites&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;OSX&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://brew.sh"&gt;Homebrew&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/mist64/xhyve"&gt;xhyve&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install xhyve --HEAD
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.qemu.org"&gt;QEMU&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;brew install qemu
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;FreeBSD installer. Download from https://www.freebsd.org/where.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Create Virtual Machine&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;This Example creates 10GB image.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /Path/to/workdir
+&lt;span class="nv"&gt;$ &lt;/span&gt;qemu-img create -f raw VM10G.raw 10G
+Formatting &lt;span class="s1"&gt;&amp;#39;VM10G.raw&amp;#39;&lt;/span&gt;, &lt;span class="nv"&gt;fmt&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;raw &lt;span class="nv"&gt;size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;10737418240
+&lt;span class="nv"&gt;$ &lt;/span&gt;ls
+FreeBSD-10.2-RELEASE-amd64-bootonly.iso VM10G.raw
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Install FreeBSD&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;qemu-system-x86_64 -m &lt;span class="m"&gt;256&lt;/span&gt; -hda VM10G.raw -cdrom FreeBSD-10.2-RELEASE-amd64-bootonly.iso
+WARNING: Image format was not specified &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;VM10G.raw&amp;#39;&lt;/span&gt; and probing guessed raw.
+Automatically detecting the format is dangerous &lt;span class="k"&gt;for&lt;/span&gt; raw images, write operations on block &lt;span class="m"&gt;0&lt;/span&gt; will be restricted.
+Specify the &lt;span class="s1"&gt;&amp;#39;raw&amp;#39;&lt;/span&gt; format explicitly to remove the restrictions.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;QEMU window will open. Install FreeBSD.&lt;/p&gt;
+&lt;h1&gt;Run The VM Using xhyve&lt;/h1&gt;
+&lt;h2&gt;#1&lt;/h2&gt;
+&lt;p&gt;Before using xhyve, run the vm using qemu.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;qemu-system-x86_64 -m &lt;span class="m"&gt;256&lt;/span&gt; -hda VM10G.raw
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Change GEOM name 'ada0' to 'vtbd0'.&lt;/p&gt;
+&lt;p&gt;Edit /etc/fstab,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Device        Mountpoint      FStype  Options Dump    Pass#
+/dev/ada0p2    /               ufs     rw      1       1
+/dev/ada0p3    none            swap    sw      0       0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# Device        Mountpoint      FStype  Options Dump    Pass#
+/dev/vtbd0p2    /               ufs     rw      1       1
+/dev/vtbd0p3    none            swap    sw      0       0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And set DHCP to vtnet0 interface.&lt;/p&gt;
+&lt;p&gt;Edit /etc/rc.conf&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ifconfig_vtnet0=&amp;quot;DHCP&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Shut it down and close the qemu window.&lt;/p&gt;
+&lt;h2&gt;#2&lt;/h2&gt;
+&lt;p&gt;Create running script.&lt;/p&gt;
+&lt;p&gt;xhyverun-freebsd.sh&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class="nv"&gt;USERBOOT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/Library/Caches/Homebrew/xhyve--git/test/userboot.so&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;BOOTVOLUME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;VM10G.raw&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;KERNELENV&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;
+
+&lt;span class="nv"&gt;MEM&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-m 2G&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;SMP&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-c 2&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;IMG_HDD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-s 4:0,virtio-blk,&lt;/span&gt;&lt;span class="nv"&gt;$BOOTVOLUME&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;PCI_DEV&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-s 0:0,hostbridge -s 31,lpc&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;LPC_DEV&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-l com1,stdio&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;NET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;-s 2:0,virtio-net&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# UUID=&amp;quot;-U deaddead-dead-dead-dead-deaddeaddead&amp;quot;&lt;/span&gt;
+
+xhyve -A &lt;span class="nv"&gt;$MEM&lt;/span&gt; &lt;span class="nv"&gt;$SMP&lt;/span&gt; &lt;span class="nv"&gt;$PCI_DEV&lt;/span&gt; &lt;span class="nv"&gt;$LPC_DEV&lt;/span&gt; &lt;span class="nv"&gt;$NET&lt;/span&gt; &lt;span class="nv"&gt;$IMG_CD&lt;/span&gt; &lt;span class="nv"&gt;$IMG_HDD&lt;/span&gt; &lt;span class="nv"&gt;$UUID&lt;/span&gt; -f fbsd,&lt;span class="nv"&gt;$USERBOOT&lt;/span&gt;,&lt;span class="nv"&gt;$BOOTVOLUME&lt;/span&gt;,&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$KERNELENV&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Run the FreeBSD VM.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo xhyverun-freebsd.sh
+
+
+______               ____   _____ _____
+&lt;span class="p"&gt;|&lt;/span&gt;  ____&lt;span class="p"&gt;|&lt;/span&gt;             &lt;span class="p"&gt;|&lt;/span&gt;  _ &lt;span class="se"&gt;\ &lt;/span&gt;/ ____&lt;span class="p"&gt;|&lt;/span&gt;  __ &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;___ _ __ ___  ___ &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;_&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;___ &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;  &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;  ___&lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;__/ _ &lt;span class="se"&gt;\/&lt;/span&gt; _ &lt;span class="se"&gt;\|&lt;/span&gt;  _ &amp;lt; &lt;span class="se"&gt;\_&lt;/span&gt;__ &lt;span class="se"&gt;\|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;  &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;   &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;  __/  __/&lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;_&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;____&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;__&lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;   &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt;    &lt;span class="p"&gt;|&lt;/span&gt;    &lt;span class="o"&gt;||&lt;/span&gt;     &lt;span class="p"&gt;|&lt;/span&gt;      &lt;span class="p"&gt;|&lt;/span&gt;      &lt;span class="p"&gt;|&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;_&lt;span class="p"&gt;|&lt;/span&gt;   &lt;span class="p"&gt;|&lt;/span&gt;_&lt;span class="p"&gt;|&lt;/span&gt;  &lt;span class="se"&gt;\_&lt;/span&gt;__&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="se"&gt;\_&lt;/span&gt;__&lt;span class="o"&gt;||&lt;/span&gt;____/&lt;span class="p"&gt;|&lt;/span&gt;_____/&lt;span class="p"&gt;|&lt;/span&gt;_____/    &lt;span class="sb"&gt;```&lt;/span&gt;                        &lt;span class="sb"&gt;`&lt;/span&gt;
+s&lt;span class="sb"&gt;`&lt;/span&gt; &lt;span class="sb"&gt;`&lt;/span&gt;.....---.......--.&lt;span class="sb"&gt;```&lt;/span&gt;   -/
++&lt;span class="o"&gt;============&lt;/span&gt;Welcome to &lt;span class="nv"&gt;FreeBSD&lt;/span&gt;&lt;span class="o"&gt;===========&lt;/span&gt;+ +o   .--&lt;span class="sb"&gt;`&lt;/span&gt;         /y:&lt;span class="sb"&gt;`&lt;/span&gt;      +.
+&lt;span class="p"&gt;|&lt;/span&gt;                                         &lt;span class="p"&gt;|&lt;/span&gt;  yo&lt;span class="sb"&gt;`&lt;/span&gt;:.            :o      &lt;span class="sb"&gt;`&lt;/span&gt;+-
+&lt;span class="p"&gt;|&lt;/span&gt;  1. Boot Multi User &lt;span class="o"&gt;[&lt;/span&gt;Enter&lt;span class="o"&gt;]&lt;/span&gt;             &lt;span class="p"&gt;|&lt;/span&gt;   y/               -/&lt;span class="sb"&gt;`&lt;/span&gt;   -o/
+&lt;span class="p"&gt;|&lt;/span&gt;  2. Boot &lt;span class="o"&gt;[&lt;/span&gt;S&lt;span class="o"&gt;]&lt;/span&gt;ingle User                  &lt;span class="p"&gt;|&lt;/span&gt;  .-                  ::/sy+:.
+&lt;span class="p"&gt;|&lt;/span&gt;  3. &lt;span class="o"&gt;[&lt;/span&gt;Esc&lt;span class="o"&gt;]&lt;/span&gt;ape to loader prompt           &lt;span class="p"&gt;|&lt;/span&gt;  /                     &lt;span class="sb"&gt;`&lt;/span&gt;--  /
+&lt;span class="p"&gt;|&lt;/span&gt;  4. Reboot                              &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="sb"&gt;`&lt;/span&gt;:                          :&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;                                         &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="sb"&gt;`&lt;/span&gt;:                          :&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;  Options:                               &lt;span class="p"&gt;|&lt;/span&gt;  /                          /
+&lt;span class="p"&gt;|&lt;/span&gt;  5. &lt;span class="o"&gt;[&lt;/span&gt;K&lt;span class="o"&gt;]&lt;/span&gt;ernel: kernel &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; of 2&lt;span class="o"&gt;)&lt;/span&gt;           &lt;span class="p"&gt;|&lt;/span&gt;  .-                        -.
+&lt;span class="p"&gt;|&lt;/span&gt;  6. Configure Boot &lt;span class="o"&gt;[&lt;/span&gt;O&lt;span class="o"&gt;]&lt;/span&gt;ptions...         &lt;span class="p"&gt;|&lt;/span&gt;   --                      -.
+&lt;span class="p"&gt;|&lt;/span&gt;                                         &lt;span class="p"&gt;|&lt;/span&gt;    &lt;span class="sb"&gt;`&lt;/span&gt;:&lt;span class="sb"&gt;`&lt;/span&gt;                  &lt;span class="sb"&gt;`&lt;/span&gt;:&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="p"&gt;|&lt;/span&gt;                                         &lt;span class="p"&gt;|&lt;/span&gt;      .--             &lt;span class="sb"&gt;`&lt;/span&gt;--.
+&lt;span class="p"&gt;|&lt;/span&gt;                                         &lt;span class="p"&gt;|&lt;/span&gt;         .---.....----.
++&lt;span class="o"&gt;=========================================&lt;/span&gt;+
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you got following mount error, you may be forgeting #1.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Trying to mount root from ufs:/dev/ada0p2 [rw]...
+mountroot: waiting for device /dev/ada0p2 ...
+Mounting from ufs:/dev/ada0p2 failed with error 19.
+
+Loader variables:
+vfs.root.mountfrom=ufs:/dev/ada0p2
+vfs.root.mountfrom.options=rw
+
+Manual root filesystem specification:
+&amp;lt;fstype&amp;gt;:&amp;lt;device&amp;gt; [options]
+Mount &amp;lt;device&amp;gt; using filesystem &amp;lt;fstype&amp;gt;
+and with the specified (optional) option list.
+
+eg. ufs:/dev/da0s1a
+zfs:tank
+cd9660:/dev/acd0 ro
+(which is equivalent to: mount -t cd9660 -o ro /dev/acd0 /)
+
+?               List valid disk boot devices
+.               Yield 1 second (for background tasks)
+&amp;lt;empty line&amp;gt;    Abort manual input
+
+mountroot&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;But you can mount device manually.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;mountroot&amp;gt; ?
+
+List of GEOM managed disk devices:
+gptid/5bebeba9-6364-11e5-abe5-bd56998f3bd1 gptid/5be6a257-6364-11e5-abe5-bd56998f3bd1 ufsid/56050e05aac93398 gptid/5be40c9f-6364-11e5-abe5-bd56998f3bd1 diskid/DISK-BHYVE-1C5B-53F3-EA71p3 diskid/DISK-BHYVE-1C5B-53F3-EA71p2 diskid/DISK-BHYVE-1C5B-53F3-EA71p1 vtbd0p3 vtbd0p2 vtbd0p1 diskid/DISK-BHYVE-1C5B-53F3-EA71 vtbd0
+
+mountroot&amp;gt; ufs:ufsid/56050e05aac93398
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Mount Host Directory&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Referenece https://github.com/mist64/xhyve/issues/45&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;On Host(192.168.64.1)&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo touch /etc/exports
+&lt;span class="nv"&gt;$ &lt;/span&gt;sudo emacs /etc/exports
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Edit /etc/exports (&lt;a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/exports.5.html"&gt;exports(5)&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;/PATH/TO/EXPORTDIR -mapall=501 -network 192.168.64.0 -mask 255.255.255.0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Reread file (&lt;a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man8/nfsd.8.html"&gt;nfsd(8)&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo nfsd update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;On VM&lt;/h3&gt;
+&lt;p&gt;Mount&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# mkdir /usr/home/YOU/host-shared
+# sudo mount 192.168.64.1:/PATH/TO/EXPORTDIR /usr/home/YOU/host-shared
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Unmount&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# mount
+/dev/vtbd0p2 on / (ufs, local, journaled soft-updates)
+devfs on /dev (devfs, local, multilabel)
+192.168.64.1:/PATH/TO/EXPORTDIR on /usr/home/YOU/host-shared (nfs)
+# sudo umount 192.168.64.1:/PATH/TO/EXPORTDIR
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;Resizing and Growing Disks&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Reference https://www.freebsd.org/doc/handbook/disks-growing.html&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Resize VM size on Host. This example 10GB -&amp;gt; 15GB.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;qemu-img resize VM10G.raw 15GB
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Fix disk partitions configuration on VM&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# gpart show
+=&amp;gt;      34  20971453  vtbd0  GPT  (15G) [CORRUPT]
+34      1024      1  freebsd-boot  (512K)
+1058  19919872      2  freebsd-ufs  (9.5G)
+19920930   1048576      3  freebsd-swap  (512M)
+20969506      1981         - free -  (991K)
+
+# gpart recover vtbd0
+vtbd0 recovered
+# gpart show
+=&amp;gt;      34  31457213  vtbd0  GPT  (15G)
+34      1024      1  freebsd-boot  (512K)
+1058  19919872      2  freebsd-ufs  (9.5G)
+19920930   1048576      3  freebsd-swap  (512M)
+20969506  10487741         - free -  (5.0G)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Delete swap partition&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# swapoff /dev/vtbd0p3
+# gpart delete -i 3 vtbd0
+vtbd0p3 deleted
+# gpart show
+=&amp;gt;      34  31457213  vtbd0  GPT  (15G)
+34      1024      1  freebsd-boot  (512K)
+1058  19919872      2  freebsd-ufs  (9.5G)
+19920930  11536317         - free -  (5.5G)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Resize freebsd-ufs partition&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# gpart resize -i 2 -a 4k -s 14G vtbd0
+vtbd0p2 resized
+root@xhyve-freebsd:~ # gpart show
+=&amp;gt;      34  31457213  vtbd0  GPT  (15G)
+34      1024      1  freebsd-boot  (512K)
+1058  29360126      2  freebsd-ufs  (14G)
+29361184   2096063         - free -  (1.0G)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Recreate swap partition&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;#  gpart add -t freebsd-swap -a 4k -s 512M vtbd0
+vtbd0p3 added
+# gpart show
+=&amp;gt;      34  31457213  vtbd0  GPT  (15G)
+34      1024      1  freebsd-boot  (512K)
+1058  29360126      2  freebsd-ufs  (14G)
+29361184   1048576      3  freebsd-swap  (512M)
+30409760   1047487         - free -  (511M)
+
+# swapon /dev/vtbd0p3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Grow the UFS file system&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# growfs /dev/vtbd0p2
+Device is mounted read-write; resizing will result in temporary write suspension for /.
+It&amp;#39;s strongly recommended to make a backup before growing the file system.
+OK to grow filesystem on /dev/vtbd0p2, mounted on /, from 9.5GB to 14GB? [Yes/No] Yes
+super-block backups (for fsck_ffs -b #) at:
+20516032, 21798272, 23080512, 24362752, 25644992, 26927232, 28209472
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Check the resized file system.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# df -h
+Filesystem      Size    Used   Avail Capacity  Mounted on
+/dev/vtbd0p2     14G    1.9G     11G    16%    /
+devfs           1.0K    1.0K      0B   100%    /dev
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now's the time to rename VM10G.raw.&lt;/p&gt;
+&lt;p&gt;It is no longer 10GB... Hahaha.&lt;/p&gt;</summary><category term="xhyve FreeBSD"></category></entry><entry><title>Hello! I'm tanB!</title><link href="https://tanb.me/posts/2015/04/01/hello-im-tanb/" rel="alternate"></link><updated>2015-04-01T22:00:00+09:00</updated><author><name>tanb</name></author><id>tag:tanb.me,2015-04-01:posts/2015/04/01/hello-im-tanb/</id><summary type="html">&lt;h1&gt;What is this?&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;tanB's tech blog.&lt;/li&gt;
 &lt;li&gt;Static site with GitHub Pages.&lt;/li&gt;

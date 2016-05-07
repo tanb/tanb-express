@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>tanB</title><link href="https://tanb.me/" rel="alternate"></link><link href="https://tanb.me/feeds/misc.atom.xml" rel="self"></link><id>https://tanb.me/</id><updated>2015-04-01T22:00:00+09:00</updated><entry><title>Hello! I'm tanB!</title><link href="https://tanb.me/posts/2015/04/01/hello-im-tanb/" rel="alternate"></link><updated>2015-04-01T22:00:00+09:00</updated><author><name>tanb</name></author><id>tag:tanb.me,2015-04-01:posts/2015/04/01/hello-im-tanb/</id><summary type="html">&lt;h1&gt;What is this?&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;tanB's tech blog.&lt;/li&gt;
-&lt;li&gt;Static site with GitHub Pages.&lt;/li&gt;
-&lt;li&gt;Pelican, static site generator, written in Python.&lt;/li&gt;
-&lt;/ul&gt;</summary></entry></feed>

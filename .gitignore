@@ -1,0 +1,10 @@
+*~
+.DS_Store
+*.pyc
+*.orig
+node_modules
+
+static/lib
+static/css
+static/js
+typings

@@ -1,0 +1,8 @@
+{
+    "ambientDependencies": {
+        "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+        "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+        "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#ca92a5b250433c38230b5f4138b36453862342bf",
+        "jquery.simplemodal": "github:DefinitelyTyped/DefinitelyTyped/jquery.simplemodal/jquery.simplemodal.d.ts#2d84e48e3b4ecb47b8c3f1a6c769e9293bce1196"
+    }
+}

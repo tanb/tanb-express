@@ -1,0 +1,25 @@
+{
+    "name": "tanb.github.io",
+    "scripts": {
+        "typings": "typings",
+        "postinstall": "typings install"
+    },
+    "dependencies": {
+        "angular2": "2.0.0-beta.12",
+        "systemjs": "0.19.24",
+        "es6-shim": "^0.35.0",
+        "reflect-metadata": "0.1.2",
+        "rxjs": "5.0.0-beta.2",
+        "zone.js": "0.6.6",
+        "typescript": "^1.8.9",
+        "typings":"^0.7.9",
+        "gulp": "*",
+        "gulp-less": "*",
+        "gulp-minify-css": "*",
+        "gulp-shell": "*",
+        "gulp-watch": "*",
+        "minimist": "*",
+        "gulp-typescript": "*",
+        "gulp-webserver": "*"
+    }
+}

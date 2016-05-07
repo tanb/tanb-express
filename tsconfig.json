@@ -4,7 +4,7 @@
         "module": "system",
         "moduleResolution": "node",
         "sourceMap": true,
-        "outDir": "./static/main/js",
+        "outDir": "./static/js",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "removeComments": false,

@@ -12,15 +12,15 @@ var port = argv.port;
 var tsccommand = 'node_modules/.bin/tsc';
 
 gulp.task('less', function () {
-    return gulp.src('./static/main/less/*.less')
+    return gulp.src('./static/less/*.less')
         .pipe(less())
         .pipe(minifyCSS())
-        .pipe(gulp.dest('./static/main/css'));
+        .pipe(gulp.dest('./static/css'));
 });
 
 gulp.task('watch', function(){
-    gulp.watch('./static/main/less/*.less', ['less']);
-    gulp.watch('./static/main/ts/*.ts', ['tsc']);
+    gulp.watch('./static/less/*.less', ['less']);
+    gulp.watch('./static/ts/*.ts', ['tsc']);
 });
 
 gulp.task('tsc', shell.task([tsccommand]));

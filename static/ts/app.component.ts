@@ -1,7 +1,7 @@
 import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
-import { APP_ROUTES } from './app.route';
+import { APP_ROUTES, Routes} from './app.route';
 
 @Component({
     selector: 'my-app',
@@ -12,8 +12,14 @@ import { APP_ROUTES } from './app.route';
     ],
     providers: [
         ROUTER_PROVIDERS,
-    ]
+    ],
+    properties: ['routes'],
 })
 @RouteConfig(APP_ROUTES)
 export class AppComponent {
+    public routes;
+    constructor()
+    {
+        this.routes = Routes;
+    }
 }

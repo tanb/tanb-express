@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/tanb
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tanb.me
+    * I am tanb (https://keybase.io/tanb) on keybase.
+      * I have a public key with fingerprint D854 BC00 7352 C128 8FCB  4536 5825 714E 2349 64DC
+
+To do so, I am signing this object:
+
+{
+    "body": {
+            "key": {
+                        "eldest_kid": "010188f7c132c77529820fdd406c38fe3f844eaef5ff037ec50b8f9d216178f1e6e90a",
+                                    "fingerprint": "d854bc007352c1288fcb45365825714e234964dc",
+                                                "host": "keybase.io",
+                                                            "key_id": "5825714e234964dc",
+                                                                        "kid": "010188f7c132c77529820fdd406c38fe3f844eaef5ff037ec50b8f9d216178f1e6e90a",
+                                                                                    "uid": "b7695161dde0f554235757d80977cb19",
+                                                                                                "username": "tanb"
+                                                                                                        },
+                                                                                                                "service": {
+                                                                                                                            "hostname": "tanb.me",
+                                                                                                                                        "protocol": "https:"
+                                                                                                                                                },
+                                                                                                                                                        "type": "web_service_binding",
+                                                                                                                                                                "version": 1
+                                                                                                                                                                    },
+                                                                                                                                                                        "ctime": 1462665434,
+                                                                                                                                                                            "expire_in": 157680000,
+                                                                                                                                                                                "prev": "56ef1b72000eb55d7729d302c0d0df0c57f33ced5a1cb86dcb4fd73dc0002812",
+                                                                                                                                                                                    "seqno": 31,
+                                                                                                                                                                                        "tag": "signature"
+                                                                                                                                                                                        }
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMIgAnicrVJbSBRRGN4tV3IXqSgqE8RGKB+25cyZOXNmlrIopJeKwIUKpWVmzhl3
+0mbWnVlzEcHIJykigyiymxAkEfhiVNgVWbx0hbSI7EoFJoZGRmmXM1LQQ4+dl3PO
+/3/f91978+f6gv5TI0bp4ZZpyz9461Datz3S/LSR02yS4aKNXA2dvWgtoY4brzEJ
+F+UAD3hZNrDOC1DHGEFFhsAgRASSLsgGFQxZFKlKDWQYQMBUR0CTDYVAXuKxbPBU
+ogpQuTBnmFY1TSVTpuUyWSIjUdMBwAKCOg9ZBF0TkSAhGSLMixQKoiKJRGfEhO14
+DJacpjo0YtrMxj7x2fT+gf/Peadn5TQsKYi5CKHAQEiEAsIIExkoGOsar3hAh6Ys
+dQ9laFe1NK4pzDFLvalTr6leFX95I+wV5pIp27V1u5YZE66bdKIeyc0kPdReqsV/
+8+OaaRHWPsaopynHtC0uyjOk7pqeIC9KUJKQKIhhjjYkzRSNmx4CYUkG7HhxaL3X
+LIkavIYhs1ENIYIxVIgAoA4IIAbQETYEQacEqbyuyRJhIzEIFgibE4AyDzmvojrL
+5qICz/JUq5mmY1ZbqptOUa7p9s2qHJ8/6MsNzPH2yhfMW/Bn2+5G5vm6asrGKrcU
+dZeGJoZODt96Xxh7fmnR15ltP86WX4t1bc22lL/LrciEnwy8XpjOe7h7R/ebtf2N
+7R+Ojo60jeXnyk/WPx5LbioMho68sAtGwoli33B79/2Gze/PXqTj/j1Dn3ZeW3Ne
+7Sis7JAnJ6KdVT2hk9nPU4H+iR9dj44/fXXhZeWudWNN7QVv7kTOfW85VrLE7Fhd
+d6IqO3q59rISWGWthIsz852VfVNlbR9/Lr/eM/zqASrOaqGe3sTbA1psek5nyQis
+4EtW5ak158MvFi8YCCxtHWh5fXVyfMVg88Ghsn0bZ6bsi+rOZzec/feWbeiLtd48
+F/qWc6bpy+miK6W3H/0CHiBERA==
+=Y1tq
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tanb
+
+==================================================================

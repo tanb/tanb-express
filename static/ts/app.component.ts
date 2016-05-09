@@ -1,5 +1,5 @@
 import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { APP_ROUTES, Routes} from './app.route';
 
@@ -9,9 +9,6 @@ import { APP_ROUTES, Routes} from './app.route';
     styleUrls: ['static/css/app.component.css'],
     directives: [
         ROUTER_DIRECTIVES,
-    ],
-    providers: [
-        ROUTER_PROVIDERS,
     ],
     properties: ['routes'],
 })

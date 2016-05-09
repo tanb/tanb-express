@@ -8,5 +8,10 @@ export var Routes = {
         component: RootComponent,
         useAsDefault: true
     }),
+    hello: new Route({
+        path: '/hello',
+        name: 'Hello',
+        component: RootComponent,
+    }),
 }
 export const APP_ROUTES = Object.keys(Routes).map(r => Routes[r]);

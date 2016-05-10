@@ -1,16 +1,17 @@
 import { Route } from 'angular2/router';
 import { RootComponent } from './root.component'
+import { TanbComponent } from './tanb.component'
 
 export var Routes = {
+    tanb: new Route({
+        path: '/tanb',
+        name: 'Tanb',
+        component: TanbComponent,
+        useAsDefault: true
+    }),
     root: new Route({
         path: '/',
         name: 'Root',
-        component: RootComponent,
-        useAsDefault: true
-    }),
-    hello: new Route({
-        path: '/hello',
-        name: 'Hello',
         component: RootComponent,
     }),
 }

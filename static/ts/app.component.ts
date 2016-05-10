@@ -1,6 +1,5 @@
 import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
-
 import { APP_ROUTES, Routes} from './app.route';
 
 @Component({

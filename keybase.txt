@@ -4,7 +4,7 @@ https://keybase.io/tanb
 
 I hereby claim:
 
-  * I am an admin of https://tanb.me
+  * I am an admin of http://dungeonkeys.io
     * I am tanb (https://keybase.io/tanb) on keybase.
       * I have a public key with fingerprint D854 BC00 7352 C128 8FCB  4536 5825 714E 2349 64DC
 
@@ -22,16 +22,16 @@ To do so, I am signing this object:
                                                                                                 "username": "tanb"
                                                                                                         },
                                                                                                                 "service": {
-                                                                                                                            "hostname": "tanb.me",
-                                                                                                                                        "protocol": "https:"
+                                                                                                                            "hostname": "dungeonkeys.io",
+                                                                                                                                        "protocol": "http:"
                                                                                                                                                 },
                                                                                                                                                         "type": "web_service_binding",
                                                                                                                                                                 "version": 1
                                                                                                                                                                     },
-                                                                                                                                                                        "ctime": 1462665434,
+                                                                                                                                                                        "ctime": 1462908401,
                                                                                                                                                                             "expire_in": 157680000,
-                                                                                                                                                                                "prev": "56ef1b72000eb55d7729d302c0d0df0c57f33ced5a1cb86dcb4fd73dc0002812",
-                                                                                                                                                                                    "seqno": 31,
+                                                                                                                                                                                "prev": "7bdb5756f5beb0b787ad08ec00e040cb65783d761259f1bcb8e9a9f3b0d47bd6",
+                                                                                                                                                                                    "seqno": 34,
                                                                                                                                                                                         "tag": "signature"
                                                                                                                                                                                         }
 
@@ -41,23 +41,23 @@ which yields the signature:
 Version: Keybase OpenPGP v2.0.53
 Comment: https://keybase.io/crypto
 
-yMIgAnicrVJbSBRRGN4tV3IXqSgqE8RGKB+25cyZOXNmlrIopJeKwIUKpWVmzhl3
-0mbWnVlzEcHIJykigyiymxAkEfhiVNgVWbx0hbSI7EoFJoZGRmmXM1LQQ4+dl3PO
-/3/f91978+f6gv5TI0bp4ZZpyz9461Datz3S/LSR02yS4aKNXA2dvWgtoY4brzEJ
-F+UAD3hZNrDOC1DHGEFFhsAgRASSLsgGFQxZFKlKDWQYQMBUR0CTDYVAXuKxbPBU
-ogpQuTBnmFY1TSVTpuUyWSIjUdMBwAKCOg9ZBF0TkSAhGSLMixQKoiKJRGfEhO14
-DJacpjo0YtrMxj7x2fT+gf/Peadn5TQsKYi5CKHAQEiEAsIIExkoGOsar3hAh6Ys
-dQ9laFe1NK4pzDFLvalTr6leFX95I+wV5pIp27V1u5YZE66bdKIeyc0kPdReqsV/
-8+OaaRHWPsaopynHtC0uyjOk7pqeIC9KUJKQKIhhjjYkzRSNmx4CYUkG7HhxaL3X
-LIkavIYhs1ENIYIxVIgAoA4IIAbQETYEQacEqbyuyRJhIzEIFgibE4AyDzmvojrL
-5qICz/JUq5mmY1ZbqptOUa7p9s2qHJ8/6MsNzPH2yhfMW/Bn2+5G5vm6asrGKrcU
-dZeGJoZODt96Xxh7fmnR15ltP86WX4t1bc22lL/LrciEnwy8XpjOe7h7R/ebtf2N
-7R+Ojo60jeXnyk/WPx5LbioMho68sAtGwoli33B79/2Gze/PXqTj/j1Dn3ZeW3Ne
-7Sis7JAnJ6KdVT2hk9nPU4H+iR9dj44/fXXhZeWudWNN7QVv7kTOfW85VrLE7Fhd
-d6IqO3q59rISWGWthIsz852VfVNlbR9/Lr/eM/zqASrOaqGe3sTbA1psek5nyQis
-4EtW5ak158MvFi8YCCxtHWh5fXVyfMVg88Ghsn0bZ6bsi+rOZzec/feWbeiLtd48
-F/qWc6bpy+miK6W3H/0CHiBERA==
-=Y1tq
+yMIhAnicrVJbbA1BGD5VimqrHjxUxGVoCCcye5md2RNBPJD2gUQal9Cc7OzM9Kye
+s3vs2dMLKogQUkGkEiGViHCE1L0REfc7iUuVxL0JCQ8SxC2qYbbqzaN5mcz/f9/3
+f/8//5Xi/EhhXutzMXHbum437/bFlmxkgYo+rgDUY40gtgLU8t6LJxnPBPFah4EY
+gApUCBHYVjTVxhipJlGhYEyHhq0RwTVBdJ1bXCAhoIa5jSAlwmSqYiiYCIUb3IQW
+iALhuDXcT/uOG0hZRpBObQixhlRbUWUFm+pIMxBREVZ0rmq6aejMlsSElwkZ0hy1
+MnyK48mYfMR77f0D/599Z3vlKDZMJFOMcSgQ0lUNYYQZgSbGNlXMEJjhvmuluEQH
+lktBUxTISJ1j83CoYRd9WZaVk/Bc2UPmTzdp3ws820vKXCII0rGQGjSmQ2w9p/E+
+lTh1XCaHKAl13M84ngtiikTagRPKKrqhmpDoUIkC3pB2fB53QgTCBoHyhGV4nZTE
+lFFp3hCIcgopJthikHD5GRzq0KYGwkRj2FBUZAqF2pRw0zKFRiHTJdcAYV/LXA/E
+NF36tGqkZsapca0g63PQdOnCkv6RvMJIwYB+4XZFCgeX/t25LVsHRZqTd14Mb+tk
+X2OrHjcPeHLt/omToxeWFVTsiAxKZcW6d3tLv0zKxav6FdXlJ4aOa5nVmvt+92N7
+7j14dKOjdurP9YO/v3f9jnNlZbiEtBVv0/3p97ur9p3i76paJhv3Gitvnjp9pDL1
+ahO4TUal6+cfGvtwQ2LK1ev5m1uffivv73a9Ofhh8sajT0VpN1k66ezrgc0/Umf8
+y50vZkTd2TP3zO7a/Ktj0c6Rc5YuLoq2z02a/PGyS+NzfMjbq1rPmery6ltDvGEz
+evYXj7i8fG3qfH1J1/GjnW7Dyu3Jwuo3090Dz8SETy+/zjv9Wc8ljg3cvejB6lez
+WtX2w2MqK3ZN2/BtzdaS36sRQIg=
+=fuLw
 -----END PGP MESSAGE-----
 
 And finally, I am proving ownership of this host by posting or

@@ -5,7 +5,7 @@
         "postinstall": "typings install"
     },
     "dependencies": {
-        "angular2": "2.0.0-beta.12",
+        "angular2": "2.0.0-beta.17",
         "systemjs": "0.19.24",
         "es6-shim": "^0.35.0",
         "reflect-metadata": "0.1.2",
@@ -20,6 +20,7 @@
         "gulp-watch": "*",
         "minimist": "*",
         "gulp-typescript": "*",
-        "gulp-webserver": "*"
+        "gulp-webserver": "*",
+        "gulp-concat": "*",
     }
 }

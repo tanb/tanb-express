@@ -37,4 +37,25 @@ gulp.task('webserver', function() {
         }));
 });
 
-gulp.task('run-with-watch', ['tsc', 'less', 'watch', 'webserver']);
+var concat = require('gulp-concat');
+gulp.task('foundation', function() {
+    return gulp.src([
+        "static/lib/js/jquery.min.js",
+        "static/lib/js/bootstrap.min.js",
+
+        //"static/lib/js/systemjs/dist/system-polyfills.js",
+        "static/lib/js/angular2/es6/dev/src/testing/shims_for_IE.js",
+        "static/lib/js/angular2/bundles/angular2-polyfills.js",
+
+        "static/lib/js/systemjs/dist/system.src.js",
+        "static/lib/js/rxjs/bundles/Rx.js",
+        "static/lib/js/angular2/bundles/angular2.dev.js",
+        "static/lib/js/angular2/bundles/router.dev.js",
+        "static/lib/js/angular2/bundles/http.dev.js",
+        "static/js/system.config.js",
+    ])
+        .pipe(concat('bundle.js'))
+        .pipe(gulp.dest('./static/js/'));
+});
+
+gulp.task('run-with-watch', ['tsc', 'foundation', 'less', 'watch', 'webserver']);

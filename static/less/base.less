@@ -1,3 +1,7 @@
+@screen-sm-min: 769px;
+@screen-md-min: 992px;
+@screen-lg-min: 1200px;
+
 html {
     height: 100%;
 }
@@ -13,7 +17,7 @@ body {
     text-align: center;
     display: table;
     .key {
-        font-size: 40px;
+        font-size: 80px;
     }
     .message {
         display: table-cell;
@@ -49,3 +53,15 @@ ul {
         content: "\1F6aa";
     }
 }
+
+@media (min-width: @screen-sm-min) {
+.loader {
+    .key {
+        font-size: 40px;
+    }
+    .message {
+    }
+}
+}
+@media (min-width: @screen-md-min) { }
+@media (min-width: @screen-lg-min) { }

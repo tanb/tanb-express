@@ -7,19 +7,45 @@ body {
     margin: 0;
 }
 
-.loading {
+.loader {
     width: 100%;
     height: 100%;
     text-align: center;
     display: table;
-}
-
-.loading:after {
-    content: "loading...";
-    display: table-cell;
-    vertical-align: middle;
+    .key {
+        font-size: 40px;
+    }
+    .message {
+        display: table-cell;
+        vertical-align: middle;
+    }
 }
 
 .footer {
     padding: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    li {
+        padding-left: 1.3em;
+    }
+    li:before {
+        display: inline-block;
+        margin-left: -1.6em;
+        width: 1.6em;
+    }
+    li.lock:before {
+        content: "\1F512";
+    }
+    li.oldkey:before {
+        content: "\1F5dd";
+    }
+    li.key:before {
+        content: "\1F511";
+    }
+    li.door:before {
+        content: "\1F6aa";
+    }
 }

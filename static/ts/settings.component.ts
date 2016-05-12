@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from 'angular2/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from 'angular2/core';
 import { Router, RouteParams, OnActivate, ROUTER_DIRECTIVES } from 'angular2/router';
 import { Routes} from './app.route';
 
@@ -8,18 +8,22 @@ import { Routes} from './app.route';
     directives: [ROUTER_DIRECTIVES],
     properties: ['routes'],
 })
-export class SettingsComponent implements OnInit, OnDestroy {
+export class SettingsComponent implements OnInit, OnDestroy, OnActivate {
     public routes;
-    public disableGA: boolean;
-    private ENABLE_GA_KEY: string = "disable-ga";
-    constructor(
-        public router: Router)
+
+    private ENABLE_GA_KEY: string = 'disable-ga';
+    constructor(public router: Router)
     {
         this.routes = Routes;
+    }
+
+    updateGAButton() {
         if (jQuery.cookie(this.ENABLE_GA_KEY) === undefined) {
-            this.disableGA = false;
+            jQuery('#ga-on').addClass('disabled');
+            jQuery('#ga-off').removeClass('disabled');
         } else {
-            this.disableGA = true;
+            jQuery('#ga-on').removeClass('disabled');
+            jQuery('#ga-off').addClass('disabled');
         }
     }
 
@@ -27,6 +31,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+    }
+
+    routerOnActivate() {
+        this.updateGAButton()
     }
 
     toggleGA(event) {
@@ -37,5 +45,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
         } else {
             jQuery.removeCookie(this.ENABLE_GA_KEY);
         }
+        this.updateGAButton();
     }
 }

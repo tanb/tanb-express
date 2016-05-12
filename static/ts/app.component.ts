@@ -1,5 +1,5 @@
 import { Component } from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Router, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 import { APP_ROUTES, Routes} from './app.route';
 
 @Component({
@@ -14,8 +14,18 @@ import { APP_ROUTES, Routes} from './app.route';
 @RouteConfig(APP_ROUTES)
 export class AppComponent {
     public routes;
-    constructor()
+    private pushButtonCount: number = 0;
+    constructor(public router: Router)
     {
         this.routes = Routes;
+    }
+
+    pushButton() {
+        this.pushButtonCount = this.pushButtonCount + 1;
+        if (this.pushButtonCount > 2) {
+            var link = [this.routes.settings.name, {}];
+            this.pushButtonCount = 0;
+            this.router.navigate(link);
+        }
     }
 }

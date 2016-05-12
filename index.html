@@ -32,6 +32,8 @@
       if ($.cookie("disable-ga") === undefined) {
       ga('create', 'UA-77462810-1', 'auto');
       ga('send', 'pageview');
+      } else {
+      console.log('website analytics disabled.');
       }
       </script>
   </body>

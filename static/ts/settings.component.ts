@@ -39,8 +39,7 @@ export class SettingsComponent implements OnInit, OnDestroy, OnActivate {
 
     toggleGA(event) {
         if (jQuery(event.target).hasClass('disabled')) return;
-        this.disableGA = !this.disableGA;
-        if (this.disableGA) {
+        if (jQuery.cookie(this.ENABLE_GA_KEY) === undefined) {
             jQuery.cookie(this.ENABLE_GA_KEY, 'true');
         } else {
             jQuery.removeCookie(this.ENABLE_GA_KEY);

@@ -1,0 +1,7 @@
+<div class="container">
+  <p>Google Analytics</p>
+  <div class="btn-group">
+    <a class="btn btn-default" [ngClass]="{disabled: !disableGA}" (click)="toggleGA($event)">ON</a>
+    <a class="btn btn-default" [ngClass]="{disabled: disableGA}" (click)="toggleGA($event)">OFF</a>
+  </div>
+</div>

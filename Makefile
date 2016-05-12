@@ -35,7 +35,7 @@ lib: dir lib-angular2
 	curl https://maxcdn.bootstrapcdn.com/bootstrap/$(BOOTSTRAP_VERSION)/fonts/{glyphicons-halflings-regular.ttf} -o "$(STATIC_LIB_DIR)/fonts/#1"
 	curl https://maxcdn.bootstrapcdn.com/bootstrap/$(BOOTSTRAP_VERSION)/fonts/{glyphicons-halflings-regular.woff} -o "$(STATIC_LIB_DIR)/fonts/#1"
 	curl https://maxcdn.bootstrapcdn.com/bootstrap/$(BOOTSTRAP_VERSION)/fonts/{glyphicons-halflings-regular.woff2} -o "$(STATIC_LIB_DIR)/fonts/#1"
-
+	curl https://raw.githubusercontent.com/carhartl/jquery-cookie/v1.4.1/{jquery.cookie.js} -o "$(STATIC_LIB_DIR)/js/#1"
 
 lib-angular2: node-modules
 	mkdir -p $(STATIC_LIB_DIR)/js/es6-shim

@@ -1,6 +1,7 @@
 import { Component } from 'angular2/core';
 import { Router, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 import { APP_ROUTES, Routes} from './app.route';
+import { GAService } from './ga.service';
 
 @Component({
     selector: 'my-app',
@@ -8,6 +9,9 @@ import { APP_ROUTES, Routes} from './app.route';
     styleUrls: ['static/css/app.component.css'],
     directives: [
         ROUTER_DIRECTIVES,
+    ],
+    providers: [
+        GAService,
     ],
     properties: ['routes'],
 })

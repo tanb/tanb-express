@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from 'angular2/core';
 import { Router, RouteParams, OnActivate, ROUTER_DIRECTIVES } from 'angular2/router';
 import { Routes} from './app.route';
-
+import { GAService } from './ga.service';
 
 @Component({
     templateUrl: 'static/templates/settings.component.html',
@@ -11,14 +11,15 @@ import { Routes} from './app.route';
 export class SettingsComponent implements OnInit, OnDestroy, OnActivate {
     public routes;
 
-    private ENABLE_GA_KEY: string = 'disable-ga';
-    constructor(public router: Router)
+    constructor(
+        public router: Router,
+        public gaservice: GAService)
     {
         this.routes = Routes;
     }
 
     updateGAButton() {
-        if (jQuery.cookie(this.ENABLE_GA_KEY) === undefined) {
+        if (jQuery.cookie(this.gaservice.ENABLE_GA_KEY) === undefined) {
             jQuery('#ga-on').addClass('disabled');
             jQuery('#ga-off').removeClass('disabled');
         } else {
@@ -35,14 +36,15 @@ export class SettingsComponent implements OnInit, OnDestroy, OnActivate {
 
     routerOnActivate() {
         this.updateGAButton()
+        this.gaservice.pageview(this.routes.settings.path);
     }
 
     toggleGA(event) {
         if (jQuery(event.target).hasClass('disabled')) return;
-        if (jQuery.cookie(this.ENABLE_GA_KEY) === undefined) {
-            jQuery.cookie(this.ENABLE_GA_KEY, 'true');
+        if (jQuery.cookie(this.gaservice.ENABLE_GA_KEY) === undefined) {
+            jQuery.cookie(this.gaservice.ENABLE_GA_KEY, 'true');
         } else {
-            jQuery.removeCookie(this.ENABLE_GA_KEY);
+            jQuery.removeCookie(this.gaservice.ENABLE_GA_KEY);
         }
         this.updateGAButton();
     }

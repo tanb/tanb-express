@@ -1,24 +1,20 @@
-import { Route } from 'angular2/router';
-import { RootComponent } from './root.component'
-import { TanbComponent } from './tanb.component'
-import { SettingsComponent } from './settings.component'
+import { Route, AsyncRoute } from 'angular2/router';
 
 export var Routes = {
-    root: new Route({
+    root: new AsyncRoute({
         path: '/',
         name: 'Root',
-        component: RootComponent,
+        loader: () => System.import("static/js/root.component").then(c => c['RootComponent']),
     }),
-    tanb: new Route({
+    tanb: new AsyncRoute({
         path: '/tanb',
         name: 'Tanb',
-        component: TanbComponent,
-        useAsDefault: true
+        loader: () => System.import("static/js/tanb.component").then(c => c['TanbComponent']),
     }),
-    settings: new Route({
+    settings: new AsyncRoute({
         path: '/settings',
         name: 'Settings',
-        component: SettingsComponent,
+        loader: () => System.import("static/js/settings.component").then(c => c['SettingsComponent']),
     }),
 }
 export const APP_ROUTES = Object.keys(Routes).map(r => Routes[r]);

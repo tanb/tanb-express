@@ -56,4 +56,6 @@ gulp.task('foundation', function() {
         .pipe(gulp.dest('./static/js/'));
 });
 
+gulp.task('build', ['tsc', 'foundation', 'less']);
+
 gulp.task('run-with-watch', ['tsc', 'foundation', 'less', 'watch', 'webserver']);

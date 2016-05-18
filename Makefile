@@ -7,6 +7,8 @@ STATIC_COMPILED_CSS_DIR=static/css
 NODE_MODULES=$(CURDIR)/node_modules
 GULP=$(NODE_MODULES)/.bin/gulp
 
+DEST=
+
 DEVHOST=localhost
 DEVPORT=8080
 
@@ -23,7 +25,7 @@ dir:
 	mkdir -p $(STATIC_LIB_DIR)/fonts
 	mkdir -p $(STATIC_LIB_DIR)/img
 
-lib: dir lib-angular2
+lib: dir cp-lib-angular2
 	curl https://code.jquery.com/jquery-$(JQUERY_VERSION).min.js -o "$(STATIC_LIB_DIR)/js/jquery.min.js"
 	curl https://maxcdn.bootstrapcdn.com/bootstrap/$(BOOTSTRAP_VERSION)/css/{bootstrap.css} -o "$(STATIC_LIB_DIR)/css/#1"
 	curl https://maxcdn.bootstrapcdn.com/bootstrap/$(BOOTSTRAP_VERSION)/css/{bootstrap.min.css} -o "$(STATIC_LIB_DIR)/css/#1"
@@ -37,7 +39,7 @@ lib: dir lib-angular2
 	curl https://maxcdn.bootstrapcdn.com/bootstrap/$(BOOTSTRAP_VERSION)/fonts/{glyphicons-halflings-regular.woff2} -o "$(STATIC_LIB_DIR)/fonts/#1"
 	curl https://raw.githubusercontent.com/carhartl/jquery-cookie/v1.4.1/{jquery.cookie.js} -o "$(STATIC_LIB_DIR)/js/#1"
 
-lib-angular2: node-modules
+cp-lib-angular2: node-modules
 	mkdir -p $(STATIC_LIB_DIR)/js/es6-shim
 	cp  $(NODE_MODULES)/es6-shim/es6-shim.min.js $(STATIC_LIB_DIR)/js/es6-shim/es6-shim.min.js
 	cp $(NODE_MODULES)/es6-shim/es6-shim.map $(STATIC_LIB_DIR)/js/es6-shim/es6-shim.map
@@ -57,13 +59,37 @@ lib-angular2: node-modules
 	cp $(NODE_MODULES)/angular2/bundles/router.dev.js $(STATIC_LIB_DIR)/js/angular2/bundles/router.dev.js
 	cp $(NODE_MODULES)/angular2/bundles/http.dev.js $(STATIC_LIB_DIR)/js/angular2/bundles/http.dev.js
 
-
 run-with-watch:
 	$(GULP) run-with-watch --host=$(DEVHOST) --port=$(DEVPORT)
+
+static-build:
+	$(GULP) build
+
+
+#
+# Deploy
+#
+build: clean-dist clean-compiled-dir static-build package
+
+package:
+	rm -rf $(CURDIR)/dist
+	mkdir -p $(CURDIR)/dist
+	cp $(CURDIR)/index.html $(CURDIR)/dist/
+	cp $(CURDIR)/keybase.txt $(CURDIR)/dist/
+	cp $(CURDIR)/robots.txt $(CURDIR)/dist/
+	mkdir $(CURDIR)/dist/static
+	cp -r $(CURDIR)/static/js $(CURDIR)/dist/static/
+	cp -r $(CURDIR)/static/css $(CURDIR)/dist/static/
+	cp -r $(CURDIR)/static/templates $(CURDIR)/dist/static/
+	cp -r $(CURDIR)/static/img $(CURDIR)/dist/static/
+	cp -r $(CURDIR)/static/lib $(CURDIR)/dist/static/
 
 #
 # Clean up
 #
+clean-dist:
+	rm -rf $(CURDIR)/dist/
+
 clean-lib:
 	rm -rf $(STATIC_LIB_DIR)
 

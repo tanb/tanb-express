@@ -4,6 +4,7 @@
 *.orig
 node_modules
 
+dist
 static/lib
 static/css
 static/js

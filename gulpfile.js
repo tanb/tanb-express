@@ -33,7 +33,8 @@ gulp.task('webserver', function() {
             host: host,
             port: port,
             path: path,
-            livereload: true
+            livereload: true,
+            fallback: 'index.html'
         }));
 });
 

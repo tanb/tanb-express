@@ -50,7 +50,6 @@ gulp.task('foundation', function() {
         "static/lib/js/angular2/bundles/angular2.dev.js",
         "static/lib/js/angular2/bundles/router.dev.js",
         "static/lib/js/angular2/bundles/http.dev.js",
-        "static/js/system.config.js",
     ])
         .pipe(concat('bundle.js'))
         .pipe(gulp.dest('./static/js/'));

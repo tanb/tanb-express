@@ -2,13 +2,15 @@ import { Component } from 'angular2/core';
 import { Router, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 import { APP_ROUTES, Routes} from './app.route';
 import { GAService } from './ga.service';
+import { AnchorBlankDirective } from './anchor.directive'
 
 @Component({
-    selector: 'my-app',
+    selector: 'webapp',
     templateUrl: 'static/templates/app.component.html',
     styleUrls: ['static/css/app.component.css'],
     directives: [
         ROUTER_DIRECTIVES,
+        AnchorBlankDirective,
     ],
     providers: [
         GAService,

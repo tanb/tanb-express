@@ -1,0 +1,19 @@
+machine:
+  timezone:
+    Asia/Tokyo
+
+dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install s3cmd
+    - printf "[default]\naccess_key = $S3_ACCESS_KEY\n secret_key = $S3_SECRET_KEY\nbucket_location = ap-northeast-1\ncheck_ssl_certificate = True\ncheck_ssl_hostname = True\ncloudfront_host = cloudfront.amazonaws.com\ndefault_mime_type = binary/octet-stream\ndelay_updates = False\ndelete_after = False\ndelete_after_fetch = False\ndelete_removed = False\ndry_run = False\nenable_multipart = True\nencoding = UTF-8\nencrypt = False\nfollow_symlinks = False\nforce = False\nget_continue = False\nguess_mime_type = True\nhost_base = s3.amazonaws.com\nhost_bucket = %(bucket)s.s3.amazonaws.com\nhuman_readable_sizes = False\ninvalidate_default_index_on_cf = False\ninvalidate_default_index_root_on_cf = True\ninvalidate_on_cf = False\nlimitrate = 0\nlist_md5 = False\nlong_listing = False\nmax_delete = -1\nmultipart_chunk_size_mb = 15\nmultipart_max_chunks = 10000\npreserve_attrs = True\nprogress_meter = True\nproxy_port = 0\nput_continue = False\nrecursive = False\nrecv_chunk = 65536\nreduced_redundancy = False\nrequester_pays = False\nrestore_days = 1\nsend_chunk = 65536\nserver_side_encryption = False\nsignature_v2 = False\nsimpledb_host = sdb.amazonaws.com\nskip_existing = False\nsocket_timeout = 300\nstats = False\nstop_on_error = False\nurlencoding_mode = normal\nuse_https = True\nuse_mime_magic = True\nverbosity = WARNING\nwebsite_endpoint = http://%(bucket)s.s3-website-%(location)s.amazonaws.com/\nwebsite_index = index.html" > ~/.s3cfg
+
+test:
+  override:
+    - make build
+    - echo "This is test."
+
+deployment:
+  all:
+    branch: source-v2
+    commands:
+      - s3cmd sync --add-header=Cache-Control:no-cache --dry-run --delete-removed dist/ s3://dungeonkeys.io/

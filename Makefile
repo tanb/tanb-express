@@ -71,7 +71,7 @@ static-build:
 #
 build: clean-dist clean-compiled-dir static-build package
 
-package:
+package: clean-dist
 	rm -rf $(CURDIR)/dist
 	mkdir -p $(CURDIR)/dist
 	cp $(CURDIR)/index.html $(CURDIR)/dist/
@@ -90,12 +90,12 @@ package:
 clean-dist:
 	rm -rf $(CURDIR)/dist/
 
-clean-lib:
-	rm -rf $(STATIC_LIB_DIR)
-
 clean-compiled-dir:
 	rm -rf $(STATIC_COMPILED_JS_DIR)
 	rm -rf $(STATIC_COMPILED_CSS_DIR)
+
+clean-lib:
+	rm -rf $(STATIC_LIB_DIR)
 
 clean-node-modules:
 	rm -rf $(CURDIR)/node_modules

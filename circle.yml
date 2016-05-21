@@ -9,11 +9,15 @@ dependencies:
 
 test:
   override:
-    - make build
     - echo "This is test."
+    - make lib
+    - make build
+    - s3cmd sync --add-header=Cache-Control:no-cache --dry-run --delete-removed dist/ s3://dungeonkeys.io/
 
 deployment:
   all:
     branch: source-v2
     commands:
+      - make lib
+      - make build
       - s3cmd sync --add-header=Cache-Control:no-cache --dry-run --delete-removed dist/ s3://dungeonkeys.io/

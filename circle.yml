@@ -10,10 +10,7 @@ dependencies:
 
 test:
   override:
-    - echo "This is test."
-    - make lib
-    - make build
-    - aws s3 sync dist/ s3://dungeonkeys.io/ --delete --dryrun --cache-control "no-cache"
+    - echo "Run test script here."
 
 deployment:
   all:
@@ -21,4 +18,4 @@ deployment:
     commands:
       - make lib
       - make build
-      - aws s3 sync dist/ s3://dungeonkeys.io/ --delete --dryrun --cache-control "no-cache"
+      - aws s3 sync dist/ s3://dungeonkeys.io/ --delete --cache-control "no-cache"

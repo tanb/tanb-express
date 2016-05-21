@@ -1,6 +1,6 @@
 # Copyright 2016 Tomonori Tanabe
 
-## Articles, pictures and images.
+## Photos and Pictures.
 
 All rights reserved.
 

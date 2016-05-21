@@ -11,6 +11,8 @@ dependencies:
 test:
   override:
     - echo "Run test script here."
+    - make lib
+    - make build
 
 deployment:
   all:

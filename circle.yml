@@ -14,7 +14,7 @@ test:
 
 deployment:
   all:
-    branch: source-v2
+    branch: release
     commands:
       - make lib
       - make build

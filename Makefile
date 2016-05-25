@@ -41,8 +41,6 @@ lib: dir cp-lib-angular2
 
 cp-lib-angular2: node-modules
 	$(GULP) cp-lib-angular2
-	cp -r $(NODE_MODULES)/reflect-metadata/Reflect.js.map $(STATIC_LIB_DIR)/js/Reflect.js.map
-
 
 run-with-watch:
 	$(GULP) run-with-watch --host=$(DEVHOST) --port=$(DEVPORT)

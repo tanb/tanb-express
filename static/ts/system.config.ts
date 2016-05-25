@@ -9,12 +9,7 @@ var map = {
 };
 var packages = {
     'rxjs': { defaultExtension: 'js' },
-    'static/lib/js': {
-        format: 'register',
-        defaultExtension: 'js'
-    },
     'static/js': {
-        format: 'register',
         defaultExtension: 'js'
     },
 };

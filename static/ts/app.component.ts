@@ -1,5 +1,5 @@
-import { Component } from 'angular2/core';
-import { Router, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component } from '@angular/core';
+import { Router, RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { APP_ROUTES, Routes} from './app.route';
 import { GAService } from './ga.service';
 import { AnchorBlankDirective } from './anchor.directive'

@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from 'angular2/core';
-import { Router, RouteParams, OnActivate, ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Router, RouteParams, OnActivate, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import { Routes} from './app.route';
 import { GAService } from './ga.service';
 

@@ -11,7 +11,7 @@ dependencies:
 test:
   override:
     - echo "Run test script here."
-    - make clean-lib
+    - make clean-node-modules clean-lib
     - make lib
     - make build
 
@@ -19,7 +19,7 @@ deployment:
   all:
     branch: release
     commands:
-      - make clean-lib
+      - make clean-node-modules clean-lib
       - make lib
       - make build
       - aws s3 sync dist/ s3://dungeonkeys.io/ --delete --cache-control "no-cache"

@@ -66,6 +66,11 @@ gulp.task('cp-lib-angular2', function() {
         overwrite: true,
         matching: ['*.js', '*.js.map', '!*/src/**/*', '!*/testing/**/*', '!*/esm/**/*']
     });
+    var src = jetpack.cwd('node_modules/reflect-metadata');
+    var dest = jetpack.dir('static/lib/js');
+    src.copy('Reflect.js.map', dest.path('Reflect.js.map'), {
+        overwrite: true,
+    });
 
 });
 

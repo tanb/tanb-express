@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from 'angular2/core';
-import { Router, RouteParams, OnActivate } from 'angular2/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, RouteParams, OnActivate } from '@angular/router-deprecated';
 import { Routes} from './app.route';
 import { GAService } from './ga.service';
 import { AnchorBlankDirective } from './anchor.directive'

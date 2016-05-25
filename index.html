@@ -12,12 +12,8 @@
     <link rel="icon" href="static/img/favicon.ico">
     <link rel="stylesheet" href="static/lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/base.css">
-    <script src="static/lib/js/es6-shim/es6-shim.min.js"></script>
-    <script src="static/lib/js/systemjs/dist/system-polyfills.js"></script>
-    <script src="static/js/bundle.js"></script>
-    <script>
-      System.config({packages:{'static/js': {format: 'register',defaultExtension: 'js'}}});System.import("static/js/main").then(null, console.error.bind(console));
-    </script>
+    <script src="static/lib/js/bundle.js"></script>
+    <script src="static/js/system.config.js"></script>
     <script src="https://linked.chat/web/N3bkda" async></script>
   </head>
 

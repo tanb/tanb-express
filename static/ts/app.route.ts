@@ -1,4 +1,4 @@
-import { Route, AsyncRoute } from 'angular2/router';
+import { Route, AsyncRoute } from '@angular/router-deprecated';
 
 export var Routes = {
     root: new AsyncRoute({

@@ -4,7 +4,7 @@ var minifyCSS = require('gulp-minify-css');
 var shell = require('gulp-shell');
 var webserver = require('gulp-webserver');
 var minimist = require('minimist');
-
+var jetpack = require('fs-jetpack');
 var argv = minimist(process.argv.slice(2));
 var host = argv.host;
 var port = argv.port;
@@ -44,16 +44,29 @@ gulp.task('foundation', function() {
         "static/lib/js/jquery.min.js",
         "static/lib/js/jquery.cookie.js",
         "static/lib/js/bootstrap.min.js",
-        "static/lib/js/angular2/es6/dev/src/testing/shims_for_IE.js",
-        "static/lib/js/angular2/bundles/angular2-polyfills.js",
-        "static/lib/js/systemjs/dist/system.src.js",
-        "static/lib/js/rxjs/bundles/Rx.js",
-        "static/lib/js/angular2/bundles/angular2.dev.js",
-        "static/lib/js/angular2/bundles/router.dev.js",
-        "static/lib/js/angular2/bundles/http.dev.js",
+        "node_modules/core-js/client/shim.min.js",
+        "node_modules/zone.js/dist/zone.js",
+        "node_modules/reflect-metadata/Reflect.js",
+        "node_modules/systemjs/dist/system.src.js",
     ])
         .pipe(concat('bundle.js'))
-        .pipe(gulp.dest('./static/js/'));
+        .pipe(gulp.dest('./static/lib/js/'));
+});
+
+gulp.task('cp-lib-angular2', function() {
+    var src = jetpack.cwd('node_modules/@angular');
+    var dest = jetpack.dir('static/lib/js/@angular');
+    src.copy('.', dest.path(), {
+        overwrite: true,
+        matching: ['*.js', '*.js.map', '!*/src/**/*', '!*/testing/**/*', '!*/esm/**/*']
+    });
+    var src = jetpack.cwd('node_modules/rxjs');
+    var dest = jetpack.dir('static/lib/js/rxjs');
+    src.copy('.', dest.path(), {
+        overwrite: true,
+        matching: ['*.js', '*.js.map', '!*/src/**/*', '!*/testing/**/*', '!*/esm/**/*']
+    });
+
 });
 
 gulp.task('build', ['tsc', 'foundation', 'less']);

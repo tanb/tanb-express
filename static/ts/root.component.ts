@@ -6,7 +6,7 @@ import { AnchorBlankDirective } from './anchor.directive'
 @Component({
     templateUrl: 'static/templates/root.component.html',
 })
-export class RootComponent implements OnInit, OnDestroy {
+export class RootComponent {
     constructor(public router: Router) {
     }
 }

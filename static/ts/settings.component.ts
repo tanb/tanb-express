@@ -6,7 +6,7 @@ import { GAService } from './ga.service';
 @Component({
     templateUrl: 'static/templates/settings.component.html',
 })
-export class SettingsComponent implements OnInit, OnDestroy {
+export class SettingsComponent {
     constructor(
         public router: Router,
         public gaservice: GAService)

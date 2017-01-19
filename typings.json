@@ -1,9 +1,8 @@
 {
-    "ambientDependencies": {
-        "core-js": "github:DefinitelyTyped/DefinitelyTyped/core-js/core-js.d.ts#9fb3c230e09653f0038cf5a600f9b273f2bf17b7",
-        "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
-        "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#ca92a5b250433c38230b5f4138b36453862342bf",
-        "jquery.simplemodal": "github:DefinitelyTyped/DefinitelyTyped/jquery.simplemodal/jquery.simplemodal.d.ts#2d84e48e3b4ecb47b8c3f1a6c769e9293bce1196",
-        "jquery.cookie": "github:DefinitelyTyped/DefinitelyTyped/jquery.cookie/jquery.cookie.d.ts#56295f5058cac7ae458540423c50ac2dcf9fc711"
+    "globalDependencies": {
+        "core-js": "registry:dt/core-js#0.9.7+20161130133742",
+        "jasmine": "registry:dt/jasmine#2.5.0+20170117213604",
+        "jquery": "registry:dt/jquery#1.10.0+20170104155652",
+        "jquery.cookie": "registry:dt/jquery.cookie#1.4.1+20160510010627"
     }
 }

@@ -18,6 +18,7 @@ BOOTSTRAP_VERSION=3.3.6
 
 node-modules:
 	npm install
+	npm run typings install
 
 dir:
 	mkdir -p $(STATIC_LIB_DIR)/css

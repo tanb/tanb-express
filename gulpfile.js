@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var less = require('gulp-less');
 var minifyCSS = require('gulp-minify-css');
 var embedTemplates = require('gulp-angular-embed-templates');
+var SystemBuilder = require('systemjs-builder');
 var shell = require('gulp-shell');
 var webserver = require('gulp-webserver');
 var minimist = require('minimist');
@@ -75,12 +76,26 @@ gulp.task('cp-lib-angular2', function() {
 
 });
 
+gulp.task('rxjs.bundle', function () {
+    var builder = new SystemBuilder('./', {
+        paths: {"rxjs/*": "node_modules/rxjs/*.js"},
+        map: {"rxjs": "node_modules/rxjs"},
+        packages: {"rxjs": {main: 'Rx.js', defaultExtension: "js"}}
+    });
+
+    builder.bundle('rxjs', 'static/js/Rx.min.js', {
+        sourceMaps: true,
+        minify: true,
+        mangle: true
+    });
+});
+
 gulp.task('embed-template', function () {
     gulp.src('static/js/**/*.js')
         .pipe(embedTemplates())
         .pipe(gulp.dest('./static/js'));
 });
 
-gulp.task('build', ['tsc', 'foundation', 'less']);
+gulp.task('build', ['tsc', 'foundation', 'less', 'rxjs.bundle']);
 
 gulp.task('run-with-watch', ['tsc', 'foundation', 'less', 'watch', 'webserver']);

@@ -5,13 +5,21 @@ declare class System {
 
 var map = {
     '@angular': 'static/lib/js/@angular',
-    'rxjs': 'static/lib/js/rxjs',
 };
 var packages = {
-    'rxjs': { defaultExtension: 'js' },
     'static/js': {
         defaultExtension: 'js'
     },
+};
+var bundles = {
+    'static/js/Rx.min.js': [
+        'rxjs/*',
+        'rxjs/operator/*',
+        'rxjs/observable/*',
+        'rxjs/add/operator/*',
+        'rxjs/add/observable/*',
+        'rxjs/util/*'
+    ]
 };
 var ngPackageNames = [
     'common',
@@ -29,7 +37,8 @@ ngPackageNames.forEach(function(pkgName) {
 });
 var config = {
     map: map,
-    packages: packages
+    packages: packages,
+    bundles: bundles
 }
 
 System.config(config);

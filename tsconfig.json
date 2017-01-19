@@ -11,9 +11,9 @@
         "noImplicitAny": false
     },
     "exclude": [
+        "node_modules",
         "dist",
         "static/lib",
-        "node_modules",
         "typings/main",
         "typings/main.d.ts"
     ]

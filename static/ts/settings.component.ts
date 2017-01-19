@@ -1,21 +1,16 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { Router, RouteParams, OnActivate, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
-import { Routes} from './app.route';
+import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
+
 import { GAService } from './ga.service';
 
 @Component({
     templateUrl: 'static/templates/settings.component.html',
-    directives: [ROUTER_DIRECTIVES],
-    properties: ['routes'],
 })
-export class SettingsComponent implements OnInit, OnDestroy, OnActivate {
-    public routes;
-
+export class SettingsComponent implements OnInit, OnDestroy {
     constructor(
         public router: Router,
         public gaservice: GAService)
     {
-        this.routes = Routes;
     }
 
     updateGAButton() {
@@ -26,17 +21,6 @@ export class SettingsComponent implements OnInit, OnDestroy, OnActivate {
             jQuery('#ga-on').removeClass('disabled');
             jQuery('#ga-off').addClass('disabled');
         }
-    }
-
-    ngOnDestroy() {
-    }
-
-    ngOnInit() {
-    }
-
-    routerOnActivate() {
-        this.updateGAButton()
-        this.gaservice.pageview(this.routes.settings.path);
     }
 
     toggleGA(event) {

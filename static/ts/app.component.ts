@@ -4,8 +4,8 @@ import { GAService } from './ga.service';
 
 @Component({
     selector: 'webapp',
-    templateUrl: 'static/templates/app.component.html',
-    styleUrls: ['static/css/app.component.css'],
+    templateUrl: '../../static/templates/app.component.html',
+    styleUrls: ['../../static/css/app.component.css'],
 })
 export class AppComponent {
     private pushButtonCount: number = 0;

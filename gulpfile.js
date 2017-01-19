@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var minifyCSS = require('gulp-minify-css');
+var embedTemplates = require('gulp-angular-embed-templates');
 var shell = require('gulp-shell');
 var webserver = require('gulp-webserver');
 var minimist = require('minimist');
@@ -72,6 +73,12 @@ gulp.task('cp-lib-angular2', function() {
         overwrite: true,
     });
 
+});
+
+gulp.task('embed-template', function () {
+    gulp.src('static/js/**/*.js')
+        .pipe(embedTemplates())
+        .pipe(gulp.dest('./static/js'));
 });
 
 gulp.task('build', ['tsc', 'foundation', 'less']);

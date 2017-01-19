@@ -39,6 +39,7 @@
         "gulp-minify-css": "*",
         "gulp-shell": "*",
         "gulp-watch": "*",
+        "gulp-angular-embed-templates": "*",
         "minimist": "*",
         "gulp-typescript": "*",
         "gulp-webserver": "*",

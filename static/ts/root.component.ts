@@ -4,7 +4,7 @@ import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCanc
 import { AnchorBlankDirective } from './anchor.directive'
 
 @Component({
-    templateUrl: 'static/templates/root.component.html',
+    templateUrl: '../../static/templates/root.component.html',
 })
 export class RootComponent {
     constructor(public router: Router) {

@@ -4,7 +4,7 @@ import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCanc
 import { GAService } from './ga.service';
 
 @Component({
-    templateUrl: 'static/templates/settings.component.html',
+    templateUrl: '../../static/templates/settings.component.html',
 })
 export class SettingsComponent {
     constructor(

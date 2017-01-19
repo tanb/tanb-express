@@ -48,11 +48,13 @@ run-with-watch:
 static-build:
 	$(GULP) build
 
+embed-template:
+	$(GULP) embed-template
 
 #
 # Deploy
 #
-build: clean-dist clean-compiled-dir static-build package
+build: clean-dist clean-compiled-dir static-build embed-template package
 
 package: clean-dist
 	rm -rf $(CURDIR)/dist

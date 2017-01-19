@@ -5,7 +5,7 @@ import { GAService } from './ga.service';
 import { AnchorBlankDirective } from './anchor.directive'
 
 @Component({
-    templateUrl: 'static/templates/tanb.component.html',
+    templateUrl: '../../static/templates/tanb.component.html',
 })
 export class TanbComponent {
     constructor(public router: Router){

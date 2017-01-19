@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { BrowserModule }  from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GAService } from './ga.service'
@@ -10,7 +10,8 @@ import { SettingsComponent }  from './settings.component';
 
 @NgModule({
     imports: [
-        AppRoutingModule
+        AppRoutingModule,
+        BrowserModule
     ],
     declarations: [
         AppComponent,

@@ -51,6 +51,9 @@ static-build:
 embed-template:
 	$(GULP) embed-template
 
+run:
+	$(GULP) run
+
 #
 # Deploy
 #

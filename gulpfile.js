@@ -97,5 +97,5 @@ gulp.task('embed-template', function () {
 });
 
 gulp.task('build', ['tsc', 'foundation', 'less', 'rxjs.bundle']);
-
+gulp.task('run', ['tsc', 'foundation', 'less', 'webserver']);
 gulp.task('run-with-watch', ['tsc', 'foundation', 'less', 'watch', 'webserver']);

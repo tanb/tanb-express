@@ -8,7 +8,6 @@ machine:
 
 dependencies:
   override:
-    - yarn
     - sudo pip install awscli
   post:
     - aws configure set region ap-northeast-1

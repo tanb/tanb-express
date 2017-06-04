@@ -5,6 +5,8 @@ import { AppComponent } from 'app/app.component';
 import { TanbComponent } from 'app/tanb/tanb.component';
 import { IndexComponent } from 'app/index/index.component';
 import { PageNotFoundComponent } from 'app/page-not-found/page-not-found.component';
+import { SettingsComponent } from './settings/settings.component';
+import { GaService } from 'app/ga.service';
 
 @NgModule({
     declarations: [
@@ -12,12 +14,13 @@ import { PageNotFoundComponent } from 'app/page-not-found/page-not-found.compone
         TanbComponent,
         IndexComponent,
         PageNotFoundComponent,
+        SettingsComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
     ],
-    providers: [],
+    providers: [GaService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

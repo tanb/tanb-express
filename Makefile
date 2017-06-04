@@ -4,10 +4,7 @@
 NODE_MODULES=$(CURDIR)/node_modules
 
 node-modules:
-	yarn install --production=false
-
-node-modules-production:
-	yarn install --production=true
+	yarn install
 
 clean-node-modules:
 	rm -rf $(CURDIR)/node_modules

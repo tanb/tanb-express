@@ -24,5 +24,5 @@ deployment:
     commands:
       - make clean-node-modules clean-dist
       - make node-modules-production
-      - make build
+      - make release-build
       - aws s3 sync dist/ s3://dungeonkeys.io/ --delete --cache-control "no-cache"

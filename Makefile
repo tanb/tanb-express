@@ -17,3 +17,6 @@ clean-dist:
 
 build:
 	ng build
+
+release-build:
+	ng build -prod

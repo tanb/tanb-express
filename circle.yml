@@ -3,6 +3,8 @@ machine:
     PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
   timezone:
     Asia/Tokyo
+  node:
+    version: 7.10.0
 
 dependencies:
   override:

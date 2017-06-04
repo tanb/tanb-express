@@ -1,10 +1,10 @@
-import { NewSrcPage } from './app.po';
+import { ProjectPage } from './app.po';
 
-describe('new-src App', () => {
-  let page: NewSrcPage;
+describe('dungeonkeys.io App', () => {
+  let page: ProjectPage;
 
   beforeEach(() => {
-    page = new NewSrcPage();
+    page = new ProjectPage();
   });
 
   it('should display welcome message', done => {

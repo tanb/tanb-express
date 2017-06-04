@@ -1,8 +1,0 @@
-{
-    "globalDependencies": {
-        "core-js": "registry:dt/core-js#0.9.7+20161130133742",
-        "jasmine": "registry:dt/jasmine#2.5.0+20170117213604",
-        "jquery": "registry:dt/jquery#1.10.0+20170104155652",
-        "jquery.cookie": "registry:dt/jquery.cookie#1.4.1+20160510010627"
-    }
-}

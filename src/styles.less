@@ -1,0 +1,63 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "assets/less/screen-mixin";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: table;
+    .key:after {
+        content: "\1f5dd";
+        font-size: 15px;
+        .screen-sm({
+            font-size: 40px;
+        });
+    }
+    .message {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+.footer {
+    padding: 10px 0px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    li {
+        padding-left: 1.3em;
+    }
+    li:before {
+        display: inline-block;
+        margin-left: -1.6em;
+        width: 1.6em;
+    }
+    li.lock:before {
+        content: "\1F512";
+    }
+    li.oldkey:before {
+        content: "\1F5dd";
+    }
+    li.key:before {
+        content: "\1F511";
+    }
+    li.door:before {
+        content: "\1F6aa";
+    }
+}
+
+span.door:before {
+    content: "\1F6aa";
+}

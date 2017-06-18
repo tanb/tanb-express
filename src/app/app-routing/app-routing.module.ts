@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes }  from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { TanbComponent } from 'app/tanb/tanb.component';
 import { IndexComponent } from 'app/index/index.component';
 import { SettingsComponent } from 'app/settings/settings.component';

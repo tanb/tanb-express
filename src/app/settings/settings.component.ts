@@ -10,8 +10,7 @@ import { GaService } from 'app/ga.service';
 export class SettingsComponent implements OnInit {
 
     constructor(public router: Router,
-                public gaservice: GaService)
-    {
+                public gaservice: GaService) {
     }
 
     ngOnInit() {
@@ -28,7 +27,9 @@ export class SettingsComponent implements OnInit {
     }
 
     toggleGA(event) {
-        if (jQuery(event.target).hasClass('disabled')) return;
+      if (jQuery(event.target).hasClass('disabled')) {
+        return;
+      }
         if (jQuery.cookie(this.gaservice.ENABLE_GA_KEY) === undefined) {
             jQuery.cookie(this.gaservice.ENABLE_GA_KEY, 'true');
         } else {

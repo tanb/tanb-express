@@ -1,1 +1,1 @@
-export { GaService } from "./ga/ga.service"
+export { GaService } from './ga/ga.service'

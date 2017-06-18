@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
-import { GaService } from 'app/ga.service';
+import { GaService } from 'app/services/ga/ga.service';
 
 @Component({
   selector: 'app-settings',

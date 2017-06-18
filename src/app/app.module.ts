@@ -1,26 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from 'app/app-routing/app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AppComponent } from 'app/app.component';
-import { TanbComponent } from 'app/tanb/tanb.component';
-import { IndexComponent } from 'app/index/index.component';
-import { PageNotFoundComponent } from 'app/page-not-found/page-not-found.component';
-import { SettingsComponent } from './settings/settings.component';
-import { GaService } from 'app/ga.service';
+import { TanbComponent, HomeComponent, PageNotFoundComponent, SettingsComponent } from 'app/components';
+import { GaService } from 'app/services';
+
+const appRoutes: Routes = [
+  { path: 'tanb', component: TanbComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: '', component: HomeComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        TanbComponent,
-        IndexComponent,
-        PageNotFoundComponent,
-        SettingsComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-    ],
-    providers: [GaService],
-    bootstrap: [AppComponent]
+  imports: [
+    RouterModule.forRoot(appRoutes),
+    BrowserModule
+  ],
+  bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    TanbComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    SettingsComponent,
+  ],
+  providers: [GaService]
 })
 export class AppModule { }

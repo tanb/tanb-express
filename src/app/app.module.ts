@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreModule } from './core/core.module';
-import { TanbComponent, HomeComponent, PageNotFoundComponent, SettingsComponent } from 'app/components';
 import { AppComponent } from 'app/app.component';
+import { TanbComponent, HomeComponent, PageNotFoundComponent, SettingsComponent } from 'app/components';
 
 const appRoutes: Routes = [
   { path: 'tanb', component: TanbComponent },
@@ -24,7 +24,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     CoreModule
   ],
-  exports: [],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NotificationService } from '../notification/notification.service'
+import { Router, RoutesRecognized } from '@angular/router';
+import { NotificationService } from '../services/notification.service'
 
 @Component({
   selector: 'app-nav',
@@ -7,11 +8,13 @@ import { NotificationService } from '../notification/notification.service'
   styleUrls: ['./nav.component.less']
 })
 export class NavComponent implements OnInit, OnDestroy {
-  subscription: any;
 
-  constructor(private notification: NotificationService) {
-    this.subscription = this.notification.routechanged.subscribe((userInfo) => {
-      this.onRouteChanged(userInfo);
+  constructor(private notification: NotificationService,
+              private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof RoutesRecognized) {
+        console.log(event.url);
+      }
     });
   }
 
@@ -19,11 +22,10 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   onClickNavbarBrand() {
-    this.notification.didClickNavbarBrand.emit(null);
+    this.router.navigateByUrl('/');
   }
 
   onRouteChanged(userInfo) {

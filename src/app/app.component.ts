@@ -9,6 +9,7 @@ import { GaService, NotificationService } from 'app/core';
 })
 export class AppComponent implements OnInit {
   private pushButtonCount = 0;
+
   constructor(private router: Router,
               private notification: NotificationService,
               private gaservice: GaService) {
@@ -17,17 +18,9 @@ export class AppComponent implements OnInit {
         this.gaservice.pageview(event.url);
       }
     });
-
-    this.notification.didClickNavbarBrand.subscribe((userInfo) => {
-      this.onDidClickNavbarBrand(userInfo);
-    });
   }
 
   ngOnInit() {
-  }
-
-  onDidClickNavbarBrand(userInfo) {
-    this.router.navigateByUrl('/');
   }
 
   pushButton() {

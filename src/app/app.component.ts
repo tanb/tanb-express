@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
-import { GaService } from 'app/services/ga/ga.service';
+import { GaService, NotificationService } from 'app/core';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +9,25 @@ import { GaService } from 'app/services/ga/ga.service';
 })
 export class AppComponent implements OnInit {
   private pushButtonCount = 0;
-  constructor(public router: Router,
-              public gaservice: GaService) {
-    router.events.subscribe( (event) => {
+  constructor(private router: Router,
+              private notification: NotificationService,
+              private gaservice: GaService) {
+    this.router.events.subscribe((event) => {
       if (event instanceof RoutesRecognized) {
         this.gaservice.pageview(event.url);
       }
     });
+
+    this.notification.didClickNavbarBrand.subscribe((userInfo) => {
+      this.onDidClickNavbarBrand(userInfo);
+    });
   }
 
   ngOnInit() {
+  }
+
+  onDidClickNavbarBrand(userInfo) {
+    this.router.navigateByUrl('/');
   }
 
   pushButton() {

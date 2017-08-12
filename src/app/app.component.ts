@@ -9,6 +9,7 @@ import { GaService, NotificationService } from 'app/core';
 })
 export class AppComponent implements OnInit {
   private pushButtonCount = 0;
+  private showDiscord = false;
 
   constructor(private router: Router,
               private notification: NotificationService,
@@ -21,6 +22,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onClickDiscordToggle() {
+    this.showDiscord = !this.showDiscord;
   }
 
   pushButton() {

@@ -59,3 +59,39 @@ ul {
 span.door:before {
     content: "\1F6aa";
 }
+
+div#discord-background {
+    z-index: 10000;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(200, 200, 200, 0.5);
+    iframe#discord-frame {
+        width: 350px;
+        height: 500px;
+        .screen-xs({
+            width: 100%;
+            height: 90%;
+        });
+        position: absolute;
+        right: -1px;
+        bottom: -1px;
+    }
+}
+
+#discord-icon {
+    padding: 5px;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-color: #7289DA;
+    img {
+        width: 100%;
+    }
+}

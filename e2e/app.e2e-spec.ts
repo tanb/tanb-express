@@ -1,6 +1,6 @@
 import { ProjectPage } from './app.po';
 
-describe('dungeonkeys.io App', () => {
+describe('xn--sn8h24a.ws App', () => {
   let page: ProjectPage;
 
   beforeEach(() => {

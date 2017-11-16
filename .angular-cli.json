@@ -1,7 +1,7 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
-        "name": "dungeonkeys.io"
+        "name": "xn--sn8h24a.ws"
     },
     "apps": [
         {
@@ -10,8 +10,7 @@
             "assets": [
                 "assets",
                 "favicon.ico",
-                "robots.txt",
-                "keybase.txt"
+                "robots.txt"
             ],
             "index": "index.html",
             "main": "main.ts",

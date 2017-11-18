@@ -1,6 +1,6 @@
 import { ProjectPage } from './app.po';
 
-describe('xn--sn8h24a.ws App', () => {
+describe('xn--sn8h24a App', () => {
   let page: ProjectPage;
 
   beforeEach(() => {

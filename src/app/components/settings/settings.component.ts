@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
-import { GaService } from 'app/core';
+import { GaService } from 'src/app/core/services/ga.service';
 
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.less']
+  styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
 
@@ -27,6 +27,7 @@ export class SettingsComponent implements OnInit {
   }
 
   toggleGA(event) {
+    debugger;
     if (jQuery(event.target).hasClass('disabled')) {
       return;
     }

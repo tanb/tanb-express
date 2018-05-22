@@ -44,11 +44,11 @@
     <div class="col-sm-6 text-center">
       <br>
       <br>
-      <img class="img-circle" src="assets/img/tanb.jpg" style="width: 30%; border: solid 1px #bbb;">
+      <img class="rounded-circle" [@balloon]="states[0]" (@balloon.done)="onEnd($event, 0)" src="assets/img/tanb.jpg" style="width: 30%; border: solid 1px #bbb;">
       <br>
       <br>
       <br>
-      <img class="img-circle" src="assets/img/tanb_real.jpg" style="width: 30%; border: solid 1px #bbb;">
+      <img class="rounded-circle" [@balloon]="states[1]" (@balloon.done)="onEnd($event, 1)" src="assets/img/tanb_real.jpg" style="width: 30%; border: solid 1px #bbb;">
     </div>
   </div>
 </div>

@@ -1,29 +1,23 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { CoreModule } from './core/core.module';
-import { AppComponent } from 'app/app.component';
-import { TanbComponent, HomeComponent, PageNotFoundComponent, SettingsComponent } from 'app/components';
-
-const appRoutes: Routes = [
-  { path: '', component: TanbComponent },
-  { path: 'tanb', component: TanbComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: '**', component: PageNotFoundComponent }
-];
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { TanbComponent } from './components/tanb/tanb.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
-  providers: [],
   declarations: [
     AppComponent,
     TanbComponent,
-    HomeComponent,
-    PageNotFoundComponent,
     SettingsComponent,
+    PageNotFoundComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     CoreModule
   ],
-  bootstrap: [AppComponent],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

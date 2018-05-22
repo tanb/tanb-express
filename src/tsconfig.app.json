@@ -1,17 +1,17 @@
 {
-    "extends": "../tsconfig.json",
-    "compilerOptions": {
-        "outDir": "../out-tsc/app",
-        "module": "es2015",
-        "baseUrl": "",
-        "types": [
-            "jquery",
-            "jquery.cookie",
-            "google.analytics"
-        ]
-    },
-    "exclude": [
-        "test.ts",
-        "**/*.spec.ts"
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "types": [
+      "node",
+      "jquery",
+      "jquery.cookie",
+      "google.analytics"
     ]
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
 }

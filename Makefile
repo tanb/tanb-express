@@ -16,4 +16,4 @@ build:
 	ng build
 
 release-build:
-	ng build -prod
+	ng build --prod

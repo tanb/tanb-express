@@ -5,8 +5,7 @@ import { SettingsComponent } from 'src/app/components/settings/settings.componen
 import { PageNotFoundComponent } from 'src/app/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tanb', pathMatch: 'full'},
-  { path: 'tanb', component: TanbComponent },
+  { path: '', component: TanbComponent },
   { path: 'settings', component: SettingsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

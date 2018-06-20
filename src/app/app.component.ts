@@ -29,6 +29,40 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.redirectEmojiDomain()
+  }
+
+  redirectEmojiDomain() {
+    var loc = window.location;
+    var emojiDomain = environment.emojiDomain
+    var standardDomain = environment.standardDomain
+    var enableEmojiDomain = /^((?!chrome).)*safari/i.test(navigator.userAgent);
+    if (navigator.userAgent.indexOf('CriOS') > -1) {
+      enableEmojiDomain = false;
+    }
+    var currentUrl = loc.protocol + '//' + loc.hostname;
+    var outputUrl = enableEmojiDomain ? emojiDomain : standardDomain;
+    if (currentUrl === outputUrl) {
+      return;
+    }
+    if (loc.port) {
+      currentUrl += ':' + loc.port;
+      outputUrl += ':' + loc.port;
+    }
+    currentUrl += loc.pathname;
+    outputUrl += loc.pathname;
+    currentUrl += loc.search;
+    outputUrl += loc.search;
+
+    if (loc.hostname === 'localhost') {
+      console.log("debug info for localhost environment:");
+      console.log("UA = " + navigator.userAgent);
+      console.log("enableEmojiDomain = " + enableEmojiDomain);
+      console.log("currentUrl = " + currentUrl);
+      console.log("outputUrl = " + outputUrl);
+      return;
+    }
+    window.location = outputUrl;
   }
 
   onClickDiscordToggle() {

@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
       console.log("outputUrl = " + outputUrl);
       return;
     }
-    window.location = outputUrl;
+    window.location.href = outputUrl;
   }
 
   onClickDiscordToggle() {

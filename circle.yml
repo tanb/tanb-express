@@ -26,4 +26,4 @@ deployment:
       - make clean-node-modules clean-dist
       - make node-modules
       - make release-build
-      - aws s3 sync dist/ s3://dungeonkeys.io/ --delete --cache-control "no-cache"
+      - aws s3 sync dist/ s3://app.tanb/ --delete --cache-control "no-cache"

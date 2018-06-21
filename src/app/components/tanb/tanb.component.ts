@@ -1,5 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
+import { ContactMeComponent } from 'src/app/core/modal/contact-me/contact-me.component';
 
 enum BalloonState {
   top = "top",
@@ -28,8 +32,8 @@ enum BalloonState {
 export class TanbComponent implements OnInit {
   states = [BalloonState.bottom,
             BalloonState.bottom];
-
-  constructor() { }
+  bsModalRef: BsModalRef;
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
   }
@@ -52,5 +56,21 @@ export class TanbComponent implements OnInit {
         this.states[index] = BalloonState.bottom;
       }, wait);
     }
+  }
+  openModalWithComponent() {
+    const initialState = {
+      list: [
+        'Open a modal with component',
+        'Pass your data',
+        'Do something else',
+        '...'
+      ],
+      title: 'Modal with component'
+    };
+    this.bsModalRef = this.modalService.show(ContactMeComponent, {initialState});
+    this.bsModalRef.content.closeBtnName = 'Close';
+  }
+  openModal() {
+    this.openModalWithComponent();
   }
 }

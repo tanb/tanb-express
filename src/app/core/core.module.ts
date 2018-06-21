@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { GaService } from './services/ga.service';
 import { NotificationService } from './services/notification.service';
 import { NavComponent } from './nav/nav.component';
+import { ContactMeComponent } from './modal/contact-me/contact-me.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,10 @@ import { NavComponent } from './nav/nav.component';
   ],
   declarations: [
     NavComponent,
+    ContactMeComponent
+  ],
+  entryComponents: [
+    ContactMeComponent
   ],
   exports: [
     BrowserModule,

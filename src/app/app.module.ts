@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TanbComponent } from './components/tanb/tanb.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     PageNotFoundComponent
   ],
   imports: [
+    ModalModule.forRoot(),
     AppRoutingModule,
     CoreModule
   ],

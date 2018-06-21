@@ -39,6 +39,18 @@ a {
   text-decoration: none;
 }
 
+.btn-purple {
+  color: #fff;
+  background-color: rgb(86, 61, 124);
+  border-color: rgb(86, 61, 124);
+  &:hover {
+    color: #fff;
+    background-color: #545b62;
+    border-color: #4e555b;
+  }
+}
+
+
 .navbar-brand {
   cursor: pointer;
 }

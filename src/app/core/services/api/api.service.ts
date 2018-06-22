@@ -12,13 +12,8 @@ export class ApiService {
   constructor(private client: ClientService) {
   }
 
-  contactMe(): Observable<ContactMeModel> {
+  contactMe(body: URLSearchParams): Observable<ContactMeModel> {
     let path = '/contactme';
-    let body= {
-      'name': 'test-user',
-      'email': 'test@example.com',
-      'message': 'hello!'
-    }
     return this.client.post(path, body).pipe(
       map(response => Object.assign(new ContactMeModel(), response.json))
     );

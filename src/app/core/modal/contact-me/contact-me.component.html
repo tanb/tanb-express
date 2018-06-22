@@ -3,19 +3,37 @@
   <div class="modal-title">Contact Tomonori Tanabe</div>
 </div>
 <div class="modal-body">
-  <form>
-    <div class="form-group col-12">
-      <input type="name" class="form-control" id="name" placeholder="Your name">
-    </div>
-    <div class="form-group col-12">
-      <input type="email" class="form-control" id="email" placeholder="Email address">
-    </div>
-    <div class="form-group col-12">
-      <textarea class="form-control" id="message" rows="10" placeholder="Type your message here..."></textarea>
+  <form [formGroup]="reactiveForm">
+    <div class="form-row">
+      <div class="form-group col-12">
+        <input formControlName="name" type="name" class="form-control" id="name" placeholder="Your name">
+      </div>
+      <div class="form-group col-12">
+        <input formControlName="email" type="email" class="form-control" id="email" placeholder="Email address">
+      </div>
+      <div class="form-group col-12">
+        <textarea formControlName="message" class="form-control" id="message" rows="10" placeholder="Type your message here..."></textarea>
+      </div>
+      <div class="form-group col-12">
+        <re-captcha formControlName="recaptchaReactive"></re-captcha>
+      </div>
     </div>
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-purple" (click)="bsModalRef.hide()">Send</button>
-  <button type="button" class="btn btn-light" (click)="bsModalRef.hide()">Cancel</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-12" *ngIf="hasError">
+        <alert type="danger">
+          <strong>Oops!</strong> An unexpected error occurred.
+        </alert>
+      </div>
+      <div class="col-12">
+        <button [disabled]="reactiveForm.invalid" type="button" class="btn btn-purple" (click)="submitForm()">Send</button>
+      </div>
+      <div class="col-12">
+        <button type="button" class="btn btn-light" (click)="bsModalRef.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
 </div>

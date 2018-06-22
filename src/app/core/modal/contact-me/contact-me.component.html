@@ -22,7 +22,7 @@
 </div>
 <div class="modal-footer">
   <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="!completed">
       <div class="col-12" *ngIf="hasError">
         <alert type="danger">
           <strong>Oops!</strong> An unexpected error occurred.
@@ -33,6 +33,17 @@
       </div>
       <div class="col-12">
         <button type="button" class="btn btn-light" (click)="bsModalRef.hide()">Cancel</button>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="completed">
+      <div class="col-12">
+        <alert type="success">
+          <strong>Success!</strong> Thank you!
+        </alert>
+      </div>
+      <div class="col-12">
+        <button type="button" class="btn btn-light" (click)="bsModalRef.hide()">Close</button>
       </div>
     </div>
   </div>

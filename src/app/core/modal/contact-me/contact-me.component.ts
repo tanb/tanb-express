@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/core/services/api/api.service';
 })
 export class ContactMeComponent implements OnInit {
   hasError = false;
-
+  completed = false;
   constructor(public bsModalRef: BsModalRef, private indicator: IndicatorService, private api: ApiService) {
   }
 
@@ -44,6 +44,7 @@ export class ContactMeComponent implements OnInit {
       },
       () => {
         this.indicator.hide();
+        this.completed = true;
         console.log('handleComplete');
       }
     );

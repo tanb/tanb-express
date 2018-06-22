@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private client: ClientService) {
   }
 
-  contactMe(body: URLSearchParams): Observable<ContactMeModel> {
+  contactMe(body: any): Observable<ContactMeModel> {
     let path = '/contactme';
     return this.client.post(path, body).pipe(
       map(response => Object.assign(new ContactMeModel(), response.json))

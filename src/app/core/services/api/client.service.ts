@@ -24,14 +24,13 @@ export class ClientService {
     });
   }
 
-  get(path: string, params?: URLSearchParams, options?: RequestOptionsArgs): Observable<Response> {
+  get(path: string, params?: any, options?: RequestOptionsArgs): Observable<Response> {
     const request = new Request(Object.assign({
       method: RequestMethod.Get,
       headers: this.headers,
       url: this.url(path),
       params: params
     }, options || {}));
-    console.log(request);
     return this.http.request(request);
   }
 

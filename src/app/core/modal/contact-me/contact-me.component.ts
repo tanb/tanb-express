@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/core/services/api/api.service';
   styleUrls: ['./contact-me.component.scss']
 })
 export class ContactMeComponent implements OnInit {
-  hasError: false;
+  hasError = false;
 
   constructor(public bsModalRef: BsModalRef, private indicator: IndicatorService, private api: ApiService) {
   }
@@ -44,8 +44,8 @@ export class ContactMeComponent implements OnInit {
       },
       () => {
         this.indicator.hide();
-        console.log('handleComplete')
-      };
+        console.log('handleComplete');
+      }
     );
   }
 }

@@ -31,8 +31,8 @@ export class ContactMeComponent implements OnInit {
       'name': this.reactiveForm.get('name').value,
       'email': this.reactiveForm.get('email').value,
       'message': this.reactiveForm.get('message').value,
-      'recaptcha': this.reactiveForm.get('recaptchaReactive').value:
-    }
+      'recaptcha': this.reactiveForm.get('recaptchaReactive').value
+    };
     let source = this.api.contactMe(body);
     this.indicator.show();
     source.subscribe(

@@ -1,0 +1,42 @@
+.modal-header {
+  padding-top: 15px;
+  padding-bottom: 25px;
+  .badge {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: calc(50% - 22px;);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    background-color: rgb(86, 61, 124);
+    color: white;
+    line-height: 44px;
+    i {
+      font-size: 22px;
+    }
+  }
+  .modal-title {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+.modal-body {
+  padding-top: 40px;
+}
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  :not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+  :not(:first-child) {
+    margin-left: 0px;
+  }
+  button {
+    width: 100%;
+  }
+}

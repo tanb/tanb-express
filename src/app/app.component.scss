@@ -9,6 +9,7 @@
 }
 
 .cover {
+  overflow: hidden;
   width: calc(100% * 2/3);
   position: relative;
   @include screen-max($screen-xs-max) {

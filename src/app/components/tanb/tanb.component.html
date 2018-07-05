@@ -1,18 +1,25 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-12 d-none d-sm-block">
     <h2>TOMONORI TANABE (tanb)</h2>
     Co-Founder, Software Engineer at <a target="_blank" href="https://orthopics.jp/aboutus">Bebop Inc.</a><br>
     Software Engineer at <a target="_blank" href="http://www.flat.bz/">Flat Inc.</a><br>
-    <br>
-    <br>
-    <div class="row">
-      <div class="col-12 col-sm-8 col-md-8 col-lg-6 col-xl-6">
-        <button (click)="openModal()" type="button" class="btn btn-purple contactme"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Me</button>
-      </div>
-    </div>
+  </div>
+</div>
 
-    <br>
-    <br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-12 col-sm-8">
+    <button (click)="openModal()" type="button" class="btn btn-purple contactme"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Me</button>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="row">
+  <div class="col-12">
     <h3>Where you can find me</h3>
     <ul>
       <li><a target="_blank" href="https://facebook.com/tomonori.t">Facebook</a></li>
@@ -50,13 +57,8 @@
       <li><a target="_blank" href="https://1password.com">1Password</a></li>
     </ul>
   </div>
+
   <div class="col-sm-6 text-center">
-    <br>
-    <br>
-    <img class="rounded-circle" [@balloon]="states[0]" (@balloon.done)="onEnd($event, 0)" src="assets/img/tanb.jpg" style="width: 30%; border: solid 1px #bbb;">
-    <br>
-    <br>
-    <br>
-    <img class="rounded-circle" [@balloon]="states[1]" (@balloon.done)="onEnd($event, 1)" src="assets/img/tanb_real.jpg" style="width: 30%; border: solid 1px #bbb;">
+    <img class="rounded-circle" [@balloon]="states[0]" (@balloon.done)="onEnd($event, 0)" src="assets/img/tanb.jpg">
   </div>
 </div>

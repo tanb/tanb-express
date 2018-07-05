@@ -1,28 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-$screen-xs-max: 767px;
-$screen-sm-min: 768px;
-$screen-sm-max: 991px;
-$screen-md-min: 992px;
-$screen-md-max: 1199px;
-$screen-lg-min: 1200px;
-
-@mixin screen($break-point-min, $break-point-max) {
-  @media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
-    @content;
-  }
-}
-
-@mixin screen-max($break-point) {
-  @media screen and (max-width: $break-point) {
-    @content;
-  }
-}
-
-@mixin screen-min($break-point) {
-  @media screen and (min-width: $break-point) {
-    @content;
-  }
-}
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
 
 html {
   height: 100%;
@@ -37,6 +14,20 @@ body {
 a {
   color: #337ab7;
   text-decoration: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row-reverse;
+  @include screen-max($screen-sm-min) {
+    flex-direction: column;
+  }
+}
+
+.flex-item {
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .indicator.modal-backdrop {
@@ -72,95 +63,6 @@ a {
   }
 }
 
-
 .navbar-brand {
   cursor: pointer;
-}
-
-.loader {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  display: table;
-  .key:after {
-    content: "\1f5dd";
-    font-size: 15px;
-    @include screen(screen-sm-min, screen-sm-max) {
-      font-size: 40px;
-    }
-  }
-  .message {
-    display: table-cell;
-    vertical-align: middle;
-  }
-}
-
-.footer {
-  padding: 10px 0px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  li {
-    padding-left: 1.3em;
-  }
-  li:before {
-    display: inline-block;
-    margin-left: -1.6em;
-    width: 1.6em;
-  }
-  li.lock:before {
-    content: "\1F512";
-  }
-  li.oldkey:before {
-    content: "\1F5dd";
-  }
-  li.key:before {
-    content: "\1F511";
-  }
-  li.door:before {
-    content: "\1F6aa";
-  }
-}
-
-span.door:before {
-  content: "\1F6aa";
-}
-
-div#discord-background {
-  z-index: 10000;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-
-  width: 100%;
-  height: 100%;
-  background-color: rgba(200, 200, 200, 0.5);
-  iframe#discord-frame {
-    width: 350px;
-    height: 500px;
-    @include screen-min(screen-xs-max) {
-      width: 100%;
-      height: 90%;
-    }
-    position: absolute;
-    right: -1px;
-    bottom: -1px;
-  }
-}
-
-#discord-icon {
-  z-index: 10000;
-  padding: 8px 5px 4px 5px;
-  border-top-left-radius: 10px;
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  background-color: #7289DA;
-  img {
-    width: 100%;
-  }
 }

@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit {
   private pushButtonCount: number = 0;
-  showDiscord: boolean = false;
+
   copyrightYear: string = moment().utcOffset(9).format("YYYY");
   angularCLIVersion: string = environment.angularCLIVersion;
   angularVersion: string = VERSION.full;
@@ -63,10 +63,6 @@ export class AppComponent implements OnInit {
       return;
     }
     window.location.href = outputUrl;
-  }
-
-  onClickDiscordToggle() {
-    this.showDiscord = !this.showDiscord;
   }
 
   pushButton() {

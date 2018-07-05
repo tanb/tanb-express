@@ -1,0 +1,17 @@
+@mixin screen($break-point-min, $break-point-max) {
+  @media screen and (min-width: $break-point-min) and (max-width: $break-point-max) {
+    @content;
+  }
+}
+
+@mixin screen-max($break-point) {
+  @media screen and (max-width: $break-point) {
+    @content;
+  }
+}
+
+@mixin screen-min($break-point) {
+  @media screen and (min-width: $break-point) {
+    @content;
+  }
+}

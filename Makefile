@@ -13,7 +13,7 @@ clean-dist:
 	rm -rf $(CURDIR)/dist
 
 build:
-	ng build
+	yarn ng build
 
 release-build:
-	ng build --prod
+	yarn ng build --prod

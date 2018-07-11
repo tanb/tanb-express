@@ -1,5 +1,15 @@
-<p>Google Analytics</p>
-<div class="btn-group">
-  <a class="btn btn-default" id="ga-on" (click)="toggleGA($event)">ON</a>
-  <a class="btn btn-default" id="ga-off" (click)="toggleGA($event)">OFF</a>
+<div class="container">
+<app-nav></app-nav>
+</div>
+
+<div class="container main-body">
+  <p>Google Analytics</p>
+  <div class="btn-group">
+    <a class="btn btn-light" id="ga-on" (click)="toggleGA($event)">ON</a>
+  <a class="btn btn-light" id="ga-off" (click)="toggleGA($event)">OFF</a>
+  </div>
+</div>
+
+<div class="container">
+  <app-footer></app-footer>
 </div>

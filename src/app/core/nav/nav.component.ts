@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
 import { NotificationService } from '../services/notification.service'
 
@@ -8,6 +8,7 @@ import { NotificationService } from '../services/notification.service'
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit, OnDestroy {
+  @Input() pullRight: boolean = false;
 
   constructor(private notification: NotificationService,
               private router: Router) {

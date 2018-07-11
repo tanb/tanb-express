@@ -1,64 +1,93 @@
-<div class="row">
-  <div class="col-12 d-none d-sm-block">
-    <h2>TOMONORI TANABE (tanb)</h2>
-    Co-Founder, Software Engineer at <a target="_blank" href="https://orthopics.jp/aboutus">Bebop Inc.</a><br>
-    Software Engineer at <a target="_blank" href="http://www.flat.bz/">Flat Inc.</a><br>
-  </div>
-</div>
-
-<br>
-<br>
-
-<div class="row">
-  <div class="col-12 col-sm-8">
-    <button (click)="openModal()" type="button" class="btn btn-purple contactme"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Me</button>
-  </div>
-</div>
-
-<br>
-<br>
-
-<div class="row">
-  <div class="col-12">
-    <h3>Where you can find me</h3>
-    <ul>
-      <li><a target="_blank" href="https://facebook.com/tomonori.t">Facebook</a></li>
-      <li><a target="_blank" href="https://github.com/tanb">GitHub</a></li>
-      <li><a target="_blank" href="https://www.instagram.com/tanbgram/">Instagram</a></li>
-      <li><a target="_blank" href="https://itunes.apple.com/jp/developer/tomonori-tanabe/id757024440">iTunes App Store</a></li>
-      <li><a target="_blank" href="https://keybase.io/tanb">Keybase</a></li>
-      <li><a target="_blank" href="https://twitter.com/tanb">Twitter</a></li>
-    </ul>
-
-    <h3>Major languages</h3>
-    <ul>
-      <li><a target="_blank" href="https://msdn.microsoft.com/library/67ef8sbd.aspx">C#</a></li>
-      <li><a target="_blank" href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html">Objective-C</a></li>
-      <li><a target="_blank" href="https://www.python.org">Python</a></li>
-      <li><a target="_blank" href="https://swift.org">Swift</a></li>
-      <li><a target="_blank" href="https://www.typescriptlang.org">TypeScript</a></li>
-      <li><a target="_blank" href="https://en.wikipedia.org/wiki/Japanese_language">日本語</a></li>
-    </ul>
-
-    <h3>Acknowledgements</h3>
-    <ul>
-      <li><a target="_blank" href="https://angular.io">Angular</a></li>
-      <li><a target="_blank" href="https://www.chromium.org">Chromium</a></li>
-      <li><a target="_blank" href="http://electron.atom.io">ELECTRON</a></li>
-      <li><a target="_blank" href="https://www.freebsd.org">FreeBSD</a></li>
-      <li><a target="_blank" href="https://github.com/about">GitHub</a></li>
-      <li><a target="_blank" href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
-      <li><a target="_blank" href="http://brew.sh">Homebrew</a></li>
-      <li><a target="_blank" href="https://developer.apple.com/library/mac/documentation/DriversKernelHardware/Reference/Hypervisor/">Hypervisor Framework</a></li>
-      <li><a target="_blank" href="https://letsencrypt.org">Let's Encrypt</a></li>
-      <li><a target="_blank" href="https://www.mercurial-scm.org">Mercurial</a></li>
-      <li><a target="_blank" href="https://slack.com">Slack</a></li>
-      <li><a target="_blank" href="http://veertu.com">Veertu</a></li>
-      <li><a target="_blank" href="https://1password.com">1Password</a></li>
-    </ul>
+<div class="flex-container">
+  <div class="cover flex-item">
+    <div class="image"></div>
+    <div class="profile d-flex d-sm-none">
+      <section>
+        <h4>TOMONORI TANABE (tanb)</h4>
+        Co-Founder, Software Engineer at <a target="_blank" href="https://orthopics.jp/aboutus">Bebop Inc.</a><br>
+        Software Engineer at <a target="_blank" href="http://www.flat.bz/">Flat Inc.</a><br>
+      </section>
+    </div>
   </div>
 
-  <div class="col-sm-6 text-center">
-    <img class="rounded-circle" [@balloon]="states[0]" (@balloon.done)="onEnd($event, 0)" src="assets/img/tanb.jpg">
+  <div class="main flex-item">
+    <div class="d-none d-sm-block">
+      <app-nav [pullRight]=true></app-nav>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 d-none d-sm-block">
+          <h2>TOMONORI TANABE (tanb)</h2>
+          Co-Founder, Software Engineer at <a target="_blank" href="https://orthopics.jp/aboutus">Bebop Inc.</a><br>
+          Software Engineer at <a target="_blank" href="http://www.flat.bz/">Flat Inc.</a><br>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-12 col-sm-8 contactme">
+          <button (click)="openModal()" type="button" class="btn btn-purple"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Me</button>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-12">
+          <h3>Where you can find me</h3>
+          <ul>
+            <li><a target="_blank" href="https://facebook.com/tomonori.t">Facebook</a></li>
+            <li><a target="_blank" href="https://github.com/tanb">GitHub</a></li>
+            <li><a target="_blank" href="https://www.instagram.com/tanbgram/">Instagram</a></li>
+            <li><a target="_blank" href="https://itunes.apple.com/jp/developer/tomonori-tanabe/id757024440">iTunes App Store</a></li>
+            <li><a target="_blank" href="https://keybase.io/tanb">Keybase</a></li>
+            <li><a target="_blank" href="https://twitter.com/tanb">Twitter</a></li>
+          </ul>
+
+          <h3>Major languages</h3>
+          <ul>
+            <li><a target="_blank" href="https://msdn.microsoft.com/library/67ef8sbd.aspx">C#</a></li>
+            <li><a target="_blank" href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html">Objective-C</a></li>
+            <li><a target="_blank" href="https://www.python.org">Python</a></li>
+            <li><a target="_blank" href="https://swift.org">Swift</a></li>
+            <li><a target="_blank" href="https://www.typescriptlang.org">TypeScript</a></li>
+            <li><a target="_blank" href="https://en.wikipedia.org/wiki/Japanese_language">日本語</a></li>
+          </ul>
+
+          <h3>Acknowledgements</h3>
+          <ul>
+            <li><a target="_blank" href="https://angular.io">Angular</a></li>
+            <li><a target="_blank" href="https://www.chromium.org">Chromium</a></li>
+            <li><a target="_blank" href="http://electron.atom.io">ELECTRON</a></li>
+            <li><a target="_blank" href="https://www.freebsd.org">FreeBSD</a></li>
+            <li><a target="_blank" href="https://github.com/about">GitHub</a></li>
+            <li><a target="_blank" href="https://www.gnu.org/software/emacs/">GNU Emacs</a></li>
+            <li><a target="_blank" href="http://brew.sh">Homebrew</a></li>
+            <li><a target="_blank" href="https://developer.apple.com/library/mac/documentation/DriversKernelHardware/Reference/Hypervisor/">Hypervisor Framework</a></li>
+            <li><a target="_blank" href="https://letsencrypt.org">Let's Encrypt</a></li>
+            <li><a target="_blank" href="https://www.mercurial-scm.org">Mercurial</a></li>
+            <li><a target="_blank" href="https://slack.com">Slack</a></li>
+            <li><a target="_blank" href="http://veertu.com">Veertu</a></li>
+            <li><a target="_blank" href="https://1password.com">1Password</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6 text-center tanb-icon">
+          <img class="rounded-circle" [@balloon]="states[0]" (@balloon.done)="onEnd($event, 0)" src="assets/img/tanb.jpg">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <app-footer></app-footer>
+    </div>
+
   </div>
 </div>

@@ -14,6 +14,7 @@ import { ApiService } from './services/api/api.service';
 import { ClientService } from './services/api/client.service';
 import { NavComponent } from './nav/nav.component';
 import { ContactMeComponent } from './modal/contact-me/contact-me.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -42,14 +43,16 @@ import { ContactMeComponent } from './modal/contact-me/contact-me.component';
   ],
   declarations: [
     NavComponent,
-    ContactMeComponent
+    ContactMeComponent,
+    FooterComponent
   ],
   entryComponents: [
     ContactMeComponent
   ],
   exports: [
     BrowserModule,
-    NavComponent
+    NavComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }

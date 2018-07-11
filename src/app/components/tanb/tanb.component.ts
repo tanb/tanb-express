@@ -59,6 +59,7 @@ export class TanbComponent implements OnInit {
       }, wait);
     }
   }
+
   openModalWithComponent() {
     let config = {
       class: 'tnb-modal-dialog'
@@ -66,6 +67,7 @@ export class TanbComponent implements OnInit {
     this.bsModalRef = this.modalService.show(ContactMeComponent, config);
     console.log(this.bsModalRef);
   }
+
   openModal() {
     this.openModalWithComponent();
   }

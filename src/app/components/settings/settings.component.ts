@@ -27,7 +27,6 @@ export class SettingsComponent implements OnInit {
   }
 
   toggleGA(event) {
-    debugger;
     if (jQuery(event.target).hasClass('disabled')) {
       return;
     }

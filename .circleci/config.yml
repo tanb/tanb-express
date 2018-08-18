@@ -27,7 +27,7 @@ jobs:
                 command: make node-modules
             - run:
                 name: Building
-                command: make release-build
+                command: make build
             - save_cache:
                 key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
                 paths:

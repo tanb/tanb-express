@@ -2,19 +2,21 @@
   padding-top: 15px;
   padding-bottom: 25px;
   .badge {
-    display: block;
+    display: table;
+    width: 44px;
+    height: 44px;
     position: absolute;
     top: 50px;
     left: calc(50% - 22px;);
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
     background-color: rgb(86, 61, 124);
     color: white;
-    line-height: 44px;
-    padding: 2px 0px 0px 1px;
-    i {
-      font-size: 20px;
+    .icon {
+      display: table-cell;
+      vertical-align: middle;
+      i {
+        font-size: 20px;
+      }
     }
   }
   .modal-title {

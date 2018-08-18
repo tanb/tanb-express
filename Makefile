@@ -14,6 +14,8 @@ clean-dist:
 
 build:
 	yarn ng build
+	yarn run prerender
 
 release-build:
 	yarn ng build --prod
+	yarn run prerender

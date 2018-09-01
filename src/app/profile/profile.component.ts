@@ -11,9 +11,9 @@ enum BalloonState {
 }
 
 @Component({
-  selector: 'app-tanb',
-  templateUrl: './tanb.component.html',
-  styleUrls: ['./tanb.component.scss'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
   animations: [
     trigger('balloon', [
       state(BalloonState.top, style({
@@ -29,7 +29,7 @@ enum BalloonState {
     ]),
   ]
 })
-export class TanbComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   states = [BalloonState.bottom,
             BalloonState.bottom];
   bsModalRef: BsModalRef;

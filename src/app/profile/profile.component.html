@@ -1,16 +1,12 @@
-<div class="flex-container">
-  <div class="cover flex-item">
-    <div class="image"></div>
-    <div class="profile d-flex d-sm-none">
-      <section>
-        <h4>TOMONORI TANABE (tanb)</h4>
-        Co-Founder, Software Engineer at <a target="_blank" href="https://orthopics.jp/aboutus">Bebop Inc.</a><br>
-        Software Engineer at <a target="_blank" href="http://www.flat.bz/">Flat Inc.</a><br>
-      </section>
+<div class="d-flex flex-column flex-sm-row">
+  <div class="head">
+    <div class="cover-image"></div>
+    <div class="title-box d-flex flex-column justify-content-end d-sm-none">
+      <app-header-title class="text-white text-center"></app-header-title>
     </div>
   </div>
 
-  <div class="main flex-item">
+  <div class="body">
     <div class="d-none d-sm-block">
       <app-nav [pullRight]=true></app-nav>
     </div>
@@ -18,9 +14,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 d-none d-sm-block">
-          <h2>TOMONORI TANABE (tanb)</h2>
-          Co-Founder, Software Engineer at <a target="_blank" href="https://orthopics.jp/aboutus">Bebop Inc.</a><br>
-          Software Engineer at <a target="_blank" href="http://www.flat.bz/">Flat Inc.</a><br>
+          <app-header-title></app-header-title>
         </div>
       </div>
 

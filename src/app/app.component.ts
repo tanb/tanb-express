@@ -35,12 +35,21 @@ export class AppComponent implements OnInit {
     var loc = window.location;
     var emojiDomain = environment.emojiDomain
     var standardDomain = environment.standardDomain
+    if (navigator.userAgent.indexOf('Googlebot') > -1 ||
+        navigator.userAgent.indexOf('Mediapartners-Google') > -1 ||
+        navigator.userAgent.indexOf('APIs-Google') > -1 ||
+        navigator.userAgent.indexOf('AdsBot-Google') > -1) {
+      // For Googlebot. Do nothing.
+      return;
+    }
     var enableEmojiDomain = /^((?!chrome).)*safari/i.test(navigator.userAgent);
     if (navigator.userAgent.indexOf('CriOS') > -1) {
+      // For Chrome
       enableEmojiDomain = false;
     }
     var currentUrl = loc.protocol + '//' + loc.hostname;
-    var outputUrl = enableEmojiDomain ? emojiDomain : standardDomain;
+    var outputDomain = enableEmojiDomain ? emojiDomain : standardDomain;
+    var outputUrl = 'https://' + outputDomain;
     if (currentUrl === outputUrl) {
       return;
     }

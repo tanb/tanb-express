@@ -40,6 +40,14 @@
             ]
           },
           "configurations": {
+            "devel": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.devel.ts"
+                }
+              ],
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -65,6 +73,9 @@
             "browserTarget": "xn--sn8h24a:build"
           },
           "configurations": {
+            "devel": {
+              "browserTarget": "xn--sn8h24a:build:devel"
+            },
             "production": {
               "browserTarget": "xn--sn8h24a:build:production"
             }

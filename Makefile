@@ -13,9 +13,9 @@ clean-dist:
 	rm -rf $(CURDIR)/dist
 
 build:
-	yarn ng build
+	yarn ng build -c devel
 	yarn run prerender
 
 release-build:
-	yarn ng build --prod
+	yarn ng build -c production
 	yarn run prerender

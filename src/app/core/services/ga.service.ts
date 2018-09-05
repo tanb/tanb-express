@@ -31,12 +31,17 @@ export class GaService {
   }
 
   set enabled(enabled: boolean) {
-    if (enabled) {
-      let date = new Date()
-      date.setTime(0);
-      document.cookie = `${this.DISABLE_GA_KEY}=; expires=${date.toUTCString()}`;
-    } else {
-      document.cookie = `${this.DISABLE_GA_KEY}=yes`;
+    // Remove disable-key if enabled;
+    let maxAge = 0;
+    let expireDate = new Date(0);
+    let value = '';
+    if (!enabled) {
+      // Set disable-key yes if disabled. (4 weeks)
+      maxAge = 60 * 60 * 24 * 7 * 4;
+      expireDate = new Date();
+      expireDate.setSeconds(expireDate.getSeconds() + maxAge);
+      value = 'yes';
     }
+    document.cookie = `${this.DISABLE_GA_KEY}=${value}; expires=${expireDate.toUTCString()}; max-age=${maxAge}; `;
   }
 }

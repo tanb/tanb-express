@@ -4,8 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve -c devel",
     "prerender": "node prerender.js",
     "test": "ng test",
     "lint": "ng lint",
@@ -30,6 +29,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "jquery.cookie": "^1.4.1",
+    "lodash": "^4.17.10",
     "moment": "^2.22.1",
     "ng-recaptcha": "^4.0.0-beta.1",
     "ngx-bootstrap": "^3.0.1",

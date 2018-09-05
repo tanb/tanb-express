@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   angularCLIVersion: require('../../package-lock.json').dependencies['@angular/cli'].version,
   emojiDomain: 'xn--sn8h24a.ml',
   standardDomain: 'tanb.app',

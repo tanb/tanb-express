@@ -10,10 +10,10 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  copyrightYear: string = moment().utcOffset(9).format("YYYY");
+  copyrightYear: string = moment().utcOffset(9).format('YYYY');
   angularCLIVersion: string = environment.angularCLIVersion;
   angularVersion: string = VERSION.full;
-  pushButtonCount: number = 0;
+  pushButtonCount = 0;
 
   constructor(private router: Router) {
   }

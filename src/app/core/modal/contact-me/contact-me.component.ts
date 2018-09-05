@@ -27,20 +27,20 @@ export class ContactMeComponent implements OnInit {
   }
 
   submitForm() {
-    let body = {
+    const body = {
       'name': this.reactiveForm.get('name').value,
       'email': this.reactiveForm.get('email').value,
       'message': this.reactiveForm.get('message').value,
       'recaptcha': this.reactiveForm.get('recaptchaReactive').value
     };
-    let source = this.api.contactMe(body);
+    const source = this.api.contactMe(body);
     this.indicator.show();
     source.subscribe(
       value => console.log(`handleNext:  ${value}`),
       error => {
         this.indicator.hide();
         this.hasError = true;
-        console.log(`handleError: ${error}`)
+        console.log(`handleError: ${error}`);
       },
       () => {
         this.indicator.hide();

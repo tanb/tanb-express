@@ -36,8 +36,8 @@ export class IndicatorService {
       .to('body')
       .show();
     this.backdropRef = this.backdropLoader._componentRef;
-    this.renderer.addClass(this.backdropRef.location.nativeElement, "indicator");
-    var imageElement = this.renderer.createElement('img');
+    this.renderer.addClass(this.backdropRef.location.nativeElement, 'indicator');
+    const imageElement = this.renderer.createElement('img');
     this.renderer.setAttribute(imageElement, 'src', 'assets/img/indicator.svg');
     this.renderer.appendChild(this.backdropRef.location.nativeElement, imageElement);
   }

@@ -11,14 +11,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  isHomeRouteActivated: boolean = false;
+  isHomeRouteActivated = false;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
               private notification: NotificationService,
               private gaservice: GaService) {
-
-
     this.router.events.subscribe((event) => {
       if (event instanceof RoutesRecognized) {
         this.gaservice.pageview(event.url);
@@ -28,13 +26,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.redirectEmojiDomain()
+    this.redirectEmojiDomain();
   }
 
   redirectEmojiDomain() {
-    var loc = window.location;
-    var emojiDomain = environment.emojiDomain
-    var standardDomain = environment.standardDomain
+    const loc = window.location;
+    const emojiDomain = environment.emojiDomain;
+    const standardDomain = environment.standardDomain;
     if (navigator.userAgent.indexOf('Googlebot') > -1 ||
         navigator.userAgent.indexOf('Mediapartners-Google') > -1 ||
         navigator.userAgent.indexOf('APIs-Google') > -1 ||
@@ -42,14 +40,14 @@ export class AppComponent implements OnInit {
       // For Googlebot. Do nothing.
       return;
     }
-    var enableEmojiDomain = /^((?!chrome).)*safari/i.test(navigator.userAgent);
+    let enableEmojiDomain = /^((?!chrome).)*safari/i.test(navigator.userAgent);
     if (navigator.userAgent.indexOf('CriOS') > -1) {
       // For Chrome
       enableEmojiDomain = false;
     }
-    var currentUrl = loc.protocol + '//' + loc.hostname;
-    var outputDomain = enableEmojiDomain ? emojiDomain : standardDomain;
-    var outputUrl = 'https://' + outputDomain;
+    let currentUrl = loc.protocol + '//' + loc.hostname;
+    const outputDomain = enableEmojiDomain ? emojiDomain : standardDomain;
+    let outputUrl = 'https://' + outputDomain;
     if (currentUrl === outputUrl) {
       return;
     }
@@ -63,11 +61,11 @@ export class AppComponent implements OnInit {
     outputUrl += loc.search;
 
     if (loc.hostname === 'localhost') {
-      console.log("debug info for localhost environment:");
-      console.log("UA = " + navigator.userAgent);
-      console.log("enableEmojiDomain = " + enableEmojiDomain);
-      console.log("currentUrl = " + currentUrl);
-      console.log("outputUrl = " + outputUrl);
+      console.log('debug info for localhost environment:');
+      console.log(`UA = ${navigator.userAgent}`);
+      console.log(`enableEmojiDomain = ${enableEmojiDomain}`);
+      console.log(`currentUrl = ${currentUrl}`);
+      console.log(`outputUrl = ${outputUrl}`);
       return;
     }
     window.location.href = outputUrl;

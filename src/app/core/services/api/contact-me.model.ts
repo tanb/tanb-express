@@ -1,5 +1,3 @@
-import { Model } from './model';
-
-export class ContactMeModel extends Model {
+export interface ContactMeModel {
   success: boolean;
 }

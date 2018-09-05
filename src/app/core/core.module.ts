@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertModule } from 'ngx-bootstrap';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
@@ -11,7 +11,6 @@ import { GaService } from './services/ga.service';
 import { NotificationService } from './services/notification.service';
 import { IndicatorService } from './services/indicator.service';
 import { ApiService } from './services/api/api.service';
-import { ClientService } from './services/api/client.service';
 import { NavComponent } from './nav/nav.component';
 import { ContactMeComponent } from './modal/contact-me/contact-me.component';
 import { FooterComponent } from './footer/footer.component';
@@ -23,7 +22,7 @@ import { HeaderTitleComponent } from './header-title/header-title.component';
     AlertModule.forRoot(),
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -38,7 +37,6 @@ import { HeaderTitleComponent } from './header-title/header-title.component';
       } as RecaptchaSettings,
     },
     ApiService,
-    ClientService,
     NotificationService,
     IndicatorService
   ],

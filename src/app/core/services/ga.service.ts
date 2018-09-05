@@ -18,7 +18,7 @@ export class GaService {
   }
 
   get cookies() {
-    const cookies: {[key:string]: string} = {};
+    const cookies: {[key: string]: string} = {};
     document.cookie.split(';').forEach(component => {
       const tupple = trim(component, ' ').split('=');
       cookies[tupple[0]] = tupple[1];

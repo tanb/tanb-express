@@ -6,8 +6,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { ContactMeComponent } from 'src/app/core/modal/contact-me/contact-me.component';
 
 enum BalloonState {
-  top = "top",
-  bottom = "bottom"
+  top = 'top',
+  bottom = 'bottom'
 }
 
 @Component({
@@ -29,7 +29,7 @@ enum BalloonState {
     ]),
   ]
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, AfterViewInit {
   states = [BalloonState.bottom,
             BalloonState.bottom];
   bsModalRef: BsModalRef;
@@ -48,7 +48,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onEnd(event, index) {
-    let wait = (Math.floor(Math.random() * 9) + 1) * 100;
+    const wait = (Math.floor(Math.random() * 9) + 1) * 100;
     if (event.toState === BalloonState.bottom) {
       setTimeout(() => {
         this.states[index] = BalloonState.top;
@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
   }
 
   openModalWithComponent() {
-    let config = {
+    const config = {
       class: 'tnb-modal-dialog'
     };
     this.bsModalRef = this.modalService.show(ContactMeComponent, config);

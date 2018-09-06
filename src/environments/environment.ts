@@ -1,10 +1,11 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import { versions } from '../versions';
 
 export const environment = {
   production: false,
-  angularCLIVersion: require('../../package-lock.json').dependencies['@angular/cli'].version,
+  angularCLIVersion: versions['@angular/cli'],
   emojiDomain: 'xn--sn8h24a.ml',
   standardDomain: 'tanb.app',
   apiServer: 'https://api.tanb.app'

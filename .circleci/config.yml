@@ -29,9 +29,9 @@ jobs:
           name: Building
           command: make build
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: ./
           paths:
-            - ./dist
+            - dist
   # Deploy job
   deploy:
     working_directory: ~/tanb/xn--sn8h24a
@@ -43,7 +43,7 @@ jobs:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
       - attach_workspace:
-          at: /tmp/workspace
+          at: ./
       - run:
           name: Install awscli
           command: sudo apt-get -y -qq install awscli

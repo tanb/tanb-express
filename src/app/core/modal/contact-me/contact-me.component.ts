@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { NgbModal, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { IndicatorService } from 'src/app/core/services/indicator.service';
 import { ApiService } from 'src/app/core/services/api/api.service';
@@ -13,8 +14,8 @@ import { ApiService } from 'src/app/core/services/api/api.service';
 export class ContactMeComponent implements OnInit {
   hasError = false;
   completed = false;
-  constructor(public bsModalRef: BsModalRef, private indicator: IndicatorService, private api: ApiService) {
-  }
+
+  constructor(public activeModal: NgbActiveModal, private indicator: IndicatorService, private api: ApiService) { }
 
   public reactiveForm: FormGroup = new FormGroup({
     name: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(30)])),
@@ -34,16 +35,16 @@ export class ContactMeComponent implements OnInit {
       'recaptcha': this.reactiveForm.get('recaptchaReactive').value
     };
     const source = this.api.contactMe(body);
-    this.indicator.show();
+    const indicatorRef = this.indicator.show();
     source.subscribe(
       value => console.log(`handleNext:  ${value}`),
       error => {
-        this.indicator.hide();
+        this.indicator.hide(indicatorRef);
         this.hasError = true;
         console.log(`handleError: ${error}`);
       },
       () => {
-        this.indicator.hide();
+        this.indicator.hide(indicatorRef);
         this.completed = true;
         console.log('handleComplete');
       }

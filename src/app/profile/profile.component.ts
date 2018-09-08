@@ -1,7 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { NgbModal, NgbModalOptions, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 import { ContactMeComponent } from 'src/app/core/modal/contact-me/contact-me.component';
 
@@ -32,9 +31,8 @@ enum BalloonState {
 export class ProfileComponent implements OnInit, AfterViewInit {
   states = [BalloonState.bottom,
             BalloonState.bottom];
-  bsModalRef: BsModalRef;
 
-  constructor(private modalService: BsModalService) {
+  constructor(private modal: NgbModal) {
   }
 
   ngOnInit() {
@@ -61,11 +59,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   openModalWithComponent() {
-    const config = {
-      class: 'tnb-modal-dialog'
+    const config: NgbModalOptions = {
+       windowClass: 'tnb-modal-dialog'
     };
-    this.bsModalRef = this.modalService.show(ContactMeComponent, config);
-    console.log(this.bsModalRef);
+    const modalRef: NgbModalRef = this.modal.open(ContactMeComponent, config);
   }
 
   openModal() {

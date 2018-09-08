@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AlertModule } from 'ngx-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 import { GaService } from './services/ga.service';
 import { NotificationService } from './services/notification.service';
 import { IndicatorService } from './services/indicator.service';
+import { IndicatorComponent } from './indicator/indicator.component';
 import { ApiService } from './services/api/api.service';
 import { NavComponent } from './nav/nav.component';
 import { ContactMeComponent } from './modal/contact-me/contact-me.component';
@@ -19,7 +20,7 @@ import { HeaderTitleComponent } from './header-title/header-title.component';
 
 @NgModule({
   imports: [
-    AlertModule.forRoot(),
+    NgbModule.forRoot(),
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     HttpClientModule,
@@ -42,12 +43,14 @@ import { HeaderTitleComponent } from './header-title/header-title.component';
   ],
   declarations: [
     NavComponent,
+    IndicatorComponent,
     ContactMeComponent,
     FooterComponent,
     HeaderTitleComponent
   ],
   entryComponents: [
-    ContactMeComponent
+    ContactMeComponent,
+    IndicatorComponent
   ],
   exports: [
     BrowserModule,

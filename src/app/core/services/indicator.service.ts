@@ -1,49 +1,39 @@
-import { ComponentRef, Injectable, TemplateRef, EventEmitter, Renderer2, RendererFactory2 } from '@angular/core';
-import { ComponentLoader } from 'ngx-bootstrap/component-loader/component-loader.class';
-import { ComponentLoaderFactory } from 'ngx-bootstrap/component-loader/component-loader.factory';
-import { ModalBackdropComponent } from 'ngx-bootstrap/modal/modal-backdrop.component';
-import { ModalContainerComponent } from 'ngx-bootstrap/modal/modal-container.component';
-import { modalConfigDefaults, ModalOptions } from 'ngx-bootstrap/modal/modal-options.class';
+import { ApplicationRef, ComponentRef, ComponentFactory, ComponentFactoryResolver, ElementRef,
+         Injectable, Injector, Renderer2, RendererFactory2 } from '@angular/core';
+
+import { IndicatorComponent } from '../indicator/indicator.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IndicatorService {
-  protected backdropRef: ComponentRef<ModalBackdropComponent>;
-  private backdropLoader: ComponentLoader<ModalBackdropComponent>;
   private renderer: Renderer2;
 
-  constructor(rendererFactory: RendererFactory2, private clf: ComponentLoaderFactory) {
-    this.backdropLoader = this.clf.createLoader<ModalBackdropComponent>(
-      null,
-      null,
-      null
-    );
+  constructor(rendererFactory: RendererFactory2,
+              private applicationRef: ApplicationRef,
+              private cFResolver: ComponentFactoryResolver,
+              private injector: Injector) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 
-  show() {
-    this.showBackdrop();
+  show(elementRef: ElementRef<any> | undefined = undefined): ComponentRef<IndicatorComponent> {
+    const cFactory: ComponentFactory<IndicatorComponent> = this.cFResolver.resolveComponentFactory(IndicatorComponent);
+    const componentRef = cFactory.create(this.injector);
+    const componentElm = componentRef.location.nativeElement;
+    this.applicationRef.attachView(componentRef.hostView);
+    if (typeof document !== 'undefined' && !elementRef) {
+      this.renderer.setStyle(componentElm, "position", "fixed");
+      document.querySelector('body').appendChild(componentElm);
+    } else if (elementRef) {
+      const targetElm = elementRef.nativeElement;
+      this.renderer.setStyle(targetElm, "position", "relative");
+      this.renderer.setStyle(targetElm, "display", "block");
+      this.renderer.appendChild(targetElm, componentElm);
+    }
+    return componentRef;
   }
 
-  hide() {
-    this.hideBackdrop();
-  }
-
-  showBackdrop(): void {
-    this.backdropLoader
-      .attach(ModalBackdropComponent)
-      .to('body')
-      .show();
-    this.backdropRef = this.backdropLoader._componentRef;
-    this.renderer.addClass(this.backdropRef.location.nativeElement, 'indicator');
-    const imageElement = this.renderer.createElement('img');
-    this.renderer.setAttribute(imageElement, 'src', 'assets/img/indicator.svg');
-    this.renderer.appendChild(this.backdropRef.location.nativeElement, imageElement);
-  }
-
-  hideBackdrop(): void {
-    this.backdropLoader.hide();
-    this.backdropRef = null;
+  hide(componentRef: ComponentRef<IndicatorComponent>): void {
+    componentRef.destroy();
   }
 }

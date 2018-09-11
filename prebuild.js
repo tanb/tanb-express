@@ -21,5 +21,5 @@ Object.keys(object).forEach((key, idx, keys) => {
   key = arr.join('@');
   packages[key] = version;
 });
-data = data + JSON.stringify(packages, null, 2);
+data = data + JSON.stringify(packages, null, 2).split('"').join("'") + ';\n';
 fs.writeFileSync(versionsFilePath, data, { flat: 'w+' });

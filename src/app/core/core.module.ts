@@ -1,14 +1,14 @@
+import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 import { GaService } from './services/ga.service';
 import { NotificationService } from './services/notification.service';
+import { ModalService } from './services/modal.service';
 import { IndicatorService } from './services/indicator.service';
 import { IndicatorComponent } from './indicator/indicator.component';
 import { ApiService } from './services/api/api.service';
@@ -20,7 +20,6 @@ import { HeaderTitleComponent } from './header-title/header-title.component';
 
 @NgModule({
   imports: [
-    NgbModule.forRoot(),
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     HttpClientModule,

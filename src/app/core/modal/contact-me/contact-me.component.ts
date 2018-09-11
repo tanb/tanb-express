@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NgbModal, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
-import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { IndicatorService } from 'src/app/core/services/indicator.service';
 import { ApiService } from 'src/app/core/services/api/api.service';
+import { ModalService } from 'src/app/core/services/modal.service';
 
 @Component({
   selector: 'app-contact-me',
@@ -15,7 +14,8 @@ export class ContactMeComponent implements OnInit {
   hasError = false;
   completed = false;
 
-  constructor(public activeModal: NgbActiveModal, private indicator: IndicatorService, private api: ApiService) { }
+  constructor(private modalService: ModalService, private indicator: IndicatorService, private api: ApiService) {
+  }
 
   public reactiveForm: FormGroup = new FormGroup({
     name: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(30)])),
@@ -25,6 +25,10 @@ export class ContactMeComponent implements OnInit {
   });
 
   ngOnInit() {
+  }
+
+  onClose() {
+    this.modalService.hide();
   }
 
   submitForm() {

@@ -1,53 +1,58 @@
-<div class="modal-header">
-  <div class="badge">
-    <div class="icon">
-      <i class="fa fa-envelope" aria-hidden="true"></i>
-    </div>
-  </div>
-  <div class="modal-title">Contact Tomonori Tanabe</div>
-</div>
-<div class="modal-body">
-  <form [formGroup]="reactiveForm">
-    <div class="form-row">
-      <div class="form-group col-12">
-        <input formControlName="name" type="name" class="form-control" id="name" placeholder="Your name">
+<div class="modal fade" role="dialog" (click)="onClose()">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div class="badge">
+          <div class="icon">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="modal-title">Contact Tomonori Tanabe</div>
       </div>
-      <div class="form-group col-12">
-        <input formControlName="email" type="email" class="form-control" id="email" placeholder="Email address">
+      <div class="modal-body">
+        <form [formGroup]="reactiveForm">
+          <div class="form-row">
+            <div class="form-group col-12">
+              <input formControlName="name" type="name" class="form-control" id="name" placeholder="Your name">
+            </div>
+            <div class="form-group col-12">
+              <input formControlName="email" type="email" class="form-control" id="email" placeholder="Email address">
+            </div>
+            <div class="form-group col-12">
+              <textarea formControlName="message" class="form-control" id="message" rows="10" placeholder="Type your message here..."></textarea>
+            </div>
+            <div class="form-group col-12 recaptcha">
+              <re-captcha formControlName="recaptchaReactive"></re-captcha>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="form-group col-12">
-        <textarea formControlName="message" class="form-control" id="message" rows="10" placeholder="Type your message here..."></textarea>
-      </div>
-      <div class="form-group col-12 recaptcha">
-        <re-captcha formControlName="recaptchaReactive"></re-captcha>
-      </div>
-    </div>
-  </form>
-</div>
-<div class="modal-footer">
-  <div class="container">
-    <div class="row" *ngIf="!completed">
-      <div class="col-12" *ngIf="hasError">
-        <ngb-alert type="danger" [dismissible]="false">
-          <strong>Oops!</strong> An unexpected error occurred.
-        </ngb-alert>
-      </div>
-      <div class="col-12">
-        <button [disabled]="reactiveForm.invalid" type="button" class="btn btn-purple" (click)="submitForm()">Send</button>
-      </div>
-      <div class="col-12">
-        <button type="button" class="btn btn-light" (click)="activeModal.close()">Cancel</button>
-      </div>
-    </div>
-
-    <div class="row" *ngIf="completed">
-      <div class="col-12">
-        <ngb-alert type="success" [dismissible]="false">
-          <strong>Success!</strong> Thank you!
-        </ngb-alert>
-      </div>
-      <div class="col-12">
-        <button type="button" class="btn btn-light" (click)="activeModal.close()">Close</button>
+      <div class="modal-footer">
+        <div class="container">
+          <div class="row" *ngIf="!completed">
+            <div class="col-12" *ngIf="hasError">
+              <div class="alert alert-danger" role="alert">
+                <strong>Oops!</strong> An unexpected error occurred.
+              </div>
+            </div>
+            <div class="col-12">
+              <button [disabled]="reactiveForm.invalid" type="button" class="btn btn-purple" (click)="submitForm()">Send</button>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn btn-light" (click)="onClose()">Cancel</button>
+            </div>
+          </div>
+          <div class="row" *ngIf="completed">
+            <div class="col-12">
+              <div class="alert alert-success" role="alert">
+                <strong>Success!</strong> Thank you!
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="button" class="btn btn-light" (click)="onClose()">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

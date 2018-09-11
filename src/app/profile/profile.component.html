@@ -73,7 +73,7 @@
 
       <div class="row">
         <div class="col-sm-6 text-center tanb-icon">
-          <img class="rounded-circle" [@balloon]="states[0]" (@balloon.done)="onEnd($event, 0)" src="assets/img/tanb.jpg">
+          <img class="rounded-circle" [@balloon]="balloonState" (@balloon.done)="onEnd($event)" src="assets/img/tanb.jpg">
         </div>
       </div>
 

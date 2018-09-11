@@ -29,8 +29,7 @@ enum BalloonState {
   ]
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
-  states = [BalloonState.bottom,
-            BalloonState.bottom];
+  balloonState: BalloonState = BalloonState.bottom;
 
   constructor(private modal: NgbModal) {
   }
@@ -40,20 +39,19 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.states[0] = BalloonState.top;
-      this.states[1] = BalloonState.top;
+      this.balloonState = BalloonState.top;
     }, 0);
   }
 
-  onEnd(event, index) {
+  onEnd(event) {
     const wait = (Math.floor(Math.random() * 9) + 1) * 100;
     if (event.toState === BalloonState.bottom) {
       setTimeout(() => {
-        this.states[index] = BalloonState.top;
+        this.balloonState = BalloonState.top;
       }, wait);
     } else {
       setTimeout(() => {
-        this.states[index] = BalloonState.bottom;
+        this.balloonState = BalloonState.bottom;
       }, wait);
     }
   }

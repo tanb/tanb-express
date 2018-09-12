@@ -2,16 +2,17 @@ import { ApplicationRef, ComponentRef, ComponentFactory, ComponentFactoryResolve
          Injectable, Injector, Renderer2, RendererFactory2 } from '@angular/core';
 
 import { ContactMeComponent } from '../modal/contact-me/contact-me.component';
+import { BackdropComponent } from '../modal/backdrop/backdrop.component';
 
-export const Type = Function;
-export interface Type<T> extends Function { new (...args: any[]): T; }
+interface Type<T> extends Function { new (...args: any[]): T; }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModalService {
   private renderer: Renderer2;
-  componentRef?: ComponentRef<any>;
+  backdropRef?: ComponentRef<BackdropComponent>;
+  contentRef?: ComponentRef<any>;
 
   constructor(rendererFactory: RendererFactory2,
               private applicationRef: ApplicationRef,
@@ -21,31 +22,49 @@ export class ModalService {
   }
 
   show<T>(component: Type<T>): void {
-    const cFactory = this.cFResolver.resolveComponentFactory<T>(component);
-    const componentRef = cFactory.create(this.injector);
-    const componentElm: HTMLElement = componentRef.location.nativeElement;
-    this.applicationRef.attachView(componentRef.hostView);
+    this.backdropRef = this.attatch(BackdropComponent);
+    this.contentRef = this.attatch(component);
     const bodyElm = document.querySelector('body');
-    bodyElm.appendChild(componentElm);
     this.renderer.addClass(bodyElm, 'modal-open');
-    setTimeout((() => {
-      const element = componentElm.querySelector('.modal');
-      this.renderer.addClass(element, 'show');
-    }).bind(this), 0);
-    this.componentRef = componentRef;
+    this.updateClass(this.backdropRef, '.modal-backdrop', true);
+    this.updateClass(this.contentRef, '.modal', true);
   }
 
   hide(): void {
-    setTimeout((() => {
-      const componentElm: HTMLElement = this.componentRef.location.nativeElement;
-      const element = componentElm.querySelector('.modal');
-      this.renderer.removeClass(element, 'show');
-      this.renderer.addClass(element, 'hide');
+    this.updateClass(this.backdropRef, '.modal-backdrop', false).then(() => {
+      setTimeout(() => {
+        this.backdropRef.destroy();
+      }, 130);
+    });
+    this.updateClass(this.contentRef, '.modal', false).then(() => {
       setTimeout(() => {
         const bodyElm = document.querySelector('body');
         this.renderer.removeClass(bodyElm, 'modal-open');
-        this.componentRef.destroy();
+        this.contentRef.destroy();
       }, 130);
-    }).bind(this), 0);
+    });
+  }
+
+  private attatch<T>(component: Type<T>): ComponentRef<T> {
+    const cFactory = this.cFResolver.resolveComponentFactory<T>(component);
+    const componentRef = cFactory.create(this.injector);
+    this.applicationRef.attachView(componentRef.hostView);
+    const bodyElm = document.querySelector('body');
+    bodyElm.appendChild(componentRef.location.nativeElement);
+    return componentRef;
+  }
+
+  private updateClass<T>(componentRef: ComponentRef<T>, selector: string, show: boolean): Promise<void> {
+    const componentElm: HTMLElement = componentRef.location.nativeElement;
+    const element = componentElm.querySelector(selector);
+    const addClassName = show ? 'show' : 'hide';
+    const removeClassName = show ? 'hide' : 'show';
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.renderer.addClass(element, addClassName);
+        this.renderer.removeClass(element, removeClassName);
+        resolve();
+      }, 0);
+    });
   }
 }

@@ -16,7 +16,7 @@ import { NavComponent } from './nav/nav.component';
 import { ContactMeComponent } from './modal/contact-me/contact-me.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderTitleComponent } from './header-title/header-title.component';
-
+import { BackdropComponent } from './modal/backdrop/backdrop.component';
 
 @NgModule({
   imports: [
@@ -45,9 +45,11 @@ import { HeaderTitleComponent } from './header-title/header-title.component';
     IndicatorComponent,
     ContactMeComponent,
     FooterComponent,
-    HeaderTitleComponent
+    HeaderTitleComponent,
+    BackdropComponent
   ],
   entryComponents: [
+    BackdropComponent,
     ContactMeComponent,
     IndicatorComponent
   ],

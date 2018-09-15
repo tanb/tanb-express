@@ -38,20 +38,17 @@ export class ContactMeComponent implements OnInit {
       'message': this.reactiveForm.get('message').value,
       'recaptcha': this.reactiveForm.get('recaptchaReactive').value
     };
-    const source = this.api.contactMe(body);
+
     const indicatorRef = this.indicator.show();
-    source.subscribe(
-      value => console.log(`handleNext:  ${value}`),
-      error => {
+    this.api.contactMe(body)
+      .then(contactMe => {
+        this.indicator.hide(indicatorRef);
+        this.completed = true;
+      })
+      .catch(error => {
         this.indicator.hide(indicatorRef);
         this.hasError = true;
         console.log(`handleError: ${error}`);
-      },
-      () => {
-        this.indicator.hide(indicatorRef);
-        this.completed = true;
-        console.log('handleComplete');
-      }
-    );
+      });
   }
 }

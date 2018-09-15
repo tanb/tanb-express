@@ -8,25 +8,24 @@ import { ContactMeModel } from './contact-me.model';
 @Injectable()
 export class ApiService {
   private readonly apiVersion = 'v1';
+  constructor(private http: HttpClient) {
+  }
+
+  contactMe(body: any): Promise<ContactMeModel> {
+    const path = '/contactme';
+    return this.post<ContactMeModel>(this.url(path), body);
+  }
 
   private url(path: string): string {
     return environment.apiServer + '/' + this.apiVersion + path;
   }
 
-  constructor(private http: HttpClient) {
-  }
-
-  contactMe(body: any): Observable<ContactMeModel> {
-    const path = '/contactme';
-    return this.post<ContactMeModel>(this.url(path), body);
-  }
-
-  private post<T>(url: string, body: any) {
+  private post<T>(url: string, body: any): Promise<T> {
     const options = {
       headers: new HttpHeaders({
         'Accept': 'application/json',
       })
     };
-    return this.http.post<T>(url, body, options);
+    return this.http.post<T>(url, body, options).toPromise();
   }
 }

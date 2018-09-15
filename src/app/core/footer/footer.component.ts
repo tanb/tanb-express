@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 import { environment } from 'src/environments/environment';
+import { reverse } from 'src/app/core/routing';
 
 @Component({
   selector: 'app-footer',
@@ -23,10 +24,13 @@ export class FooterComponent implements OnInit {
 
   pushButton() {
     this.pushButtonCount = this.pushButtonCount + 1;
-    if (this.pushButtonCount > 2) {
-      const link = ['/settings', {}];
+    if (this.pushButtonCount < 3) {
+      return;
+    }
+    reverse('settings').then(url => {
+      const link = [url, {}];
       this.pushButtonCount = 0;
       this.router.navigate(link);
-    }
+    });
   }
 }

@@ -17,9 +17,11 @@ import { ContactMeComponent } from './modal/contact-me/contact-me.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderTitleComponent } from './header-title/header-title.component';
 import { BackdropComponent } from './modal/backdrop/backdrop.component';
+import { RoutingModule } from './routing/routing.module';
 
 @NgModule({
   imports: [
+    RoutingModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     HttpClientModule,
@@ -54,6 +56,7 @@ import { BackdropComponent } from './modal/backdrop/backdrop.component';
     IndicatorComponent
   ],
   exports: [
+    RoutingModule,
     BrowserModule,
     NavComponent,
     FooterComponent,

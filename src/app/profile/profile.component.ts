@@ -1,8 +1,11 @@
 import { Component, ComponentRef, OnInit, AfterViewInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
+import * as moment from 'moment';
+
 import { ContactMeComponent } from 'src/app/core/modal/contact-me/contact-me.component';
 import { ModalService } from 'src/app/core/services/modal.service';
+
 
 enum BalloonState {
   top = 'top',
@@ -30,6 +33,12 @@ enum BalloonState {
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
   balloonState: BalloonState = BalloonState.bottom;
+  get age(): number {
+    // My wish list
+    // http://amzn.asia/28NWWx8
+    // Thank you!
+    return moment().diff('1985-01-27', 'years');
+  }
 
   constructor(private modal: ModalService) {
   }

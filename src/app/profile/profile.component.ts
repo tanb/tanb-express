@@ -37,9 +37,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       age: myAge,
       round: 1,
       easing: 'linear',
-      update: (function() {
+      update: () => {
         this.age = targets.age;
-      }).bind(this);
+      }
     });
     anime({
       targets: '.tanb-icon .rounded-circle',

@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { GaService } from './services/ga.service';
 import { NotificationService } from './services/notification.service';
@@ -21,6 +23,7 @@ import { RoutingModule } from './routing/routing.module';
 
 @NgModule({
   imports: [
+    MarkdownModule.forRoot({ loader: HttpClient }),
     RoutingModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
@@ -56,6 +59,7 @@ import { RoutingModule } from './routing/routing.module';
     IndicatorComponent
   ],
   exports: [
+    MarkdownModule,
     RoutingModule,
     BrowserModule,
     NavComponent,

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 import { environment } from 'src/environments/environment';
-import { reverse } from 'src/app/core/routing';
+import { ReverseRouteService } from 'src/app/core/services/reverse-route.service';
 
 @Component({
   selector: 'app-footer',
@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
   angularVersion: string = VERSION.full;
   pushButtonCount = 0;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private reverseRoute: ReverseRouteService) {
   }
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class FooterComponent implements OnInit {
     if (this.pushButtonCount < 3) {
       return;
     }
-    reverse('settings').then(url => {
+    this.reverseRoute.resolve('settings').then(url => {
       const link = [url, {}];
       this.pushButtonCount = 0;
       this.router.navigate(link);

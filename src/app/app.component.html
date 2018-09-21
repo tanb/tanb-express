@@ -1,6 +1,9 @@
+<div class="container" *ngIf="!isHomeRouteActivated">
+  <app-nav></app-nav>
+</div>
+
 <router-outlet></router-outlet>
-<div *ngIf="!isHomeRouteActivated">
-  <div class="container">
-    <app-footer></app-footer>
-  </div>
+
+<div class="container" *ngIf="!isHomeRouteActivated">
+  <app-footer></app-footer>
 </div>

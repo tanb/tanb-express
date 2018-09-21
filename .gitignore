@@ -8,6 +8,7 @@
 /tmp
 /out-tsc
 /src/versions.ts
+/src/articles.ts
 
 # dependencies
 /node_modules

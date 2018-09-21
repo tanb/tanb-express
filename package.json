@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node prebuild.js; ng serve -c devel",
+    "start": "yarn run prebuild && yarn run build-articles && ng serve -c devel",
     "prebuild": "node prebuild.js",
     "prerender": "node prerender.js",
+    "build-articles": "node build_articles.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

@@ -9,8 +9,6 @@ import { NotificationService } from '../services/notification.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit, OnDestroy {
-  @Input() pullRight = false;
-
   constructor(private notification: NotificationService,
               private router: Router) {
     this.router.events.subscribe((event) => {

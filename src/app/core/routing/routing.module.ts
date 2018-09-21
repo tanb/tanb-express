@@ -6,16 +6,12 @@ import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.com
 import { ArticleComponent } from 'src/app/article/article.component';
 import { ArticleListComponent } from 'src/app/article-list/article-list.component';
 
-export interface NamedRoute extends Route {
-  name?: string;
-}
+import { NamedRoutes } from './named-route';
 
-export type NamedRoutes = NamedRoute[];
-
-const routes: NamedRoutes = [
+export const routes: NamedRoutes = [
   { path: '', component: ProfileComponent, name: 'top' },
   { path: 'settings', component: SettingsComponent, name: 'settings' },
-  { path: 'article', component: ArticleComponent, name: 'article_list' },
+  { path: 'article', component: ArticleListComponent, name: 'article_list' },
   { path: 'article/:id', component: ArticleComponent, name: 'article' },
   { path: '404', component: PageNotFoundComponent, name: 'not_found' },
   { path: '**', component: PageNotFoundComponent }

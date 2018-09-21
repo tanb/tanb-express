@@ -34,7 +34,7 @@ export class ArticleComponent implements OnInit {
   onError(event) {
     if (event instanceof HttpErrorResponse) {
       if (event.status === 404) {
-        reverse('not_found').then(url => {
+        this.reverseRoute.resolve('not_found').then(url => {
           const link = [url, {}];
           this.router.navigate(link);
         });

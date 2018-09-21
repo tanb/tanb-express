@@ -7,8 +7,8 @@
   </div>
 
   <div class="body">
-    <div class="d-none d-sm-block">
-      <app-nav [pullRight]=true></app-nav>
+    <div class="d-none d-sm-block" style="text-align: right; padding: .5rem 1rem;">
+      <a class="navbar-brand" href="/">🐁🗯</a>
     </div>
 
     <div class="container">
@@ -46,6 +46,7 @@
                 <li>Besson 600 Bb Trumpet</li>
               </ul>
             </li>
+            <li (click)="onClickArticles()"><span class="label">Articles: </span><span class="a">{{ articles }}</span></li>
           </ul>
 
           <h3>Where you can find me</h3>

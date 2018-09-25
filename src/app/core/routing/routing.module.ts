@@ -11,7 +11,7 @@ import { NamedRoutes } from './named-route';
 export const routes: NamedRoutes = [
   { path: '', component: ProfileComponent, name: 'top' },
   { path: 'settings', component: SettingsComponent, name: 'settings' },
-  { path: 'article', component: ArticleListComponent, name: 'article_list' },
+  { path: 'article', component: ArticleListComponent, name: 'articleList' },
   { path: 'article/:id', component: ArticleComponent, name: 'article' },
   { path: '404', component: PageNotFoundComponent, name: 'not_found' },
   { path: '**', component: PageNotFoundComponent }

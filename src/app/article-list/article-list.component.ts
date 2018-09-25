@@ -12,20 +12,9 @@ export class ArticleListComponent implements OnInit {
   articles: any[] = [];
 
   constructor(private reverseRoute: ReverseRouteService) {
-    this.resolveArticlePaths()
+    this.articles = articles;
   }
 
   ngOnInit() {
-  }
-
-  async resolveArticlePaths() {
-    this.articles = [];
-    for (let article of articles) {
-      let info = new Object;
-      Object.assign(info, article);
-      info['path'] = await this.reverseRoute.resolve('article', {id: article.id});
-      this.articles.push(info);
-    };
-    console.log(this.articles);
   }
 }

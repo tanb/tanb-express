@@ -14,18 +14,19 @@ export class ReverseRouteService {
     this.routes = this.router.config;
   }
 
-  resolve(name: string, params?: {[key: string]: string}): Promise<string> {
+  resolve(...nameAndValues: any[]) {
+    const name = lodash.pullAt(nameAndValues, [0])[0];
     for (const route of this.routes) {
       if (route.name === name) {
         let path = route.path;
-        if (params) {
-          Object.keys(params).forEach((key, ids, keys) => {
-            path = lodash.replace(path, ':' + key, params[key]);
-          });
+        if (nameAndValues.length > 0) {
+          for (let value of nameAndValues) {
+            path = lodash.replace(path, /:\w+/, value);
+          }
         }
         return Promise.resolve(path);
       }
     }
     Promise.reject(new Error(`Url name ${name} doesn't exist.`));
-  };
+  }
 }

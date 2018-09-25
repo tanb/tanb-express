@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderTitleComponent } from './header-title/header-title.component';
 import { BackdropComponent } from './modal/backdrop/backdrop.component';
 import { RoutingModule } from './routing/routing.module';
+import { ReverseRouteDirective } from './directives/reverse-route.directive';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { RoutingModule } from './routing/routing.module';
     ContactMeComponent,
     FooterComponent,
     HeaderTitleComponent,
-    BackdropComponent
+    BackdropComponent,
+    ReverseRouteDirective
   ],
   entryComponents: [
     BackdropComponent,
@@ -64,7 +66,8 @@ import { RoutingModule } from './routing/routing.module';
     BrowserModule,
     NavComponent,
     FooterComponent,
-    HeaderTitleComponent
+    HeaderTitleComponent,
+    ReverseRouteDirective
   ]
 })
 export class CoreModule { }

@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   onClickArticles() {
-    this.reverseRoute.resolve('article_list').then(path => {
+    this.reverseRoute.resolve('articleList').then(path => {
       this.router.navigate([path, {}]);
     });
   }

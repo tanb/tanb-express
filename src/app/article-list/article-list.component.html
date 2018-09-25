@@ -2,7 +2,7 @@
   <h2>Articles</h2>
 
   <ul>
-    <li *ngFor="let article of articles">🧀 <a href="{{ article.path }}">{{ article.title }}</a></li>
+    <li *ngFor="let article of articles">🧀 <a [appReverseRoute]="['article', article.id]">{{ article.title }}</a></li>
   </ul>
   <br>
   <br>

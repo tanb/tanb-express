@@ -1,11 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-const walk = require('./util/walk');
-const readlines = require('./util/readlines');
 const lodash = require('lodash');
 
-const articleDir = path.resolve(__dirname, 'src/assets/article');
-const articlesFilePath = path.join(__dirname + '/src/articles.ts');
+const walk = require(path.join(process.cwd(), 'util', 'walk'));
+const readlines = require(path.join(process.cwd(), 'util', 'readlines'));
+
+const articleDir = path.join(process.cwd(), 'src', 'assets', 'article');
+const articlesFilePath = path.join(process.cwd(), 'src', 'articles.ts');
 
 const buildArticles = async function(result) {
   const files = result['files'];

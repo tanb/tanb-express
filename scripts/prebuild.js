@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-
 const lockfile = require('@yarnpkg/lockfile');
-const versionsFilePath = path.join(__dirname + '/src/versions.ts');
-let file = fs.readFileSync('yarn.lock', 'utf8');
+
+const versionsFilePath = path.join(process.cwd(), 'src', 'versions.ts');
+let file = fs.readFileSync(path.join(process.cwd(), 'yarn.lock'), 'utf8');
 let json = lockfile.parse(file);
 if (json['type'] !== 'success') {
   console.log('yarn.lock parse error.');

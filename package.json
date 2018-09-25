@@ -5,9 +5,9 @@
   "scripts": {
     "ng": "ng",
     "start": "yarn run prebuild && yarn run build-articles && ng serve -c devel",
-    "prebuild": "node prebuild.js",
-    "prerender": "node prerender.js",
-    "build-articles": "node build_articles.js",
+    "prebuild": "node scripts/prebuild.js",
+    "prerender": "node scripts/prerender.js",
+    "build-articles": "node scripts/build_articles.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

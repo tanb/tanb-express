@@ -2,11 +2,11 @@ import { AfterContentInit, Input, Directive, ElementRef, Renderer2, RendererFact
 import { ReverseRouteService } from 'src/app/core/services/reverse-route.service';
 
 @Directive({
-  selector: '[appReverseRoute]'
+  selector: '[appUrl]'
 })
 export class ReverseRouteDirective implements AfterContentInit {
   private renderer: Renderer2;
-  @Input('appReverseRoute') appReverseRoute: string | any[];
+  @Input('appUrl') appUrl: string | any[];
 
   constructor(private rendererFactory: RendererFactory2,
               private reverseRoute: ReverseRouteService,
@@ -15,9 +15,9 @@ export class ReverseRouteDirective implements AfterContentInit {
   }
 
   ngAfterContentInit() {
-    let params = this.appReverseRoute as any[];
-    if (typeof this.appReverseRoute === 'string') {
-      params = [this.appReverseRoute];
+    let params = this.appUrl as any[];
+    if (typeof this.appUrl === 'string') {
+      params = [this.appUrl];
     }
     this.reverseRoute.resolve(...params)
       .then(path => {

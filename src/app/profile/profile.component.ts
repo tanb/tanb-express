@@ -21,8 +21,8 @@ enum BalloonState {
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
   balloonState: BalloonState = BalloonState.bottom;
-  age: number = 0;
-  articles: number = 0;
+  age = 0;
+  articles = 0;
   constructor(private router: Router, private modal: ModalService, private reverseRoute: ReverseRouteService) {
   }
 

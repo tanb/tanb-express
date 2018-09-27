@@ -20,7 +20,7 @@ export class ReverseRouteService {
       if (route.name === name) {
         let path = route.path;
         if (nameAndValues.length > 0) {
-          for (let value of nameAndValues) {
+          for (const value of nameAndValues) {
             path = lodash.replace(path, /:\w+/, value);
           }
         }

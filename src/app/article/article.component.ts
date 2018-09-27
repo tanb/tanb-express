@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser'
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'
+import { DomSanitizer } from '@angular/platform-browser';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 import { switchMap } from 'rxjs/operators';
-import { of } from 'rxjs'
+import { of } from 'rxjs';
 
 import { ReverseRouteService } from 'src/app/core/services/reverse-route.service';
 
@@ -21,7 +22,7 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {
     const source = this.route.paramMap;
     source.subscribe((params: ParamMap) => {
-      var articleHash = params.get('id');
+      const articleHash = params.get('id');
       // HttpClient sanitize this path before sending request.
       this.path = `assets/article/${articleHash}.md`;
     });

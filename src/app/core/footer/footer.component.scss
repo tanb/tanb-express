@@ -1,10 +1,12 @@
+@import 'src/sass/variables';
+
 .footer {
-  color: #5e5e5e;
+  color: $font-light-gray;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
 hr {
   margin-bottom: 4px;
-  border-top: 1px solid #5e5e5e;
+  border-top: 1px solid $font-light-gray;
 }

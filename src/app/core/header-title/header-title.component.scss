@@ -1,8 +1,32 @@
+@import 'src/sass/variables';
+
 :host.text-white {
   color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .7);
-  a {
-    font-weight: bold!important;
-    color: white!important;
+  .name {
+    text-shadow: 1px 1px 1px $font-base;
   }
+  .nickname {
+    a {
+      color: white;
+    }
+  }
+}
+
+.name {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px #e3e3e3;
+}
+
+.nickname {
+  a {
+    color: $font-base;
+  }
+  margin-top: .25rem;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
 }

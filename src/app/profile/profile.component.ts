@@ -27,7 +27,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    console.log('ProfileComponent:ngOnInit');
   }
 
   ngAfterViewInit() {

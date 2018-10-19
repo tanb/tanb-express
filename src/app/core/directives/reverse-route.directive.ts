@@ -6,7 +6,7 @@ import { ReverseRouteService } from 'src/app/core/services/reverse-route.service
 })
 export class ReverseRouteDirective implements AfterContentInit {
   private renderer: Renderer2;
-  @Input('appUrl') appUrl: string | any[];
+  @Input() appUrl: string | any[];
 
   constructor(private rendererFactory: RendererFactory2,
               private reverseRoute: ReverseRouteService,

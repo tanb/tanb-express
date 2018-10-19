@@ -1,6 +1,6 @@
 # 🐁🗯
 
-[![CircleCI](https://circleci.com/gh/tanb/xn--sn8h24a/tree/source-v6.svg?style=svg&circle-token=d0283f2a062676e8f59e24b8e99a107da1fe62c0)](https://circleci.com/gh/tanb/xn--sn8h24a/tree/source-v6)
+[![CircleCI](https://circleci.com/gh/tanb/xn--sn8h24a/tree/source-v7.svg?style=svg&circle-token=d0283f2a062676e8f59e24b8e99a107da1fe62c0)](https://circleci.com/gh/tanb/xn--sn8h24a/tree/source-v7)
 
 Automated deployment using CircleCI.
 
@@ -13,4 +13,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-c production` option for a production build.

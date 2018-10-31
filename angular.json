@@ -52,6 +52,7 @@
                   "with": "src/environments/environment.devel.ts"
                 }
               ],
+              "aot": true,
             },
             "production": {
               "fileReplacements": [
@@ -63,9 +64,9 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              "extractCss": false,
               "namedChunks": false,
-              "aot": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": false

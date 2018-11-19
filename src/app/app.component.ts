@@ -8,35 +8,40 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   isHomeRouteActivated = false;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
-              private notification: NotificationService,
-              private gaservice: GaService) {
-    this.router.events.subscribe((event) => {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private notification: NotificationService,
+    private gaservice: GaService
+  ) {
+    this.router.events.subscribe(event => {
       if (event instanceof RoutesRecognized) {
         this.gaservice.pageview(event.url);
-        this.isHomeRouteActivated = (event.url === '/');
+        this.isHomeRouteActivated = event.url === '/';
       }
     });
   }
 
   ngOnInit() {
-    this.redirectEmojiDomain();
+    // Stop redirection temporary.
+    // this.redirectEmojiDomain();
   }
 
   redirectEmojiDomain() {
     const loc = window.location;
     const emojiDomain = environment.emojiDomain;
     const standardDomain = environment.standardDomain;
-    if (navigator.userAgent.indexOf('Googlebot') > -1 ||
-        navigator.userAgent.indexOf('Mediapartners-Google') > -1 ||
-        navigator.userAgent.indexOf('APIs-Google') > -1 ||
-        navigator.userAgent.indexOf('AdsBot-Google') > -1) {
+    if (
+      navigator.userAgent.indexOf('Googlebot') > -1 ||
+      navigator.userAgent.indexOf('Mediapartners-Google') > -1 ||
+      navigator.userAgent.indexOf('APIs-Google') > -1 ||
+      navigator.userAgent.indexOf('AdsBot-Google') > -1
+    ) {
       // For Googlebot. Do nothing.
       return;
     }

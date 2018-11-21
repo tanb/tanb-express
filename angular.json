@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "xn--sn8h24a": {
+    "tanb-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -76,21 +76,21 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "xn--sn8h24a:build"
+            "browserTarget": "tanb-app:build"
           },
           "configurations": {
             "devel": {
-              "browserTarget": "xn--sn8h24a:build:devel"
+              "browserTarget": "tanb-app:build:devel"
             },
             "production": {
-              "browserTarget": "xn--sn8h24a:build:production"
+              "browserTarget": "tanb-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "xn--sn8h24a:build"
+            "browserTarget": "tanb-app:build"
           }
         },
         "test": {
@@ -125,7 +125,7 @@
         }
       }
     },
-    "xn--sn8h24a-e2e": {
+    "tanb-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -133,7 +133,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "xn--sn8h24a:serve"
+            "devServerTarget": "tanb-app:serve"
           }
         },
         "lint": {
@@ -148,5 +148,5 @@
       }
     }
   },
-  "defaultProject": "xn--sn8h24a"
+  "defaultProject": "tanb-app"
 }

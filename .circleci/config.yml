@@ -27,7 +27,7 @@ jobs:
           command: make node-modules
       - run:
           name: Building
-          command: make build
+          command: make release-build
       - persist_to_workspace:
           root: ./
           paths:

@@ -27,7 +27,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/manifest.json"
             ],
             "styles": [
               "node_modules/prismjs/themes/prism-okaidia.css",
@@ -52,7 +53,7 @@
                   "with": "src/environments/environment.devel.ts"
                 }
               ],
-              "aot": true,
+              "aot": true
             },
             "production": {
               "fileReplacements": [
@@ -69,7 +70,8 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": false
+              "buildOptimizer": false,
+              "serviceWorker": true
             }
           }
         },
@@ -107,7 +109,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/manifest.json"
             ]
           }
         },

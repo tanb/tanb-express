@@ -1,7 +1,7 @@
 {
   "name": "tanb-app",
   "short_name": "tanb-app",
-  "theme_color": "#1976d2",
+  "theme_color": "##373737",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",

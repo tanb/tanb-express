@@ -5,9 +5,12 @@
   "scripts": {
     "ng": "ng",
     "start": "yarn run prebuild && yarn run build-articles && ng serve -c devel",
+    "start:dist": "yarn http-server -a localhost -p 4200 -c-1 dist/tanb-app",
     "prebuild": "node scripts/prebuild.js",
     "prerender": "node scripts/prerender.js",
     "build-articles": "node scripts/build_articles.js",
+    "build": "yarn run prebuild && yarn run build-articles && yarn ng build -c devel",
+    "build:release": "yarn run prebuild && yarn run build-articles && yarn ng build -c production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -41,7 +44,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
-    "@angular/cli": "^7.1.4",
+    "@angular/cli": "^7.2.0",
     "@angular/compiler-cli": "^7.1.4",
     "@angular/language-service": "^7.1.4",
     "@types/jasmine": "~2.8.6",

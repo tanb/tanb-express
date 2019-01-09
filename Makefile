@@ -21,11 +21,7 @@ clean-dist:
 	rm -rf $(CURDIR)/dist
 
 build:
-	yarn run prebuild
-	yarn run build-articles
-	yarn ng build -c devel
+	yarn run build
 
 release-build:
-	yarn run prebuild
-	yarn run build-articles
-	yarn ng build -c production
+	yarn run build:release

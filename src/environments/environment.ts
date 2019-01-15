@@ -7,7 +7,7 @@ export const environment = {
   production: false,
   angularCLIVersion: versions['@angular/cli'],
   standardDomain: 'tanb.express',
-  apiServer: 'https://api.tanb.express'
+  apiServer: 'https://api.tanb.app'
 };
 
 /*

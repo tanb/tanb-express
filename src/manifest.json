@@ -1,6 +1,6 @@
 {
-  "name": "tanb-app",
-  "short_name": "tanb-app",
+  "name": "tanb-express",
+  "short_name": "tanb-express",
   "theme_color": "##373737",
   "background_color": "#fafafa",
   "display": "standalone",

@@ -3,7 +3,7 @@ version: 2
 jobs:
   # Build job
   build:
-    working_directory: ~/tanb/xn--sn8h24a
+    working_directory: ~/tanb/tanb-express
     docker:
       - image: circleci/node:9.11-browsers
     steps:
@@ -34,7 +34,7 @@ jobs:
             - dist
   # Deploy job
   deploy:
-    working_directory: ~/tanb/xn--sn8h24a
+    working_directory: ~/tanb/tanb-express
     docker:
       - image: circleci/node:9.11-browsers
     steps:

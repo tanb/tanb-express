@@ -55,7 +55,7 @@ jobs:
           command: aws configure set default.s3.signature_version s3v4
       - run:
           name: Deploy to S3
-          command: aws s3 sync dist/tanb-express s3://app.tanb/ --delete --cache-control "no-cache"
+          command: aws s3 sync dist/tanb-express s3://tanb.express/ --delete --cache-control "no-cache"
 
 workflows:
   version: 2

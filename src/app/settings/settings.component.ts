@@ -1,5 +1,5 @@
 import { Component, OnInit, Renderer2, RendererFactory2, ViewChild, ElementRef } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { GaService } from 'src/app/core/services/ga.service';
 
@@ -10,11 +10,11 @@ import { GaService } from 'src/app/core/services/ga.service';
 })
 export class SettingsComponent implements OnInit {
   private renderer: Renderer2;
-  @ViewChild('toggleButton', { read: ElementRef }) toggleButton: ElementRef;
+  @ViewChild('toggleButton', { read: ElementRef, static: true }) toggleButton: ElementRef;
 
   constructor(public router: Router,
               public gaservice: GaService,
-              private rendererFactory: RendererFactory2) {
+              rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
 

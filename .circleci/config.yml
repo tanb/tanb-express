@@ -5,7 +5,7 @@ jobs:
   build:
     working_directory: ~/tanb/tanb-express
     docker:
-      - image: circleci/node:9.11-browsers
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:
@@ -36,7 +36,7 @@ jobs:
   deploy:
     working_directory: ~/tanb/tanb-express
     docker:
-      - image: circleci/node:9.11-browsers
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:

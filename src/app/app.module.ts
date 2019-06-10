@@ -9,6 +9,8 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { CookiePolicyComponent } from './cookie-policy/cookie-policy.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { environment } from '../environments/environment';
     SettingsComponent,
     PageNotFoundComponent,
     ArticleComponent,
-    ArticleListComponent
+    ArticleListComponent,
+    PrivacyPolicyComponent,
+    CookiePolicyComponent
   ],
   imports: [
     CoreModule,

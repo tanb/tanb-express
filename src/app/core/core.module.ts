@@ -8,33 +8,31 @@ import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recap
 import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 import { MarkdownModule } from 'ngx-markdown';
 
-import { GaService } from './services/ga.service';
-import { NotificationService } from './services/notification.service';
-import { ModalService } from './services/modal.service';
-import { IndicatorService } from './services/indicator.service';
-import { IndicatorComponent } from './indicator/indicator.component';
 import { ApiService } from './services/api/api.service';
-import { NavComponent } from './nav/nav.component';
+import { BackdropComponent } from './modal/backdrop/backdrop.component';
 import { ContactMeComponent } from './modal/contact-me/contact-me.component';
 import { FooterComponent } from './footer/footer.component';
+import { GaService } from './services/ga.service';
+import { NavComponent } from './nav/nav.component';
+import { NotificationService } from './services/notification.service';
 import { HeaderTitleComponent } from './header-title/header-title.component';
-import { BackdropComponent } from './modal/backdrop/backdrop.component';
-import { RoutingModule } from './routing/routing.module';
+import { IndicatorComponent } from './indicator/indicator.component';
+import { IndicatorService } from './services/indicator.service';
 import { ReverseRouteDirective } from './directives/reverse-route.directive';
 
 @NgModule({
   imports: [
-    MarkdownModule.forRoot({ loader: HttpClient }),
-    RoutingModule,
-    RecaptchaModule.forRoot(),
-    RecaptchaFormsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    MarkdownModule.forRoot({ loader: HttpClient }),
+    ReactiveFormsModule,
+    RecaptchaFormsModule,
+    RecaptchaModule.forRoot()
   ],
   providers: [
+    ApiService,
     GaService,
     {
       provide: RECAPTCHA_SETTINGS,
@@ -42,17 +40,16 @@ import { ReverseRouteDirective } from './directives/reverse-route.directive';
         siteKey: '6LfxPWAUAAAAADvxeRj8HOXDGc3i8jxx7j9Hv_yO',
       } as RecaptchaSettings,
     },
-    ApiService,
     NotificationService,
     IndicatorService
   ],
   declarations: [
-    NavComponent,
-    IndicatorComponent,
+    BackdropComponent,
     ContactMeComponent,
     FooterComponent,
+    NavComponent,
     HeaderTitleComponent,
-    BackdropComponent,
+    IndicatorComponent,
     ReverseRouteDirective
   ],
   entryComponents: [
@@ -61,12 +58,11 @@ import { ReverseRouteDirective } from './directives/reverse-route.directive';
     IndicatorComponent
   ],
   exports: [
-    MarkdownModule,
-    RoutingModule,
     BrowserModule,
-    NavComponent,
     FooterComponent,
     HeaderTitleComponent,
+    MarkdownModule,
+    NavComponent,
     ReverseRouteDirective
   ]
 })

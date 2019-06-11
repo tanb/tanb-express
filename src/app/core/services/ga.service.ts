@@ -9,7 +9,7 @@ export class GaService {
     ga('create', 'UA-77462810-1', 'auto');
   }
 
-  pageview(path) {
+  pageview(path: string) {
     if (this.enabled) {
       ga('send', 'pageview', path);
     } else {

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
 import * as lodash from 'lodash';
 
-import { NamedRoutes } from 'src/app/core/routing/named-route';
+import { NamedRoutes } from 'src/app/app-routing.module';
 
 @Injectable({
   providedIn: 'root'

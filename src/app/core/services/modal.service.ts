@@ -1,7 +1,6 @@
-import { ApplicationRef, ComponentRef, ComponentFactory, ComponentFactoryResolver, ElementRef,
+import { ApplicationRef, ComponentRef, ComponentFactoryResolver,
          Injectable, Injector, Renderer2, RendererFactory2 } from '@angular/core';
 
-import { ContactMeComponent } from '../modal/contact-me/contact-me.component';
 import { BackdropComponent } from '../modal/backdrop/backdrop.component';
 
 interface Type<T> extends Function { new (...args: any[]): T; }
@@ -61,9 +60,13 @@ export class ModalService {
     const removeClassName = show ? 'hide' : 'show';
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        this.renderer.addClass(element, addClassName);
-        this.renderer.removeClass(element, removeClassName);
-        resolve();
+        try {
+          this.renderer.addClass(element, addClassName);
+          this.renderer.removeClass(element, removeClassName);
+          resolve();
+        } catch(err) {
+          reject(err);
+        }
       }, 0);
     });
   }

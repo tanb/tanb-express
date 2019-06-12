@@ -14,3 +14,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-c production` option for a production build.
+
+## Serverless Deployment
+
+You need to set up serverless cli. [serverless: AWS - Credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)

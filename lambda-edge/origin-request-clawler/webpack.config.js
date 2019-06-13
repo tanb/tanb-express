@@ -6,7 +6,8 @@ module.exports = {
   mode: "production",
   entry: slsw.lib.entries,
   target: "node",
-  // デフォルトはmain.jsになっちゃうので、handler.jsになるよう指定
+
+  // Fix output filename
   output: {
     libraryTarget: "commonjs",
     path: path.resolve(__dirname, ".webpack"),

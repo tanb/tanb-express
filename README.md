@@ -15,6 +15,14 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-c production` option for a production build.
 
-## Serverless Deployment
+## SEO
 
-You need to set up serverless cli. [serverless: AWS - Credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
+
+
+[Dynamic rendering](https://developers.google.com/search/docs/guides/dynamic-rendering).
+
+### Requirements
+
+- AWS CLI [Install AWS CLI](https://docs.aws.amazon.com/streams/latest/dev/kinesis-tutorial-cli-installation.html)
+- serverless [serverless: setting up AWS credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
+- Lambda@Edge [Using AWS Lambda with CloudFront](https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html)

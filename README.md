@@ -1,6 +1,6 @@
 # tanb.express
 
-[![CircleCI](https://circleci.com/gh/tanb/tanb-express/tree/source-v7.svg?style=svg&circle-token=d0283f2a062676e8f59e24b8e99a107da1fe62c0)](https://circleci.com/gh/tanb/tanb-express/tree/source-v7)
+[![CircleCI](https://circleci.com/gh/tanb/tanb-express/tree/source-v8.svg?style=svg&circle-token=d0283f2a062676e8f59e24b8e99a107da1fe62c0)](https://circleci.com/gh/tanb/tanb-express/tree/source-v8)
 
 Automated deployment using CircleCI.
 
@@ -17,7 +17,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## SEO
 
-
+![dynamic-rendering](https://github.com/tanb/tanb-express/raw/release/src/assets/img/dynamic-rendering.png)
 
 [Dynamic rendering](https://developers.google.com/search/docs/guides/dynamic-rendering).
 

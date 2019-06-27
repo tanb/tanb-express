@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 import { environment } from 'src/environments/environment';
-import { ReverseRouteService } from 'src/app/core/services/reverse-route.service';
+import { ReverseRouteService } from 'src/app/services/reverse-route.service';
 
 @Component({
   selector: 'app-footer',

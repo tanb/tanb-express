@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2, RendererFactory2, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { GaService } from 'src/app/core/services/ga.service';
+import { GaService } from 'src/app/services/ga.service';
 
 @Component({
   selector: 'app-settings',

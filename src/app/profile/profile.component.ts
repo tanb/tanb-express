@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 import * as anime from 'animejs';
 
-import { ContactMeComponent } from 'src/app/core/modal/contact-me/contact-me.component';
-import { ModalService } from 'src/app/core/services/modal.service';
-import { ReverseRouteService } from 'src/app/core/services/reverse-route.service';
+import { ContactMeComponent } from 'src/app/modal/contact-me/contact-me.component';
+import { ModalService } from 'src/app/services/modal.service';
+import { ReverseRouteService } from 'src/app/services/reverse-route.service';
 import { articles } from 'src/articles';
 
 enum BalloonState {

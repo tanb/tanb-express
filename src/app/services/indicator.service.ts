@@ -1,7 +1,7 @@
 import { ApplicationRef, ComponentRef, ComponentFactory, ComponentFactoryResolver, ElementRef,
          Injectable, Injector, Renderer2, RendererFactory2 } from '@angular/core';
 
-import { IndicatorComponent } from '../indicator/indicator.component';
+import { IndicatorComponent } from 'src/app/indicator/indicator.component';
 
 @Injectable({
   providedIn: 'root'

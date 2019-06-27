@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { IndicatorService } from 'src/app/core/services/indicator.service';
-import { ApiService } from 'src/app/core/services/api/api.service';
-import { ModalService } from 'src/app/core/services/modal.service';
+import { IndicatorService } from 'src/app/services/indicator.service';
+import { ApiService } from 'src/app/services/api/api.service';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-contact-me',

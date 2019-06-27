@@ -1,5 +1,5 @@
 import { AfterContentInit, Input, Directive, ElementRef, Renderer2, RendererFactory2 } from '@angular/core';
-import { ReverseRouteService } from 'src/app/core/services/reverse-route.service';
+import { ReverseRouteService } from 'src/app/services/reverse-route.service';
 
 @Directive({
   selector: '[appUrl]'

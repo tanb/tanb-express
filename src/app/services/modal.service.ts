@@ -1,7 +1,7 @@
 import { ApplicationRef, ComponentRef, ComponentFactoryResolver,
          Injectable, Injector, Renderer2, RendererFactory2 } from '@angular/core';
 
-import { BackdropComponent } from '../modal/backdrop/backdrop.component';
+import { BackdropComponent } from 'src/app/modal/backdrop/backdrop.component';
 
 interface Type<T> extends Function { new (...args: any[]): T; }
 

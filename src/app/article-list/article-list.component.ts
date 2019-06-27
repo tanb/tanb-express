@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { articles } from 'src/articles';
-import { ReverseRouteService } from 'src/app/core/services/reverse-route.service';
+import { ReverseRouteService } from 'src/app/services/reverse-route.service';
 
 @Component({
   selector: 'app-article-list',

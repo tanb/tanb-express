@@ -6,8 +6,6 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { MarkdownModule } from 'ngx-markdown';
-import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
-import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 import { environment } from 'src/environments/environment';
 
@@ -29,15 +27,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { RecaptchaComponent, RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha.component';
 
 // Directives
 import { ReverseRouteDirective } from './directives/reverse-route.directive';
+import { RecaptchaValueAccessorDirective } from './recaptcha/recaptcha-value-accessor.directive';
 
 // Services
 import { ApiService } from './services/api/api.service';
 import { GaService } from './services/ga.service';
 import { IndicatorService } from './services/indicator.service';
 import { NotificationService } from './services/notification.service';
+import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,9 @@ import { NotificationService } from './services/notification.service';
     PrivacyPolicyComponent,
     ProfileComponent,
     ReverseRouteDirective,
-    SettingsComponent
+    RecaptchaValueAccessorDirective,
+    SettingsComponent,
+    RecaptchaComponent
   ],
   entryComponents: [
     BackdropComponent,
@@ -70,11 +73,10 @@ import { NotificationService } from './services/notification.service';
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
     ReactiveFormsModule,
-    RecaptchaFormsModule,
-    RecaptchaModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
+    RecaptchaLoaderService,
     ApiService,
     GaService,
     {

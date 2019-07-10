@@ -1,11 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  Inject,
-  Injectable,
-  InjectionToken,
-  Optional,
-  PLATFORM_ID,
-} from '@angular/core';
+import { Inject, Injectable, InjectionToken, Optional, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
 export const RECAPTCHA_LANGUAGE = new InjectionToken<string>('recaptcha-language');
@@ -18,7 +12,7 @@ declare global {
   }
 }
 
-export function aloadScript(
+export function loadScript(
   renderMode: 'explicit' | string,
   onLoaded: (grecaptcha: ReCaptchaV2.ReCaptcha) => void,
   urlParams: string,
@@ -82,7 +76,7 @@ export class RecaptchaLoaderService {
       const subject = new BehaviorSubject<ReCaptchaV2.ReCaptcha>(null);
       RecaptchaLoaderService.ready = subject;
       const langParam = this.language ? '&hl=' + this.language : '';
-      aloadScript('explicit', (grecaptcha) => subject.next(grecaptcha), langParam, this.baseUrl, this.nonce);
+      loadScript('explicit', (grecaptcha) => subject.next(grecaptcha), langParam, this.baseUrl, this.nonce);
     }
   }
 }

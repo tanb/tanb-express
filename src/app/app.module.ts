@@ -27,7 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
-import { RecaptchaComponent, RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha.component';
+import { RecaptchaComponent } from './recaptcha/recaptcha.component';
 
 // Directives
 import { ReverseRouteDirective } from './directives/reverse-route.directive';
@@ -39,6 +39,7 @@ import { GaService } from './services/ga.service';
 import { IndicatorService } from './services/indicator.service';
 import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
+import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
 
 @NgModule({
   declarations: [

@@ -1,20 +1,9 @@
 /// <reference types="grecaptcha" />
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostBinding, Inject, InjectionToken, Input, NgZone, OnDestroy, Optional, Output } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Inject, Input, NgZone, OnDestroy, Optional, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { RecaptchaLoaderService } from './recaptcha-loader.service';
-
-let nextId = 0;
-
-export const RECAPTCHA_SETTINGS = new InjectionToken<RecaptchaSettings>('recaptcha-settings');
-
-export interface RecaptchaSettings {
-  siteKey?: string;
-  theme?: ReCaptchaV2.Theme;
-  type?: ReCaptchaV2.Type;
-  size?: ReCaptchaV2.Size;
-  badge?: ReCaptchaV2.Badge;
-}
+import { RECAPTCHA_SETTINGS, RecaptchaSettings } from 'src/app/recaptcha/recaptcha-settings';
 
 @Component({
   selector: 'app-recaptcha',
@@ -22,16 +11,8 @@ export interface RecaptchaSettings {
   styleUrls: ['./recaptcha.component.scss']
 })
 export class RecaptchaComponent implements AfterViewInit, OnDestroy {
-  @Input()
-  @HostBinding('attr.id')
-  public id = `ngrecaptcha-${nextId++}`;
-
   @Input() public siteKey: string;
-  @Input() public theme: ReCaptchaV2.Theme;
-  @Input() public type: ReCaptchaV2.Type;
-  @Input() public size: ReCaptchaV2.Size;
   @Input() public tabIndex: number;
-  @Input() public badge: ReCaptchaV2.Badge;
 
   @Output() public resolved = new EventEmitter<string>();
 
@@ -41,21 +22,14 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   private widget: number;
   /** @internal */
   private grecaptcha: ReCaptchaV2.ReCaptcha;
-  /** @internal */
-  private executeRequested: boolean;
 
   constructor(
     private elementRef: ElementRef,
     private loader: RecaptchaLoaderService,
     private zone: NgZone,
-    @Optional() @Inject(RECAPTCHA_SETTINGS) settings?: RecaptchaSettings,
-  ) {
+    @Optional() @Inject(RECAPTCHA_SETTINGS) settings?: RecaptchaSettings) {
     if (settings) {
       this.siteKey = settings.siteKey;
-      this.theme = settings.theme;
-      this.type = settings.type;
-      this.size = settings.size;
-      this.badge = settings.badge;
     }
   }
 
@@ -74,23 +48,6 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
     this.grecaptchaReset();
     if (this.subscription) {
       this.subscription.unsubscribe();
-    }
-  }
-
-  /**
-   * Executes the invisible recaptcha.
-   * Does nothing if component's size is not set to "invisible".
-   */
-  public execute(): void {
-    if (this.size !== 'invisible') {
-      return;
-    }
-
-    if (this.widget != null) {
-      this.grecaptcha.execute(this.widget);
-    } else {
-      // delay execution of recaptcha until it actually renders
-      this.executeRequested = true;
     }
   }
 
@@ -127,7 +84,6 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   /** @internal */
   private renderRecaptcha() {
     this.widget = this.grecaptcha.render(this.elementRef.nativeElement, {
-      badge: this.badge,
       callback: (response: string) => {
         this.zone.run(() => this.captchaResponseCallback(response));
       },
@@ -135,15 +91,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
         this.zone.run(() => this.expired());
       },
       sitekey: this.siteKey,
-      size: this.size,
       tabindex: this.tabIndex,
-      theme: this.theme,
-      type: this.type,
     });
-
-    if (this.executeRequested === true) {
-      this.executeRequested = false;
-      this.execute();
-    }
   }
 }

@@ -13,14 +13,10 @@ import { RECAPTCHA_SETTINGS, RecaptchaSettings } from 'src/app/recaptcha/recaptc
 export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   @Input() public siteKey: string;
   @Input() public tabIndex: number;
-
   @Output() public resolved = new EventEmitter<string>();
 
-  /** @internal */
   private subscription: Subscription;
-  /** @internal */
   private widget: number;
-  /** @internal */
   private grecaptcha: ReCaptchaV2.ReCaptcha;
 
   constructor(
@@ -64,24 +60,20 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
     }
   }
 
-  /** @internal */
   private expired() {
     this.resolved.emit(null);
   }
 
-  /** @internal */
   private captchaResponseCallback(response: string) {
     this.resolved.emit(response);
   }
 
-  /** @internal */
   private grecaptchaReset() {
     if (this.widget != null) {
       this.zone.runOutsideAngular(() => this.grecaptcha.reset(this.widget));
     }
   }
 
-  /** @internal */
   private renderRecaptcha() {
     this.widget = this.grecaptcha.render(this.elementRef.nativeElement, {
       callback: (response: string) => {

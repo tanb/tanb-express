@@ -16,10 +16,7 @@ import { RecaptchaComponent } from './recaptcha.component';
   selector: 'app-recaptcha[formControlName],app-recaptcha[formControl],app-recaptcha[ngModel]',
 })
 export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
-  /** @internal */
   private onChange: (value: string) => void;
-
-  /** @internal */
   private onTouched: () => void;
 
   constructor(private host: RecaptchaComponent) { }
@@ -33,7 +30,8 @@ export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
   public registerOnChange(fn: (value: string) => void): void { this.onChange = fn; }
   public registerOnTouched(fn: () => void): void { this.onTouched = fn; }
 
-  @HostListener('resolved', ['$event']) public onResolve($event: string) {
+  @HostListener('resolved', ['$event'])
+  public onResolve($event: string) {
     if (this.onChange) {
       this.onChange($event);
     }

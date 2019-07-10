@@ -38,19 +38,10 @@ export function loadScript(
 
 @Injectable()
 export class RecaptchaLoaderService {
-  /**
-   * @internal
-   * @nocollapse
-   */
   private static ready: BehaviorSubject<ReCaptchaV2.ReCaptcha> = null;
-
   public ready: Observable<ReCaptchaV2.ReCaptcha>;
-
-  /** @internal */
   private language: string;
-  /** @internal */
   private baseUrl: string;
-  /** @internal */
   private nonce: string;
 
   constructor(
@@ -67,7 +58,6 @@ export class RecaptchaLoaderService {
     this.ready = isPlatformBrowser(this.platformId) ? RecaptchaLoaderService.ready.asObservable() : of();
   }
 
-  /** @internal */
   private init() {
     if (RecaptchaLoaderService.ready) {
       return;

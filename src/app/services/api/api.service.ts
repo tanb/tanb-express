@@ -22,7 +22,7 @@ export class ApiService {
   private post<T>(url: string, body: any): Promise<T> {
     const options = {
       headers: new HttpHeaders({
-        'Accept': 'application/json',
+        Accept: 'application/json',
       })
     };
     return this.http.post<T>(url, body, options).toPromise();

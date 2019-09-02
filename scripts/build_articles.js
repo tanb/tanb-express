@@ -31,6 +31,7 @@ walk(['.md'], articleDir)
   .then(articles => {
     let data = 'export const articles = ';
     data = data + JSON.stringify(articles, null, 2).split('"').join("'") + ';\n';
+    data = data.replace(/\'([^@\-.']+)\': /g, '$1: ');
     fs.writeFileSync(articlesFilePath, data, { flat: 'w+' });
   }).catch(e => {
     console.error(e);

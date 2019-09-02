@@ -11,7 +11,7 @@ if (json['type'] !== 'success') {
 }
 const object = json['object'];
 let packages = {};
-let data = 'export const versions = ';
+let data = 'export const versions: { [key: string]: string } = ';
 // Warning: duplicated package name will be overwritten.
 Object.keys(object).forEach((key, idx, keys) => {
   const info = object[key];
@@ -22,4 +22,5 @@ Object.keys(object).forEach((key, idx, keys) => {
   packages[key] = version;
 });
 data = data + JSON.stringify(packages, null, 2).split('"').join("'") + ';\n';
+data = data.replace(/\'([^@\-.']+)\': /g, '$1: ');
 fs.writeFileSync(versionsFilePath, data, { flat: 'w+' });

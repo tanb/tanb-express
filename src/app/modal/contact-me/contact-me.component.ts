@@ -33,10 +33,10 @@ export class ContactMeComponent implements OnInit {
 
   submitForm() {
     const body = {
-      'name': this.reactiveForm.get('name').value,
-      'email': this.reactiveForm.get('email').value,
-      'message': this.reactiveForm.get('message').value,
-      'recaptcha': this.reactiveForm.get('recaptchaReactive').value
+      name: this.reactiveForm.get('name').value,
+      email: this.reactiveForm.get('email').value,
+      message: this.reactiveForm.get('message').value,
+      recaptcha: this.reactiveForm.get('recaptchaReactive').value
     };
 
     const indicatorRef = this.indicator.show();

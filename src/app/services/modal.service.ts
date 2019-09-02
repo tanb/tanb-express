@@ -3,7 +3,7 @@ import { ApplicationRef, ComponentRef, ComponentFactoryResolver,
 
 import { BackdropComponent } from 'src/app/modal/backdrop/backdrop.component';
 
-interface Type<T> extends Function { new (...args: any[]): T; }
+type Type<T> = new (...args: any[]) => T;
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +64,7 @@ export class ModalService {
           this.renderer.addClass(element, addClassName);
           this.renderer.removeClass(element, removeClassName);
           resolve();
-        } catch(err) {
+        } catch (err) {
           reject(err);
         }
       }, 0);

@@ -63,7 +63,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     const length = articles.length;
     const targets = { articles: 0 };
     anime({
-      targets: targets,
+      targets,
       articles: length,
       round: 1,
       easing: 'linear',
@@ -77,7 +77,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     const myAge: number = moment().diff('1985-01-27', 'years');
     const targets = { age: 0 };
     anime({
-      targets: targets,
+      targets,
       age: myAge,
       round: 1,
       easing: 'linear',

@@ -1,3 +1,3 @@
-export interface ContactMeModel {
+export interface ContactMe {
   success: boolean;
 }

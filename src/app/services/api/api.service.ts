@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
-import { ContactMeModel } from './contact-me.model';
+import { ContactMe } from './contact-me.model';
 
 @Injectable()
 export class ApiService {
@@ -10,9 +10,9 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
-  contactMe(body: any): Promise<ContactMeModel> {
+  contactMe(body: any): Promise<ContactMe> {
     const path = '/contactme';
-    return this.post<ContactMeModel>(this.url(path), body);
+    return this.post<ContactMe>(this.url(path), body);
   }
 
   private url(path: string): string {

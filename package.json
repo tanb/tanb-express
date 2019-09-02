@@ -29,7 +29,7 @@
     "@types/google.analytics": "^0.0.39",
     "@types/grecaptcha": "^2.0.36",
     "@types/lodash": "^4.14.134",
-    "rxjs": "~6.4.0",
+    "rxjs": "~6.5.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1",
     "angular-http-server": "^1.8.1",

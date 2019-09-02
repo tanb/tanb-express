@@ -4,10 +4,7 @@
   "newProjectRoot": "projects",
   "projects": {
     "tanb-express": {
-      "root": "",
-      "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
           "inlineTemplate": false,
@@ -15,6 +12,9 @@
           "styleext": "scss"
         }
       },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -24,6 +24,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
+            "aot": false,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -71,7 +72,19 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": false,
-              "serviceWorker": true
+              "serviceWorker": true,
+              "budgets": [
+                 {
+                   "type": "initial",
+                   "maximumWarning": "2mb",
+                   "maximumError": "5mb"
+                 },
+                 {
+                   "type": "anyComponentStyle",
+                   "maximumWarning": "6kb",
+                   "maximumError": "10kb"
+                 }
+               ]
             }
           }
         },
@@ -103,7 +116,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -125,31 +138,20 @@
               "**/node_modules/**"
             ]
           }
-        }
-      }
-    },
-    "tanb-express-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tanb-express:serve"
-          }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
+        "e2e": {
+           "builder": "@angular-devkit/build-angular:protractor",
+           "options": {
+             "protractorConfig": "e2e/protractor.conf.js",
+             "devServerTarget": "tanb-express-new:serve"
+           },
+           "configurations": {
+             "production": {
+               "devServerTarget": "tanb-express-new:serve:production"
+             }
+           }
         }
       }
-    }
-  },
+    }},
   "defaultProject": "tanb-express"
 }

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { trim } from 'lodash';
+import { LocalStorageService } from './local-storage.service'
 
 @Injectable()
 export class GaService {
-  public DISABLE_GA_KEY = 'disable-ga';
-
-  constructor() {
+  constructor(private storage: LocalStorageService) {
     ga('create', 'UA-77462810-1', 'auto');
   }
 
@@ -27,14 +26,14 @@ export class GaService {
   }
 
   get enabled(): boolean {
-    return localStorage.getItem(this.DISABLE_GA_KEY) !== 'disabled';
+    return this.storage.getNoGa() !== 'disabled';
   }
 
   set enabled(enabled: boolean) {
     if (enabled) {
-      localStorage.removeItem(this.DISABLE_GA_KEY);
+      this.storage.removeNoGa();
     } else {
-      localStorage.setItem(this.DISABLE_GA_KEY, 'disabled');
+      this.storage.setNoGa();
     }
   }
 }

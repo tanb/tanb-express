@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { MarkdownModule } from 'ngx-markdown';
 
 import { environment } from 'src/environments/environment';
@@ -41,6 +42,10 @@ import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
 
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +79,15 @@ import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-set
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
+
   ],
   providers: [
     RecaptchaLoaderService,

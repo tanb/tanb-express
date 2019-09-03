@@ -1,6 +1,6 @@
 import { Component, ComponentRef, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import * as anime from 'animejs';
 
@@ -8,7 +8,7 @@ import { ContactMeComponent } from 'src/app/modal/contact-me/contact-me.componen
 import { ModalService } from 'src/app/services/modal.service';
 import { ReverseRouteService } from 'src/app/services/reverse-route.service';
 import { articles } from 'src/articles';
-
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 enum BalloonState {
   top = 'top',
   bottom = 'bottom'
@@ -23,7 +23,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   balloonState: BalloonState = BalloonState.bottom;
   age = 0;
   articles = 0;
-  constructor(private router: Router, private modal: ModalService, private reverseRoute: ReverseRouteService) {
+  constructor(private storage: LocalStorageService,
+              private translate: TranslateService,
+              private router: Router,
+              private modal: ModalService,
+              private reverseRoute: ReverseRouteService) {
   }
 
   ngOnInit() {
@@ -36,6 +40,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     this.setupAgeAnime();
     this.setupArticlesAnime();
     this.setupIconAnime();
+  }
+
+  onChangeLang(lang) {
+    this.storage.setCurrenrLang(lang);
+    this.translate.use(lang);
   }
 
   onClickArticles() {

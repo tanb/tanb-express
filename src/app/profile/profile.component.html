@@ -9,8 +9,14 @@
   </div>
 
   <div class="body">
-    <div class="d-none d-sm-block" style="text-align: right; padding: .5rem 1rem;">
-      <a class="navbar-brand" href="/">🐁🗯</a>
+    <div class="container pt-2 pr-3 pl-3 pb-2" >
+      <div class="d-none d-sm-block pull-left">
+        <span class="a" (click)="onChangeLang('ja')">日本語</span> / <span class="a" (click)="onChangeLang('en')">English</span>
+      </div>
+
+      <div class="d-none d-sm-block" style="text-align: right;">
+        <a class="navbar-brand" href="/">🐁🗯</a>
+      </div>
     </div>
 
     <div class="container">
@@ -20,12 +26,11 @@
         </div>
       </div>
 
-
       <br>
 
       <div class="row">
         <div class="col-12 col-sm-8 contactme">
-          <button (click)="openModal()" type="button" class="btn btn-purple"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Me</button>
+          <button (click)="openModal()" type="button" class="btn btn-purple"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;<span translate>Contact Me</span></button>
         </div>
       </div>
 
@@ -33,22 +38,22 @@
 
       <div class="row">
         <div class="col-12">
-          <h3>Stats</h3>
+          <h3 translate>Stats</h3>
           <ul>
-            <li><span class="label">Age: </span>{{ age }}</li>
-            <li><span class="label">Works: </span><br>
+            <li><span class="label"><span translate>Age</span>: </span>{{ age }}</li>
+            <li><span class="label"><span translate>Works</span>: </span><br>
               <ul>
-                <li>Co-Founder, Software Engineer at Bebop Inc.</li>
-                <li>Software Engineer at Flat Inc.</li>
+                <li><span translate>Co-Founder</span>, <span translate>Software Engineer</span> at Bebop Inc.</li>
+                <li><span translate>Software Engineer</span> at Flat Inc.</li>
               </ul>
             </li>
-            <li><span class="label">Education: </span><br>
+            <li><span class="label"><span translate>Education</span>: </span><br>
               <ul>
-                <li>M.S. Tokyo University of Science, <br>
-                  <a target="_blank" href="http://www.tus.ac.jp/en/grad/riko/info.html" class="nowrap">Information Sciences</a> (Bioinfomatics)</li>
+                <li><span translate>M.S</span>. <span translate>Tokyo University of Science</span>, <br>
+                  <a target="_blank" href="http://www.tus.ac.jp/en/grad/riko/info.html" class="nowrap"><span translate>Information Sciences</span></a> (<span translate>Bioinfomatics</span>)</li>
               </ul>
             </li>
-            <li><span class="label">Equipments: </span>
+            <li><span class="label"><span translate>Equipments</span>: </span>
               <ul>
                 <li><a target="_blank" href="https://www.aersf.com/tech-sling-black">Aer Tech Sling Black</a></li>
                 <li>MacBook Pro (13-inch, 2017), Apple</li>
@@ -58,10 +63,10 @@
                 <li>Besson 600 Bb Trumpet</li>
               </ul>
             </li>
-            <li><span class="label">Articles: </span><a [appUrl]="'articleList'">{{ articles }}</a></li>
+            <li><span class="label"><span translate>Articles</span>: </span><a [appUrl]="'articleList'">{{ articles }}</a></li>
           </ul>
 
-          <h3>Where you can find me</h3>
+          <h3 translate>Where you can find me</h3>
           <ul>
             <li><a target="_blank" href="https://facebook.com/tomonori.t">Facebook</a></li>
             <li><a target="_blank" href="https://github.com/tanb">GitHub</a></li>
@@ -71,7 +76,7 @@
             <li><a target="_blank" href="https://twitter.com/tanb">Twitter</a></li>
           </ul>
 
-          <h3>Languages</h3>
+          <h3 translate>Languages</h3>
           <ul>
             <li><a target="_blank" href="https://msdn.microsoft.com/library/67ef8sbd.aspx">C#</a></li>
             <li><a target="_blank" href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html">Objective-C</a></li>
@@ -81,7 +86,7 @@
             <li><a target="_blank" href="https://en.wikipedia.org/wiki/Japanese_language">日本語</a></li>
           </ul>
 
-          <h3>Acknowledgements</h3>
+          <h3 translate>Acknowledgements</h3>
           <ul>
             <li><a target="_blank" href="https://angular.io">Angular</a></li>
             <li><a target="_blank" href="https://www.chromium.org">Chromium</a></li>
@@ -105,6 +110,9 @@
         </div>
       </div>
 
+      <div class="d-sm-none d-block text-center">
+        <span class="a" (click)="onChangeLang('ja')">日本語</span> / <span class="a" (click)="onChangeLang('en')">English</span>
+      </div>
     </div>
 
     <div class="container">

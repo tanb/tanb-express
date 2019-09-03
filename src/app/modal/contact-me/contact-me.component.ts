@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { TranslateService } from '@ngx-translate/core';
 import { IndicatorService } from 'src/app/services/indicator.service';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ModalService } from 'src/app/services/modal.service';
@@ -14,7 +14,8 @@ export class ContactMeComponent implements OnInit {
   hasError = false;
   completed = false;
 
-  constructor(private modalService: ModalService, private indicator: IndicatorService, private api: ApiService) {
+  constructor(private translate: TranslateService, private modalService: ModalService, private indicator: IndicatorService, private api: ApiService) {
+    this.translate.use(this.translate.currentLang);
   }
 
   public reactiveForm: FormGroup = new FormGroup({

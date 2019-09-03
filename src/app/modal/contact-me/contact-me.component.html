@@ -13,13 +13,13 @@
         <form [formGroup]="reactiveForm">
           <div class="form-row">
             <div class="form-group col-12">
-              <input formControlName="name" type="name" class="form-control" id="name" placeholder="Your name">
+              <input formControlName="name" type="name" class="form-control" id="name" placeholder="{{ 'Your name' | translate }}">
             </div>
             <div class="form-group col-12">
-              <input formControlName="email" type="email" class="form-control" id="email" placeholder="Your email address">
+              <input formControlName="email" type="email" class="form-control" id="email" placeholder="{{ 'Your email address' | translate}}">
             </div>
             <div class="form-group col-12">
-              <textarea formControlName="message" class="form-control" id="message" rows="10" placeholder="Type your message here..."></textarea>
+              <textarea formControlName="message" class="form-control" id="message" rows="10" placeholder="{{ 'Type your message here...' | translate }}"></textarea>
             </div>
             <div class="form-group col-12 recaptcha">
               <app-recaptcha formControlName="recaptchaReactive"></app-recaptcha>
@@ -36,10 +36,10 @@
               </div>
             </div>
             <div class="col-12">
-              <button [disabled]="reactiveForm.invalid" type="button" class="btn btn-purple" (click)="submitForm()">Send</button>
+              <button [disabled]="reactiveForm.invalid" type="button" class="btn btn-purple" (click)="submitForm()"><span translate>Send</span></button>
             </div>
             <div class="col-12">
-              <button type="button" class="btn btn-light" (click)="onClose()">Cancel</button>
+              <button type="button" class="btn btn-light" (click)="onClose()"><span translate>Cancel</span></button>
             </div>
           </div>
           <div class="row" *ngIf="completed">

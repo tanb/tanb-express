@@ -9,6 +9,7 @@
 /out-tsc
 /src/versions.ts
 /src/articles.ts
+/src/sitemap.xml
 
 # dependencies
 /node_modules

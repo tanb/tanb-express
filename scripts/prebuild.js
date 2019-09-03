@@ -2,6 +2,19 @@ const fs = require('fs');
 const path = require('path');
 const lockfile = require('@yarnpkg/lockfile');
 
+const sitemapTplFilePath = path.join(process.cwd(), 'src', 'sitemap.xml.tpl');
+const sitemapFilePath = path.join(process.cwd(), 'src', 'sitemap.xml');
+let sitemapTpl = fs.readFileSync(sitemapTplFilePath, 'utf8');
+const xmlRender = (tpl, dict) => {
+  Object.keys(dict).forEach((k) => {
+    tpl = tpl.replace(new RegExp('\\${' + k + '}','g'), dict[k]);
+  });
+  return tpl;
+}
+const datetime = new Date().toISOString();
+const rendered = xmlRender(sitemapTpl, { datetime });
+fs.writeFileSync(sitemapFilePath, rendered, { flat: 'w+' });
+
 const versionsFilePath = path.join(process.cwd(), 'src', 'versions.ts');
 let file = fs.readFileSync(path.join(process.cwd(), 'yarn.lock'), 'utf8');
 let json = lockfile.parse(file);

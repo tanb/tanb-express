@@ -20,6 +20,19 @@
     width: 100%;
     max-height: calc(100vh * 2/3);
   }
+  .crt {
+    opacity: 0.3;
+    background-image: url('/assets/img/rgb.png');
+    background-repeat: repeat;
+    width: calc(100% * 2/3);
+    height: 100%;
+    position: fixed;
+    @include screen-max($screen-xs-max) {
+      height: 100vh;
+      position: relative;
+      width: 100%;
+    }
+  }
   .cover-image {
     background-image: url(/assets/img/cover.jpg);
     background-size: cover;

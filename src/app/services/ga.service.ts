@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { trim } from 'lodash';
-import { LocalStorageService } from './local-storage.service'
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable()
 export class GaService {
@@ -19,7 +18,7 @@ export class GaService {
   get cookies() {
     const cookies: {[key: string]: string} = {};
     document.cookie.split(';').forEach(component => {
-      const tupple = trim(component, ' ').split('=');
+      const tupple = component.trim().split('=');
       cookies[tupple[0]] = tupple[1];
     });
     return cookies;

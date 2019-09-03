@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import * as lodash from 'lodash';
 
 import { NamedRoutes } from 'src/app/app-routing.module';
 
@@ -14,13 +13,14 @@ export class ReverseRouteService {
   }
 
   resolve(...nameAndValues: any[]) {
-    const name = lodash.pullAt(nameAndValues, [0])[0];
+    const name = nameAndValues.shift();
     for (const route of this.routes) {
       if (route.name === name) {
         let path = route.path;
         if (nameAndValues.length > 0) {
           for (const value of nameAndValues) {
-            path = lodash.replace(path, /:\w+/, value);
+
+            path = path.replace(/:\w+/, value);
           }
         }
         return Promise.resolve(path);

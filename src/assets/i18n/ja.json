@@ -21,6 +21,6 @@
   "Type your message here...": "メッセージをお書きください...",
   "Send": "送信",
   "Cancel": "キャンセル",
-  "Footer Description": "Amazon S3のCloudFrontでホストしています. SSL/TLS 証明書はAWS Certificate Managerを通じて提供されています."
-  "File not found": "見つかりません";
+  "Footer Description": "Amazon S3のCloudFrontでホストしています. SSL/TLS 証明書はAWS Certificate Managerを通じて提供されています.",
+  "File not found": "見つかりません"
 }

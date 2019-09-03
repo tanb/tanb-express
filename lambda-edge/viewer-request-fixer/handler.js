@@ -17,6 +17,7 @@ const crawlers = [
 ];
 
 const excludeSuffixes = [
+  'xml',
   'jpg',
   'png',
   'gif',

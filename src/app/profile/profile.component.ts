@@ -1,4 +1,4 @@
-import { Component, ComponentRef, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
@@ -9,6 +9,7 @@ import { ModalService } from 'src/app/services/modal.service';
 import { ReverseRouteService } from 'src/app/services/reverse-route.service';
 import { articles } from 'src/articles';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
+
 enum BalloonState {
   top = 'top',
   bottom = 'bottom'

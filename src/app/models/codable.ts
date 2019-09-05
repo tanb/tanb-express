@@ -1,18 +1,31 @@
+import 'reflect-metadata';
 // Experimental
+const METADATA_KEY = Symbol("coding: type");
+
 export class Codable {
   codingKeys?: { [ key: string]: string };
 
   static decode<T extends typeof Codable>(this: T, data: object): InstanceType<T> {
+
+    const keysValues: { [key: string]: any} = {};
+    const convert = (value: any, cls: T): InstanceType<T> | InstanceType<T>[] => {
+      if (Array.isArray(value)) {
+        return value.map(v => cls.decode(v));
+      } else {
+        return cls.decode(value);
+      }
+    };
     const instance = new this();
-    const codingKeys = instance.codingKeys;
-    if (codingKeys) {
-      Object.keys(codingKeys).forEach(prop => {
-        instance[prop] = data[codingKeys[prop]];
-      });
-      return instance as InstanceType<T>;
-    } else {
-      return Object.assign(instance, data) as InstanceType<T>;
-    }
+    Object.keys(data).forEach(key => {
+      const propKey = instance.codingKeys ? instance.codingKeys[key] : key;
+      const cls = Reflect.getMetadata(METADATA_KEY, this, propKey) as T;
+      let value = data[key];
+      if (cls) {
+        value = convert(value, cls);
+      }
+      keysValues[propKey] = value;
+    });
+    return Object.assign(instance, keysValues) as InstanceType<T>;
   }
 
   encode(): object {
@@ -45,107 +58,8 @@ export class Codable {
   }
 }
 
-export function Type<T extends typeof Codable>(cls: T) {
-  let value: InstanceType<T> | InstanceType<T>[];
-  const convert = (newValue: any): InstanceType<T> => {
-    if (newValue instanceof cls) {
-      return newValue as InstanceType<T>;
-    } else {
-      return cls.decode(newValue);
-    }
-  };
+export function Type<T extends typeof Codable>(klass: T) {
   return (target: any, propertyKey: any) => {
-    const update = Reflect.defineProperty(
-      target,
-      propertyKey,
-      {
-        configurable: true,
-        enumerable: true,
-        get: () => {
-          return value;
-        },
-        set: (newValue: any) => {
-          if (Array.isArray(newValue)) {
-            value = newValue.map(v => convert(v));
-          } else {
-            value = convert(newValue);
-          }
-        }
-      },
-    );
-    if (!update) {
-      throw new Error('Unable to update property');
-    }
+    Reflect.defineMetadata(METADATA_KEY, klass, target, propertyKey);
   };
 }
-
-
-
-// Example
-const responseJson: JSON = JSON.parse(`
-{
-    "profile": {
-      "first_name": "John",
-      "last_name": "Apple",
-      "lisences": [
-        {
-          "name": "driver",
-          "acquisition_date": "2019-02-10",
-          "expiration_date": "2022-02-10"
-        },
-        {
-          "name": "Apple Developer Program",
-          "acquisition_date": "2019-01-01",
-          "expiration_date": "2020-01-01"
-        }
-      ]
-    },
-    "state": 1,
-    "email": "apple@example.com"
-}`);
-
-class Lisence extends Codable {
-  name!: string;
-  acquisitionDate!: string;
-  expirationDate!: string;
-  codingKeys = {
-    name: "name",
-    acquisitionDate: "acquisition_date",
-    expirationDate: "expiration_date"
-  };
-}
-
-class Profile extends Codable {
-  firstName!: string;
-  lastName!: string;
-  @Type(Lisence)
-  lisences!: Lisence[];
-  codingKeys = {
-    firstName: "first_name",
-    lastName: "last_name",
-    lisences: "lisences"
-  }
-
-  fullname() {
-    return `${this.lastName} ${this.firstName}`;
-  }
-}
-
-class User extends Codable {
-  email!: string;
-  state!: number;
-  @Type(Profile)
-  profile!: Profile;
-
-  get goodState() {
-    return this.state === 1;
-  }
-}
-
-const user = User.decode(responseJson);
-const json = JSON.stringify(user.encode())
-const me = User.decode(JSON.parse(json));
-console.log(me);
-console.log(me.profile);
-console.log(me.profile.lisences);
-console.log(me.encode());

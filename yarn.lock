@@ -2247,10 +2247,10 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
-codable@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/codable/-/codable-0.1.1.tgz#1982352dcc61bfaad625cb44486cf678f2670c00"
-  integrity sha512-5xXUjOfPSGIG/fMOkYDHQOxwmQKNuurvteFVrGdXgr5JPNHKAFXSrCcjYt+ArkZvXuGTiHTs076LBPSR8Na1XQ==
+codable@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/codable/-/codable-0.1.3.tgz#1bfe1150c300b529b3fd8659e701ae3ca40c87ce"
+  integrity sha512-6jTTsXNL7vPGGjOzL4T7cAUrwA7k93Duqf9obPNjNNB9zrivXUppIpHAfAMRAYd5/x0oN8NcKd9Tdg/4ZrJbsQ==
 
 code-point-at@^1.0.0:
   version "1.1.0"
@@ -6247,7 +6247,7 @@ readdirp@^3.1.1:
   dependencies:
     picomatch "^2.0.4"
 
-reflect-metadata@^0.1.13, reflect-metadata@^0.1.2:
+reflect-metadata@^0.1.2:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
   integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==

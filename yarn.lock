@@ -2247,10 +2247,10 @@ co@^4.6.0:
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
-codable@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/codable/-/codable-0.1.3.tgz#1bfe1150c300b529b3fd8659e701ae3ca40c87ce"
-  integrity sha512-6jTTsXNL7vPGGjOzL4T7cAUrwA7k93Duqf9obPNjNNB9zrivXUppIpHAfAMRAYd5/x0oN8NcKd9Tdg/4ZrJbsQ==
+codable@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/codable/-/codable-0.1.9.tgz#059751fe294cd807c4e795ceebb01fd1fdb89cae"
+  integrity sha512-nahMA/Vi3B3ej3NIheOL3fJ6vYan5S20Hu4+Fc5SeET2Ez83cF09dFPYz8zQHTK2C6MteyklAfLWh1kZoo5CxA==
 
 code-point-at@^1.0.0:
   version "1.1.0"

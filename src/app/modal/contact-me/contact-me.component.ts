@@ -17,13 +17,17 @@ export class ContactMeComponent implements OnInit {
   constructor(private translate: TranslateService, private modalService: ModalService, private indicator: IndicatorService, private api: ApiService) {
     this.translate.use(this.translate.currentLang);
   }
-
-  public reactiveForm: FormGroup = new FormGroup({
+  keys(obj: any) {
+    return Object.keys(obj);
+  }
+  public forms = {
     name: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(30)])),
     email: new FormControl(null, Validators.compose([Validators.required, Validators.email])),
     message: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(2000)])),
     recaptchaReactive: new FormControl(null, Validators.required)
-  });
+  };
+
+  public reactiveForm: FormGroup = new FormGroup(this.forms);
 
   ngOnInit() {
   }
@@ -34,10 +38,10 @@ export class ContactMeComponent implements OnInit {
 
   submitForm() {
     const body = {
-      name: this.reactiveForm.get('name').value,
-      email: this.reactiveForm.get('email').value,
-      message: this.reactiveForm.get('message').value,
-      recaptcha: this.reactiveForm.get('recaptchaReactive').value
+      name: this.forms.name.value,
+      email: this.forms.email.value,
+      message: this.forms.message.value,
+      recaptcha: this.forms.recaptchaReactive.value
     };
 
     const indicatorRef = this.indicator.show();

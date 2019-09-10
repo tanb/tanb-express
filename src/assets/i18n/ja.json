@@ -22,5 +22,10 @@
   "Send": "送信",
   "Cancel": "キャンセル",
   "Footer Description": "Amazon S3とCloudFrontでホストしています. SSL/TLS 証明書はAWS Certificate Managerを通じて提供されています.",
-  "File not found": "見つかりません"
+  "File not found": "見つかりません",
+  "Required": "必須",
+  "Cannot be more than 30 characters long": "30字以内で入力してください",
+  "Cannot be more than 2000 characters long": "2000字以内で入力してください",
+  "Enter a valid email": "Eメールアドレスを入力してください"
+
 }

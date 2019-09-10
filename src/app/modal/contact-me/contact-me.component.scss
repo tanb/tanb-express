@@ -8,6 +8,14 @@
   left: 0px;
   z-index: 1050;
 }
+.form-group {
+  margin-bottom: 1rem;
+}
+.error {
+  color: #876186;
+  font-size: 0.7rem;
+  padding-right: 0.2rem;
+}
 .modal {
   display: block;
   overflow-x: hidden;

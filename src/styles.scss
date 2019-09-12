@@ -8,7 +8,6 @@ html {
 }
 
 body {
-  color: $font-base;
   height: 100%;
   margin: 0;
   line-height: 1.5rem;
@@ -18,10 +17,10 @@ body {
 }
 
 a, .a {
-  color: $link;
   text-decoration: none;
   cursor: pointer;
 }
+
 
 ul {
   list-style: none;
@@ -45,5 +44,26 @@ ul ul {
     color: #fff;
     background-color: #545b62;
     border-color: #4e555b;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #ededed;
+    background-color: #1d1d1d;
+  }
+  a, .a {
+    color: #3e92b4;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: $font-base;
+    background-color: white;
+  }
+  a, .a {
+    color: $link;
   }
 }

@@ -5,6 +5,18 @@
   width: 100%;
 }
 
+@media (prefers-color-scheme: dark) {
+  .body {
+    background-color: #1d1d1d;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .body {
+    background-color: white;
+  }
+}
+
 .body {
   width: calc(100% * 1/3);
   @include screen-max($screen-xs-max) {

@@ -1,32 +1,72 @@
 @import 'src/sass/variables';
 
-:host.text-white {
-  color: white;
-  .name {
-    text-shadow: 1px 1px 1px $font-base;
-  }
-  .nickname {
-    a {
-      color: white;
-    }
-  }
-}
+
 
 .name {
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 700;
-  text-shadow: 2px 2px #e3e3e3;
 }
 
 .nickname {
-  a {
-    color: $font-base;
-  }
   margin-top: .25rem;
   text-align: center;
 }
 
 .title {
   text-align: center;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .desktop {
+    color:  #f87f8b;
+    .name {
+      color: #f87f8b;
+      font-weight: 400;
+      text-shadow: 2px 2px 3px #f87784, -2px 2px 3px #f76574, 2px 2px 2px black
+    }
+    .nickname {
+      a {
+        color: #f87f8b;
+      }
+    }
+
+  }
+  .mobile {
+    color: white;
+    .name {
+      text-shadow: 1px 1px 1px $font-base;
+    }
+    .nickname {
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .desktop {
+    color: $font-base;
+    .name {
+      font-weight: 700;
+      text-shadow: 2px 2px #e3e3e3;
+    }
+    .nickname {
+      a {
+        color: $font-base;
+      }
+    }
+  }
+  .mobile {
+    color: white;
+    .name {
+      text-shadow: 1px 1px 1px $font-base;
+    }
+    .nickname {
+      a {
+        color: white;
+      }
+    }
+  }
 }

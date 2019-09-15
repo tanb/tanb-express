@@ -18,28 +18,19 @@
 
 
 @media (prefers-color-scheme: dark) {
-  .desktop {
-    color:  #f87f8b;
+  .desktop, .mobile {
+    color:  #fff;
     .name {
-      color: #f87f8b;
-      font-weight: 400;
-      text-shadow: 2px 2px 3px #f87784, -2px 2px 3px #f76574, 2px 2px 2px black
+      color: #ffbadf;
+      font-weight: 100;
+      text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #f7f,0 0 0.6em #f0f, 0 0 0.8em #f0f, 0 0 1.0em #f0f, 0 0 1.2em #f0f;
     }
     .nickname {
       a {
-        color: #f87f8b;
-      }
-    }
-
-  }
-  .mobile {
-    color: white;
-    .name {
-      text-shadow: 1px 1px 1px $font-base;
-    }
-    .nickname {
-      a {
-        color: white;
+        text-decoration: none;
+        color: #0094e3;
+        font-weight: 100;
+        text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #1500be,0 0 0.6em #1500f0, 0 0 0.8em #1500f0, 0 0 1.0em #1500f0, 0 0 1.2em #1500f0;
       }
     }
   }
@@ -54,6 +45,7 @@
     }
     .nickname {
       a {
+        text-decoration: none;
         color: $font-base;
       }
     }

@@ -1,12 +1,30 @@
 @import 'src/sass/variables';
 
+@media (prefers-color-scheme: dark) {
+  .menubar {
+    .inner {
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .menubar {
+    .inner {
+      a {
+        color: $font-light-gray;
+      }
+    }
+  }
+}
+
+
 .menubar {
   overflow: hidden;
   height: 40px;
   .inner {
-    a {
-      color: $font-light-gray;
-    }
     padding-bottom: 100px;
     overflow-y: hidden;
     overflow-x: scroll;

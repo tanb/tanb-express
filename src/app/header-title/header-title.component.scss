@@ -16,6 +16,30 @@
   text-align: center;
 }
 
+.desktop {
+  color: $font-base;
+  .name {
+    font-weight: 700;
+    text-shadow: 2px 2px #e3e3e3;
+  }
+  .nickname {
+    a {
+      text-decoration: none;
+      color: $font-base;
+    }
+  }
+}
+.mobile {
+  color: white;
+  .name {
+    text-shadow: 1px 1px 1px $font-base;
+  }
+  .nickname {
+    a {
+      color: white;
+    }
+  }
+}
 
 @media (prefers-color-scheme: dark) {
   .desktop, .mobile {
@@ -31,33 +55,6 @@
         color: #b2dff7;
         font-weight: 100;
         text-shadow: 0 0 0.1em #fff, 0 0 0.2em #fff, 0 0 0.3em #fff, 0 0 0.4em #1500be,0 0 0.6em #1500f0, 0 0 0.8em #1500f0, 0 0 1.0em #1500f0, 0 0 1.2em #1500f0;
-      }
-    }
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .desktop {
-    color: $font-base;
-    .name {
-      font-weight: 700;
-      text-shadow: 2px 2px #e3e3e3;
-    }
-    .nickname {
-      a {
-        text-decoration: none;
-        color: $font-base;
-      }
-    }
-  }
-  .mobile {
-    color: white;
-    .name {
-      text-shadow: 1px 1px 1px $font-base;
-    }
-    .nickname {
-      a {
-        color: white;
       }
     }
   }

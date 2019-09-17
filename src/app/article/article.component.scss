@@ -1,26 +1,5 @@
 @import 'src/sass/variables';
 
-@media (prefers-color-scheme: dark) {
-  .menubar {
-    .inner {
-      a {
-        color: white;
-      }
-    }
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .menubar {
-    .inner {
-      a {
-        color: $font-light-gray;
-      }
-    }
-  }
-}
-
-
 .menubar {
   overflow: hidden;
   height: 40px;
@@ -35,5 +14,23 @@
 .partition {
   hr {
     margin-top: 0px;
+  }
+}
+
+.menubar {
+  .inner {
+    a {
+      color: $font-light-gray;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .menubar {
+    .inner {
+      a {
+        color: white;
+      }
+    }
   }
 }

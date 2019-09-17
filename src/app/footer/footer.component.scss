@@ -10,14 +10,12 @@ hr {
   border-top: 1px solid $font-light-gray;
 }
 
+.footer {
+  color: $font-light-gray;
+}
+
 @media (prefers-color-scheme: dark) {
   .footer {
     color: #ededed;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .footer {
-    color: $font-light-gray;
   }
 }

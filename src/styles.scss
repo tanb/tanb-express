@@ -47,6 +47,13 @@ ul ul {
   }
 }
 
+body {
+  color: $font-base;
+  background-color: white;
+}
+a, .a {
+  color: $link;
+}
 
 @media (prefers-color-scheme: dark) {
   body {
@@ -55,15 +62,5 @@ ul ul {
   }
   a, .a {
     color: #3e92b4;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  body {
-    color: $font-base;
-    background-color: white;
-  }
-  a, .a {
-    color: $link;
   }
 }

@@ -13,13 +13,6 @@ import { ModalService } from 'src/app/services/modal.service';
 export class ContactMeComponent implements OnInit {
   hasError = false;
   completed = false;
-
-  constructor(private translate: TranslateService, private modalService: ModalService, private indicator: IndicatorService, private api: ApiService) {
-    this.translate.use(this.translate.currentLang);
-  }
-  keys(obj: any) {
-    return Object.keys(obj);
-  }
   public forms = {
     name: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(30)])),
     email: new FormControl(null, Validators.compose([Validators.required, Validators.email])),
@@ -28,6 +21,17 @@ export class ContactMeComponent implements OnInit {
   };
 
   public reactiveForm: FormGroup = new FormGroup(this.forms);
+
+  constructor(private translate: TranslateService,
+              private modalService: ModalService,
+              private indicator: IndicatorService,
+              private api: ApiService) {
+    this.translate.use(this.translate.currentLang);
+  }
+
+  keys(obj: any) {
+    return Object.keys(obj);
+  }
 
   ngOnInit() {
   }

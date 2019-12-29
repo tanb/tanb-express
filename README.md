@@ -19,7 +19,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ![dynamic-rendering](https://github.com/tanb/tanb-express/raw/release/src/assets/img/dynamic-rendering.png)
 
-This website use [Dynamic rendering](https://developers.google.com/search/docs/guides/dynamic-rendering) with Lambda@Edge.
+**tanb.express** uses [Dynamic rendering](https://developers.google.com/search/docs/guides/dynamic-rendering) on Lambda@Edge.
 
 ### Requirements
 

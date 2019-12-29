@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@serverless-chrome/lambda": "^1.0.0-55",
-    "chrome-remote-interface": "^0.26.1"
+    "chrome-remote-interface": "^0.26.1",
+    "serverless": "^1.60.4"
   },
   "devDependencies": {
     "babel-loader": "^8.0.6",

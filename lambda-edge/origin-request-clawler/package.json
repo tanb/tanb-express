@@ -13,10 +13,10 @@
     "chrome-remote-interface": "^0.26.1"
   },
   "devDependencies": {
-    "babel-loader": "^8.0.4",
+    "babel-loader": "^8.0.6",
     "serverless-plugin-chrome": "^1.0.0-55",
-    "serverless-webpack": "^5.2.0",
-    "webpack": "^4.26.0",
-    "webpack-cli": "^3.1.2"
+    "serverless-webpack": "^5.3.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   }
 }

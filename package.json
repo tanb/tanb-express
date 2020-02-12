@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "yarn run prebuild && yarn run build-articles && ng serve -c devel",
-    "start:dist": " yarn angular-http-server -a localhsot -p 4200 --path=dist/tanb-express",
+    "start:dist": " yarn angular-http-server -a localhost -p 4200 --path=dist/tanb-express",
     "prebuild": "node scripts/prebuild.js",
     "build-articles": "node scripts/build_articles.js",
     "build": "yarn run prebuild && yarn run build-articles && yarn ng build -c devel",

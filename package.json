@@ -1,6 +1,6 @@
 {
   "name": "tanb-express",
-  "version": "8.0.0",
+  "version": "9.0.0",
   "scripts": {
     "ng": "ng",
     "start": "yarn run prebuild && yarn run build-articles && ng serve -c devel",

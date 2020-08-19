@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
-import * as anime from 'animejs';
+import anime from 'animejs/lib/anime.es';
 
 import { ContactMeComponent } from 'src/app/modal/contact-me/contact-me.component';
 import { ModalService } from 'src/app/services/modal.service';

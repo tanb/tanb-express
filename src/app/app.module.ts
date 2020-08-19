@@ -66,11 +66,6 @@ export function createTranslateLoader(http: HttpClient) {
     SettingsComponent,
     RecaptchaComponent
   ],
-  entryComponents: [
-    BackdropComponent,
-    ContactMeComponent,
-    IndicatorComponent
-  ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,

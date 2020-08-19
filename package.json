@@ -27,6 +27,7 @@
     "@angular/service-worker": "^10.0.10",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "@types/animejs": "^3.1.2",
     "@types/google.analytics": "^0.0.39",
     "@types/grecaptcha": "^2.0.36",
     "angular-http-server": "^1.9.0",

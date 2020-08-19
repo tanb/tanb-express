@@ -17,7 +17,7 @@
     "@babel/core": "^7.0.0",
     "babel-loader": "^8.0.6",
     "bufferutil": "^4.0.1",
-    "lodash": ">=4.17.12",
+    "lodash": ">=4.17.19",
     "serverless-plugin-chrome": "^1.0.0-55.3",
     "serverless-webpack": "^5.3.1",
     "utf-8-validate": "^5.0.2",

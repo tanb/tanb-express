@@ -3,13 +3,10 @@
 
 NODE_MODULES=$(CURDIR)/node_modules
 
-PHONY: build-articles
+PHONY: 
 
 run:
 	yarn run start
-
-build-articles:
-	yarn run build-articles
 
 node-modules:
 	yarn install

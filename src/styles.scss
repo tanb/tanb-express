@@ -3,6 +3,11 @@
 @import 'src/sass/markdown';
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400&subset=latin-ext');
 
+/* include CSS for prism toolbar */
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+/* check node_modules/prismjs/themes/ for the available themes */
+@import '~prismjs/themes/prism-okaidia';
+
 html {
   height: 100%;
 }

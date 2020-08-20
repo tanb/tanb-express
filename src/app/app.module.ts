@@ -15,8 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { ArticleComponent } from './article/article.component';
-import { ArticleListComponent } from './article-list/article-list.component';
 import { BackdropComponent } from './modal/backdrop/backdrop.component';
 import { ContactMeComponent } from './modal/contact-me/contact-me.component';
 import { CookiePolicyComponent } from './cookie-policy/cookie-policy.component';
@@ -41,6 +39,7 @@ import { IndicatorService } from './services/indicator.service';
 import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -49,8 +48,6 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent,
-    ArticleListComponent,
     BackdropComponent,
     ContactMeComponent,
     CookiePolicyComponent,
@@ -81,7 +78,8 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    ScullyLibModule
 
   ],
   providers: [

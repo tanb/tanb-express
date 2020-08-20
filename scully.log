@@ -1,0 +1,342 @@
+No configuration for route "[33m/article/:id[39m" found. Skipping
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. Skipping
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. Skipping
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. Skipping
+
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/#this-is-my-post.md#[39m has extension [33m.md#[39m that has no plugin defined, scully will skip this file.
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/this-is-my-post[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/this-is-my-post[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/#this-is-my-post.md#[39m has extension [33m.md#[39m that has no plugin defined, scully will skip this file.
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2vbf49_Dzftr1m9N1KmZDSMZclw6HXc79oBscpo[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2vbf49_Dzftr1m9N1KmZDSMZclw6HXc79oBscpo[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/#this-is-my-post.md#[39m has extension [33m.md#[39m that has no plugin defined, scully will skip this file.
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2vbf49_Dzftr1m9N1KmZDSMZclw6HXc79oBscpo[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2vbf49_Dzftr1m9N1KmZDSMZclw6HXc79oBscpo[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/#this-is-my-post.md#[39m has extension [33m.md#[39m that has no plugin defined, scully will skip this file.
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2vbf49_Dzftr1m9N1KmZDSMZclw6HXc79oBscpo[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2vbf49_Dzftr1m9N1KmZDSMZclw6HXc79oBscpo[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2va1lk_v1TmmiCa4lS6wo9JxXGwWdX4Rz6U2l1q[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+No configuration for route "[33m/article/:id[39m" found. Skipping
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/___UNPUBLISHED___ke2vljxw_TPrKdibEpVwc5P7hRXAyxow1AhWluJko[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/___UNPUBLISHED___ke2vljxw_TPrKdibEpVwc5P7hRXAyxow1AhWluJko[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+No configuration for route "[33m/article/:id[39m" found. Skipping
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. Skipping
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. Skipping
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+The file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+ The router plugin "[33mcontentFolder[39m has thrown the below error,
+              while trying to render route "[33munknown[39m"
+              Scully will exitError: ENOENT: no such file or directory, open '/Users/tanb/Workspace/GitHub/tanb/tanb-express/blog/.#angular-tutorial.md'
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+
+ The router plugin "[33mcontentFolder[39m has thrown the below error,
+              while trying to render route "[33munknown[39m"
+              Scully will exitError: ENOENT: no such file or directory, open '/Users/tanb/Workspace/GitHub/tanb/tanb-express/blog/.#angular-tutorial.md'
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+
+ The router plugin "[33mcontentFolder[39m has thrown the below error,
+              while trying to render route "[33munknown[39m"
+              Scully will exitError: ENOENT: no such file or directory, open '/Users/tanb/Workspace/GitHub/tanb/tanb-express/blog/.#1538127039.md'
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+
+ The router plugin "[33mcontentFolder[39m has thrown the below error,
+              while trying to render route "[33munknown[39m"
+              Scully will exitError: ENOENT: no such file or directory, open '/Users/tanb/Workspace/GitHub/tanb/tanb-express/blog/.#1538127039.md'
+
+
+----------------------------------
+Using stored unhandled routes!.
+   To discover new routes in the angular app use "[33mnpm run scully -- --scanRoutes[39m"
+----------------------------------No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/1537525169[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/1537525169[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/1538127039[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/1538127039[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/1538127039[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/1538127039[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/1537525169[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/1537525169[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/1537525169[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/1537525169[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/1538127039[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/1538127039[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/angular-tutorial[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/angular-tutorial[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+
+      ----------------
+      Error, missing "[33m<scully-content>[39m" in route "[33m/blog/angular-tutorial[39m"
+      without <scully-content> we can not render this route.
+      Make sure it is in there, and not inside any conditionals (*ngIf)
+      You can check this by opening "[33mhttp://localhost:4200/blog/angular-tutorial[39m"
+      when you serve your app with [33mng serve[39m and then in the browsers console run:
+      [33mdocument.querySelector('scully-content')[39m
+      ----------------
+      
+No configuration for route "[33m/article/:id[39m" found. SkippingThe file [33m./blog/1538132080.png[39m has extension [33m.png[39m that has no plugin defined, scully will skip this file.running in watch-mode, routefile in source assets will not be updated
+
+
+running in watch-mode, routefile in source assets will not be updated
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+
+running in watch-mode, routefile in source assets will not be updated
+No configuration for route "[33m/article/:id[39m" found. Skippingrunning in watch-mode, routefile in source assets will not be updated
+

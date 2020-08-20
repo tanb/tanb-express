@@ -1,6 +1,8 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ScullyRoute, IdleMonitorService, ScullyRoutesService} from '@scullyio/ng-lib';
 import { TranslateService } from '@ngx-translate/core';
+import { map } from 'rxjs/operators';
 import * as moment from 'moment';
 import anime from 'animejs/lib/anime.es';
 
@@ -27,8 +29,25 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   constructor(private storage: LocalStorageService,
               private translate: TranslateService,
               private router: Router,
+              private idle: IdleMonitorService,
+              private scullyRoute: ScullyRoutesService,
               private modal: ModalService,
               private reverseRoute: ReverseRouteService) {
+  }
+
+  get scully() {
+    return this.scullyRoute;
+  }
+
+  get blogRoutes$() {
+    return this.scullyRoute.available$
+      .pipe<ScullyRoute[]>(
+        map((routes) => {
+          return routes.filter((route) => {
+            return route.route.startsWith('/blog')
+          })
+        })
+      )
   }
 
   ngOnInit() {
@@ -39,19 +58,12 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       this.balloonState = BalloonState.top;
     }, 0);
     this.setupAgeAnime();
-    this.setupArticlesAnime();
     this.setupIconAnime();
   }
 
   onChangeLang(lang) {
     this.storage.setCurrenrLang(lang);
     this.translate.use(lang);
-  }
-
-  onClickArticles() {
-    this.reverseRoute.resolve('articleList').then(path => {
-      this.router.navigate([path, {}]);
-    });
   }
 
   openModal() {
@@ -66,20 +78,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       easing: 'easeInOutSine',
       direction: 'alternate',
       loop: true
-    });
-  }
-
-  setupArticlesAnime() {
-    const length = articles.length;
-    const targets = { articles: 0 };
-    anime({
-      targets,
-      articles: length,
-      round: 1,
-      easing: 'linear',
-      update: () => {
-        this.articles = targets.articles;
-      }
     });
   }
 

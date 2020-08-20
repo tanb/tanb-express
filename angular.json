@@ -37,8 +37,7 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.scss"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           },
           "configurations": {
             "devel": {
@@ -54,7 +53,7 @@
                   "with": "src/environments/environment.devel.ts"
                 }
               ]
-},
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -72,17 +71,17 @@
               "buildOptimizer": false,
               "serviceWorker": true,
               "budgets": [
-                 {
-                   "type": "initial",
-                   "maximumWarning": "2mb",
-                   "maximumError": "5mb"
-                 },
-                 {
-                   "type": "anyComponentStyle",
-                   "maximumWarning": "6kb",
-                   "maximumError": "10kb"
-                 }
-               ]
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
             }
           }
         },
@@ -139,18 +138,22 @@
           }
         },
         "e2e": {
-           "builder": "@angular-devkit/build-angular:protractor",
-           "options": {
-             "protractorConfig": "e2e/protractor.conf.js",
-             "devServerTarget": "tanb-express-new:serve"
-           },
-           "configurations": {
-             "production": {
-               "devServerTarget": "tanb-express-new:serve:production"
-             }
-           }
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "tanb-express-new:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "tanb-express-new:serve:production"
+            }
+          }
         }
       }
-    }},
-  "defaultProject": "tanb-express"
+    }
+  },
+  "defaultProject": "tanb-express",
+  "cli": {
+    "analytics": "6b113516-d510-4e08-bad1-560ceeb3021b"
+  }
 }

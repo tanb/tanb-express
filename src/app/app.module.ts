@@ -6,7 +6,6 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MarkdownModule } from 'ngx-markdown';
 
 import { environment } from 'src/environments/environment';
 
@@ -69,7 +68,6 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    MarkdownModule.forRoot({ loader: HttpClient }),
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     TranslateModule.forRoot({

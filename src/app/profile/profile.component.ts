@@ -9,7 +9,6 @@ import anime from 'animejs/lib/anime.es';
 import { ContactMeComponent } from 'src/app/modal/contact-me/contact-me.component';
 import { ModalService } from 'src/app/services/modal.service';
 import { ReverseRouteService } from 'src/app/services/reverse-route.service';
-import { articles } from 'src/articles';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 enum BalloonState {
@@ -25,7 +24,6 @@ enum BalloonState {
 export class ProfileComponent implements OnInit, AfterViewInit {
   balloonState: BalloonState = BalloonState.bottom;
   age = 0;
-  articles = 0;
   constructor(private storage: LocalStorageService,
               private translate: TranslateService,
               private router: Router,

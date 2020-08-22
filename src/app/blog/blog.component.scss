@@ -1,0 +1,8 @@
+@import 'src/sass/variables';
+@import 'src/sass/mixins';
+
+@include screen-max($screen-xs-max) {
+  p > img {
+    width: 100%;
+  }
+}

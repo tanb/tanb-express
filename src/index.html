@@ -9,7 +9,7 @@
   <meta name="author" content="tanb">
   <meta name="description" content="A website covering Technology and Photography from software engineer Tomonori Tanabe (@tanb) in Tokyo.">
   <meta property="og:title" content="Tanb Express">
-  <meta property="og:image" content="https://tanb.express/assets/img/cover.webp">
+  <meta property="og:image" content="https://tanb.express/assets/img/cover.jpg">
   <meta name="twitter:site" content="@tanb">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://tanb.express"/>
@@ -28,5 +28,17 @@
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   </script>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
+  <script>
+    function isSupportWebP() {
+      var elm = document.createElement('canvas');
+      if (!!(elm.getContext && elm.getContext('2d'))) {
+        return elm.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+      }
+      return false;
+    }
+    if (!isSupportWebP()) {
+      document.body.classList.add('no-webp');
+    }
+  </script>
 </body>
 </html>

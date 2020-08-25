@@ -39,6 +39,7 @@ import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
 import { ScullyLibModule } from '@scullyio/ng-lib';
+import { ExternalLinkDirective } from './external-link.directive';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -60,7 +61,8 @@ export function createTranslateLoader(http: HttpClient) {
     ReverseRouteDirective,
     RecaptchaValueAccessorDirective,
     SettingsComponent,
-    RecaptchaComponent
+    RecaptchaComponent,
+    ExternalLinkDirective
   ],
   imports: [
     AppRoutingModule,

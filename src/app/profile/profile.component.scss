@@ -16,6 +16,30 @@
   @media (prefers-color-scheme: dark) {
     background-color: $dark-body-bg-color;
   }
+
+  .languages {
+    flex: 1;
+  }
+
+  .navbar-brand {
+    cursor: pointer;
+    i {
+      &:before {
+        position: relative;
+        left: 2rem;
+      }
+      $icon-height: 1.35rem;
+      font-size: $icon-height * 5;
+      line-height: $icon-height;
+      display: flex;
+      align-items: center;
+    }
+    color: #000000;
+
+    @media (prefers-color-scheme: dark) {
+      color: #ffffff;
+    }
+  }
 }
 
 .head {
@@ -79,6 +103,12 @@
 
   button {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: 1.35rem;
+    }
   }
 }
 

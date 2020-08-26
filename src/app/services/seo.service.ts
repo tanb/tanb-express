@@ -14,11 +14,11 @@ export class SEOService {
   }
 
   updateOgTitle(title?: string) {
-    this.meta.updateTag({ name: 'og:title', content: this.titleString(title) })
+    this.meta.updateTag({ property: 'og:title', content: this.titleString(title) })
   }
 
   updateOgDescription(desc: string) {
-    this.meta.updateTag({ name: 'og:description', content: desc })
+    this.meta.updateTag({ property: 'og:description', content: desc })
   }
 
   updateDescription(desc: string) {

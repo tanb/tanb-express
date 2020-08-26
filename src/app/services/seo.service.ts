@@ -3,13 +3,18 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable({ providedIn: 'root' })
 export class SEOService {
+  siteName = "TANB EXPRESS";
 
   constructor(private title: Title,
               private meta: Meta) {
   }
 
-  updateTitle(title: string) {
-    this.title.setTitle(title);
+  updateTitle(title?: string) {
+    if (title) {
+      this.title.setTitle(title + " - " + this.siteName);
+    } else {
+      this.title.setTitle(this.siteName);
+    }
   }
 
   updateOgDescription(desc: string) {

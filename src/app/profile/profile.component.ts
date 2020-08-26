@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         map((routes) => {
           return routes.filter((route) => {
             return route.route.startsWith('/blog')
-          })
+          }).reverse();
         })
       )
   }

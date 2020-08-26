@@ -3,8 +3,8 @@ import { ActivatedRoute, Router, ROUTES } from '@angular/router';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { map } from 'rxjs/operators';
 
-import { HighlightService } from 'src/app/highlight.service';
-import { SEOService } from 'src/app/seo.service';
+import { HighlightService } from 'src/app/services/highlight.service';
+import { SEOService } from 'src/app/services/seo.service';
 
 declare var ng: any;
 

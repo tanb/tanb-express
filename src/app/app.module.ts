@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +31,7 @@ import { RecaptchaComponent } from './recaptcha/recaptcha.component';
 // Directives
 import { ReverseRouteDirective } from './directives/reverse-route.directive';
 import { RecaptchaValueAccessorDirective } from './recaptcha/recaptcha-value-accessor.directive';
+import { ExternalLinkDirective } from './directives/external-link.directive';
 
 // Services
 import { ApiService } from './services/api/api.service';
@@ -38,8 +40,6 @@ import { IndicatorService } from './services/indicator.service';
 import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
-import { ScullyLibModule } from '@scullyio/ng-lib';
-import { ExternalLinkDirective } from './external-link.directive';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');

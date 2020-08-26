@@ -1,24 +1,5 @@
 # Makefile
-# tanb.github.io
+# tanb-express
 
-NODE_MODULES=$(CURDIR)/node_modules
-
-PHONY: 
-
-run:
-	yarn run start
-
-node-modules:
-	yarn install
-
-clean-node-modules:
-	rm -rf $(CURDIR)/node_modules
-
-clean-dist:
-	rm -rf $(CURDIR)/dist
-
-build:
-	yarn run build
-
-release-build:
-	yarn run build:release
+release-v10:
+	git switch release; git merge source-v10; git switch source-v10;

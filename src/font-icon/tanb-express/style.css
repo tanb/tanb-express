@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'tanb-express';
+  src:  url('fonts/tanb-express.eot?3nklhw');
+  src:  url('fonts/tanb-express.eot?3nklhw#iefix') format('embedded-opentype'),
+    url('fonts/tanb-express.ttf?3nklhw') format('truetype'),
+    url('fonts/tanb-express.woff?3nklhw') format('woff'),
+    url('fonts/tanb-express.svg?3nklhw#tanb-express') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tanb-express' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.te-email:before {
+  content: "\e900";
+}
+.te-twitter:before {
+  content: "\e901";
+}
+.te-facebook:before {
+  content: "\e902";
+}
+.te-tanb-express:before {
+  content: "\e903";
+}
+.te-github:before {
+  content: "\e904";
+}
+.te-five-hundred-px:before {
+  content: "\e905";
+}
+.te-keybase:before {
+  content: "\e906";
+}
+.te-instagram:before {
+  content: "\e907";
+}

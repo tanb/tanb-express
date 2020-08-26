@@ -1,9 +1,16 @@
 import { AfterViewChecked, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router, ROUTES } from '@angular/router';
+import { ScullyRoutesService } from '@scullyio/ng-lib';
+import { map } from 'rxjs/operators';
 
 import { HighlightService } from 'src/app/highlight.service';
+import { SEOService } from 'src/app/seo.service';
 
 declare var ng: any;
+
+interface ScullyRoute {
+  description: string;
+}
 
 @Component({
   selector: 'app-blog',
@@ -13,11 +20,20 @@ declare var ng: any;
   encapsulation: ViewEncapsulation.Emulated
 })
 export class BlogComponent implements OnInit, AfterViewChecked {
-  ngOnInit() {}
+  blog$ = this.srs.getCurrent();
 
   constructor(private router: Router,
+              private seo: SEOService,
+              private srs: ScullyRoutesService,
               private heighlight: HighlightService,
               private route: ActivatedRoute) {
+  }
+
+  ngOnInit() {
+    this.blog$.subscribe((b) => {
+      this.seo.updateOgDescription(b.description);
+      this.seo.updateDescription(b.description);
+    });
   }
 
   ngAfterViewChecked() {

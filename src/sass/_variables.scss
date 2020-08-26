@@ -14,7 +14,12 @@ $font-base: #373737;
 $font-light-gray: #5e5e5e;
 $font-gray: #4e4e4e;
 $link: #337ab7;
-$light-body-bg-color: #ffffff;
-$dark-body-bg-color: #1d1d1d;
 $shadow-base-color: #000000;
 $icon-border-color: #bbbbbb;
+
+// light - dark
+$light-body-bg-color: #ffffff;
+$dark-body-bg-color: #1d1d1d;
+
+$light-text-color: #000000;
+$dark-text-color: #ffffff;

@@ -34,10 +34,16 @@
       display: flex;
       align-items: center;
     }
-    color: #000000;
+    color: $light-text-color;
+    &:hover {
+      color: rgba($light-text-color, 70%);
+    }
 
     @media (prefers-color-scheme: dark) {
-      color: #ffffff;
+      color: $dark-text-color;
+      &:hover {
+        color: rgba($dark-text-color, 70%);
+      }
     }
   }
 }

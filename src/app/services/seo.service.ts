@@ -10,11 +10,11 @@ export class SEOService {
   }
 
   updateTitle(title?: string) {
-    if (title) {
-      this.title.setTitle(title + " - " + this.siteName);
-    } else {
-      this.title.setTitle(this.siteName);
-    }
+    this.title.setTitle(this.titleString(title));
+  }
+
+  updateOgTitle(title?: string) {
+    this.meta.updateTag({ name: 'og:title', content: this.titleString(title) })
   }
 
   updateOgDescription(desc: string) {
@@ -23,5 +23,13 @@ export class SEOService {
 
   updateDescription(desc: string) {
     this.meta.updateTag({ name: 'description', content: desc })
+  }
+
+  titleString(title?: string) {
+    let _title = this.siteName;
+    if (title) {
+      _title = title + " - " + this.siteName;
+    }
+    return _title;
   }
 }

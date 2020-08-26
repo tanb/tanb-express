@@ -27,6 +27,7 @@ export class BlogComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.blog$.subscribe((b) => {
       this.seo.updateTitle(b.title);
+      this.seo.updateOgTitle(b.title);
       this.seo.updateOgDescription(b.description);
       this.seo.updateDescription(b.description);
     });

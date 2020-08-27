@@ -21,7 +21,13 @@
     flex: 1;
   }
 
+  .main-navbar-wrap {
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
   .navbar-brand {
+    display: block;
     cursor: pointer;
     i {
       &:before {

@@ -30,7 +30,8 @@ export class ExternalLinkDirective {
   private isLinkExternal() {
     return (
       isPlatformBrowser(this.platformId) &&
-      !this.href.includes(location.hostname)
+        this.href.startsWith('http') &&
+        !this.href.includes(location.hostname)
     );
   }
 }

@@ -3,6 +3,16 @@
 
 .navbar-brand {
   cursor: pointer;
+  .blog-logo {
+    height: 2rem;
+    path {
+      fill: $light-text-color;
+      @media (prefers-color-scheme: dark) {
+        fill: $dark-text-color;
+      }
+    }
+  }
+
   i {
     &:before {
       position: relative;

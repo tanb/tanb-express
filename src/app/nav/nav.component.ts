@@ -9,13 +9,10 @@ import { NotificationService } from '../services/notification.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit, OnDestroy {
+  @Input() isArticlePage: boolean;
+
   constructor(private notification: NotificationService,
               private router: Router) {
-    this.router.events.subscribe((event) => {
-      if (event instanceof RoutesRecognized) {
-        console.log(event.url);
-      }
-    });
   }
 
   ngOnInit() {
@@ -24,11 +21,12 @@ export class NavComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
+  onClickBlogLogo() {
+    this.router.navigateByUrl('/blog');
+  }
+
   onClickNavbarBrand() {
     this.router.navigateByUrl('/');
   }
 
-  onRouteChanged(userInfo) {
-    console.log(userInfo);
-  }
 }

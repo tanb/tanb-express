@@ -24,28 +24,22 @@ enum BalloonState {
 export class ProfileComponent implements OnInit, AfterViewInit {
   balloonState: BalloonState = BalloonState.bottom;
   age = 0;
+  blog$ = this.srs.available$
+    .pipe(
+      map((routes) => {
+        return routes.filter((route) => {
+          return route.route.startsWith('/blog/')
+        }).reverse();
+      })
+    );
+
   constructor(private storage: LocalStorageService,
               private translate: TranslateService,
               private router: Router,
               private idle: IdleMonitorService,
-              private scullyRoute: ScullyRoutesService,
+              private srs: ScullyRoutesService,
               private modal: ModalService,
               private reverseRoute: ReverseRouteService) {
-  }
-
-  get scully() {
-    return this.scullyRoute;
-  }
-
-  get blogRoutes$() {
-    return this.scullyRoute.available$
-      .pipe<ScullyRoute[]>(
-        map((routes) => {
-          return routes.filter((route) => {
-            return route.route.startsWith('/blog')
-          }).reverse();
-        })
-      )
   }
 
   ngOnInit() {

@@ -40,6 +40,7 @@ import { IndicatorService } from './services/indicator.service';
 import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
+import { PostListComponent } from './post-list/post-list.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -62,7 +63,8 @@ export function createTranslateLoader(http: HttpClient) {
     RecaptchaValueAccessorDirective,
     SettingsComponent,
     RecaptchaComponent,
-    ExternalLinkDirective
+    ExternalLinkDirective,
+    PostListComponent
   ],
   imports: [
     AppRoutingModule,

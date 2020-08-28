@@ -1,5 +1,7 @@
 <div *ngIf="!isHomeRouteActivated">
-  <app-nav></app-nav>
+  <app-nav
+    [isArticlePage]="isArticlePage"
+    ></app-nav>
 </div>
 
 <router-outlet></router-outlet>

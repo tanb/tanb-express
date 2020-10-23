@@ -1343,10 +1343,12 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@gammastream/scully-plugin-sitemap@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@gammastream/scully-plugin-sitemap/-/scully-plugin-sitemap-1.0.2.tgz#edf221fde4c2bf74240fb5ed4c0dbddf31595d3c"
-  integrity sha512-AbnB2gMUxnxqr3G51mdjC9By4vHNG3vVTFHZH1F+I1aJjmnoOVXNaUVep6eNzkG/gjKd6VAYXPQZgcVZfG4tNw==
+"@gammastream/scully-plugin-sitemap@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@gammastream/scully-plugin-sitemap/-/scully-plugin-sitemap-1.0.4.tgz#fca1236b2d380ed9dc1b1cbdfa95c09e77f2d819"
+  integrity sha512-ZMoXZXQ+C+dR+24Z5Hu+QLld83CeWAznTcSygfBGWGBQ0jqTlwN7GsKoUHGuzzY3UmeJ09N1YKj/DENNIvZ0Ig==
+  dependencies:
+    tslib "^2.0.0"
 
 "@istanbuljs/schema@^0.1.2":
   version "0.1.2"

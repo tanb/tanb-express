@@ -14,6 +14,7 @@ export type NamedRoutes = NamedRoute[];
 
 export const routes: NamedRoutes = [
   { path: '', component: ProfileComponent, name: 'top' },
+  { path: 'ja', loadChildren: () => import('./ja/ja.module').then(m => m.JaModule) },
   { path: 'cookie-policy', component: CookiePolicyComponent, name: 'cookiePolicy' },
   { path: 'privacy-policy', component: PrivacyPolicyComponent, name: 'privacyPolicy' },
   { path: 'settings', component: SettingsComponent, name: 'settings' },

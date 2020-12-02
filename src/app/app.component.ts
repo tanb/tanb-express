@@ -32,8 +32,8 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof RoutesRecognized) {
         this.gaservice.pageview(event.url);
-        console.log(event);
-        this.isHomeRouteActivated = event.url.split('?')[0] === '/';
+        this.isHomeRouteActivated = (event.url.split('?')[0] === '/' ||
+          event.url.split('?')[0] === '/ja');
         this.isArticlePage = event.url.startsWith('/blog/');
       }
     });

@@ -1,12 +1,18 @@
-import {Injectable} from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import {Inject, Injectable} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Injectable({ providedIn: 'root' })
 export class SEOService {
   siteName = "TANB EXPRESS";
 
   constructor(private title: Title,
-              private meta: Meta) {
+              private meta: Meta,
+              @Inject(DOCUMENT) private doc: Document) {
+  }
+
+  setLang(lang: string) {
+    this.doc.documentElement.lang = lang;
   }
 
   updateTitle(title?: string) {

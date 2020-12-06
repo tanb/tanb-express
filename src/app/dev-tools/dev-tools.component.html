@@ -1,0 +1,12 @@
+<div class='container main-body'>
+
+  <h1>Timestamp converter</h1>
+
+  <div>
+    <input [(ngModel)]="timestamp" name="timestamp">
+    <br>
+    <br>
+    <span>{{ timestamp | moment:'YYYY/MM/DD HH:mm:ss.SSSZ' }}</span>
+  </div>
+
+</div>

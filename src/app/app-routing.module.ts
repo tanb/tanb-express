@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.com
 import { PrivacyPolicyComponent } from 'src/app/privacy-policy/privacy-policy.component';
 import { ProfileComponent } from 'src/app/profile/profile.component';
 import { SettingsComponent } from 'src/app/settings/settings.component';
+import { DevToolsComponent } from './dev-tools/dev-tools.component';
 
 export interface NamedRoute extends Route {
   name?: string;
@@ -15,6 +16,7 @@ export type NamedRoutes = NamedRoute[];
 export const routes: NamedRoutes = [
   { path: '', component: ProfileComponent, name: 'top' },
   { path: 'ja', loadChildren: () => import('./ja/ja.module').then(m => m.JaModule) },
+  { path: 'dev-tools', component: DevToolsComponent, name: 'devTools' },
   { path: 'cookie-policy', component: CookiePolicyComponent, name: 'cookiePolicy' },
   { path: 'privacy-policy', component: PrivacyPolicyComponent, name: 'privacyPolicy' },
   { path: 'settings', component: SettingsComponent, name: 'settings' },

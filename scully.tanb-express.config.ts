@@ -19,7 +19,12 @@ setPluginConfig(SitemapPlugin, {
     '0.1',
     '0.0',
   ],
-  ignoredRoutes: ['/404', '/settings'],
+  ignoredRoutes: [
+    '/404',
+    '/settings',
+    '/dev-tools',
+    '/ja/dev-tools'
+  ],
   routes: {
     '/blog/:slug': {
       changeFreq: 'daily',

@@ -41,6 +41,8 @@ import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
 import { PostListComponent } from './post-list/post-list.component';
+import { DevToolsComponent } from './dev-tools/dev-tools.component';
+import { MomentPipe } from './moment.pipe';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -64,7 +66,9 @@ export function createTranslateLoader(http: HttpClient) {
     SettingsComponent,
     RecaptchaComponent,
     ExternalLinkDirective,
-    PostListComponent
+    PostListComponent,
+    DevToolsComponent,
+    MomentPipe
   ],
   imports: [
     AppRoutingModule,

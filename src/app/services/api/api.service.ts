@@ -27,8 +27,10 @@ export class ApiService {
         'Content-Type': 'application/x-www-form-urlencoded',
       })
     };
+    const requestBody = params.toString();
+    console.log(requestBody);
     return this.http
-      .post(url, params.toString(), options)
+      .post(url, requestBody, options)
       .toPromise();
   }
 }

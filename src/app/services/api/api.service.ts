@@ -29,7 +29,7 @@ export class ApiService {
         Accept: 'text/html, application/xhtml+xml, */*',
         'Content-Type': 'application/x-www-form-urlencoded',
       }),
-      responseType: 'text'
+      responseType: 'text' as 'json'
     };
     const requestBody = params.toString();
     return this.http

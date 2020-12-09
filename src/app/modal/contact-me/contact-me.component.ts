@@ -64,6 +64,7 @@ export class ContactMeComponent implements OnInit {
       .catch(error => {
         this.indicator.hide(indicatorRef);
         this.hasError = true;
+        console.log(error);
         console.log(`handleError: ${error}`);
       });
   }

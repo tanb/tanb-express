@@ -52,7 +52,7 @@ export class ContactMeComponent implements OnInit {
       name: this.forms.name.value,
       email: this.forms.email.value,
       message: this.forms.message.value,
-      recaptcha: this.forms.recaptchaReactive.value
+      'g-recaptcha-response': this.forms.recaptchaReactive.value
     };
 
     const indicatorRef = this.indicator.show();

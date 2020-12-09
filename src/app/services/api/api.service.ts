@@ -19,7 +19,7 @@ export class ApiService {
   contactMe(body: {[key: string]: any}): Promise<ContactMe> {
     const paramsOptions = <HttpParamsOptions>{fromObject: body};
     let params = new HttpParams(paramsOptions);
-    const path = '/index.html';
+    const path = '/';
     return this.post(path, params);
   }
 

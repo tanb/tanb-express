@@ -26,6 +26,7 @@ export class ApiService {
   private post(url: string, params: HttpParams): Promise<any> {
     const options = {
       headers: new HttpHeaders({
+        Accept:'text/html',
         'Content-Type': 'application/x-www-form-urlencoded',
       })
     };

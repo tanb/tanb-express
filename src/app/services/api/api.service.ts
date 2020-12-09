@@ -17,7 +17,7 @@ export class ApiService {
     Object.keys(body).forEach((k) => {
       params.set(k, body[k]);
     });
-    const path = '/index.html';
+    const path = '/';
     return this.post(path, params);
   }
 

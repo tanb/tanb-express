@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpParamsOptions, HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { Codable } from 'codable';
 
 import { environment } from 'src/environments/environment';
 import { ContactMe } from './contact-me.model';
+
+declare interface HttpParamsOptions {
+  fromObject: {[key: string]: string}
+}
 
 @Injectable()
 export class ApiService {

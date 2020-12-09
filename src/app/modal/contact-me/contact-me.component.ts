@@ -45,6 +45,7 @@ export class ContactMeComponent implements OnInit {
 
   submitForm() {
     const body = {
+      'form-name': 'inquiry',
       name: this.forms.name.value,
       email: this.forms.email.value,
       message: this.forms.message.value,

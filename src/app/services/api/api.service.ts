@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { Codable } from 'codable';
@@ -9,32 +9,26 @@ import { ContactMe } from './contact-me.model';
 
 @Injectable()
 export class ApiService {
-  private readonly apiVersion = 'v1';
   constructor(private http: HttpClient) {
   }
 
-  contactMe(body: any): Promise<ContactMe> {
-    const path = '/contactme';
-    return this.post(ContactMe, this.url(path), body);
+  contactMe(body: {[key: string]: any}): Promise<ContactMe> {
+    const params = new HttpParams();
+    Object.keys(body).forEach((k) => {
+      params.set(k, body[k]);
+    });
+    const path = '/index.html';
+    return this.post(path, params);
   }
 
-  private url(path: string): string {
-    return environment.apiServer + '/' + this.apiVersion + path;
-  }
-
-  private post<T extends typeof Codable>(klass: T, url: string, body: any): Promise<InstanceType<T>> {
+  private post(url: string, params: HttpParams): Promise<any> {
     const options = {
       headers: new HttpHeaders({
-        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
       })
     };
     return this.http
-      .post<T>(url, body, options)
-      .pipe(
-        mergeMap(response => {
-          return of(klass.decode(response));
-        })
-      )
+      .post(url, params.toString(), options)
       .toPromise();
   }
 }

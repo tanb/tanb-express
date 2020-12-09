@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpParamsOptions, HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { Codable } from 'codable';
@@ -13,10 +13,8 @@ export class ApiService {
   }
 
   contactMe(body: {[key: string]: any}): Promise<ContactMe> {
-    const params = new HttpParams();
-    Object.keys(body).forEach((k) => {
-      params.set(k, body[k]);
-    });
+    const paramsOptions = <HttpParamsOptions>{fromObject: body};
+    let params = new HttpParams(paramsOptions);
     const path = '/';
     return this.post(path, params);
   }
@@ -28,7 +26,6 @@ export class ApiService {
       })
     };
     const requestBody = params.toString();
-    console.log(requestBody);
     return this.http
       .post(url, requestBody, options)
       .toPromise();

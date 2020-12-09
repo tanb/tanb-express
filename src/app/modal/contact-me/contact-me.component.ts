@@ -28,7 +28,10 @@ export class ContactMeComponent implements OnInit {
               private indicator: IndicatorService,
               private api: ApiService,
               @Inject(DOCUMENT) private doc: Document) {
-    this.siteKey = this.doc.getElementById('netlify-inquiry').getElementsByClassName('g-recaptcha')[0].getAttribute('data-sitekey');
+    const recaptchaElm = this.doc.getElementById('netlify-inquiry').getElementsByClassName('g-recaptcha')[0];
+    if (recaptchaElm) {
+      this.siteKey = recaptchaElm.getAttribute('data-sitekey');
+    }
     this.translate.use(this.translate.currentLang);
   }
 

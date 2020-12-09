@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Inject, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { IndicatorService } from 'src/app/services/indicator.service';
 import { ApiService } from 'src/app/services/api/api.service';
@@ -19,13 +20,15 @@ export class ContactMeComponent implements OnInit {
     message: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(2000)])),
     recaptchaReactive: new FormControl(null, Validators.required)
   };
-
+  siteKey: string;
   public reactiveForm: FormGroup = new FormGroup(this.forms);
 
   constructor(private translate: TranslateService,
               private modalService: ModalService,
               private indicator: IndicatorService,
-              private api: ApiService) {
+              private api: ApiService,
+              @Inject(DOCUMENT) private doc: Document) {
+    this.siteKey = this.doc.getElementById('netlify-inquiry').getElementsByClassName('g-recaptcha')[0].getAttribute('data-sitekey');
     this.translate.use(this.translate.currentLang);
   }
 

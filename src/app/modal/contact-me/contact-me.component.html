@@ -39,9 +39,9 @@
                 Cannot be more than 2000 characters long
               </div>
             </div>
-            <!-- <div class="form-group col-12 recaptcha"> -->
-            <!--   <app-recaptcha formControlName="recaptchaReactive"></app-recaptcha> -->
-            <!-- </div> -->
+            <div class="form-group col-12 recaptcha">
+              <app-recaptcha [siteKey]="siteKey" formControlName="recaptchaReactive"></app-recaptcha>
+            </div>
           </div>
         </form>
       </div>

@@ -19,6 +19,12 @@
   <meta name="theme-color" content="#1976d2">
 </head>
 <body>
+  <form name="inquiry" method="POST" data-netlify="true" data-netlify-recaptcha="true" hidden>
+    <label for="name">お名前</label><input type="text" name="name">
+    <label for="email">メールアドレス</label><input type="text" name="email">
+    <label for="message">メッセージ</label><textarea name="message"></textarea>
+    <div data-netlify-recaptcha="true"></div>
+  </form>
   <div>
     <app-root></app-root>
   </div>

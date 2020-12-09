@@ -92,12 +92,6 @@ export function createTranslateLoader(http: HttpClient) {
     RecaptchaLoaderService,
     ApiService,
     GaService,
-    // {
-    //   provide: RECAPTCHA_SETTINGS,
-    //   useValue: {
-    //     siteKey: '6LfxPWAUAAAAADvxeRj8HOXDGc3i8jxx7j9Hv_yO',
-    //   } as RecaptchaSettings,
-    // },
     NotificationService,
     IndicatorService
   ],

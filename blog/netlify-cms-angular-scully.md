@@ -56,4 +56,4 @@ collections: # A list of collections the CMS should be able to edit
 
 ![admin console](/assets/img/uploads/screenshot2021-02-26.png)
 
-## Identi
+## Identityの設定

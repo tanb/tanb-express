@@ -2,7 +2,10 @@
 layout: blog
 featured_image: /assets/img/uploads/tanb.jpg
 title: Angular + Scully + NetlifyCMSでブログの運用を始める
-description: Angular + Scully + NetlifyCMSでブログの運用を始める
+description: >-
+  Angular + Scully + NetlifyCMSでブログの運用を始める。tanb.expressではAngular
+  v10が出た頃からAngular+Scullyで静的サイトジェネレートをして配信するようになりました。そんな中、当サイトをホストしているNetlifyにHeadless
+  CMSのサービスがあることを知り当サイトに導入することにしました。
 published: true
 publish_date: '2021-02-25T18:13:56+09:00'
 ---

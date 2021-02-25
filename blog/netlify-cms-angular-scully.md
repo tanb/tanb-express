@@ -15,13 +15,14 @@ tanb.expressではAngular v10が出た頃からAngular+Scullyで静的サイト�
 
 いくつかMarkdownで記事を生成しサイトに表示できるようにしてみましたが、記事を投稿するたびにcommitしてGitHubにpushするという事わざわざ繰り返したり、画像が必要になるたびにcommitしてパスを書いて...というのは正直面倒だなぁと感じていました。
 
-そんな中、当サイトをホストしているNetlifyにHeadless CMSのサービスがあることを知り当サイトに導入することにしました。
+そんな中、当サイトをホストしているNetlifyにHeadless CMSのサービスがあることを知り当サイトに導入することにしました。
 
-# 必要な変更はたった3つ
+## 必要な変更はたった3つ
 (ただしScully blog supportが終わっている前提です)
-- `src/admin`ディレクトリを作成しconfig.ymlとindex.htmlを配置
-- angular.jsonでassetsとして配信するパスに`src/admin`を追加
-- Netlifyのサイト詳細画面でIdentityを利用可能な状態にする
+
+ - `src/admin`ディレクトリを作成しconfig.ymlとindex.htmlを配置
+ - angular.jsonでassetsとして配信するパスに`src/admin`を追加
+ - Netlifyのサイト詳細画面でIdentityを利用可能な状態にする
 
 src/adminから管理画面の入り口をassets fileとして配信します。angular.jsonに設定が必要です。配信することに成功すれば`https://yoursite/admin`で管理画面にアクセスできるはずです。認証はNetlify Identityを介して行われますので後ほど設定が必要です。
 
@@ -75,7 +76,7 @@ Identityの設定を開始します。まずはNetlifyのサイト画面のナ�
 ここまできたらコーヒーか何か飲み物を飲んで休憩しましょう。☕️
 
 ## 管理画面アカウントの作成
-さきほどのIdentityの設定がすんでいれば、招待されたユーザーのみIdentityの登録を開始できるようになっているはずです。ナビゲーションバーにあるIdentityを開き、`Invite users`から自分宛にメールを送ってみましょう。管理画面へアクセスするためのIdentityの登録URLが送られてきます。パスワードを設定すれば完了です。
+さきほどのIdentityの設定がすんでいれば、招待されたユーザーのみIdentityの登録を開始できるようになっているはずです。ナビゲーションバーにあるIdentityを開き、`Invite users`から自分宛にメールを送ってみましょう。管理画面へアクセスするためのIdentityの登録URLが送られてきます。パスワードを設定すれば完了です。
 
 ## 最終確認
 サイトはデプロイされていますか？管理画面`src/admin`を設定したcommitがちゃんとpushされデプロイされているか確認してください。

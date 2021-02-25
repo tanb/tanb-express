@@ -1,6 +1,15 @@
 @import 'src/sass/variables';
 @import 'src/sass/mixins';
 
+p {
+  letter-spacing: 0.3px;
+  img {
+    max-width: 100%;
+  }
+}
+ul {
+  list-style: inside;
+}
 @include screen-max($screen-xs-max) {
   p > img {
     width: 100%;

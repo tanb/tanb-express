@@ -52,9 +52,11 @@ collections: # A list of collections the CMS should be able to edit
 
 ```
 
-当面はBlogしか管理しないのでCollectionsには`blog`しかありません。fieldsには管理画面で入力可能な項目、種別、値などを定義します。これでこんな感じになります。
+当面はBlogしか管理しないのでCollectionsには`blog`しかありません。fieldsには管理画面で入力可能な項目、種別、値などを定義します。これらの項目設定で管理画面が以下のようになります。
 
 ![admin console](/assets/img/uploads/screenshot2021-02-26.png)
+
+急がないでください！次にIdentityの設定をして、管理アカウントを作成してはじめて管理画面にログインできるようになります！あともう少し！
 
 ## Identityの設定
 
@@ -71,3 +73,10 @@ Identityの設定を開始します。まずはNetlifyのサイト画面のナ�
 
 ## 管理画面アカウントの作成
 さきほどのIdentityの設定がすんでいれば、招待されたユーザーのみIdentityの登録を開始できるようになっているはずです。ナビゲーションバーにあるIdentityを開き、`Invite users`から自分宛にメールを送ってみましょう。管理画面へアクセスするためのIdentityの登録URLが送られてきます。パスワードを設定すれば完了です。
+
+## 最終確認
+サイトはデプロイされていますか？管理画面`src/admin`を設定したcommitがちゃんとpushされデプロイされているか確認してください。
+
+`https://yoursite/admin`にアクセスするとNetlifyCMSのログイン画面が表示さるはずです。ログインだけができるようになっていますか？サインアップできるようになっていたら、`Registration preferences`を見直しましょう。
+
+Git Gatewayの設定を見直すように注意されますか？config.ymlのbranchの項目をみてください。私のサイトではreleaseブランチですがあなたのサイトではmainブランチかもしれません。ブランチ名を確認してください。

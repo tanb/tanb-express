@@ -1,12 +1,12 @@
 ---
 layout: blog
 featured_image: /assets/img/uploads/tanb.jpg
-title: Angular + Scully + Netlify CMSでブログの運用を始める
-description: Angular + Scully + Netlify CMSでブログの運用を始める
-published: false
+title: Angular + Scully + NetlifyCMSでブログの運用を始める
+description: Angular + Scully + NetlifyCMSでブログの運用を始める
+published: true
 publish_date: '2021-02-25T18:13:56+09:00'
 ---
-# Angular + Scully + Netlify CMSでブログの運用を始める
+# Angular + Scully + NetlifyCMSでブログの運用を始める
 
 tanb.expressではAngular v10が出た頃からAngular+Scullyで静的サイトジェネレートをして配信するようになりました。
 
@@ -57,3 +57,17 @@ collections: # A list of collections the CMS should be able to edit
 ![admin console](/assets/img/uploads/screenshot2021-02-26.png)
 
 ## Identityの設定
+
+Identityの設定を開始します。まずはNetlifyのサイト画面のナビゲーションバーにあるIdentityを選択。Identityの利用を開始します。
+
+![admin console](/assets/img/uploads/identity-init.png)
+
+次に`Site settings > Identity > Registration preferences`を確認してみましょう。
+初期状態ではOpenなのでだれでもIdentityの登録を開始できます。自分しか使わないのであればInvite onlyにする必要があります。
+
+続いて下の方へスクロールしてGit Gatewayの設定も必要です。NetligyCMSで記事を作成する際にブランチを作ったりPRを作ったりするためにGitHub APIが使用されます。Edit settingsを押して`Generate access token in GitHub`をクリックしaccess tokenをセットします。
+
+ここまできたらコーヒーか何か飲み物を飲んで休憩しましょう。☕️
+
+## 管理画面アカウントの作成
+さきほどのIdentityの設定がすんでいれば、招待されたユーザーのみIdentityの登録を開始できるようになっているはずです。ナビゲーションバーにあるIdentityを開き、`Invite users`から自分宛にメールを送ってみましょう。管理画面へアクセスするためのIdentityの登録URLが送られてきます。パスワードを設定すれば完了です。

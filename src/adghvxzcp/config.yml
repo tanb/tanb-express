@@ -16,6 +16,6 @@ collections: # A list of collections the CMS should be able to edit
       - {label: 'Featured Image', name: 'featured_image', widget: 'image', required: false}
       - {label: 'Title', name: 'title', widget: 'string', required: true}
       - {label: 'Description', name: 'description', widget: 'string', required: false}
-      - {label: 'Publish', name: 'publish', widget: 'boolean', required: false}
+      - {label: 'Publish', name: 'published', widget: 'boolean', required: false}
       - {label: 'Publish Date', name: 'publish_date', widget: 'datetime', required: false}
       - {label: 'Body', name: 'body', widget: 'markdown', required: true}

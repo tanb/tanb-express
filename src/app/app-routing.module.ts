@@ -17,6 +17,7 @@ export const routes: NamedRoutes = [
   { path: '', component: ProfileComponent, name: 'top' },
   { path: 'ja', loadChildren: () => import('./ja/ja.module').then(m => m.JaModule) },
   { path: 'dev-tools', component: DevToolsComponent, name: 'devTools' },
+  { path: 'hujson-editor', component: DevToolsComponent, name: 'hujsonEditor' },
   { path: 'cookie-policy', component: CookiePolicyComponent, name: 'cookiePolicy' },
   { path: 'privacy-policy', component: PrivacyPolicyComponent, name: 'privacyPolicy' },
   { path: 'settings', component: SettingsComponent, name: 'settings' },

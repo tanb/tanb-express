@@ -82,7 +82,7 @@
 
           <h3>Articles</h3>
           <ul>
-            <li *ngFor="let blog of blog$ | async">
+            <li *ngFor="let blog of blog">
               <a [routerLink]="blog.route">{{ blog.title || blog.route }}</a>
             </li>
           </ul>

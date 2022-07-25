@@ -1,2 +1,11 @@
 identifier: k3ee23rcs7dc12r5
 allowErrorCollect: true
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: tanb-express
+homeFolder: /Users/tanb/Workspace/GitHub/tanb/tanb-express
+distFolder: dist/tanb-express
+outDir: /Users/tanb/Workspace/GitHub/tanb/tanb-express/dist/static
+handle404: ''

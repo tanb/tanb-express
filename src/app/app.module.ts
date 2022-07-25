@@ -43,6 +43,7 @@ import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-set
 import { PostListComponent } from './post-list/post-list.component';
 import { DevToolsComponent } from './dev-tools/dev-tools.component';
 import { MomentPipe } from './moment.pipe';
+import { HujsonEditorComponent } from './hujson-editor/hujson-editor.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -68,7 +69,8 @@ export function createTranslateLoader(http: HttpClient) {
     ExternalLinkDirective,
     PostListComponent,
     DevToolsComponent,
-    MomentPipe
+    MomentPipe,
+    HujsonEditorComponent
   ],
   imports: [
     AppRoutingModule,

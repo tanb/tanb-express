@@ -145,7 +145,6 @@
       }
     }
   },
-  "defaultProject": "tanb-express",
   "cli": {
     "analytics": "6b113516-d510-4e08-bad1-560ceeb3021b"
   }

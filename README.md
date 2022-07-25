@@ -66,3 +66,15 @@ UPDATE package.json (2385 bytes)
 ❯ Update TypeScript compilation target to 'ES2020'.
 UPDATE tsconfig.json (543 bytes)
   Migration completed.
+
+## Troubleshooting
+
+### Broserslist Error
+```
+BrowserslistError: Unknown version 98 of android
+```
+
+### Resolution
+```
+npx browserslist --update-db
+```

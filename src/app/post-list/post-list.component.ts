@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ScullyRoutesService } from '@scullyio/ng-lib';
-import { map } from 'rxjs/operators';
-
-
-interface ScullyRoute {
-  description: string;
-  featured_image?: string;
-}
-
+import { ScullyRoutesService, ScullyRoute } from '@scullyio/ng-lib';
 
 @Component({
   selector: 'app-post-list',
@@ -15,18 +7,20 @@ interface ScullyRoute {
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  blog$ = this.srs.available$
-    .pipe(
-      map((routes) => {
-        return routes.filter((route) => {
-          return route.route.startsWith('/blog/')
-        }).reverse();
-      })
-    );
+  blog: ScullyRoute[] = [];
 
   constructor(private srs: ScullyRoutesService) { }
 
   ngOnInit(): void {
+    this.srs.available$.subscribe(routes => {
+      this.blog = this.availableFilter(routes);
+    });
+  }
+
+  availableFilter(routes: ScullyRoute[]) {
+    return routes.filter((route) => {
+      return route.route.startsWith('/blog/');
+    }).reverse();
   }
 
 }

@@ -1,5 +1,5 @@
 import { Inject, Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { IndicatorService } from 'src/app/services/indicator.service';
@@ -15,13 +15,13 @@ export class ContactMeComponent implements OnInit {
   hasError = false;
   completed = false;
   public forms = {
-    name: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(30)])),
-    email: new FormControl(null, Validators.compose([Validators.required, Validators.email])),
-    message: new FormControl(null, Validators.compose([Validators.required, Validators.maxLength(2000)])),
-    recaptchaReactive: new FormControl(null, Validators.required)
+    name: new UntypedFormControl(null, Validators.compose([Validators.required, Validators.maxLength(30)])),
+    email: new UntypedFormControl(null, Validators.compose([Validators.required, Validators.email])),
+    message: new UntypedFormControl(null, Validators.compose([Validators.required, Validators.maxLength(2000)])),
+    recaptchaReactive: new UntypedFormControl(null, Validators.required)
   };
   siteKey: string;
-  public reactiveForm: FormGroup = new FormGroup(this.forms);
+  public reactiveForm: UntypedFormGroup = new UntypedFormGroup(this.forms);
 
   constructor(private translate: TranslateService,
               private modalService: ModalService,

@@ -27,46 +27,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 This is the perfect article for creating an Angular static site with scully on netlify. https://www.netlify.com/blog/2020/07/14/creating-an-angular-jamstack-blog/
 
-## v13 to v14 Migration log
-
-** Executing migrations of package '@angular/core' **
-
-❯ As of Angular version 13, `entryComponents` are no longer necessary.
-  Migration completed.
-
-❯ In Angular version 14, the `pathMatch` property of `Routes` was updated to be a strict union of the two valid options: `'full'|'prefix'`.
-  `Routes` and `Route` variables need an explicit type so TypeScript does not infer the property as the looser `string`.
-  Migration completed.
-
-❯ As of Angular version 14, Forms model classes accept a type parameter, and existing usages must be opted out to preserve backwards-compatibility.
-UPDATE src/app/modal/contact-me/contact-me.component.ts (2445 bytes)
-  Migration completed.
-
-** Executing migrations of package '@angular/cli' **
-
-❯ Remove 'defaultProject' option from workspace configuration.
-  The project to use will be determined from the current working directory.
-UPDATE angular.json (4541 bytes)
-  Migration completed.
-
-❯ Remove 'showCircularDependencies' option from browser and server builders.
-  Migration completed.
-
-❯ Replace 'defaultCollection' option in workspace configuration with 'schematicCollections'.
-  Migration completed.
-
-❯ Update Angular packages 'dependencies' and 'devDependencies' version prefix to '^' instead of '~'.
-UPDATE package.json (2385 bytes)
-✔ Packages installed successfully.
-  Migration completed.
-
-❯ Remove 'package.json' files from library projects secondary entrypoints.
-  Migration completed.
-
-❯ Update TypeScript compilation target to 'ES2020'.
-UPDATE tsconfig.json (543 bytes)
-  Migration completed.
-
 ## Troubleshooting
 
 ### Broserslist Error

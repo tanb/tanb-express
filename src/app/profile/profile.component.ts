@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { ScullyRoute, IdleMonitorService, ScullyRoutesService} from '@scullyio/ng-lib';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import anime from 'animejs/lib/anime.es';
@@ -22,22 +21,19 @@ enum BalloonState {
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
   profile = {
-    title: "Tomonori Tanabe｜Software Engineer in Tokyo",
-    title_ja: "田邉 睦典｜ソフトウェアエンジニアin東京",
-    description: "I'm a software engineer based in the Tokyo area.  If you need help with anything, please contact me. Mobile app development, news media development, business app development, website development, and more. Please feel free to contact me. I will make a proposal according to your budget. ",
-    description_ja: "私は東京エリアを中心にソフトウェアエンジニアをしています. 何かお困りのことがあればぜひお問い合わせください. モバイルアプリ作成, ニュースメディア作成, 業務アプリ作成, ウェブサイト構築など, どんなことでも構いません、お気軽にご相談ください. お客様のご予算に合わせた提案をさせていただきます."
+    title: 'Tomonori Tanabe｜Software Engineer in Tokyo',
+    title_ja: '田邉 睦典｜ソフトウェアエンジニアin東京',
+    description: 'I\'m a software engineer based in the Tokyo area.  If you need help with anything, please contact me. Mobile app development, news media development, business app development, website development, and more. Please feel free to contact me. I will make a proposal according to your budget. ',
+    description_ja: '私は東京エリアを中心にソフトウェアエンジニアをしています. 何かお困りのことがあればぜひお問い合わせください. モバイルアプリ作成, ニュースメディア作成, 業務アプリ作成, ウェブサイト構築など, どんなことでも構いません、お気軽にご相談ください. お客様のご予算に合わせた提案をさせていただきます.'
   };
 
   balloonState: BalloonState = BalloonState.bottom;
   age = 0;
-  blog: ScullyRoute[] = [];
 
   constructor(private storage: LocalStorageService,
               private translate: TranslateService,
               private router: Router,
               private route: ActivatedRoute,
-              private idle: IdleMonitorService,
-              private srs: ScullyRoutesService,
               private modal: ModalService,
               private seo: SEOService) {
 
@@ -60,9 +56,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.srs.available$.subscribe(routes => {
-      this.blog = this.availableFilter(routes);
-    });
   }
 
   ngAfterViewInit() {
@@ -106,11 +99,5 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         this.age = targets.age;
       }
     });
-  }
-
-  availableFilter(routes: ScullyRoute[]) {
-    return routes.filter((route) => {
-      return route.route.startsWith('/blog/');
-    }).reverse();
   }
 }

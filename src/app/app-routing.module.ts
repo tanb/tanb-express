@@ -21,7 +21,6 @@ export const routes: NamedRoutes = [
   { path: 'cookie-policy', component: CookiePolicyComponent, name: 'cookiePolicy' },
   { path: 'privacy-policy', component: PrivacyPolicyComponent, name: 'privacyPolicy' },
   { path: 'settings', component: SettingsComponent, name: 'settings' },
-  { path: 'blog', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
   { path: '404', component: PageNotFoundComponent, name: 'not_found' },
   { path: '**', component: PageNotFoundComponent }
 ];

@@ -9,8 +9,6 @@ import { NotificationService } from '../services/notification.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit, OnDestroy {
-  @Input() isArticlePage: boolean;
-
   constructor(private notification: NotificationService,
               private router: Router) {
   }
@@ -19,10 +17,6 @@ export class NavComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-  }
-
-  onClickBlogLogo() {
-    this.router.navigateByUrl('/blog');
   }
 
   onClickNavbarBrand() {

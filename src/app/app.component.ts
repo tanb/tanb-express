@@ -12,7 +12,6 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
 })
 export class AppComponent implements OnInit {
   isHomeRouteActivated = false;
-  isArticlePage = false;
   constructor(
     private router: Router,
     private gaservice: GaService,
@@ -34,7 +33,6 @@ export class AppComponent implements OnInit {
         this.gaservice.pageview(event.url);
         this.isHomeRouteActivated = (event.url.split('?')[0] === '/' ||
           event.url.split('?')[0] === '/ja');
-        this.isArticlePage = event.url.startsWith('/blog/');
       }
     });
   }

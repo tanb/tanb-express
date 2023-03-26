@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { ScullyLibModule } from '@scullyio/ng-lib';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -39,8 +38,6 @@ import { GaService } from './services/ga.service';
 import { IndicatorService } from './services/indicator.service';
 import { NotificationService } from './services/notification.service';
 import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
-import { RECAPTCHA_SETTINGS, RecaptchaSettings } from './recaptcha/recaptcha-settings';
-import { PostListComponent } from './post-list/post-list.component';
 import { DevToolsComponent } from './dev-tools/dev-tools.component';
 import { MomentPipe } from './moment.pipe';
 import { HujsonEditorComponent } from './hujson-editor/hujson-editor.component';
@@ -67,7 +64,6 @@ export function createTranslateLoader(http: HttpClient) {
     SettingsComponent,
     RecaptchaComponent,
     ExternalLinkDirective,
-    PostListComponent,
     DevToolsComponent,
     MomentPipe,
     HujsonEditorComponent
@@ -87,8 +83,6 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    ScullyLibModule
-
   ],
   providers: [
     RecaptchaLoaderService,

@@ -1,4 +1,4 @@
-import { Inject, Component, OnInit } from '@angular/core';
+import {Inject, Component, OnInit, OnDestroy} from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
@@ -11,7 +11,7 @@ import { ModalService } from 'src/app/services/modal.service';
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss']
 })
-export class ContactMeComponent implements OnInit {
+export class ContactMeComponent implements OnInit, OnDestroy {
   hasError = false;
   completed = false;
   public forms = {
@@ -41,7 +41,8 @@ export class ContactMeComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  ngOnDestroy() {
+  }
   onClose() {
     this.modalService.hide();
   }

@@ -19,11 +19,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tanb-express",
+            "outputPath": "dist/tanb-express/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -46,7 +49,7 @@
             "namedChunks": true
           },
           "configurations": {
-            "devel": {
+            "development": {
               "budgets": [
                 {
                   "type": "anyComponentStyle",
@@ -96,8 +99,8 @@
             "browserTarget": "tanb-express:build"
           },
           "configurations": {
-            "devel": {
-              "browserTarget": "tanb-express:build:devel"
+            "development": {
+              "browserTarget": "tanb-express:build:development"
             },
             "production": {
               "browserTarget": "tanb-express:build:production"
@@ -114,9 +117,11 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
             "styles": [
               "src/styles.scss"
             ],
@@ -141,6 +146,75 @@
               "devServerTarget": "tanb-express-new:serve:production"
             }
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/tanb-express/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "optimization": false,
+            "sourceMap": true,
+            "extractLicenses": false,
+            "vendorChunk": true
+          },
+          "configurations": {
+            "development": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.devel.ts"
+                }
+              ]
+            },
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "tanb-express:build:development",
+              "serverTarget": "tanb-express:server:development"
+            },
+            "production": {
+              "browserTarget": "tanb-express:build:production",
+              "serverTarget": "tanb-express:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tanb-express:build:production",
+              "serverTarget": "tanb-express:server:production"
+            },
+            "development": {
+              "browserTarget": "tanb-express:build:development",
+              "serverTarget": "tanb-express:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

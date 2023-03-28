@@ -38,7 +38,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  public ngOnDestroy() {
+  ngOnDestroy() {
     // reset the captcha to ensure it does not leave anything behind
     // after the component is no longer needed
     this.grecaptchaReset();

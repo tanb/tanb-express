@@ -1,10 +1,10 @@
-import { AfterContentInit, Input, Directive, ElementRef, Renderer2, RendererFactory2 } from '@angular/core';
+import {AfterContentInit, Input, Directive, ElementRef, Renderer2, RendererFactory2, OnDestroy} from '@angular/core';
 import { ReverseRouteService } from 'src/app/services/reverse-route.service';
 
 @Directive({
   selector: '[appUrl]'
 })
-export class ReverseRouteDirective implements AfterContentInit {
+export class ReverseRouteDirective implements AfterContentInit, OnDestroy {
   private renderer: Renderer2;
   @Input() appUrl: string | any[];
 
@@ -12,6 +12,8 @@ export class ReverseRouteDirective implements AfterContentInit {
               private reverseRoute: ReverseRouteService,
               private elementRef: ElementRef) {
     this.renderer = rendererFactory.createRenderer(null, null);
+  }
+  ngOnDestroy() {
   }
 
   ngAfterContentInit() {

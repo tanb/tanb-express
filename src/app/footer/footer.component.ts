@@ -1,4 +1,4 @@
-import { Component, OnInit, VERSION } from '@angular/core';
+import {Component, OnDestroy, OnInit, VERSION} from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 
@@ -10,7 +10,7 @@ import { ReverseRouteService } from 'src/app/services/reverse-route.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit, OnDestroy {
   copyrightYear: string = moment().utcOffset(9).format('YYYY');
   angularCLIVersion: string = environment.angularCLIVersion;
   angularVersion: string = VERSION.full;
@@ -21,7 +21,8 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  ngOnDestroy() {
+  }
   pushButton() {
     this.pushButtonCount = this.pushButtonCount + 1;
     if (this.pushButtonCount < 3) {

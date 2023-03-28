@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, RendererFactory2, ViewChild, ElementRef } from '@angular/core';
+import {Component, OnInit, Renderer2, RendererFactory2, ViewChild, ElementRef, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { GaService } from 'src/app/services/ga.service';
@@ -8,7 +8,7 @@ import { GaService } from 'src/app/services/ga.service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy {
   private renderer: Renderer2;
   @ViewChild('toggleButton', { read: ElementRef, static: true }) toggleButton: ElementRef;
 
@@ -21,7 +21,8 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     this.updateGAButton();
   }
-
+  ngOnDestroy() {
+  }
   updateGAButton() {
     const element = this.toggleButton.nativeElement;
     const onButtonElm: HTMLLabelElement = element.querySelector('#ga-on');

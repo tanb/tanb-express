@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {isPlatformBrowser} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -7,30 +8,44 @@ export class LocalStorageService {
   private DISABLE_GA_KEY = 'disable-ga';
   private CURRENT_LANG_KEY = 'current-lang';
 
-  constructor() { }
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
+  ) { }
 
   getNoGa() {
-    return localStorage.getItem(this.DISABLE_GA_KEY);
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem(this.DISABLE_GA_KEY);
+    }
   }
 
   removeNoGa() {
-    localStorage.removeItem(this.DISABLE_GA_KEY);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(this.DISABLE_GA_KEY);
+    }
   }
 
   setNoGa() {
-    localStorage.setItem(this.DISABLE_GA_KEY, 'disabled');
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(this.DISABLE_GA_KEY, 'disabled');
+    }
   }
 
   getCurrentLang() {
-    return localStorage.getItem(this.CURRENT_LANG_KEY);
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem(this.CURRENT_LANG_KEY);
+    }
   }
 
   removeCurrentLang() {
-    localStorage.removeItem(this.CURRENT_LANG_KEY);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(this.CURRENT_LANG_KEY);
+    }
   }
 
   setCurrenrLang(lang: string) {
-    localStorage.setItem(this.CURRENT_LANG_KEY, lang);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(this.CURRENT_LANG_KEY, lang);
+    }
   }
 
 }

@@ -1,4 +1,4 @@
-import { Directive, forwardRef, HostListener } from '@angular/core';
+import {Directive, forwardRef, HostListener, OnDestroy} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { RecaptchaComponent } from './recaptcha.component';
@@ -15,11 +15,14 @@ import { RecaptchaComponent } from './recaptcha.component';
   // tslint:disable-next-line:directive-selector
   selector: 'app-recaptcha[formControlName],app-recaptcha[formControl],app-recaptcha[ngModel]',
 })
-export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
+export class RecaptchaValueAccessorDirective implements ControlValueAccessor, OnDestroy {
   private onChange: (value: string) => void;
   private onTouched: () => void;
 
   constructor(private host: RecaptchaComponent) { }
+
+  ngOnDestroy() {
+  }
 
   public writeValue(value: string): void {
     if (!value) {

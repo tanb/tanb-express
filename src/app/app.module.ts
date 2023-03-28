@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {inject, NgModule, PLATFORM_ID} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +32,7 @@ import { ReverseRouteDirective } from './directives/reverse-route.directive';
 import { RecaptchaValueAccessorDirective } from './recaptcha/recaptcha-value-accessor.directive';
 import { ExternalLinkDirective } from './directives/external-link.directive';
 
+
 // Services
 import { ApiService } from './services/api/api.service';
 import { GaService } from './services/ga.service';
@@ -41,9 +42,24 @@ import { RecaptchaLoaderService } from './recaptcha/recaptcha-loader.service';
 import { DevToolsComponent } from './dev-tools/dev-tools.component';
 import { MomentPipe } from './moment.pipe';
 import { HujsonEditorComponent } from './hujson-editor/hujson-editor.component';
+import {Observable} from 'rxjs';
+import {isPlatformBrowser} from '@angular/common';
+
+export class TranslateFakeLoader implements TranslateLoader {
+  public getTranslation(lang: string): Observable<any> {
+    return Observable.create(observer => {
+      observer.complete();
+    });
+  }
+}
 
 export function createTranslateLoader(http: HttpClient) {
+  const platformId = inject(PLATFORM_ID);
+  if (isPlatformBrowser(platformId)) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  } else {
+    return new TranslateFakeLoader();
+  }
 }
 
 @NgModule({
@@ -71,7 +87,7 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

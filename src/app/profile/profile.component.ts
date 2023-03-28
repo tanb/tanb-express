@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {Component, OnInit, AfterViewInit, Inject, PLATFORM_ID, OnDestroy} from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
@@ -8,6 +8,7 @@ import { ContactMeComponent } from 'src/app/modal/contact-me/contact-me.componen
 import { ModalService } from 'src/app/services/modal.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { SEOService } from 'src/app/services/seo.service';
+import {isPlatformBrowser} from '@angular/common';
 
 enum BalloonState {
   top = 'top',
@@ -19,7 +20,7 @@ enum BalloonState {
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit, AfterViewInit {
+export class ProfileComponent implements OnInit, AfterViewInit, OnDestroy {
   profile = {
     title: 'Tomonori Tanabe｜Software Engineer in Tokyo',
     title_ja: '田邉 睦典｜ソフトウェアエンジニアin東京',
@@ -35,6 +36,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
               private router: Router,
               private route: ActivatedRoute,
               private modal: ModalService,
+              @Inject(PLATFORM_ID) private platformId: any,
               private seo: SEOService) {
 
     this.seo.updateTitle(this.profile.title);
@@ -58,6 +60,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+  }
+
   ngAfterViewInit() {
     setTimeout(() => {
       this.balloonState = BalloonState.top;
@@ -77,27 +82,31 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   setupIconAnime() {
-    anime({
-      targets: '.tanb-icon .rounded-circle',
-      translateY: -33,
-      duration: 8000,
-      easing: 'easeInOutSine',
-      direction: 'alternate',
-      loop: true
+    if (isPlatformBrowser(this.platformId)) {
+      anime({
+        targets: '.tanb-icon .rounded-circle',
+        translateY: -33,
+        duration: 8000,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: true
     });
+    }
   }
 
   setupAgeAnime() {
     const myAge: number = moment().diff('1985-01-27', 'years');
     const targets = { age: 0 };
-    anime({
-      targets,
-      age: myAge,
-      round: 1,
-      easing: 'linear',
-      update: () => {
-        this.age = targets.age;
-      }
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      anime({
+        targets,
+        age: myAge,
+        round: 1,
+        easing: 'linear',
+        update: () => {
+          this.age = targets.age;
+        }
+      });
+    }
   }
 }

@@ -3,20 +3,23 @@ import {
   HostBinding,
   PLATFORM_ID,
   Inject,
-  Input
+  Input, OnDestroy
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: 'a[href]'
 })
-export class ExternalLinkDirective {
+export class ExternalLinkDirective implements OnDestroy {
   @HostBinding('attr.rel') relAttr = '';
   @HostBinding('attr.target') targetAttr = '';
   @HostBinding('attr.href') hrefAttr = '';
   @Input() href: string;
 
   constructor(@Inject(PLATFORM_ID) private platformId: string) {}
+
+  ngOnDestroy() {
+  }
 
   ngOnChanges() {
     this.hrefAttr = this.href;

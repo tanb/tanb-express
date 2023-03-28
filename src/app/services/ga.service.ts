@@ -1,17 +1,26 @@
-import { Injectable } from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
+import {isPlatformBrowser} from '@angular/common';
+
+declare var ga: (a, b, c) => void;
 
 @Injectable()
 export class GaService {
-  constructor(private storage: LocalStorageService) {
-    ga('create', 'UA-77462810-1', 'auto');
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: any,
+    private storage: LocalStorageService) {
+    if (isPlatformBrowser(this.platformId)) {
+      ga('create', 'UA-77462810-1', 'auto');
+    }
   }
 
   pageview(path: string) {
-    if (this.enabled) {
-      ga('send', 'pageview', path);
-    } else {
-      console.log('website analytics disabled.');
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.enabled) {
+        ga('send', 'pageview', path);
+      } else {
+        console.log('website analytics disabled.');
+      }
     }
   }
 

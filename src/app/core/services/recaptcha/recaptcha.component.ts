@@ -15,7 +15,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   readonly #loader = inject(RecaptchaLoaderService);
   readonly #zone = inject(NgZone);
 
-  @Input() public siteKey!: string;
+  @Input() public siteKey?: string;
   @Output() public resolved = new EventEmitter<string | null>();
 
   #subscription: Subscription | null = null;

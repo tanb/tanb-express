@@ -17,6 +17,7 @@ import { HeaderTitleComponent } from '../../components/header-title/header-title
 import { ContactMeComponent } from '../../components/modal/contact-me/contact-me.component';
 import { LocalStorageService } from '../../core/services/local-storage.service';
 import { LangType } from '../../interfaces/lang.interfaces';
+import {DOCUMENT} from '@angular/common';
 
 enum BalloonState {
   top = 'top',
@@ -33,6 +34,7 @@ export class ProfileComponent implements AfterViewInit {
   readonly #storage = inject(LocalStorageService);
   readonly #translate = inject(TranslateService);
   readonly #dialog = inject(MatDialog);
+  readonly #document = inject(DOCUMENT);
   balloonState: BalloonState = BalloonState.bottom;
   age = 0;
 
@@ -48,7 +50,12 @@ export class ProfileComponent implements AfterViewInit {
   }
 
   openModal() {
-    this.#dialog.open(ContactMeComponent);
+    const recaptchaElm = this.#document.getElementById('netlify-inquiry')?.getElementsByClassName('g-recaptcha')[0];
+    let siteKey = null;
+    if (recaptchaElm) {
+      siteKey = recaptchaElm.getAttribute('data-sitekey');
+    }
+    this.#dialog.open(ContactMeComponent, {data: {siteKey: siteKey ?? ''}});
   }
 
   protected readonly LangType = LangType;

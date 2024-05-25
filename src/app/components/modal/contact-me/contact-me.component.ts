@@ -2,7 +2,7 @@ import { DOCUMENT, NgIf } from '@angular/common';
 import type { AfterViewInit } from '@angular/core';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ApiService } from '../../../core/services/api/api.service';
 import { IndicatorService } from '../../../core/services/indicator.service';
@@ -21,7 +21,6 @@ export class ContactMeComponent implements AfterViewInit {
   readonly #api = inject(ApiService);
   readonly #translate = inject(TranslateService);
   readonly #dialog = inject(MatDialog);
-  readonly #document = inject(DOCUMENT);
   hasError = false;
   completed = false;
   readonly formGroup = new FormGroup({
@@ -30,13 +29,9 @@ export class ContactMeComponent implements AfterViewInit {
     message: new FormControl<string | null>(null, Validators.compose([Validators.required, Validators.maxLength(2000)])),
     recaptchaReactive: new FormControl<string | null>(null, Validators.required),
   });
-  siteKey: string | null = null;
+  readonly data = inject<{siteKey: string}>(MAT_DIALOG_DATA);
 
   ngAfterViewInit() {
-    const recaptchaElm = this.#document.getElementById('netlify-inquiry')?.getElementsByClassName('g-recaptcha')[0];
-    if (recaptchaElm) {
-      this.siteKey = recaptchaElm.getAttribute('data-sitekey');
-    }
     this.#translate.use(this.#translate.currentLang);
   }
 

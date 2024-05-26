@@ -1,16 +1,16 @@
-import { Directive, HostListener, Input, inject } from "@angular/core";
-import { Router } from "@angular/router";
+import { Directive, HostListener, Input, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector: "[navigateLink]",
+  selector: '[navigateLink]',
   standalone: true,
 })
 export class NavigateLinkDirective {
   readonly #router = inject(Router);
-  @Input("navigateLink") navigateTo?: string;
+  @Input('navigateLink') navigateTo?: string;
 
-  @HostListener("click") onClick() {
+  @HostListener('click') onClick() {
     if (!this.navigateTo) {
       return;
     }

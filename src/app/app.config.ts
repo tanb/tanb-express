@@ -1,16 +1,16 @@
-import type { ApplicationConfig } from "@angular/core";
-import { importProvidersFrom } from "@angular/core";
-import { provideRouter } from "@angular/router";
+import type { ApplicationConfig } from '@angular/core';
+import { importProvidersFrom } from '@angular/core';
+import { provideRouter } from '@angular/router';
 
-import { HttpClient, provideHttpClient } from "@angular/common/http";
-import { provideClientHydration } from "@angular/platform-browser";
-import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { routes } from "./app.routes";
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { routes } from './app.routes';
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 export const appConfig: ApplicationConfig = {
@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: "en",
+        defaultLanguage: 'en',
         loader: {
           provide: TranslateLoader,
           useFactory: createTranslateLoader,

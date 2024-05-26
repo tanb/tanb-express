@@ -1,9 +1,9 @@
-import { CommonModule } from "@angular/common";
-import { Component, Input } from "@angular/core";
-import { MatRippleModule } from "@angular/material/core";
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { MatRippleModule } from '@angular/material/core';
 
 @Component({
-  selector: "app-button",
+  selector: 'app-button',
   standalone: true,
   imports: [CommonModule, MatRippleModule],
   template: `

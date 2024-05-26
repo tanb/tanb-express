@@ -1,8 +1,8 @@
-import { Directive, forwardRef, HostListener, inject } from "@angular/core";
-import type { ControlValueAccessor } from "@angular/forms";
-import { NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Directive, forwardRef, HostListener, inject } from '@angular/core';
+import type { ControlValueAccessor } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { RecaptchaComponent } from "./recaptcha.component";
+import { RecaptchaComponent } from './recaptcha.component';
 
 @Directive({
   standalone: true,
@@ -14,8 +14,7 @@ import { RecaptchaComponent } from "./recaptcha.component";
     },
   ],
   // eslint-disable-next-line @angular-eslint/directive-selector
-  selector:
-    "app-recaptcha[formControlName],app-recaptcha[formControl],app-recaptcha[ngModel]",
+  selector: 'app-recaptcha[formControlName],app-recaptcha[formControl],app-recaptcha[ngModel]',
 })
 export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
   readonly #host = inject(RecaptchaComponent);
@@ -35,7 +34,7 @@ export class RecaptchaValueAccessorDirective implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  @HostListener("resolved", ["$event"])
+  @HostListener('resolved', ['$event'])
   public onResolve($event: string) {
     if (this.onChange) {
       this.onChange($event);

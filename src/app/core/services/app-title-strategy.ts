@@ -1,16 +1,13 @@
-import { inject, Injectable } from "@angular/core";
-import { Title } from "@angular/platform-browser";
-import type {
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot,
-} from "@angular/router";
-import { TitleStrategy } from "@angular/router";
-import type { NavigationItem } from "../../interfaces/navigation-item";
+import { inject, Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import type { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { TitleStrategy } from '@angular/router';
+import type { NavigationItem } from '../../interfaces/navigation-item';
 
-export const TITLE_SUFFIX = "TANB EXPRESS";
-export const TITLE_SEPARATOR = " • ";
+export const TITLE_SUFFIX = 'TANB EXPRESS';
+export const TITLE_SEPARATOR = ' • ';
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class AppTitleStrategy extends TitleStrategy {
   readonly #title = inject(Title);
 
@@ -30,10 +27,8 @@ export class AppTitleStrategy extends TitleStrategy {
     }
 
     const data = route.data as NavigationItem;
-    const routeTitle = data.label ?? "";
+    const routeTitle = data.label ?? '';
 
-    return routeTitle
-      ? `${routeTitle}${TITLE_SEPARATOR}${TITLE_SUFFIX}`
-      : TITLE_SUFFIX;
+    return routeTitle ? `${routeTitle}${TITLE_SEPARATOR}${TITLE_SUFFIX}` : TITLE_SUFFIX;
   }
 }

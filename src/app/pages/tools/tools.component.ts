@@ -1,17 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+import type { OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   standalone: true,
-  selector: "app-dev-tools",
-  templateUrl: "./dev-tools.component.html",
-  styleUrls: ["./dev-tools.component.scss"],
+  selector: 'app-tools',
+  templateUrl: './tools.component.html',
+  styleUrls: ['./tools.component.scss'],
+  imports: [
+    FormsModule
+  ]
 })
 export class ToolsComponent implements OnInit {
-  timestamp: string = "";
-
-  constructor() {}
-
+  timestamp = '';
+  
   ngOnInit(): void {
-    this.timestamp = new Date().getTime() + "";
+    this.timestamp = `${new Date().getTime()  }`;
   }
 }

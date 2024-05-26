@@ -16,37 +16,19 @@
       property="og:description"
       content="A website covering Technology and Photography from Software Engineer Tomonori Tanabe (@tanb) in Tokyo."
     />
-    <meta
-      property="og:image"
-      content="https://tanb.express/assets/img/tanb-express.jpg"
-    />
+    <meta property="og:image" content="https://tanb.express/assets/img/tanb-express.jpg" />
     <meta name="twitter:site" content="@tanb" />
     <meta name="twitter:card" content="summary" />
     <link rel="canonical" href="https://tanb.express" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta name="theme-color" content="#1976d2" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   </head>
   <body>
-    <form
-      id="netlify-inquiry"
-      name="inquiry"
-      method="POST"
-      data-netlify="true"
-      data-netlify-recaptcha="true"
-      hidden
-    >
-      <label for="name">お名前</label><input type="text" name="name" />
-      <label for="email">メールアドレス</label
-      ><input type="text" name="email" /> <label for="message">メッセージ</label
-      ><textarea name="message"></textarea>
+    <form id="netlify-inquiry" name="inquiry" method="POST" data-netlify="true" data-netlify-recaptcha="true" hidden>
+      <label for="name">お名前</label><input type="text" name="name" /> <label for="email">メールアドレス</label
+      ><input type="text" name="email" /> <label for="message">メッセージ</label><textarea name="message"></textarea>
       <div data-netlify-recaptcha="true"></div>
     </form>
     <div>
@@ -54,7 +36,7 @@
     </div>
     <script>
       (function (i, s, o, g, r, a, m) {
-        i["GoogleAnalyticsObject"] = r;
+        i['GoogleAnalyticsObject'] = r;
         (i[r] =
           i[r] ||
           function () {
@@ -65,27 +47,19 @@
         a.async = 1;
         a.src = g;
         m.parentNode.insertBefore(a, m);
-      })(
-        window,
-        document,
-        "script",
-        "https://www.google-analytics.com/analytics.js",
-        "ga",
-      );
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     </script>
-    <noscript
-      >Please enable JavaScript to continue using this application.</noscript
-    >
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
     <script>
       function isSupportWebP() {
-        var elm = document.createElement("canvas");
-        if (!!(elm.getContext && elm.getContext("2d"))) {
-          return elm.toDataURL("image/webp").indexOf("data:image/webp") == 0;
+        var elm = document.createElement('canvas');
+        if (!!(elm.getContext && elm.getContext('2d'))) {
+          return elm.toDataURL('image/webp').indexOf('data:image/webp') == 0;
         }
         return false;
       }
       if (!isSupportWebP()) {
-        document.body.classList.add("no-webp");
+        document.body.classList.add('no-webp');
       }
     </script>
   </body>

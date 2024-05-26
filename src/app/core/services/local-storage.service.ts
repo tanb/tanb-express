@@ -1,13 +1,13 @@
-import { isPlatformBrowser } from "@angular/common";
-import { Inject, Injectable, PLATFORM_ID } from "@angular/core";
-import { LangType } from "../../interfaces/lang.interfaces";
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { LangType } from '../../interfaces/lang.interfaces';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class LocalStorageService {
-  private DISABLE_GA_KEY = "disable-ga";
-  private CURRENT_LANG_KEY = "current-lang";
+  private DISABLE_GA_KEY = 'disable-ga';
+  private CURRENT_LANG_KEY = 'current-lang';
 
   constructor(@Inject(PLATFORM_ID) private platformId: any) {}
 
@@ -15,7 +15,7 @@ export class LocalStorageService {
     if (isPlatformBrowser(this.platformId)) {
       return localStorage.getItem(this.DISABLE_GA_KEY);
     }
-    return "";
+    return '';
   }
 
   removeNoGa() {
@@ -26,7 +26,7 @@ export class LocalStorageService {
 
   setNoGa() {
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem(this.DISABLE_GA_KEY, "disabled");
+      localStorage.setItem(this.DISABLE_GA_KEY, 'disabled');
     }
   }
 

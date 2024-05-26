@@ -1,12 +1,12 @@
-import type { Routes } from "@angular/router";
-import { PrimaryLayoutComponent } from "./core/layout/primary-layout/primary-layout.component";
-import { ProfileComponent } from "./pages/profile/profile.component";
-import { ToolsComponent } from "./pages/tools/tools.component";
+import type { Routes } from '@angular/router';
+import { PrimaryLayoutComponent } from './core/layout/primary-layout/primary-layout.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ToolsComponent } from './pages/tools/tools.component';
 
 function makePrimaryLayoutRoutes(routes: Routes): Routes {
   return [
     {
-      path: "",
+      path: '',
       component: PrimaryLayoutComponent,
       children: [...routes],
     },
@@ -15,17 +15,17 @@ function makePrimaryLayoutRoutes(routes: Routes): Routes {
 
 const ANONYMOUS_ROUTES = makePrimaryLayoutRoutes([
   {
-    path: "/tools",
+    path: '/tools',
     component: ToolsComponent,
     data: {
-      label: "Home",
+      label: 'Home',
     },
   },
   {
-    path: "",
+    path: '',
     component: ProfileComponent,
     data: {
-      label: "Home",
+      label: 'Home',
     },
   },
 ]);

@@ -5,6 +5,6 @@
     <input [(ngModel)]="timestamp" name="timestamp" />
     <br />
     <br />
-    <span>{{ timestamp | moment: 'YYYY/MM/DD HH:mm:ss.SSSZ' }}</span>
+    <span>{{ timestamp | dayjs: 'YYYY/MM/DD HH:mm:ss.SSSZ' }}</span>
   </div>
 </div>

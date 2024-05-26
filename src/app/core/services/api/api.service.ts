@@ -1,30 +1,30 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
-import type { ContactMe } from './contact-me.model';
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { Injectable, inject } from "@angular/core";
+import { lastValueFrom } from "rxjs";
+import type { ContactMe } from "./contact-me.model";
 
 declare interface HttpParamsOptions {
   fromObject: { [key: string]: string };
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class ApiService {
   readonly http = inject(HttpClient);
 
   contactMe(body: { [key: string]: any }): Promise<ContactMe> {
     const paramsOptions = { fromObject: body } as HttpParamsOptions;
     const params = new HttpParams(paramsOptions);
-    const path = '/';
+    const path = "/";
     return this.post(path, params);
   }
 
   private post(url: string, params: HttpParams): Promise<any> {
     const options = {
       headers: new HttpHeaders({
-        Accept: 'text/html, application/xhtml+xml, */*',
-        'Content-Type': 'application/x-www-form-urlencoded',
+        Accept: "text/html, application/xhtml+xml, */*",
+        "Content-Type": "application/x-www-form-urlencoded",
       }),
-      responseType: 'text' as 'json',
+      responseType: "text" as "json",
     };
     const requestBody = params.toString();
     return lastValueFrom(this.http.post(url, requestBody, options));

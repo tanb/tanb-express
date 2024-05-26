@@ -1,13 +1,21 @@
 /// <reference types="grecaptcha" />
-import type { AfterViewInit, OnDestroy } from '@angular/core';
-import { Component, ElementRef, EventEmitter, Input, NgZone, Output, inject } from '@angular/core';
-import type { Subscription } from 'rxjs';
+import type { AfterViewInit, OnDestroy } from "@angular/core";
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  NgZone,
+  Output,
+  inject,
+} from "@angular/core";
+import type { Subscription } from "rxjs";
 
-import { RecaptchaLoaderService } from './recaptcha-loader.service';
+import { RecaptchaLoaderService } from "./recaptcha-loader.service";
 
 @Component({
   standalone: true,
-  selector: 'app-recaptcha',
+  selector: "app-recaptcha",
   template: ``,
 })
 export class RecaptchaComponent implements AfterViewInit, OnDestroy {
@@ -23,12 +31,14 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
   #grecaptcha: ReCaptchaV2.ReCaptcha | null = null;
 
   public ngAfterViewInit() {
-    this.#subscription = this.#loader.ready.subscribe((grecaptcha: ReCaptchaV2.ReCaptcha | null) => {
-      if (grecaptcha != null) {
-        this.#grecaptcha = grecaptcha;
-        this.renderRecaptcha();
-      }
-    });
+    this.#subscription = this.#loader.ready.subscribe(
+      (grecaptcha: ReCaptchaV2.ReCaptcha | null) => {
+        if (grecaptcha != null) {
+          this.#grecaptcha = grecaptcha;
+          this.renderRecaptcha();
+        }
+      },
+    );
   }
 
   ngOnDestroy() {
@@ -80,7 +90,7 @@ export class RecaptchaComponent implements AfterViewInit, OnDestroy {
           this.captchaResponseCallback(response);
         });
       },
-      'expired-callback': () => {
+      "expired-callback": () => {
         this.#zone.run(() => {
           this.expired();
         });

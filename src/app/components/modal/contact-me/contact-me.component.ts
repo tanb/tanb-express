@@ -1,20 +1,32 @@
-import { DOCUMENT, NgIf } from '@angular/common';
-import type { AfterViewInit } from '@angular/core';
-import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ApiService } from '../../../core/services/api/api.service';
-import { IndicatorService } from '../../../core/services/indicator.service';
-import { RecaptchaValueAccessorDirective } from '../../../core/services/recaptcha/recaptcha-value-accessor.directive';
-import { RecaptchaComponent } from '../../../core/services/recaptcha/recaptcha.component';
-import { ButtonComponent } from '../../button/button.component';
+import { DOCUMENT, NgIf } from "@angular/common";
+import type { AfterViewInit } from "@angular/core";
+import { Component, inject } from "@angular/core";
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from "@angular/forms";
+import { MAT_DIALOG_DATA, MatDialog } from "@angular/material/dialog";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { ApiService } from "../../../core/services/api/api.service";
+import { IndicatorService } from "../../../core/services/indicator.service";
+import { RecaptchaValueAccessorDirective } from "../../../core/services/recaptcha/recaptcha-value-accessor.directive";
+import { RecaptchaComponent } from "../../../core/services/recaptcha/recaptcha.component";
+import { ButtonComponent } from "../../button/button.component";
 
 @Component({
   standalone: true,
-  selector: 'app-contact-me',
-  templateUrl: './contact-me.component.html',
-  imports: [TranslateModule, ReactiveFormsModule, NgIf, ButtonComponent, RecaptchaComponent, RecaptchaValueAccessorDirective],
+  selector: "app-contact-me",
+  templateUrl: "./contact-me.component.html",
+  imports: [
+    TranslateModule,
+    ReactiveFormsModule,
+    NgIf,
+    ButtonComponent,
+    RecaptchaComponent,
+    RecaptchaValueAccessorDirective,
+  ],
 })
 export class ContactMeComponent implements AfterViewInit {
   readonly #indicator = inject(IndicatorService);
@@ -24,12 +36,24 @@ export class ContactMeComponent implements AfterViewInit {
   hasError = false;
   completed = false;
   readonly formGroup = new FormGroup({
-    name: new FormControl<string | null>(null, Validators.compose([Validators.required, Validators.maxLength(30)])),
-    email: new FormControl<string | null>(null, Validators.compose([Validators.required, Validators.email])),
-    message: new FormControl<string | null>(null, Validators.compose([Validators.required, Validators.maxLength(2000)])),
-    recaptchaReactive: new FormControl<string | null>(null, Validators.required),
+    name: new FormControl<string | null>(
+      null,
+      Validators.compose([Validators.required, Validators.maxLength(30)]),
+    ),
+    email: new FormControl<string | null>(
+      null,
+      Validators.compose([Validators.required, Validators.email]),
+    ),
+    message: new FormControl<string | null>(
+      null,
+      Validators.compose([Validators.required, Validators.maxLength(2000)]),
+    ),
+    recaptchaReactive: new FormControl<string | null>(
+      null,
+      Validators.required,
+    ),
   });
-  readonly data = inject<{siteKey: string}>(MAT_DIALOG_DATA);
+  readonly data = inject<{ siteKey: string }>(MAT_DIALOG_DATA);
 
   ngAfterViewInit() {
     this.#translate.use(this.#translate.currentLang);
@@ -41,11 +65,11 @@ export class ContactMeComponent implements AfterViewInit {
 
   submitForm() {
     const body = {
-      'form-name': 'inquiry',
-      name: this.formGroup.get('name')?.value,
-      email: this.formGroup.get('email')?.value,
-      message: this.formGroup.get('message')?.value,
-      'g-recaptcha-response': this.formGroup.get('recaptchaReactive')?.value,
+      "form-name": "inquiry",
+      name: this.formGroup.get("name")?.value,
+      email: this.formGroup.get("email")?.value,
+      message: this.formGroup.get("message")?.value,
+      "g-recaptcha-response": this.formGroup.get("recaptchaReactive")?.value,
     };
 
     const indicatorRef = this.#indicator.show();

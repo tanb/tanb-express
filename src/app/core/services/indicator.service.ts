@@ -1,11 +1,11 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject } from "@angular/core";
 
-import type { MatDialogRef } from '@angular/material/dialog';
-import { MatDialog } from '@angular/material/dialog';
-import { IndicatorComponent } from '../layout/indicator/indicator.component';
+import type { MatDialogRef } from "@angular/material/dialog";
+import { MatDialog } from "@angular/material/dialog";
+import { IndicatorComponent } from "../layout/indicator/indicator.component";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class IndicatorService {
   readonly #dialog = inject(MatDialog);

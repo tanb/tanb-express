@@ -1,0 +1,88 @@
+import type { AfterViewInit } from '@angular/core';
+import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import anime from 'animejs/lib/anime.es.js';
+import dayjs from 'dayjs';
+import timezone from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('Asia/Tokyo');
+
+import { DOCUMENT, isPlatformBrowser, NgIf } from '@angular/common';
+import { MatRipple } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { RouterLink } from '@angular/router';
+import { ButtonComponent } from '../../components/button/button.component';
+import { FooterComponent } from '../../components/footer/footer.component';
+import { HeaderTitleComponent } from '../../components/header-title/header-title.component';
+import { ContactMeComponent } from '../../components/modal/contact-me/contact-me.component';
+import { LocalStorageService } from '../../core/services/local-storage.service';
+import { LangType } from '../../interfaces/lang.interfaces';
+
+enum BalloonState {
+  top = 'top',
+  bottom = 'bottom',
+}
+
+@Component({
+  standalone: true,
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  host: {
+    class: 'tw-flex-1',
+  },
+  imports: [TranslateModule, FooterComponent, HeaderTitleComponent, RouterLink, MatRipple, ButtonComponent, NgIf],
+})
+export class ProfileComponent implements AfterViewInit {
+  readonly #platformId = inject(PLATFORM_ID);
+  readonly #storage = inject(LocalStorageService);
+  readonly #translate = inject(TranslateService);
+  readonly #dialog = inject(MatDialog);
+  readonly #document = inject(DOCUMENT);
+  afterViewInit = signal(false);
+  balloonState: BalloonState = BalloonState.bottom;
+  age = 0;
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.balloonState = BalloonState.top;
+    }, 0);
+    this.afterViewInit.set(true);
+    this.setupAgeAnime();
+  }
+
+  onChangeLang(lang: LangType) {
+    this.#storage.setCurrenrLang(lang);
+    this.#translate.use(lang);
+  }
+
+  openModal() {
+    const recaptchaElm = this.#document.getElementById('netlify-inquiry')?.getElementsByClassName('g-recaptcha')[0];
+    let siteKey = null;
+    if (recaptchaElm) {
+      siteKey = recaptchaElm.getAttribute('data-sitekey');
+    }
+    this.#dialog.open(ContactMeComponent, { data: { siteKey: siteKey ?? '' } });
+  }
+
+  setupAgeAnime() {
+    if (!isPlatformBrowser(this.#platformId)) {
+      return;
+    }
+    const myAge = dayjs().diff(dayjs('1985-01-27', 'YYYY-MM-DD'), 'year');
+    const targets = { age: 0 };
+    anime({
+      targets,
+      age: myAge,
+      round: 1,
+      easing: 'linear',
+      update: () => {
+        this.age = targets.age;
+      },
+    });
+  }
+
+  protected readonly LangType = LangType;
+}

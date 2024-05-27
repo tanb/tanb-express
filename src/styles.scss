@@ -1,70 +1,32 @@
-@import 'src/sass/variables';
-@import 'src/sass/mixins';
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400&subset=latin-ext');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* include CSS for prism toolbar */
-@import '~prismjs/plugins/toolbar/prism-toolbar.css';
-/* check node_modules/prismjs/themes/ for the available themes */
-@import '~prismjs/themes/prism-okaidia.css';
-
-html {
+html,
+body {
   height: 100%;
 }
-
 body {
   height: 100%;
   margin: 0;
   line-height: 1.5rem;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Source+Code+Pro",-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"
+  font-family:
+    'Source+Code+Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Helvetica Neue',
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
 }
 
-a, .a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul ul {
-  padding-left: 10px;
-}
-
-.container {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.btn-purple {
-  color: #fff;
-  background-color: rgb(86, 61, 124);
-  border-color: rgb(86, 61, 124);
-  &:hover {
-    color: #fff;
-    background-color: #545b62;
-    border-color: #4e555b;
-  }
-}
-
-body {
-  color: $font-base;
-  background-color: white;
-}
-a, .a {
-  color: $link;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #ededed;
-    background-color: #1d1d1d;
-  }
-  a, .a {
-    color: #3e92b4;
-  }
+:root {
+  --mdc-dialog-container-color: rgb(0 0 0/0);
+  --mdc-dialog-container-shape: 0;
+  --mat-dialog-container-min-width: 0;
 }

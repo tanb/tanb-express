@@ -24,3 +24,9 @@ body {
     'Segoe UI Emoji',
     'Segoe UI Symbol';
 }
+
+:root {
+  --mdc-dialog-container-color: rgb(0 0 0/0);
+  --mdc-dialog-container-shape: 0;
+  --mat-dialog-container-min-width: 0;
+}

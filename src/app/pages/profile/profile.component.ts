@@ -1,4 +1,4 @@
-import type { AfterViewInit} from '@angular/core';
+import type { AfterViewInit } from '@angular/core';
 import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import anime from 'animejs/lib/anime.es.js';

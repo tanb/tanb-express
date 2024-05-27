@@ -11,7 +11,7 @@ export class IndicatorService {
   readonly #dialog = inject(MatDialog);
 
   show(): MatDialogRef<IndicatorComponent> {
-    return this.#dialog.open(IndicatorComponent);
+    return this.#dialog.open(IndicatorComponent, { panelClass: 'indicator-dialog' });
   }
 
   hide(dialogRef: MatDialogRef<IndicatorComponent>): void {

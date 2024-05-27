@@ -7,12 +7,11 @@ import { NavComponent } from '../../../components/nav/nav.component';
   selector: 'app-primary-layout',
   standalone: true,
   template: `
-    <div>
-      <app-nav />
-      <router-outlet></router-outlet>
-      <app-footer />
-    </div>
+    <app-nav />
+    <router-outlet />
+    <app-footer />
   `,
+  styleUrls: ['./primary-layout.component.scss'],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     class: 'tw-flex tw-flex-col tw-h-[100dvh] tw-overflow-y-scroll',

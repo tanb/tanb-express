@@ -1,5 +1,5 @@
-import type { AfterViewInit } from '@angular/core';
-import { Component, inject } from '@angular/core';
+import type { AfterViewInit} from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
@@ -8,7 +8,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault('Asia/Tokyo');
 
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgIf } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RouterLink } from '@angular/router';
@@ -28,13 +28,17 @@ enum BalloonState {
   standalone: true,
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  imports: [TranslateModule, FooterComponent, HeaderTitleComponent, RouterLink, MatRipple, ButtonComponent],
+  host: {
+    class: 'tw-flex-1',
+  },
+  imports: [TranslateModule, FooterComponent, HeaderTitleComponent, RouterLink, MatRipple, ButtonComponent, NgIf],
 })
 export class ProfileComponent implements AfterViewInit {
   readonly #storage = inject(LocalStorageService);
   readonly #translate = inject(TranslateService);
   readonly #dialog = inject(MatDialog);
   readonly #document = inject(DOCUMENT);
+  afterViewInit = signal(false);
   balloonState: BalloonState = BalloonState.bottom;
   age = 0;
 
@@ -42,6 +46,7 @@ export class ProfileComponent implements AfterViewInit {
     setTimeout(() => {
       this.balloonState = BalloonState.top;
     }, 0);
+    this.afterViewInit.set(true);
   }
 
   onChangeLang(lang: LangType) {

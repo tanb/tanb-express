@@ -15,7 +15,7 @@ function makePrimaryLayoutRoutes(routes: Routes): Routes {
 
 const ANONYMOUS_ROUTES = makePrimaryLayoutRoutes([
   {
-    path: '/tools',
+    path: 'tools',
     component: ToolsComponent,
     data: {
       label: 'Home',

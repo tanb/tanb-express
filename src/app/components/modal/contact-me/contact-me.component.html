@@ -94,9 +94,8 @@
         </div>
       </div>
       <div class="tw-flex" *ngIf="completed">
-        <div class="alert alert-success" role="alert"><strong>Success!</strong> Thank you!</div>
-
-        <button type="button" class="btn btn-light" (click)="onClose()">Close</button>
+        <div class="alert alert-success tw-mr-auto" role="alert"><strong>Success!</strong> Thank you!</div>
+        <app-button (click)="onClose()"><span translate>Close</span></app-button>
       </div>
     </div>
   </div>

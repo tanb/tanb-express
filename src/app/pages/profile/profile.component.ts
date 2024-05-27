@@ -1,14 +1,16 @@
 import type { AfterViewInit} from '@angular/core';
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, PLATFORM_ID, signal } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import anime from 'animejs/lib/anime.es.js';
 import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault('Asia/Tokyo');
 
-import { DOCUMENT, NgIf } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser, NgIf } from '@angular/common';
 import { MatRipple } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RouterLink } from '@angular/router';
@@ -34,6 +36,7 @@ enum BalloonState {
   imports: [TranslateModule, FooterComponent, HeaderTitleComponent, RouterLink, MatRipple, ButtonComponent, NgIf],
 })
 export class ProfileComponent implements AfterViewInit {
+  readonly #platformId = inject(PLATFORM_ID);
   readonly #storage = inject(LocalStorageService);
   readonly #translate = inject(TranslateService);
   readonly #dialog = inject(MatDialog);
@@ -47,6 +50,7 @@ export class ProfileComponent implements AfterViewInit {
       this.balloonState = BalloonState.top;
     }, 0);
     this.afterViewInit.set(true);
+    this.setupAgeAnime();
   }
 
   onChangeLang(lang: LangType) {
@@ -61,6 +65,23 @@ export class ProfileComponent implements AfterViewInit {
       siteKey = recaptchaElm.getAttribute('data-sitekey');
     }
     this.#dialog.open(ContactMeComponent, { data: { siteKey: siteKey ?? '' } });
+  }
+
+  setupAgeAnime() {
+    if (!isPlatformBrowser(this.#platformId)) {
+      return;
+    }
+    const myAge = dayjs().diff(dayjs('1985-01-27', 'YYYY-MM-DD'), 'year');
+    const targets = { age: 0 };
+    anime({
+      targets,
+      age: myAge,
+      round: 1,
+      easing: 'linear',
+      update: () => {
+        this.age = targets.age;
+      },
+    });
   }
 
   protected readonly LangType = LangType;

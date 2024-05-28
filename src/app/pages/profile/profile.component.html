@@ -1,19 +1,21 @@
 <div class="tw-bg-[#1d1d1d] tw-text-[#F9F9F9]" *ngIf="afterViewInit()">
-  <app-header-title class="text-center" />
-
-  <div class="tw-text-center">
-    <div class="tw-mb-[14px]">
-      <app-button (click)="onChangeLang(LangType.ja)">日本語</app-button> /
-      <app-button (click)="onChangeLang(LangType.en)">English</app-button>
+  <div class="tw-mx-auto tw-w-[320px]">
+    <app-header-title class="text-center" />
+    <img alt="My car photo" src="assets/img/header.jpeg" class="tw-mb-[16px]" />
+    <div class="tw-text-center">
+      <div class="tw-mb-[14px]">
+        <app-button (click)="onChangeLang(LangType.ja)">日本語</app-button> /
+        <app-button (click)="onChangeLang(LangType.en)">English</app-button>
+      </div>
+      <button
+        (click)="openModal()"
+        type="button"
+        mat-ripple
+        class="tw-inline-flex tw-h-full tw-w-full tw-flex-wrap tw-items-center tw-justify-center tw-gap-[0.25em] tw-rounded-lg tw-bg-gradient-to-r tw-from-indigo-500 tw-via-purple-500 tw-to-pink-500 tw-px-4 tw-py-2 tw-text-[#F9F9F9]"
+      >
+        <span class="tw-text-center" translate>Contact Me</span>
+      </button>
     </div>
-    <button
-      (click)="openModal()"
-      type="button"
-      mat-ripple
-      class="tw-inline-flex tw-h-full tw-flex-wrap tw-items-center tw-justify-center tw-gap-[0.25em] tw-rounded-lg tw-bg-gradient-to-r tw-from-indigo-500 tw-via-purple-500 tw-to-pink-500 tw-px-4 tw-py-2 tw-text-[#F9F9F9]"
-    >
-      <span class="tw-w-[320px] tw-text-center" translate>Contact Me</span>
-    </button>
   </div>
 
   <div class="info tw-mx-auto tw-w-[320px] tw-py-[24px]">
@@ -29,27 +31,27 @@
             <a
               class="tw-cursor-pointer tw-text-[#3e92b4]"
               target="_blank"
-              href="https://www.peakdesign.com/products/travel-backpack?variant=11530908172332"
-              >TRAVEL BACKPACK 45L</a
+              href="https://www.peakdesign.com/products/everyday-backpack?variant=29743300902956"
+              >EVERYDAY BACKPACK 30L</a
             >
           </li>
           <li>
             <a
               class="tw-cursor-pointer tw-text-[#3e92b4]"
               target="_blank"
-              href="https://www.garmin.co.jp/products/wearables/instinct-2-dual-power-tactical-black/"
-              >Instinct 2 Dual Power Tactical Edition Black</a
+              href="https://www.hamiltonwatch.com/en-int/h38416711-intramatic-auto-chrono.html"
+              >AMERICAN CLASSIC INTRA-MATIC AUTO CHRONO</a
             >
           </li>
-          <li>MacBook Pro (14-inch, 2021), Apple</li>
+          <li>MacBook Pro (16-inch, 2023, M2 Max), Apple</li>
           <li>
             <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://happyhackingkb.com/jp/products/hybrid_types/"
               >HHKB Professional HYBRID Type-S</a
             >
           </li>
           <li>
-            <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://ouraring.com/product/heritage-stealth"
-              >Oura Ring Generation 3 - Stealth</a
+            <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://ouraring.com/product/rings/horizon/black"
+              >Oura Ring Generation 3 - Black</a
             >
           </li>
         </ul>
@@ -59,9 +61,6 @@
     <h3 class="tw-pt-2 tw-text-2xl tw-leading-10" translate>Where you can find me</h3>
     <ul class="tw-leading-6 tw-tracking-wide">
       <li>
-        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://facebook.com/tomonori.t">Facebook</a>
-      </li>
-      <li>
         <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://github.com/tanb">GitHub</a>
       </li>
       <li>
@@ -70,10 +69,19 @@
       <li>
         <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://twitter.com/tanb">Twitter</a>
       </li>
+      <li>
+        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://facebook.com/tomonori.t">Facebook</a>
+      </li>
     </ul>
 
     <h3 class="tw-pt-2 tw-text-2xl tw-leading-10" translate>Languages</h3>
     <ul class="tw-leading-6 tw-tracking-wide">
+      <li>
+        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://www.python.org">Python</a>
+      </li>
+      <li>
+        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://www.typescriptlang.org">TypeScript</a>
+      </li>
       <li>
         <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://msdn.microsoft.com/library/67ef8sbd.aspx">C#</a>
       </li>
@@ -86,13 +94,7 @@
         >
       </li>
       <li>
-        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://www.python.org">Python</a>
-      </li>
-      <li>
         <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://swift.org">Swift</a>
-      </li>
-      <li>
-        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://www.typescriptlang.org">TypeScript</a>
       </li>
       <li>
         <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://en.wikipedia.org/wiki/Japanese_language">日本語</a>
@@ -129,10 +131,17 @@
       <li>
         <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://1password.com">1Password</a>
       </li>
+      <li>
+        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://www.netlify.com">Netlify</a>
+      </li>
+      <li>
+        <a class="tw-cursor-pointer tw-text-[#3e92b4]" target="_blank" href="https://aws.amazon.com">Amazon Web Service</a>
+      </li>
     </ul>
 
-    <div class="text-center tanb-icon tw-mx-auto tw-aspect-square tw-w-[80px]">
+    <div class="tw-mx-auto tw-my-[60px] tw-aspect-square tw-w-[80px] tw-text-center">
       <img class="tw-rounded-full" src="/assets/img/tanb.jpg" alt="tanb's icon" />
+      <span>Thank you!</span>
     </div>
 
     <div class="tw-text-center">

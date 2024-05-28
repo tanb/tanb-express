@@ -1,8 +1,8 @@
-import {Component, inject, PLATFORM_ID} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalStorageService } from './core/services/local-storage.service';
-import {isPlatformBrowser} from '@angular/common';
 
 @Component({
   standalone: true,

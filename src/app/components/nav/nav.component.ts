@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { NavigateLinkDirective } from '../../core/directives/navigate-link/navigate-link.directive';
+import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  imports: [NavigateLinkDirective],
+  imports: [RouterLink],
 })
 export class NavComponent {}

@@ -7,6 +7,7 @@ function makePrimaryLayoutRoutes(routes: Routes): Routes {
   return [
     {
       path: '',
+      runGuardsAndResolvers: 'always',
       component: PrimaryLayoutComponent,
       children: [...routes],
     },
@@ -16,6 +17,7 @@ function makePrimaryLayoutRoutes(routes: Routes): Routes {
 const ANONYMOUS_ROUTES = makePrimaryLayoutRoutes([
   {
     path: 'tools',
+    runGuardsAndResolvers: 'always',
     component: ToolsComponent,
     data: {
       label: 'Home',
@@ -23,6 +25,7 @@ const ANONYMOUS_ROUTES = makePrimaryLayoutRoutes([
   },
   {
     path: '',
+    runGuardsAndResolvers: 'always',
     component: ProfileComponent,
     data: {
       label: 'Home',

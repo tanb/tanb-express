@@ -16,6 +16,6 @@ export class ToolsComponent implements OnInit {
   timestamp = '';
 
   ngOnInit(): void {
-    this.timestamp = `${new Date().getTime()}`;
+    this.timestamp = new Date().getTime().toString();
   }
 }

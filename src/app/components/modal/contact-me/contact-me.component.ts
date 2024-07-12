@@ -55,11 +55,13 @@ export class ContactMeComponent implements AfterViewInit {
         this.#indicator.hide(indicatorRef);
         this.completed = true;
       })
-      .catch((error) => {
+      .catch((error: unknown) => {
         this.#indicator.hide(indicatorRef);
         this.hasError = true;
         console.log(error);
-        console.log(`handleError: ${error}`);
+        if (error instanceof Error) {
+          console.log(`handleError: ${error.message}`);
+        }
       });
   }
 }

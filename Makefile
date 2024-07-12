@@ -9,8 +9,8 @@ install:
 ci:
 	$(NPM) ci
 
-.PHONY: start
-start:
+.PHONY: serve
+serve:
 	$(NPX) ng serve
 
 # Production build

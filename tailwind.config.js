@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        // https://material.angular.io/cdk/layout/overview に従う
+        // https://material.angular.io/cdk/layout/overview
         xs: { max: '599.98px' },
         sm: { min: '600px', max: '959.98px' },
         md: { min: '960px', max: '1279.98px' },
